@@ -4,7 +4,8 @@
  */
 package MyStudyPlan;
 
-import com.formdev.flatlaf.intellijthemes.FlatCarbonIJTheme;
+import com.formdev.flatlaf.intellijthemes.FlatNordIJTheme;
+//import com.formdev.flatlaf.intellijthemes.FlatCarbonIJTheme;
 
 /**
  *
@@ -28,28 +29,354 @@ public class MainMenu extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        LeftPanel = new javax.swing.JPanel();
+        OverviewBtn = new javax.swing.JButton();
+        CalendarBtn = new javax.swing.JButton();
+        TasksBtn = new javax.swing.JButton();
+        ExamsBtn = new javax.swing.JButton();
+        ScheduleBtn = new javax.swing.JButton();
+        TopPanel = new javax.swing.JPanel();
+        TodayTxt = new javax.swing.JLabel();
+        DateTxt = new javax.swing.JLabel();
+        ExamsTxt = new javax.swing.JLabel();
+        TasksTxt = new javax.swing.JLabel();
+        TasksVal = new javax.swing.JLabel();
+        ExamsVal = new javax.swing.JLabel();
+        Separator1 = new javax.swing.JSeparator();
+        Separator2 = new javax.swing.JSeparator();
+        ScheduleScrollPane = new javax.swing.JScrollPane();
+        ScheduleList = new javax.swing.JList<>();
+        TasksScrollPane = new javax.swing.JScrollPane();
+        TasksList = new javax.swing.JList<>();
+        ExamsScrollPane = new javax.swing.JScrollPane();
+        ExamsList = new javax.swing.JList<>();
+        ScheduleTxt = new javax.swing.JLabel();
+        TasksTxt2 = new javax.swing.JLabel();
+        ExamsTxt2 = new javax.swing.JLabel();
+        NewScheduleBtn = new javax.swing.JButton();
+        NewScheduleBtn1 = new javax.swing.JButton();
+        NewScheduleBtn2 = new javax.swing.JButton();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("MyStudyPlan");
+        setBackground(new java.awt.Color(46, 52, 64));
+        setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        setMaximumSize(new java.awt.Dimension(1350, 975));
+        setMinimumSize(new java.awt.Dimension(950, 575));
+        setName("MainMenu"); // NOI18N
+        setPreferredSize(new java.awt.Dimension(950, 575));
+
+        LeftPanel.setBackground(new java.awt.Color(86, 96, 118));
+        LeftPanel.setFocusable(false);
+
+        OverviewBtn.setBackground(new java.awt.Color(86, 96, 118));
+        OverviewBtn.setIcon(new javax.swing.ImageIcon("C:\\Users\\Dulapah Vibulsanti\\OneDrive - KMITL\\Documents\\GitHub\\MyStudyPlan\\MyStudyPlan\\src\\main\\java\\MyStudyPlan\\img\\overview.png")); // NOI18N
+        OverviewBtn.setToolTipText("");
+        OverviewBtn.setAlignmentX(0.5F);
+        OverviewBtn.setBorder(null);
+        OverviewBtn.setBorderPainted(false);
+        OverviewBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        OverviewBtn.setDefaultCapable(false);
+        OverviewBtn.setMaximumSize(new java.awt.Dimension(595, 519));
+        OverviewBtn.setMinimumSize(new java.awt.Dimension(595, 519));
+        OverviewBtn.setName(""); // NOI18N
+        OverviewBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                OverviewBtnActionPerformed(evt);
+            }
+        });
+
+        CalendarBtn.setBackground(new java.awt.Color(86, 96, 118));
+        CalendarBtn.setIcon(new javax.swing.ImageIcon("C:\\Users\\Dulapah Vibulsanti\\OneDrive - KMITL\\Documents\\GitHub\\MyStudyPlan\\MyStudyPlan\\src\\main\\java\\MyStudyPlan\\img\\calendar.png")); // NOI18N
+        CalendarBtn.setBorder(null);
+        CalendarBtn.setBorderPainted(false);
+        CalendarBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        CalendarBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CalendarBtnActionPerformed(evt);
+            }
+        });
+
+        TasksBtn.setBackground(new java.awt.Color(86, 96, 118));
+        TasksBtn.setIcon(new javax.swing.ImageIcon("C:\\Users\\Dulapah Vibulsanti\\OneDrive - KMITL\\Documents\\GitHub\\MyStudyPlan\\MyStudyPlan\\src\\main\\java\\MyStudyPlan\\img\\tasks.png")); // NOI18N
+        TasksBtn.setBorder(null);
+        TasksBtn.setBorderPainted(false);
+        TasksBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+
+        ExamsBtn.setBackground(new java.awt.Color(86, 96, 118));
+        ExamsBtn.setIcon(new javax.swing.ImageIcon("C:\\Users\\Dulapah Vibulsanti\\OneDrive - KMITL\\Documents\\GitHub\\MyStudyPlan\\MyStudyPlan\\src\\main\\java\\MyStudyPlan\\img\\exams.png")); // NOI18N
+        ExamsBtn.setBorder(null);
+        ExamsBtn.setBorderPainted(false);
+        ExamsBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+
+        ScheduleBtn.setBackground(new java.awt.Color(86, 96, 118));
+        ScheduleBtn.setIcon(new javax.swing.ImageIcon("C:\\Users\\Dulapah Vibulsanti\\OneDrive - KMITL\\Documents\\GitHub\\MyStudyPlan\\MyStudyPlan\\src\\main\\java\\MyStudyPlan\\img\\schedule.png")); // NOI18N
+        ScheduleBtn.setBorder(null);
+        ScheduleBtn.setBorderPainted(false);
+        ScheduleBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+
+        javax.swing.GroupLayout LeftPanelLayout = new javax.swing.GroupLayout(LeftPanel);
+        LeftPanel.setLayout(LeftPanelLayout);
+        LeftPanelLayout.setHorizontalGroup(
+            LeftPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(LeftPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(LeftPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(OverviewBtn, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(CalendarBtn, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(TasksBtn, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(ExamsBtn, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(ScheduleBtn, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        LeftPanelLayout.setVerticalGroup(
+            LeftPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(LeftPanelLayout.createSequentialGroup()
+                .addGap(31, 31, 31)
+                .addComponent(OverviewBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(CalendarBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(TasksBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(ExamsBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(ScheduleBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(72, Short.MAX_VALUE))
+        );
+
+        TopPanel.setBackground(new java.awt.Color(30, 33, 41));
+
+        TodayTxt.setFont(new java.awt.Font("Arial", 0, 32)); // NOI18N
+        TodayTxt.setText("Today");
+
+        DateTxt.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        DateTxt.setText("Wednesday, October 26");
+
+        ExamsTxt.setFont(new java.awt.Font("Arial", 0, 28)); // NOI18N
+        ExamsTxt.setText("Exams");
+
+        TasksTxt.setFont(new java.awt.Font("Arial", 0, 28)); // NOI18N
+        TasksTxt.setText("Tasks");
+
+        TasksVal.setFont(new java.awt.Font("Arial", 0, 28)); // NOI18N
+        TasksVal.setText("0");
+
+        ExamsVal.setFont(new java.awt.Font("Arial", 0, 28)); // NOI18N
+        ExamsVal.setText("0");
+
+        javax.swing.GroupLayout TopPanelLayout = new javax.swing.GroupLayout(TopPanel);
+        TopPanel.setLayout(TopPanelLayout);
+        TopPanelLayout.setHorizontalGroup(
+            TopPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(TopPanelLayout.createSequentialGroup()
+                .addGap(21, 21, 21)
+                .addGroup(TopPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(DateTxt, javax.swing.GroupLayout.DEFAULT_SIZE, 205, Short.MAX_VALUE)
+                    .addComponent(TodayTxt, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(TasksTxt)
+                .addGap(18, 18, 18)
+                .addComponent(TasksVal)
+                .addGap(98, 98, 98)
+                .addComponent(ExamsTxt)
+                .addGap(18, 18, 18)
+                .addComponent(ExamsVal)
+                .addGap(60, 60, 60))
+        );
+        TopPanelLayout.setVerticalGroup(
+            TopPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(TopPanelLayout.createSequentialGroup()
+                .addGap(18, 18, 18)
+                .addComponent(TodayTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0)
+                .addComponent(DateTxt)
+                .addContainerGap(18, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, TopPanelLayout.createSequentialGroup()
+                .addContainerGap(38, Short.MAX_VALUE)
+                .addGroup(TopPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(TasksVal)
+                    .addComponent(ExamsTxt)
+                    .addComponent(TasksTxt)
+                    .addComponent(ExamsVal))
+                .addGap(35, 35, 35))
+        );
+
+        Separator1.setOrientation(javax.swing.SwingConstants.VERTICAL);
+
+        Separator2.setOrientation(javax.swing.SwingConstants.VERTICAL);
+
+        ScheduleList.setBackground(new java.awt.Color(46, 52, 64));
+        ScheduleList.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        ScheduleList.setModel(new javax.swing.AbstractListModel<String>() {
+            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
+            public int getSize() { return strings.length; }
+            public String getElementAt(int i) { return strings[i]; }
+        });
+        ScheduleList.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
+        ScheduleList.setFixedCellHeight(30);
+        ScheduleList.setVisibleRowCount(10);
+        ScheduleScrollPane.setViewportView(ScheduleList);
+
+        TasksList.setBackground(new java.awt.Color(46, 52, 64));
+        TasksList.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        TasksList.setModel(new javax.swing.AbstractListModel<String>() {
+            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
+            public int getSize() { return strings.length; }
+            public String getElementAt(int i) { return strings[i]; }
+        });
+        TasksList.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
+        TasksList.setFixedCellHeight(30);
+        TasksList.setVisibleRowCount(10);
+        TasksScrollPane.setViewportView(TasksList);
+
+        ExamsList.setBackground(new java.awt.Color(46, 52, 64));
+        ExamsList.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        ExamsList.setModel(new javax.swing.AbstractListModel<String>() {
+            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
+            public int getSize() { return strings.length; }
+            public String getElementAt(int i) { return strings[i]; }
+        });
+        ExamsList.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
+        ExamsList.setFixedCellHeight(30);
+        ExamsList.setVisibleRowCount(10);
+        ExamsScrollPane.setViewportView(ExamsList);
+
+        ScheduleTxt.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
+        ScheduleTxt.setText("Schedule");
+
+        TasksTxt2.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
+        TasksTxt2.setText("Tasks");
+
+        ExamsTxt2.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
+        ExamsTxt2.setText("Exams");
+
+        NewScheduleBtn.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        NewScheduleBtn.setText("+ New Schedule");
+        NewScheduleBtn.setMargin(new java.awt.Insets(3, 8, 3, 8));
+        NewScheduleBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                NewScheduleBtnActionPerformed(evt);
+            }
+        });
+
+        NewScheduleBtn1.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        NewScheduleBtn1.setText("+ New Tasks");
+        NewScheduleBtn1.setMargin(new java.awt.Insets(3, 8, 3, 8));
+        NewScheduleBtn1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                NewScheduleBtn1ActionPerformed(evt);
+            }
+        });
+
+        NewScheduleBtn2.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        NewScheduleBtn2.setText("+ New Exams");
+        NewScheduleBtn2.setMargin(new java.awt.Insets(3, 8, 3, 8));
+        NewScheduleBtn2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                NewScheduleBtn2ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(LeftPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(TopPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(6, 6, 6)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(ScheduleScrollPane)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(ScheduleTxt, javax.swing.GroupLayout.DEFAULT_SIZE, 141, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(NewScheduleBtn)
+                                .addGap(5, 5, 5)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(Separator1, javax.swing.GroupLayout.PREFERRED_SIZE, 3, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(TasksScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 281, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(TasksTxt2, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(NewScheduleBtn1)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(Separator2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(ExamsScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 269, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(ExamsTxt2, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(NewScheduleBtn2)))
+                        .addContainerGap())))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addComponent(LeftPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(TopPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(Separator1)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(ScheduleTxt, javax.swing.GroupLayout.DEFAULT_SIZE, 34, Short.MAX_VALUE)
+                                        .addComponent(TasksTxt2, javax.swing.GroupLayout.DEFAULT_SIZE, 34, Short.MAX_VALUE)
+                                        .addComponent(ExamsTxt2, javax.swing.GroupLayout.DEFAULT_SIZE, 34, Short.MAX_VALUE)
+                                        .addComponent(NewScheduleBtn, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(NewScheduleBtn2, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(NewScheduleBtn1, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(TasksScrollPane, javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(ScheduleScrollPane, javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(ExamsScrollPane, javax.swing.GroupLayout.Alignment.TRAILING)))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(129, 129, 129)
+                        .addComponent(Separator2)))
+                .addContainerGap())
         );
+
+        layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {ExamsTxt2, ScheduleTxt, TasksTxt2});
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void CalendarBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CalendarBtnActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_CalendarBtnActionPerformed
+
+    private void OverviewBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_OverviewBtnActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_OverviewBtnActionPerformed
+
+    private void NewScheduleBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NewScheduleBtnActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_NewScheduleBtnActionPerformed
+
+    private void NewScheduleBtn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NewScheduleBtn1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_NewScheduleBtn1ActionPerformed
+
+    private void NewScheduleBtn2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NewScheduleBtn2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_NewScheduleBtn2ActionPerformed
 
     /**
      * @param args the command line arguments
      */
     public static void main(String args[]) {
         /* Set the theme */
-        FlatCarbonIJTheme.setup();
+        FlatNordIJTheme.setup();
+        //FlatCarbonIJTheme.setup();
         
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -60,5 +387,32 @@ public class MainMenu extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton CalendarBtn;
+    private javax.swing.JLabel DateTxt;
+    private javax.swing.JButton ExamsBtn;
+    private javax.swing.JList<String> ExamsList;
+    private javax.swing.JScrollPane ExamsScrollPane;
+    private javax.swing.JLabel ExamsTxt;
+    private javax.swing.JLabel ExamsTxt2;
+    private javax.swing.JLabel ExamsVal;
+    private javax.swing.JPanel LeftPanel;
+    private javax.swing.JButton NewScheduleBtn;
+    private javax.swing.JButton NewScheduleBtn1;
+    private javax.swing.JButton NewScheduleBtn2;
+    private javax.swing.JButton OverviewBtn;
+    private javax.swing.JButton ScheduleBtn;
+    private javax.swing.JList<String> ScheduleList;
+    private javax.swing.JScrollPane ScheduleScrollPane;
+    private javax.swing.JLabel ScheduleTxt;
+    private javax.swing.JSeparator Separator1;
+    private javax.swing.JSeparator Separator2;
+    private javax.swing.JButton TasksBtn;
+    private javax.swing.JList<String> TasksList;
+    private javax.swing.JScrollPane TasksScrollPane;
+    private javax.swing.JLabel TasksTxt;
+    private javax.swing.JLabel TasksTxt2;
+    private javax.swing.JLabel TasksVal;
+    private javax.swing.JLabel TodayTxt;
+    private javax.swing.JPanel TopPanel;
     // End of variables declaration//GEN-END:variables
 }
