@@ -5,19 +5,23 @@
 package MyStudyPlan;
 
 import com.formdev.flatlaf.intellijthemes.FlatNordIJTheme;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 //import com.formdev.flatlaf.intellijthemes.FlatCarbonIJTheme;
 
 /**
  *
- * @author Dulapah Vibulsanti
+ * @author Dulapah Vibulsanti (64011388), Anucha Cheewachanon (64011338),
+ * Annopdanai Pamarapa (64011337)
  */
-public class MainMenu extends javax.swing.JFrame {
+public class Overview extends javax.swing.JFrame {
 
     /**
      * Creates new form MainMenu
      */
-    public MainMenu() {
+    public Overview() {
         initComponents();
+        this.setLocationRelativeTo(null); // Center App on the screen
     }
 
     /**
@@ -51,20 +55,18 @@ public class MainMenu extends javax.swing.JFrame {
         ExamsScrollPane = new javax.swing.JScrollPane();
         ExamsList = new javax.swing.JList<>();
         ScheduleTxt = new javax.swing.JLabel();
+        NewClassBtn = new javax.swing.JButton();
         TasksTxt2 = new javax.swing.JLabel();
+        NewTaskBtn = new javax.swing.JButton();
         ExamsTxt2 = new javax.swing.JLabel();
-        NewScheduleBtn = new javax.swing.JButton();
-        NewScheduleBtn1 = new javax.swing.JButton();
-        NewScheduleBtn2 = new javax.swing.JButton();
+        NewExamBtn = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("MyStudyPlan");
         setBackground(new java.awt.Color(46, 52, 64));
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        setMaximumSize(new java.awt.Dimension(1350, 975));
         setMinimumSize(new java.awt.Dimension(950, 575));
         setName("MainMenu"); // NOI18N
-        setPreferredSize(new java.awt.Dimension(950, 575));
 
         LeftPanel.setBackground(new java.awt.Color(86, 96, 118));
         LeftPanel.setFocusable(false);
@@ -74,7 +76,6 @@ public class MainMenu extends javax.swing.JFrame {
         OverviewBtn.setToolTipText("");
         OverviewBtn.setAlignmentX(0.5F);
         OverviewBtn.setBorder(null);
-        OverviewBtn.setBorderPainted(false);
         OverviewBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         OverviewBtn.setDefaultCapable(false);
         OverviewBtn.setMaximumSize(new java.awt.Dimension(595, 519));
@@ -102,18 +103,33 @@ public class MainMenu extends javax.swing.JFrame {
         TasksBtn.setBorder(null);
         TasksBtn.setBorderPainted(false);
         TasksBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        TasksBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TasksBtnActionPerformed(evt);
+            }
+        });
 
         ExamsBtn.setBackground(new java.awt.Color(86, 96, 118));
         ExamsBtn.setIcon(new javax.swing.ImageIcon("C:\\Users\\Dulapah Vibulsanti\\OneDrive - KMITL\\Documents\\GitHub\\MyStudyPlan\\MyStudyPlan\\src\\main\\java\\MyStudyPlan\\img\\exams.png")); // NOI18N
         ExamsBtn.setBorder(null);
         ExamsBtn.setBorderPainted(false);
         ExamsBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        ExamsBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ExamsBtnActionPerformed(evt);
+            }
+        });
 
         ScheduleBtn.setBackground(new java.awt.Color(86, 96, 118));
         ScheduleBtn.setIcon(new javax.swing.ImageIcon("C:\\Users\\Dulapah Vibulsanti\\OneDrive - KMITL\\Documents\\GitHub\\MyStudyPlan\\MyStudyPlan\\src\\main\\java\\MyStudyPlan\\img\\schedule.png")); // NOI18N
         ScheduleBtn.setBorder(null);
         ScheduleBtn.setBorderPainted(false);
         ScheduleBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        ScheduleBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ScheduleBtnActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout LeftPanelLayout = new javax.swing.GroupLayout(LeftPanel);
         LeftPanel.setLayout(LeftPanelLayout);
@@ -245,36 +261,39 @@ public class MainMenu extends javax.swing.JFrame {
         ScheduleTxt.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
         ScheduleTxt.setText("Schedule");
 
+        NewClassBtn.setBackground(new java.awt.Color(59, 162, 191));
+        NewClassBtn.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        NewClassBtn.setText("+ New Class");
+        NewClassBtn.setMargin(new java.awt.Insets(3, 8, 3, 8));
+        NewClassBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                NewClassBtnActionPerformed(evt);
+            }
+        });
+
         TasksTxt2.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
         TasksTxt2.setText("Tasks");
+
+        NewTaskBtn.setBackground(new java.awt.Color(59, 162, 191));
+        NewTaskBtn.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        NewTaskBtn.setText("+ New Task");
+        NewTaskBtn.setMargin(new java.awt.Insets(3, 8, 3, 8));
+        NewTaskBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                NewTaskBtnActionPerformed(evt);
+            }
+        });
 
         ExamsTxt2.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
         ExamsTxt2.setText("Exams");
 
-        NewScheduleBtn.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        NewScheduleBtn.setText("+ New Schedule");
-        NewScheduleBtn.setMargin(new java.awt.Insets(3, 8, 3, 8));
-        NewScheduleBtn.addActionListener(new java.awt.event.ActionListener() {
+        NewExamBtn.setBackground(new java.awt.Color(59, 162, 191));
+        NewExamBtn.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        NewExamBtn.setText("+ New Exam");
+        NewExamBtn.setMargin(new java.awt.Insets(3, 8, 3, 8));
+        NewExamBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                NewScheduleBtnActionPerformed(evt);
-            }
-        });
-
-        NewScheduleBtn1.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        NewScheduleBtn1.setText("+ New Tasks");
-        NewScheduleBtn1.setMargin(new java.awt.Insets(3, 8, 3, 8));
-        NewScheduleBtn1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                NewScheduleBtn1ActionPerformed(evt);
-            }
-        });
-
-        NewScheduleBtn2.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        NewScheduleBtn2.setText("+ New Exams");
-        NewScheduleBtn2.setMargin(new java.awt.Insets(3, 8, 3, 8));
-        NewScheduleBtn2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                NewScheduleBtn2ActionPerformed(evt);
+                NewExamBtnActionPerformed(evt);
             }
         });
 
@@ -283,6 +302,7 @@ public class MainMenu extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addGap(0, 0, 0)
                 .addComponent(LeftPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(TopPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -291,10 +311,9 @@ public class MainMenu extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(ScheduleScrollPane)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(ScheduleTxt, javax.swing.GroupLayout.DEFAULT_SIZE, 141, Short.MAX_VALUE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(NewScheduleBtn)
-                                .addGap(5, 5, 5)))
+                                .addComponent(ScheduleTxt, javax.swing.GroupLayout.DEFAULT_SIZE, 167, Short.MAX_VALUE)
+                                .addGap(11, 11, 11)
+                                .addComponent(NewClassBtn)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(Separator1, javax.swing.GroupLayout.PREFERRED_SIZE, 3, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -303,23 +322,25 @@ public class MainMenu extends javax.swing.JFrame {
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(TasksTxt2, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(NewScheduleBtn1)))
+                                .addComponent(NewTaskBtn)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(Separator2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(Separator2, javax.swing.GroupLayout.PREFERRED_SIZE, 3, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(ExamsScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 269, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(ExamsTxt2, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(NewScheduleBtn2)))
-                        .addContainerGap())))
+                                .addComponent(NewExamBtn))
+                            .addComponent(ExamsScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 263, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(6, 6, 6)))
+                .addGap(0, 0, 0))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(LeftPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
+                .addGap(0, 0, 0)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(LeftPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(TopPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -327,22 +348,19 @@ public class MainMenu extends javax.swing.JFrame {
                             .addComponent(Separator1)
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(ScheduleTxt, javax.swing.GroupLayout.DEFAULT_SIZE, 34, Short.MAX_VALUE)
-                                        .addComponent(TasksTxt2, javax.swing.GroupLayout.DEFAULT_SIZE, 34, Short.MAX_VALUE)
-                                        .addComponent(ExamsTxt2, javax.swing.GroupLayout.DEFAULT_SIZE, 34, Short.MAX_VALUE)
-                                        .addComponent(NewScheduleBtn, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addComponent(NewScheduleBtn2, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(NewScheduleBtn1, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(ScheduleTxt, javax.swing.GroupLayout.DEFAULT_SIZE, 34, Short.MAX_VALUE)
+                                    .addComponent(TasksTxt2, javax.swing.GroupLayout.DEFAULT_SIZE, 34, Short.MAX_VALUE)
+                                    .addComponent(ExamsTxt2, javax.swing.GroupLayout.DEFAULT_SIZE, 34, Short.MAX_VALUE)
+                                    .addComponent(NewExamBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(NewTaskBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(NewClassBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(TasksScrollPane, javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addComponent(ScheduleScrollPane, javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(ExamsScrollPane, javax.swing.GroupLayout.Alignment.TRAILING)))))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(129, 129, 129)
-                        .addComponent(Separator2)))
-                .addContainerGap())
+                                    .addComponent(ExamsScrollPane, javax.swing.GroupLayout.Alignment.TRAILING)))
+                            .addComponent(Separator2))))
+                .addGap(0, 0, 0))
         );
 
         layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {ExamsTxt2, ScheduleTxt, TasksTxt2});
@@ -350,25 +368,102 @@ public class MainMenu extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void CalendarBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CalendarBtnActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_CalendarBtnActionPerformed
-
     private void OverviewBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_OverviewBtnActionPerformed
-        // TODO add your handling code here:
+        // Do nothing
     }//GEN-LAST:event_OverviewBtnActionPerformed
 
-    private void NewScheduleBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NewScheduleBtnActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_NewScheduleBtnActionPerformed
+    private void CalendarBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CalendarBtnActionPerformed
+        Calendar calendar = new Calendar();
+        if (this.getExtendedState() == this.MAXIMIZED_BOTH) {
+            calendar.setExtendedState(this.MAXIMIZED_BOTH);
+        } else {
+            calendar.setSize(this.getSize());
+            calendar.setLocation(this.getLocation());
+        }
+        calendar.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_CalendarBtnActionPerformed
 
-    private void NewScheduleBtn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NewScheduleBtn1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_NewScheduleBtn1ActionPerformed
+    private void TasksBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TasksBtnActionPerformed
+        Tasks tasks = new Tasks();
+        if (this.getExtendedState() == this.MAXIMIZED_BOTH) {
+            tasks.setExtendedState(this.MAXIMIZED_BOTH);
+        } else {
+            tasks.setSize(this.getSize());
+            tasks.setLocation(this.getLocation());
+        }
+        tasks.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_TasksBtnActionPerformed
 
-    private void NewScheduleBtn2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NewScheduleBtn2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_NewScheduleBtn2ActionPerformed
+    private void ExamsBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ExamsBtnActionPerformed
+        Exams exams = new Exams();
+        if (this.getExtendedState() == this.MAXIMIZED_BOTH) {
+            exams.setExtendedState(this.MAXIMIZED_BOTH);
+        } else {
+            exams.setSize(this.getSize());
+            exams.setLocation(this.getLocation());
+        }
+        exams.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_ExamsBtnActionPerformed
+
+    private void ScheduleBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ScheduleBtnActionPerformed
+        Schedule schedule = new Schedule();
+        if (this.getExtendedState() == this.MAXIMIZED_BOTH) {
+            schedule.setExtendedState(this.MAXIMIZED_BOTH);
+        } else {
+            schedule.setSize(this.getSize());
+            schedule.setLocation(this.getLocation());
+        }
+        schedule.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_ScheduleBtnActionPerformed
+
+    private void NewClassBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NewClassBtnActionPerformed
+        NewClass newClass = new NewClass();
+        newClass.setVisible(true);
+        newClass.setLocationRelativeTo(this);
+        this.setEnabled(false);
+        newClass.addWindowListener(new WindowAdapter() {
+            @Override
+            public void windowClosed(WindowEvent e) {
+                Overview.this.setEnabled(true);
+                Overview.this.requestFocus();
+                Overview.this.setExtendedState(Overview.this.getExtendedState() & ~Overview.ICONIFIED);
+            }
+        });
+    }//GEN-LAST:event_NewClassBtnActionPerformed
+
+    private void NewTaskBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NewTaskBtnActionPerformed
+        NewTask newTask = new NewTask();
+        newTask.setVisible(true);
+        newTask.setLocationRelativeTo(this);
+        this.setEnabled(false);
+        newTask.addWindowListener(new WindowAdapter() {
+            @Override
+            public void windowClosed(WindowEvent e) {
+                Overview.this.setEnabled(true);
+                Overview.this.requestFocus();
+                Overview.this.setExtendedState(Overview.this.getExtendedState() & ~Overview.ICONIFIED);
+            }
+        });
+    }//GEN-LAST:event_NewTaskBtnActionPerformed
+
+    private void NewExamBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NewExamBtnActionPerformed
+        NewExam newExam = new NewExam();
+        newExam.setVisible(true);
+        newExam.setLocationRelativeTo(this);
+        this.setEnabled(false);
+        newExam.addWindowListener(new WindowAdapter() {
+            @Override
+            public void windowClosed(WindowEvent e) {
+                Overview.this.setEnabled(true);
+                Overview.this.requestFocus();
+                Overview.this.setExtendedState(Overview.this.getExtendedState() & ~Overview.ICONIFIED);
+            }
+        });
+    }//GEN-LAST:event_NewExamBtnActionPerformed
 
     /**
      * @param args the command line arguments
@@ -377,11 +472,11 @@ public class MainMenu extends javax.swing.JFrame {
         /* Set the theme */
         FlatNordIJTheme.setup();
         //FlatCarbonIJTheme.setup();
-        
+
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new MainMenu().setVisible(true);
+                new Overview().setVisible(true);
             }
         });
     }
@@ -396,9 +491,9 @@ public class MainMenu extends javax.swing.JFrame {
     private javax.swing.JLabel ExamsTxt2;
     private javax.swing.JLabel ExamsVal;
     private javax.swing.JPanel LeftPanel;
-    private javax.swing.JButton NewScheduleBtn;
-    private javax.swing.JButton NewScheduleBtn1;
-    private javax.swing.JButton NewScheduleBtn2;
+    private javax.swing.JButton NewClassBtn;
+    private javax.swing.JButton NewExamBtn;
+    private javax.swing.JButton NewTaskBtn;
     private javax.swing.JButton OverviewBtn;
     private javax.swing.JButton ScheduleBtn;
     private javax.swing.JList<String> ScheduleList;
