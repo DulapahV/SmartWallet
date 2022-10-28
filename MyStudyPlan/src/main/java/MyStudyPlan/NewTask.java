@@ -29,12 +29,13 @@ public class NewTask extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        TopBanner = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
         SubjectTxt = new javax.swing.JLabel();
         SubjectComboBox = new javax.swing.JComboBox<>();
         SubjectAddBtn = new javax.swing.JButton();
         TypeTxt = new javax.swing.JLabel();
         TypeComboBox = new javax.swing.JComboBox<>();
-        TypeAddBtn = new javax.swing.JButton();
         DueDateTxt = new javax.swing.JLabel();
         DueDateDatePicker = new org.jdesktop.swingx.JXDatePicker();
         TitleTxt = new javax.swing.JLabel();
@@ -48,6 +49,28 @@ public class NewTask extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("New Task");
         setResizable(false);
+
+        TopBanner.setBackground(new java.awt.Color(59, 162, 191));
+
+        jLabel1.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
+        jLabel1.setText("New Task");
+
+        javax.swing.GroupLayout TopBannerLayout = new javax.swing.GroupLayout(TopBanner);
+        TopBanner.setLayout(TopBannerLayout);
+        TopBannerLayout.setHorizontalGroup(
+            TopBannerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(TopBannerLayout.createSequentialGroup()
+                .addGap(38, 38, 38)
+                .addComponent(jLabel1)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        TopBannerLayout.setVerticalGroup(
+            TopBannerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, TopBannerLayout.createSequentialGroup()
+                .addContainerGap(22, Short.MAX_VALUE)
+                .addComponent(jLabel1)
+                .addGap(18, 18, 18))
+        );
 
         SubjectTxt.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         SubjectTxt.setText("Subject");
@@ -67,9 +90,7 @@ public class NewTask extends javax.swing.JFrame {
         TypeTxt.setText("Type");
 
         TypeComboBox.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        TypeComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-
-        TypeAddBtn.setText("+");
+        TypeComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Assignment", "Reminder", "Revision" }));
 
         DueDateTxt.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         DueDateTxt.setText("Due Date");
@@ -118,10 +139,7 @@ public class NewTask extends javax.swing.JFrame {
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(TypeTxt)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(TypeComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(TypeAddBtn)))
+                                    .addComponent(TypeComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addGroup(layout.createSequentialGroup()
@@ -145,11 +163,13 @@ public class NewTask extends javax.swing.JFrame {
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addComponent(SubjectAddBtn)))))
                         .addGap(38, 38, 38))))
+            .addComponent(TopBanner, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(38, 38, 38)
+                .addComponent(TopBanner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addComponent(SubjectTxt)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -162,7 +182,6 @@ public class NewTask extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(TypeComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(TypeAddBtn)
                     .addComponent(DueDateDatePicker, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(TitleTxt)
@@ -176,7 +195,7 @@ public class NewTask extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(SaveBtn)
                     .addComponent(CancelBtn))
-                .addContainerGap(38, Short.MAX_VALUE))
+                .addContainerGap(18, Short.MAX_VALUE))
         );
 
         pack();
@@ -226,8 +245,9 @@ public class NewTask extends javax.swing.JFrame {
     private javax.swing.JLabel SubjectTxt;
     private javax.swing.JLabel TitleTxt;
     private javax.swing.JTextField TitleTxtField;
-    private javax.swing.JButton TypeAddBtn;
+    private javax.swing.JPanel TopBanner;
     private javax.swing.JComboBox<String> TypeComboBox;
     private javax.swing.JLabel TypeTxt;
+    private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
 }

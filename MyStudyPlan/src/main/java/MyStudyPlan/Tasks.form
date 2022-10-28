@@ -62,7 +62,7 @@
     <Container class="javax.swing.JPanel" name="LeftPanel">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="76" green="60" red="56" type="rgb"/>
+          <Color blue="29" green="21" red="1e" type="rgb"/>
         </Property>
         <Property name="focusable" type="boolean" value="false"/>
       </Properties>
@@ -105,7 +105,7 @@
         <Component class="javax.swing.JButton" name="OverviewBtn">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="76" green="60" red="56" type="rgb"/>
+              <Color blue="29" green="21" red="1e" type="rgb"/>
             </Property>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
               <Image iconType="2" name="C:\Users\Dulapah Vibulsanti\OneDrive - KMITL\Documents\GitHub\MyStudyPlan\MyStudyPlan\src\main\java\MyStudyPlan\img\overview.png"/>
@@ -135,7 +135,7 @@
         <Component class="javax.swing.JButton" name="CalendarBtn">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="76" green="60" red="56" type="rgb"/>
+              <Color blue="29" green="21" red="1e" type="rgb"/>
             </Property>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
               <Image iconType="2" name="C:\Users\Dulapah Vibulsanti\OneDrive - KMITL\Documents\GitHub\MyStudyPlan\MyStudyPlan\src\main\java\MyStudyPlan\img\calendar.png"/>
@@ -155,7 +155,7 @@
         <Component class="javax.swing.JButton" name="TasksBtn">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="76" green="60" red="56" type="rgb"/>
+              <Color blue="29" green="21" red="1e" type="rgb"/>
             </Property>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
               <Image iconType="2" name="C:\Users\Dulapah Vibulsanti\OneDrive - KMITL\Documents\GitHub\MyStudyPlan\MyStudyPlan\src\main\java\MyStudyPlan\img\tasks.png"/>
@@ -175,7 +175,7 @@
         <Component class="javax.swing.JButton" name="ExamsBtn">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="76" green="60" red="56" type="rgb"/>
+              <Color blue="29" green="21" red="1e" type="rgb"/>
             </Property>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
               <Image iconType="2" name="C:\Users\Dulapah Vibulsanti\OneDrive - KMITL\Documents\GitHub\MyStudyPlan\MyStudyPlan\src\main\java\MyStudyPlan\img\exams.png"/>
@@ -195,7 +195,7 @@
         <Component class="javax.swing.JButton" name="ScheduleBtn">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="76" green="60" red="56" type="rgb"/>
+              <Color blue="29" green="21" red="1e" type="rgb"/>
             </Property>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
               <Image iconType="2" name="C:\Users\Dulapah Vibulsanti\OneDrive - KMITL\Documents\GitHub\MyStudyPlan\MyStudyPlan\src\main\java\MyStudyPlan\img\schedule.png"/>
@@ -217,7 +217,7 @@
     <Container class="javax.swing.JPanel" name="TopPanel">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="29" green="21" red="1e" type="rgb"/>
+          <Color blue="bf" green="a2" red="3b" type="rgb"/>
         </Property>
       </Properties>
 
@@ -258,7 +258,7 @@
         <Component class="javax.swing.JButton" name="NewTasksBtn">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="bf" green="a2" red="3b" type="rgb"/>
+              <Color blue="76" green="60" red="56" type="rgb"/>
             </Property>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Arial" size="12" style="0"/>

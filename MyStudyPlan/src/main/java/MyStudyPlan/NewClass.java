@@ -29,6 +29,8 @@ public class NewClass extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        TopBanner = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
         SubjectTxt = new javax.swing.JLabel();
         SubjectComboBox = new javax.swing.JComboBox<>();
         SubjectAddBtn = new javax.swing.JButton();
@@ -49,6 +51,28 @@ public class NewClass extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("New Schedule");
         setResizable(false);
+
+        TopBanner.setBackground(new java.awt.Color(59, 162, 191));
+
+        jLabel1.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
+        jLabel1.setText("New Class");
+
+        javax.swing.GroupLayout TopBannerLayout = new javax.swing.GroupLayout(TopBanner);
+        TopBanner.setLayout(TopBannerLayout);
+        TopBannerLayout.setHorizontalGroup(
+            TopBannerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(TopBannerLayout.createSequentialGroup()
+                .addGap(38, 38, 38)
+                .addComponent(jLabel1)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        TopBannerLayout.setVerticalGroup(
+            TopBannerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, TopBannerLayout.createSequentialGroup()
+                .addContainerGap(22, Short.MAX_VALUE)
+                .addComponent(jLabel1)
+                .addGap(18, 18, 18))
+        );
 
         SubjectTxt.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         SubjectTxt.setText("Subject");
@@ -152,11 +176,13 @@ public class NewClass extends javax.swing.JFrame {
                                 .addGap(0, 0, Short.MAX_VALUE))
                             .addComponent(BuildingTxtField))))
                 .addGap(38, 38, 38))
+            .addComponent(TopBanner, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(38, 38, 38)
+                .addComponent(TopBanner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addComponent(SubjectTxt)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -184,7 +210,7 @@ public class NewClass extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(SaveBtn)
                     .addComponent(CancelBtn))
-                .addContainerGap(39, Short.MAX_VALUE))
+                .addContainerGap(18, Short.MAX_VALUE))
         );
 
         pack();
@@ -246,5 +272,7 @@ public class NewClass extends javax.swing.JFrame {
     private javax.swing.JLabel SubjectTxt;
     private javax.swing.JLabel TeacherTxt;
     private javax.swing.JTextField TeacherTxtField;
+    private javax.swing.JPanel TopBanner;
+    private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
 }

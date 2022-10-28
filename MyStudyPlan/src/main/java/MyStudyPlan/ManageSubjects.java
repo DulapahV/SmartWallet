@@ -4,6 +4,11 @@
  */
 package MyStudyPlan;
 
+import java.awt.Color;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
+import javax.swing.BorderFactory;
+
 /**
  *
  * @author Dulapah Vibulsanti
@@ -26,8 +31,14 @@ public class ManageSubjects extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        TopBanner = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        CodeTxt = new javax.swing.JLabel();
+        CodeTxtField = new javax.swing.JTextField();
         SubjectTxt = new javax.swing.JLabel();
         SubjectTxtField = new javax.swing.JTextField();
+        ColorTxt = new javax.swing.JLabel();
+        ColorTxtField = new javax.swing.JTextField();
         SubjectAddBtn = new javax.swing.JButton();
         SubjectRemoveBtn = new javax.swing.JButton();
         SubjectsScrollPane = new javax.swing.JScrollPane();
@@ -39,10 +50,50 @@ public class ManageSubjects extends javax.swing.JFrame {
         setTitle("Manage Subjects");
         setResizable(false);
 
+        TopBanner.setBackground(new java.awt.Color(59, 162, 191));
+
+        jLabel1.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
+        jLabel1.setText("Manage Subjects");
+
+        javax.swing.GroupLayout TopBannerLayout = new javax.swing.GroupLayout(TopBanner);
+        TopBanner.setLayout(TopBannerLayout);
+        TopBannerLayout.setHorizontalGroup(
+            TopBannerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(TopBannerLayout.createSequentialGroup()
+                .addGap(38, 38, 38)
+                .addComponent(jLabel1)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        TopBannerLayout.setVerticalGroup(
+            TopBannerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, TopBannerLayout.createSequentialGroup()
+                .addContainerGap(22, Short.MAX_VALUE)
+                .addComponent(jLabel1)
+                .addGap(18, 18, 18))
+        );
+
+        CodeTxt.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        CodeTxt.setText("Code");
+
+        CodeTxtField.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+
         SubjectTxt.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         SubjectTxt.setText("Subject");
 
         SubjectTxtField.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+
+        ColorTxt.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        ColorTxt.setText("Color");
+
+        ColorTxtField.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        ColorTxtField.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                ColorTxtFieldMouseClicked(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                ColorTxtFieldMousePressed(evt);
+            }
+        });
 
         SubjectAddBtn.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         SubjectAddBtn.setText("+");
@@ -60,34 +111,42 @@ public class ManageSubjects extends javax.swing.JFrame {
             }
         });
 
+        SubjectsTable.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         SubjectsTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {""},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null}
+                {null, ""},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null}
             },
             new String [] {
-                "Subjects"
+                "Code", "Subjects"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false
+                false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
                 return canEdit [columnIndex];
             }
         });
+        SubjectsTable.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
+        SubjectsTable.setShowGrid(false);
+        SubjectsTable.setShowVerticalLines(true);
+        SubjectsTable.getTableHeader().setReorderingAllowed(false);
         SubjectsScrollPane.setViewportView(SubjectsTable);
         if (SubjectsTable.getColumnModel().getColumnCount() > 0) {
             SubjectsTable.getColumnModel().getColumn(0).setResizable(false);
+            SubjectsTable.getColumnModel().getColumn(1).setResizable(false);
+            SubjectsTable.getColumnModel().getColumn(1).setPreferredWidth(450);
         }
 
         CancelBtn.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
@@ -107,44 +166,64 @@ public class ManageSubjects extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(38, 38, 38)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(SubjectsScrollPane)
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                        .addComponent(SubjectTxt)
-                        .addGap(0, 0, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(CancelBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(SaveBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(38, 38, 38)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(CancelBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(CodeTxt)
+                                    .addComponent(CodeTxtField, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(18, 18, 18)
-                                .addComponent(SaveBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(SubjectTxtField, javax.swing.GroupLayout.PREFERRED_SIZE, 570, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(SubjectAddBtn)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(SubjectRemoveBtn)))))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(SubjectTxtField)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(SubjectTxt)
+                                        .addGap(0, 0, Short.MAX_VALUE)))
+                                .addGap(18, 18, 18)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(ColorTxtField, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(SubjectAddBtn)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(SubjectRemoveBtn))
+                                    .addComponent(ColorTxt)))
+                            .addComponent(SubjectsScrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 630, Short.MAX_VALUE))))
                 .addGap(38, 38, 38))
+            .addComponent(TopBanner, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(38, 38, 38)
-                .addComponent(SubjectTxt)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(SubjectAddBtn)
-                    .addComponent(SubjectTxtField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(SubjectRemoveBtn))
+                .addComponent(TopBanner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(SubjectAddBtn)
+                        .addComponent(SubjectRemoveBtn)
+                        .addComponent(ColorTxtField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(CodeTxt)
+                            .addComponent(SubjectTxt)
+                            .addComponent(ColorTxt))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(CodeTxtField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(SubjectTxtField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGap(18, 18, 18)
                 .addComponent(SubjectsScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 256, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(SaveBtn)
                     .addComponent(CancelBtn))
-                .addContainerGap(39, Short.MAX_VALUE))
+                .addContainerGap(18, Short.MAX_VALUE))
         );
 
         pack();
@@ -162,6 +241,44 @@ public class ManageSubjects extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_SubjectRemoveBtnActionPerformed
 
+    private void ColorTxtFieldMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ColorTxtFieldMouseClicked
+        ColorPicker cp = new ColorPicker();
+        cp.setLocationRelativeTo(null);
+        cp.setLocation(cp.getX(), cp.getY() + 115);
+        cp.setVisible(true);
+        this.setEnabled(false);
+        cp.getRootPane().setBorder(BorderFactory.createMatteBorder(3, 3, 3, 3, Color.decode("#3BA2BF")));
+        cp.addWindowListener(new WindowAdapter() {
+            @Override
+            public void windowClosed(WindowEvent e) {
+                ManageSubjects.this.setEnabled(true);
+                ManageSubjects.this.requestFocus();
+                ManageSubjects.this.setExtendedState(ManageSubjects.this.getExtendedState() & ~ManageSubjects.ICONIFIED);
+                ColorTxtField.setText(cp.getHexValue());
+                ColorTxtField.setForeground(new Color(Integer.parseInt(cp.getHexValue().substring(1), 16)));
+            }
+        });
+    }//GEN-LAST:event_ColorTxtFieldMouseClicked
+
+    private void ColorTxtFieldMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ColorTxtFieldMousePressed
+        ColorPicker cp = new ColorPicker();
+        cp.setLocationRelativeTo(null);
+        cp.setLocation(cp.getX(), cp.getY() + 115);
+        cp.setVisible(true);
+        this.setEnabled(false);
+        cp.getRootPane().setBorder(BorderFactory.createMatteBorder(3, 3, 3, 3, Color.decode("#3BA2BF")));
+        cp.addWindowListener(new WindowAdapter() {
+            @Override
+            public void windowClosed(WindowEvent e) {
+                ManageSubjects.this.setEnabled(true);
+                ManageSubjects.this.requestFocus();
+                ManageSubjects.this.setExtendedState(ManageSubjects.this.getExtendedState() & ~ManageSubjects.ICONIFIED);
+                ColorTxtField.setText(cp.getHexValue());
+                ColorTxtField.setForeground(new Color(Integer.parseInt(cp.getHexValue().substring(1), 16)));
+            }
+        });
+    }//GEN-LAST:event_ColorTxtFieldMousePressed
+
     /**
      * @param args the command line arguments
      */
@@ -176,6 +293,10 @@ public class ManageSubjects extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton CancelBtn;
+    private javax.swing.JLabel CodeTxt;
+    private javax.swing.JTextField CodeTxtField;
+    private javax.swing.JLabel ColorTxt;
+    private javax.swing.JTextField ColorTxtField;
     private javax.swing.JButton SaveBtn;
     private javax.swing.JButton SubjectAddBtn;
     private javax.swing.JButton SubjectRemoveBtn;
@@ -183,5 +304,7 @@ public class ManageSubjects extends javax.swing.JFrame {
     private javax.swing.JTextField SubjectTxtField;
     private javax.swing.JScrollPane SubjectsScrollPane;
     private javax.swing.JTable SubjectsTable;
+    private javax.swing.JPanel TopBanner;
+    private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
 }
