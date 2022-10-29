@@ -21,7 +21,13 @@ public class Overview extends javax.swing.JFrame {
      */
     public Overview() {
         initComponents();
+
         this.setLocationRelativeTo(null); // Center App on the screen
+        OverviewBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        CalendarBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        TasksBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        ExamsBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        ScheduleBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
     }
 
     /**
@@ -34,53 +40,52 @@ public class Overview extends javax.swing.JFrame {
     private void initComponents() {
 
         LeftPanel = new javax.swing.JPanel();
-        OverviewBtn = new javax.swing.JButton();
-        CalendarBtn = new javax.swing.JButton();
-        TasksBtn = new javax.swing.JButton();
-        ExamsBtn = new javax.swing.JButton();
-        ScheduleBtn = new javax.swing.JButton();
+        OverviewBtn = new org.jdesktop.swingx.JXButton();
+        CalendarBtn = new org.jdesktop.swingx.JXButton();
+        TasksBtn = new org.jdesktop.swingx.JXButton();
+        ExamsBtn = new org.jdesktop.swingx.JXButton();
+        ScheduleBtn = new org.jdesktop.swingx.JXButton();
         TopPanel = new javax.swing.JPanel();
         TodayTxt = new javax.swing.JLabel();
         DateTxt = new javax.swing.JLabel();
-        ExamsTxt = new javax.swing.JLabel();
-        TasksTxt = new javax.swing.JLabel();
-        TasksVal = new javax.swing.JLabel();
-        ExamsVal = new javax.swing.JLabel();
+        ScheduleTopTxt = new javax.swing.JLabel();
+        ScheduleTopVal = new javax.swing.JLabel();
+        TasksTopTxt = new javax.swing.JLabel();
+        TasksTopVal = new javax.swing.JLabel();
+        ExamsTopTxt = new javax.swing.JLabel();
+        ExamsTopVal = new javax.swing.JLabel();
         Separator1 = new javax.swing.JSeparator();
         Separator2 = new javax.swing.JSeparator();
-        ScheduleScrollPane = new javax.swing.JScrollPane();
-        ScheduleList = new javax.swing.JList<>();
-        TasksScrollPane = new javax.swing.JScrollPane();
-        TasksList = new javax.swing.JList<>();
-        ExamsScrollPane = new javax.swing.JScrollPane();
-        ExamsList = new javax.swing.JList<>();
+        TaskPaneContainer = new org.jdesktop.swingx.JXTaskPaneContainer();
+        AssignmentTaskPane = new org.jdesktop.swingx.JXTaskPane();
+        ReminderTaskPane = new org.jdesktop.swingx.JXTaskPane();
+        RevisionTaskPane = new org.jdesktop.swingx.JXTaskPane();
         ScheduleTxt = new javax.swing.JLabel();
         NewClassBtn = new javax.swing.JButton();
-        TasksTxt2 = new javax.swing.JLabel();
+        SchedulePane = new javax.swing.JScrollPane();
+        ScheduleTable = new javax.swing.JTable();
+        TasksTxt = new javax.swing.JLabel();
         NewTaskBtn = new javax.swing.JButton();
-        ExamsTxt2 = new javax.swing.JLabel();
+        ExamsTxt = new javax.swing.JLabel();
         NewExamBtn = new javax.swing.JButton();
+        ExamsPane = new javax.swing.JScrollPane();
+        ExamTable = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("MyStudyPlan");
         setBackground(new java.awt.Color(46, 52, 64));
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        setMinimumSize(new java.awt.Dimension(950, 575));
+        setMinimumSize(new java.awt.Dimension(1108, 630));
         setName("MainMenu"); // NOI18N
+        setPreferredSize(new java.awt.Dimension(1108, 630));
+        setSize(new java.awt.Dimension(1108, 630));
 
         LeftPanel.setBackground(new java.awt.Color(30, 33, 41));
         LeftPanel.setFocusable(false);
 
         OverviewBtn.setBackground(new java.awt.Color(30, 33, 41));
-        OverviewBtn.setIcon(new javax.swing.ImageIcon("C:\\Users\\Dulapah Vibulsanti\\OneDrive - KMITL\\Documents\\GitHub\\MyStudyPlan\\MyStudyPlan\\src\\main\\java\\MyStudyPlan\\img\\overview.png")); // NOI18N
-        OverviewBtn.setToolTipText("");
-        OverviewBtn.setAlignmentX(0.5F);
         OverviewBtn.setBorder(null);
-        OverviewBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        OverviewBtn.setDefaultCapable(false);
-        OverviewBtn.setMaximumSize(new java.awt.Dimension(595, 519));
-        OverviewBtn.setMinimumSize(new java.awt.Dimension(595, 519));
-        OverviewBtn.setName(""); // NOI18N
+        OverviewBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/MyStudyPlan/img/overview.png"))); // NOI18N
         OverviewBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 OverviewBtnActionPerformed(evt);
@@ -88,10 +93,8 @@ public class Overview extends javax.swing.JFrame {
         });
 
         CalendarBtn.setBackground(new java.awt.Color(30, 33, 41));
-        CalendarBtn.setIcon(new javax.swing.ImageIcon("C:\\Users\\Dulapah Vibulsanti\\OneDrive - KMITL\\Documents\\GitHub\\MyStudyPlan\\MyStudyPlan\\src\\main\\java\\MyStudyPlan\\img\\calendar.png")); // NOI18N
         CalendarBtn.setBorder(null);
-        CalendarBtn.setBorderPainted(false);
-        CalendarBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        CalendarBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/MyStudyPlan/img/calendar.png"))); // NOI18N
         CalendarBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 CalendarBtnActionPerformed(evt);
@@ -99,10 +102,8 @@ public class Overview extends javax.swing.JFrame {
         });
 
         TasksBtn.setBackground(new java.awt.Color(30, 33, 41));
-        TasksBtn.setIcon(new javax.swing.ImageIcon("C:\\Users\\Dulapah Vibulsanti\\OneDrive - KMITL\\Documents\\GitHub\\MyStudyPlan\\MyStudyPlan\\src\\main\\java\\MyStudyPlan\\img\\tasks.png")); // NOI18N
         TasksBtn.setBorder(null);
-        TasksBtn.setBorderPainted(false);
-        TasksBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        TasksBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/MyStudyPlan/img/tasks.png"))); // NOI18N
         TasksBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 TasksBtnActionPerformed(evt);
@@ -110,10 +111,8 @@ public class Overview extends javax.swing.JFrame {
         });
 
         ExamsBtn.setBackground(new java.awt.Color(30, 33, 41));
-        ExamsBtn.setIcon(new javax.swing.ImageIcon("C:\\Users\\Dulapah Vibulsanti\\OneDrive - KMITL\\Documents\\GitHub\\MyStudyPlan\\MyStudyPlan\\src\\main\\java\\MyStudyPlan\\img\\exams.png")); // NOI18N
         ExamsBtn.setBorder(null);
-        ExamsBtn.setBorderPainted(false);
-        ExamsBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        ExamsBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/MyStudyPlan/img/exams.png"))); // NOI18N
         ExamsBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ExamsBtnActionPerformed(evt);
@@ -121,10 +120,8 @@ public class Overview extends javax.swing.JFrame {
         });
 
         ScheduleBtn.setBackground(new java.awt.Color(30, 33, 41));
-        ScheduleBtn.setIcon(new javax.swing.ImageIcon("C:\\Users\\Dulapah Vibulsanti\\OneDrive - KMITL\\Documents\\GitHub\\MyStudyPlan\\MyStudyPlan\\src\\main\\java\\MyStudyPlan\\img\\schedule.png")); // NOI18N
         ScheduleBtn.setBorder(null);
-        ScheduleBtn.setBorderPainted(false);
-        ScheduleBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        ScheduleBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/MyStudyPlan/img/schedule.png"))); // NOI18N
         ScheduleBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ScheduleBtnActionPerformed(evt);
@@ -135,15 +132,15 @@ public class Overview extends javax.swing.JFrame {
         LeftPanel.setLayout(LeftPanelLayout);
         LeftPanelLayout.setHorizontalGroup(
             LeftPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(LeftPanelLayout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, LeftPanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(LeftPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(OverviewBtn, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(CalendarBtn, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(TasksBtn, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(ExamsBtn, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(ScheduleBtn, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(LeftPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(OverviewBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(CalendarBtn, javax.swing.GroupLayout.DEFAULT_SIZE, 88, Short.MAX_VALUE)
+                    .addComponent(TasksBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(ExamsBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(ScheduleBtn, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
         LeftPanelLayout.setVerticalGroup(
             LeftPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -158,7 +155,7 @@ public class Overview extends javax.swing.JFrame {
                 .addComponent(ExamsBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(ScheduleBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(72, Short.MAX_VALUE))
+                .addContainerGap(127, Short.MAX_VALUE))
         );
 
         TopPanel.setBackground(new java.awt.Color(59, 162, 191));
@@ -169,17 +166,23 @@ public class Overview extends javax.swing.JFrame {
         DateTxt.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         DateTxt.setText("Wednesday, October 26");
 
-        ExamsTxt.setFont(new java.awt.Font("Arial", 0, 28)); // NOI18N
-        ExamsTxt.setText("Exams");
+        ScheduleTopTxt.setFont(new java.awt.Font("Arial", 0, 28)); // NOI18N
+        ScheduleTopTxt.setText("Schedule");
 
-        TasksTxt.setFont(new java.awt.Font("Arial", 0, 28)); // NOI18N
-        TasksTxt.setText("Tasks");
+        ScheduleTopVal.setFont(new java.awt.Font("Arial", 0, 28)); // NOI18N
+        ScheduleTopVal.setText("0");
 
-        TasksVal.setFont(new java.awt.Font("Arial", 0, 28)); // NOI18N
-        TasksVal.setText("0");
+        TasksTopTxt.setFont(new java.awt.Font("Arial", 0, 28)); // NOI18N
+        TasksTopTxt.setText("Tasks");
 
-        ExamsVal.setFont(new java.awt.Font("Arial", 0, 28)); // NOI18N
-        ExamsVal.setText("0");
+        TasksTopVal.setFont(new java.awt.Font("Arial", 0, 28)); // NOI18N
+        TasksTopVal.setText("0");
+
+        ExamsTopTxt.setFont(new java.awt.Font("Arial", 0, 28)); // NOI18N
+        ExamsTopTxt.setText("Exams");
+
+        ExamsTopVal.setFont(new java.awt.Font("Arial", 0, 28)); // NOI18N
+        ExamsTopVal.setText("0");
 
         javax.swing.GroupLayout TopPanelLayout = new javax.swing.GroupLayout(TopPanel);
         TopPanel.setLayout(TopPanelLayout);
@@ -190,15 +193,19 @@ public class Overview extends javax.swing.JFrame {
                 .addGroup(TopPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(DateTxt, javax.swing.GroupLayout.DEFAULT_SIZE, 205, Short.MAX_VALUE)
                     .addComponent(TodayTxt, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(TasksTxt)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 267, Short.MAX_VALUE)
+                .addComponent(ScheduleTopTxt)
                 .addGap(18, 18, 18)
-                .addComponent(TasksVal)
-                .addGap(98, 98, 98)
-                .addComponent(ExamsTxt)
+                .addComponent(ScheduleTopVal)
+                .addGap(60, 60, 60)
+                .addComponent(TasksTopTxt)
                 .addGap(18, 18, 18)
-                .addComponent(ExamsVal)
-                .addGap(60, 60, 60))
+                .addComponent(TasksTopVal)
+                .addGap(60, 60, 60)
+                .addComponent(ExamsTopTxt)
+                .addGap(18, 18, 18)
+                .addComponent(ExamsTopVal)
+                .addGap(21, 21, 21))
         );
         TopPanelLayout.setVerticalGroup(
             TopPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -211,10 +218,12 @@ public class Overview extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, TopPanelLayout.createSequentialGroup()
                 .addContainerGap(38, Short.MAX_VALUE)
                 .addGroup(TopPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(TasksVal)
-                    .addComponent(ExamsTxt)
-                    .addComponent(TasksTxt)
-                    .addComponent(ExamsVal))
+                    .addComponent(TasksTopVal)
+                    .addComponent(ExamsTopTxt)
+                    .addComponent(TasksTopTxt)
+                    .addComponent(ExamsTopVal)
+                    .addComponent(ScheduleTopVal)
+                    .addComponent(ScheduleTopTxt))
                 .addGap(35, 35, 35))
         );
 
@@ -222,48 +231,35 @@ public class Overview extends javax.swing.JFrame {
 
         Separator2.setOrientation(javax.swing.SwingConstants.VERTICAL);
 
-        ScheduleList.setBackground(new java.awt.Color(46, 52, 64));
-        ScheduleList.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
-        ScheduleList.setModel(new javax.swing.AbstractListModel<String>() {
-            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
-            public int getSize() { return strings.length; }
-            public String getElementAt(int i) { return strings[i]; }
-        });
-        ScheduleList.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
-        ScheduleList.setFixedCellHeight(30);
-        ScheduleList.setVisibleRowCount(10);
-        ScheduleScrollPane.setViewportView(ScheduleList);
+        TaskPaneContainer.setBackground(new java.awt.Color(46, 52, 64));
+        TaskPaneContainer.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        org.jdesktop.swingx.VerticalLayout verticalLayout2 = new org.jdesktop.swingx.VerticalLayout();
+        verticalLayout2.setGap(14);
+        TaskPaneContainer.setLayout(verticalLayout2);
 
-        TasksList.setBackground(new java.awt.Color(46, 52, 64));
-        TasksList.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
-        TasksList.setModel(new javax.swing.AbstractListModel<String>() {
-            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
-            public int getSize() { return strings.length; }
-            public String getElementAt(int i) { return strings[i]; }
-        });
-        TasksList.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
-        TasksList.setFixedCellHeight(30);
-        TasksList.setVisibleRowCount(10);
-        TasksScrollPane.setViewportView(TasksList);
+        AssignmentTaskPane.setBackground(new java.awt.Color(46, 52, 64));
+        AssignmentTaskPane.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        AssignmentTaskPane.setSpecial(true);
+        AssignmentTaskPane.setTitle("Assignment (0)");
+        TaskPaneContainer.add(AssignmentTaskPane);
 
-        ExamsList.setBackground(new java.awt.Color(46, 52, 64));
-        ExamsList.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
-        ExamsList.setModel(new javax.swing.AbstractListModel<String>() {
-            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
-            public int getSize() { return strings.length; }
-            public String getElementAt(int i) { return strings[i]; }
-        });
-        ExamsList.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
-        ExamsList.setFixedCellHeight(30);
-        ExamsList.setVisibleRowCount(10);
-        ExamsScrollPane.setViewportView(ExamsList);
+        ReminderTaskPane.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        ReminderTaskPane.setSpecial(true);
+        ReminderTaskPane.setTitle("Reminder (0)");
+        TaskPaneContainer.add(ReminderTaskPane);
+
+        RevisionTaskPane.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        RevisionTaskPane.setSpecial(true);
+        RevisionTaskPane.setTitle("Revision (0)");
+        TaskPaneContainer.add(RevisionTaskPane);
 
         ScheduleTxt.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
         ScheduleTxt.setText("Schedule");
 
-        NewClassBtn.setBackground(new java.awt.Color(86, 96, 118));
+        NewClassBtn.setBackground(new java.awt.Color(59, 162, 191));
         NewClassBtn.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         NewClassBtn.setText("+ New Class");
+        NewClassBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         NewClassBtn.setMargin(new java.awt.Insets(3, 8, 3, 8));
         NewClassBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -271,12 +267,38 @@ public class Overview extends javax.swing.JFrame {
             }
         });
 
-        TasksTxt2.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
-        TasksTxt2.setText("Tasks");
+        ScheduleTable.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        ScheduleTable.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
 
-        NewTaskBtn.setBackground(new java.awt.Color(86, 96, 118));
+            },
+            new String [] {
+                "Time", "Subjects"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        ScheduleTable.setPreferredSize(new java.awt.Dimension(325, 80));
+        ScheduleTable.setShowVerticalLines(true);
+        ScheduleTable.getTableHeader().setReorderingAllowed(false);
+        SchedulePane.setViewportView(ScheduleTable);
+        if (ScheduleTable.getColumnModel().getColumnCount() > 0) {
+            ScheduleTable.getColumnModel().getColumn(1).setPreferredWidth(250);
+        }
+
+        TasksTxt.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
+        TasksTxt.setText("Tasks");
+
+        NewTaskBtn.setBackground(new java.awt.Color(59, 162, 191));
         NewTaskBtn.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         NewTaskBtn.setText("+ New Task");
+        NewTaskBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         NewTaskBtn.setMargin(new java.awt.Insets(3, 8, 3, 8));
         NewTaskBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -284,18 +306,43 @@ public class Overview extends javax.swing.JFrame {
             }
         });
 
-        ExamsTxt2.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
-        ExamsTxt2.setText("Exams");
+        ExamsTxt.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
+        ExamsTxt.setText("Exams");
 
-        NewExamBtn.setBackground(new java.awt.Color(86, 96, 118));
+        NewExamBtn.setBackground(new java.awt.Color(59, 162, 191));
         NewExamBtn.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         NewExamBtn.setText("+ New Exam");
+        NewExamBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         NewExamBtn.setMargin(new java.awt.Insets(3, 8, 3, 8));
         NewExamBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 NewExamBtnActionPerformed(evt);
             }
         });
+
+        ExamTable.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        ExamTable.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Time", "Subjects"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        ExamTable.setShowVerticalLines(true);
+        ExamTable.getTableHeader().setReorderingAllowed(false);
+        ExamsPane.setViewportView(ExamTable);
+        if (ExamTable.getColumnModel().getColumnCount() > 0) {
+            ExamTable.getColumnModel().getColumn(1).setPreferredWidth(250);
+        }
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -309,31 +356,30 @@ public class Overview extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(6, 6, 6)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(ScheduleScrollPane)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(ScheduleTxt, javax.swing.GroupLayout.DEFAULT_SIZE, 167, Short.MAX_VALUE)
-                                .addGap(11, 11, 11)
-                                .addComponent(NewClassBtn)))
+                                .addComponent(ScheduleTxt)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 139, Short.MAX_VALUE)
+                                .addComponent(NewClassBtn))
+                            .addComponent(SchedulePane, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(Separator1, javax.swing.GroupLayout.PREFERRED_SIZE, 3, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(Separator1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(TasksScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 281, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addComponent(TasksTxt)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 175, Short.MAX_VALUE)
+                                .addComponent(NewTaskBtn))
+                            .addComponent(TaskPaneContainer, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(Separator2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(TasksTxt2, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(NewTaskBtn)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(Separator2, javax.swing.GroupLayout.PREFERRED_SIZE, 3, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(ExamsTxt2, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(ExamsTxt)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 163, Short.MAX_VALUE)
                                 .addComponent(NewExamBtn))
-                            .addComponent(ExamsScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 263, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(6, 6, 6)))
-                .addGap(0, 0, 0))
+                            .addComponent(ExamsPane, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                        .addContainerGap())))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -347,23 +393,23 @@ public class Overview extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(Separator1)
                             .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(ScheduleTxt, javax.swing.GroupLayout.DEFAULT_SIZE, 34, Short.MAX_VALUE)
-                                    .addComponent(TasksTxt2, javax.swing.GroupLayout.DEFAULT_SIZE, 34, Short.MAX_VALUE)
-                                    .addComponent(ExamsTxt2, javax.swing.GroupLayout.DEFAULT_SIZE, 34, Short.MAX_VALUE)
-                                    .addComponent(NewExamBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(NewTaskBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(NewClassBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(TasksTxt, javax.swing.GroupLayout.DEFAULT_SIZE, 34, Short.MAX_VALUE)
+                                    .addComponent(ExamsTxt, javax.swing.GroupLayout.DEFAULT_SIZE, 34, Short.MAX_VALUE)
+                                    .addComponent(NewExamBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(NewTaskBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(NewClassBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(TasksScrollPane, javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(ScheduleScrollPane, javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(ExamsScrollPane, javax.swing.GroupLayout.Alignment.TRAILING)))
+                                    .addComponent(TaskPaneContainer, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(SchedulePane, javax.swing.GroupLayout.DEFAULT_SIZE, 478, Short.MAX_VALUE)
+                                    .addComponent(ExamsPane)))
                             .addComponent(Separator2))))
                 .addGap(0, 0, 0))
         );
 
-        layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {ExamsTxt2, ScheduleTxt, TasksTxt2});
+        layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {ExamsTxt, ScheduleTxt, TasksTxt});
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -482,31 +528,35 @@ public class Overview extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton CalendarBtn;
+    private org.jdesktop.swingx.JXTaskPane AssignmentTaskPane;
+    private org.jdesktop.swingx.JXButton CalendarBtn;
     private javax.swing.JLabel DateTxt;
-    private javax.swing.JButton ExamsBtn;
-    private javax.swing.JList<String> ExamsList;
-    private javax.swing.JScrollPane ExamsScrollPane;
+    private javax.swing.JTable ExamTable;
+    private org.jdesktop.swingx.JXButton ExamsBtn;
+    private javax.swing.JScrollPane ExamsPane;
+    private javax.swing.JLabel ExamsTopTxt;
+    private javax.swing.JLabel ExamsTopVal;
     private javax.swing.JLabel ExamsTxt;
-    private javax.swing.JLabel ExamsTxt2;
-    private javax.swing.JLabel ExamsVal;
     private javax.swing.JPanel LeftPanel;
     private javax.swing.JButton NewClassBtn;
     private javax.swing.JButton NewExamBtn;
     private javax.swing.JButton NewTaskBtn;
-    private javax.swing.JButton OverviewBtn;
-    private javax.swing.JButton ScheduleBtn;
-    private javax.swing.JList<String> ScheduleList;
-    private javax.swing.JScrollPane ScheduleScrollPane;
+    private org.jdesktop.swingx.JXButton OverviewBtn;
+    private org.jdesktop.swingx.JXTaskPane ReminderTaskPane;
+    private org.jdesktop.swingx.JXTaskPane RevisionTaskPane;
+    private org.jdesktop.swingx.JXButton ScheduleBtn;
+    private javax.swing.JScrollPane SchedulePane;
+    private javax.swing.JTable ScheduleTable;
+    private javax.swing.JLabel ScheduleTopTxt;
+    private javax.swing.JLabel ScheduleTopVal;
     private javax.swing.JLabel ScheduleTxt;
     private javax.swing.JSeparator Separator1;
     private javax.swing.JSeparator Separator2;
-    private javax.swing.JButton TasksBtn;
-    private javax.swing.JList<String> TasksList;
-    private javax.swing.JScrollPane TasksScrollPane;
+    private org.jdesktop.swingx.JXTaskPaneContainer TaskPaneContainer;
+    private org.jdesktop.swingx.JXButton TasksBtn;
+    private javax.swing.JLabel TasksTopTxt;
+    private javax.swing.JLabel TasksTopVal;
     private javax.swing.JLabel TasksTxt;
-    private javax.swing.JLabel TasksTxt2;
-    private javax.swing.JLabel TasksVal;
     private javax.swing.JLabel TodayTxt;
     private javax.swing.JPanel TopPanel;
     // End of variables declaration//GEN-END:variables

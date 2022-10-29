@@ -31,13 +31,14 @@ public class ColorPicker extends javax.swing.JFrame {
         jColorChooser1 = new javax.swing.JColorChooser();
         SaveBtn = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Color Picker");
         setUndecorated(true);
 
         SaveBtn.setBackground(new java.awt.Color(59, 162, 191));
         SaveBtn.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         SaveBtn.setText("OK");
+        SaveBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         SaveBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 SaveBtnActionPerformed(evt);

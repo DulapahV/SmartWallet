@@ -82,6 +82,7 @@ public class NewClass extends javax.swing.JFrame {
 
         SubjectAddBtn.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         SubjectAddBtn.setText("+");
+        SubjectAddBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         SubjectAddBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 SubjectAddBtnActionPerformed(evt);
@@ -128,6 +129,7 @@ public class NewClass extends javax.swing.JFrame {
 
         CancelBtn.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         CancelBtn.setText("Cancel");
+        CancelBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         CancelBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 CancelBtnActionPerformed(evt);
@@ -137,6 +139,7 @@ public class NewClass extends javax.swing.JFrame {
         SaveBtn.setBackground(new java.awt.Color(59, 162, 191));
         SaveBtn.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         SaveBtn.setText("Save");
+        SaveBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);

@@ -41,6 +41,8 @@ public class ManageSubjects extends javax.swing.JFrame {
         ColorTxtField = new javax.swing.JTextField();
         SubjectAddBtn = new javax.swing.JButton();
         SubjectRemoveBtn = new javax.swing.JButton();
+        jXSearchPanel1 = new org.jdesktop.swingx.JXSearchPanel();
+        SearchBtn = new javax.swing.JButton();
         SubjectsScrollPane = new javax.swing.JScrollPane();
         SubjectsTable = new javax.swing.JTable();
         CancelBtn = new javax.swing.JButton();
@@ -97,6 +99,7 @@ public class ManageSubjects extends javax.swing.JFrame {
 
         SubjectAddBtn.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         SubjectAddBtn.setText("+");
+        SubjectAddBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         SubjectAddBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 SubjectAddBtnActionPerformed(evt);
@@ -104,18 +107,26 @@ public class ManageSubjects extends javax.swing.JFrame {
         });
 
         SubjectRemoveBtn.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        SubjectRemoveBtn.setText("-");
+        SubjectRemoveBtn.setText("‒");
+        SubjectRemoveBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         SubjectRemoveBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 SubjectRemoveBtnActionPerformed(evt);
             }
         });
 
+        jXSearchPanel1.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+
+        SearchBtn.setBackground(new java.awt.Color(86, 96, 118));
+        SearchBtn.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        SearchBtn.setText("Search");
+        SearchBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        SearchBtn.setMargin(new java.awt.Insets(3, 8, 3, 8));
+
         SubjectsTable.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         SubjectsTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, ""},
-                {null, null},
                 {null, null},
                 {null, null},
                 {null, null},
@@ -151,6 +162,7 @@ public class ManageSubjects extends javax.swing.JFrame {
 
         CancelBtn.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         CancelBtn.setText("Cancel");
+        CancelBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         CancelBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 CancelBtnActionPerformed(evt);
@@ -160,21 +172,24 @@ public class ManageSubjects extends javax.swing.JFrame {
         SaveBtn.setBackground(new java.awt.Color(59, 162, 191));
         SaveBtn.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         SaveBtn.setText("Save");
+        SaveBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(TopBanner, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(CancelBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(SaveBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                         .addGap(38, 38, 38)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(SubjectsScrollPane, javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(CodeTxt)
@@ -194,36 +209,40 @@ public class ManageSubjects extends javax.swing.JFrame {
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addComponent(SubjectRemoveBtn))
                                     .addComponent(ColorTxt)))
-                            .addComponent(SubjectsScrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 630, Short.MAX_VALUE))))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jXSearchPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(SearchBtn)
+                                .addGap(0, 150, Short.MAX_VALUE)))))
                 .addGap(38, 38, 38))
-            .addComponent(TopBanner, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(TopBanner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(SubjectAddBtn)
-                        .addComponent(SubjectRemoveBtn)
-                        .addComponent(ColorTxtField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(CodeTxt)
-                            .addComponent(SubjectTxt)
-                            .addComponent(ColorTxt))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(CodeTxtField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(SubjectTxtField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(18, 18, 18)
-                .addComponent(SubjectsScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 256, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(CodeTxt)
+                    .addComponent(SubjectTxt)
+                    .addComponent(ColorTxt))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
+                    .addComponent(SubjectAddBtn)
+                    .addComponent(ColorTxtField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(SubjectRemoveBtn)
+                    .addComponent(SubjectTxtField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(CodeTxtField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
+                    .addComponent(SearchBtn)
+                    .addComponent(jXSearchPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(SubjectsScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 231, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(SaveBtn)
                     .addComponent(CancelBtn))
-                .addContainerGap(18, Short.MAX_VALUE))
+                .addGap(18, 18, 18))
         );
 
         pack();
@@ -298,6 +317,7 @@ public class ManageSubjects extends javax.swing.JFrame {
     private javax.swing.JLabel ColorTxt;
     private javax.swing.JTextField ColorTxtField;
     private javax.swing.JButton SaveBtn;
+    private javax.swing.JButton SearchBtn;
     private javax.swing.JButton SubjectAddBtn;
     private javax.swing.JButton SubjectRemoveBtn;
     private javax.swing.JLabel SubjectTxt;
@@ -306,5 +326,6 @@ public class ManageSubjects extends javax.swing.JFrame {
     private javax.swing.JTable SubjectsTable;
     private javax.swing.JPanel TopBanner;
     private javax.swing.JLabel jLabel1;
+    private org.jdesktop.swingx.JXSearchPanel jXSearchPanel1;
     // End of variables declaration//GEN-END:variables
 }
