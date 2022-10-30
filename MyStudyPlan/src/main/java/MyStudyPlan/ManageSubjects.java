@@ -270,7 +270,7 @@ public class ManageSubjects extends javax.swing.JFrame {
     private void ColorPickerBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ColorPickerBtnActionPerformed
         ColorPicker cp = new ColorPicker();
         cp.setLocationRelativeTo(null);
-        cp.setLocation(cp.getX(), cp.getY() + 115);
+        cp.setLocation(this.getX() + 44, this.getY() + 180);
         cp.setVisible(true);
         this.setEnabled(false);
         cp.getRootPane().setBorder(BorderFactory.createMatteBorder(3, 3, 3, 3, Color.decode("#3BA2BF")));
