@@ -55,7 +55,7 @@ public class Exams extends javax.swing.JFrame {
         setTitle("MyStudyPlan");
         setBackground(new java.awt.Color(46, 52, 64));
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        setMinimumSize(new java.awt.Dimension(1108, 630));
+        setMinimumSize(new java.awt.Dimension(1108, 632));
         setName("MainMenu"); // NOI18N
 
         LeftPanel.setBackground(new java.awt.Color(30, 33, 41));
@@ -63,7 +63,7 @@ public class Exams extends javax.swing.JFrame {
 
         OverviewBtn.setBackground(new java.awt.Color(30, 33, 41));
         OverviewBtn.setBorder(null);
-        OverviewBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/MyStudyPlan/img/overview.png"))); // NOI18N
+        OverviewBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/overview.png"))); // NOI18N
         OverviewBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 OverviewBtnActionPerformed(evt);
@@ -72,7 +72,7 @@ public class Exams extends javax.swing.JFrame {
 
         CalendarBtn.setBackground(new java.awt.Color(30, 33, 41));
         CalendarBtn.setBorder(null);
-        CalendarBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/MyStudyPlan/img/calendar.png"))); // NOI18N
+        CalendarBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/calendar.png"))); // NOI18N
         CalendarBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 CalendarBtnActionPerformed(evt);
@@ -81,7 +81,7 @@ public class Exams extends javax.swing.JFrame {
 
         TasksBtn.setBackground(new java.awt.Color(30, 33, 41));
         TasksBtn.setBorder(null);
-        TasksBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/MyStudyPlan/img/tasks.png"))); // NOI18N
+        TasksBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/tasks.png"))); // NOI18N
         TasksBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 TasksBtnActionPerformed(evt);
@@ -90,7 +90,7 @@ public class Exams extends javax.swing.JFrame {
 
         ExamsBtn.setBackground(new java.awt.Color(30, 33, 41));
         ExamsBtn.setBorder(null);
-        ExamsBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/MyStudyPlan/img/exams.png"))); // NOI18N
+        ExamsBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/exams.png"))); // NOI18N
         ExamsBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ExamsBtnActionPerformed(evt);
@@ -99,7 +99,7 @@ public class Exams extends javax.swing.JFrame {
 
         ScheduleBtn.setBackground(new java.awt.Color(30, 33, 41));
         ScheduleBtn.setBorder(null);
-        ScheduleBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/MyStudyPlan/img/schedule.png"))); // NOI18N
+        ScheduleBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/schedule.png"))); // NOI18N
         ScheduleBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ScheduleBtnActionPerformed(evt);
@@ -133,12 +133,12 @@ public class Exams extends javax.swing.JFrame {
                 .addComponent(ExamsBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(ScheduleBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(127, Short.MAX_VALUE))
+                .addContainerGap(129, Short.MAX_VALUE))
         );
 
         TopPanel.setBackground(new java.awt.Color(59, 162, 191));
 
-        TodayTxt.setFont(new java.awt.Font("Arial", 0, 32)); // NOI18N
+        TodayTxt.setFont(new java.awt.Font("DINPro-Medium", 0, 32)); // NOI18N
         TodayTxt.setText("Exams");
 
         javax.swing.GroupLayout TopPanelLayout = new javax.swing.GroupLayout(TopPanel);
@@ -153,21 +153,21 @@ public class Exams extends javax.swing.JFrame {
         TopPanelLayout.setVerticalGroup(
             TopPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(TopPanelLayout.createSequentialGroup()
-                .addGap(38, 38, 38)
+                .addGap(33, 33, 33)
                 .addComponent(TodayTxt)
-                .addContainerGap(31, Short.MAX_VALUE))
+                .addContainerGap(33, Short.MAX_VALUE))
         );
 
-        SearchPane.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        SearchPane.setFont(new java.awt.Font("DINPro-Medium", 0, 14)); // NOI18N
 
         SearchBtn.setBackground(new java.awt.Color(86, 96, 118));
-        SearchBtn.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        SearchBtn.setFont(new java.awt.Font("DINPro-Medium", 0, 12)); // NOI18N
         SearchBtn.setText("Search");
         SearchBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         SearchBtn.setMargin(new java.awt.Insets(3, 8, 3, 8));
 
         NewExamBtn.setBackground(new java.awt.Color(59, 162, 191));
-        NewExamBtn.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        NewExamBtn.setFont(new java.awt.Font("DINPro-Medium", 0, 12)); // NOI18N
         NewExamBtn.setText("+ New Exam");
         NewExamBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         NewExamBtn.setMargin(new java.awt.Insets(3, 8, 3, 8));
@@ -177,7 +177,7 @@ public class Exams extends javax.swing.JFrame {
             }
         });
 
-        ScheduleTable.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        ScheduleTable.setFont(new java.awt.Font("DINPro-Medium", 0, 14)); // NOI18N
         ScheduleTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -234,8 +234,8 @@ public class Exams extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
                             .addComponent(SearchPane, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(NewExamBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(SearchBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(SearchBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(NewExamBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(SchedulePane, javax.swing.GroupLayout.DEFAULT_SIZE, 478, Short.MAX_VALUE))))
         );

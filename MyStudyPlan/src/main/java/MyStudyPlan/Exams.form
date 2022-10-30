@@ -11,7 +11,7 @@
       <Color id="Default Cursor"/>
     </Property>
     <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-      <Dimension value="[1108, 630]"/>
+      <Dimension value="[1108, 632]"/>
     </Property>
     <Property name="name" type="java.lang.String" value="MainMenu" noResource="true"/>
   </Properties>
@@ -68,8 +68,8 @@
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="2" attributes="0">
                           <Component id="SearchPane" alignment="2" min="-2" max="-2" attributes="0"/>
-                          <Component id="NewExamBtn" alignment="2" min="-2" pref="34" max="-2" attributes="0"/>
                           <Component id="SearchBtn" alignment="2" min="-2" pref="26" max="-2" attributes="0"/>
+                          <Component id="NewExamBtn" alignment="2" min="-2" pref="34" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="SchedulePane" pref="478" max="32767" attributes="0"/>
@@ -117,7 +117,7 @@
                   <Component id="ExamsBtn" min="-2" pref="80" max="-2" attributes="0"/>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Component id="ScheduleBtn" min="-2" pref="80" max="-2" attributes="0"/>
-                  <EmptySpace pref="127" max="32767" attributes="0"/>
+                  <EmptySpace pref="129" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -132,7 +132,7 @@
               <Border info="null"/>
             </Property>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/MyStudyPlan/img/overview.png"/>
+              <Image iconType="3" name="/overview.png"/>
             </Property>
           </Properties>
           <Events>
@@ -148,7 +148,7 @@
               <Border info="null"/>
             </Property>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/MyStudyPlan/img/calendar.png"/>
+              <Image iconType="3" name="/calendar.png"/>
             </Property>
           </Properties>
           <Events>
@@ -164,7 +164,7 @@
               <Border info="null"/>
             </Property>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/MyStudyPlan/img/tasks.png"/>
+              <Image iconType="3" name="/tasks.png"/>
             </Property>
           </Properties>
           <Events>
@@ -180,7 +180,7 @@
               <Border info="null"/>
             </Property>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/MyStudyPlan/img/exams.png"/>
+              <Image iconType="3" name="/exams.png"/>
             </Property>
           </Properties>
           <Events>
@@ -196,7 +196,7 @@
               <Border info="null"/>
             </Property>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/MyStudyPlan/img/schedule.png"/>
+              <Image iconType="3" name="/schedule.png"/>
             </Property>
           </Properties>
           <Events>
@@ -225,9 +225,9 @@
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
-                  <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
                   <Component id="TodayTxt" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace pref="31" max="32767" attributes="0"/>
+                  <EmptySpace pref="33" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -236,7 +236,7 @@
         <Component class="javax.swing.JLabel" name="TodayTxt">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Arial" size="32" style="0"/>
+              <Font name="DINPro-Medium" size="32" style="0"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Exams"/>
           </Properties>
@@ -246,7 +246,7 @@
     <Component class="org.jdesktop.swingx.JXSearchPanel" name="SearchPane">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Arial" size="14" style="0"/>
+          <Font name="DINPro-Medium" size="14" style="0"/>
         </Property>
       </Properties>
     </Component>
@@ -256,7 +256,7 @@
           <Color blue="76" green="60" red="56" type="rgb"/>
         </Property>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Arial" size="12" style="0"/>
+          <Font name="DINPro-Medium" size="12" style="0"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Search"/>
         <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
@@ -273,7 +273,7 @@
           <Color blue="bf" green="a2" red="3b" type="rgb"/>
         </Property>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Arial" size="12" style="0"/>
+          <Font name="DINPro-Medium" size="12" style="0"/>
         </Property>
         <Property name="text" type="java.lang.String" value="+ New Exam"/>
         <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
@@ -297,7 +297,7 @@
         <Component class="javax.swing.JTable" name="ScheduleTable">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Arial" size="14" style="0"/>
+              <Font name="DINPro-Medium" size="14" style="0"/>
             </Property>
             <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
               <Table columnCount="2" rowCount="0">

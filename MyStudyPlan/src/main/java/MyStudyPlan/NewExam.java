@@ -59,7 +59,7 @@ public class NewExam extends javax.swing.JFrame {
 
         TopBanner.setBackground(new java.awt.Color(59, 162, 191));
 
-        jLabel1.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("DINPro-Medium", 0, 24)); // NOI18N
         jLabel1.setText("New Exam");
 
         javax.swing.GroupLayout TopBannerLayout = new javax.swing.GroupLayout(TopBanner);
@@ -74,18 +74,18 @@ public class NewExam extends javax.swing.JFrame {
         TopBannerLayout.setVerticalGroup(
             TopBannerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, TopBannerLayout.createSequentialGroup()
-                .addContainerGap(22, Short.MAX_VALUE)
+                .addContainerGap(18, Short.MAX_VALUE)
                 .addComponent(jLabel1)
                 .addGap(18, 18, 18))
         );
 
-        SubjectTxt.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        SubjectTxt.setFont(new java.awt.Font("DINPro-Medium", 0, 18)); // NOI18N
         SubjectTxt.setText("Subject");
 
-        SubjectComboBox.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        SubjectComboBox.setFont(new java.awt.Font("DINPro-Medium", 0, 14)); // NOI18N
         SubjectComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
-        SubjectAddBtn.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        SubjectAddBtn.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         SubjectAddBtn.setText("+");
         SubjectAddBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         SubjectAddBtn.addActionListener(new java.awt.event.ActionListener() {
@@ -94,48 +94,48 @@ public class NewExam extends javax.swing.JFrame {
             }
         });
 
-        DateTxt.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        DateTxt.setFont(new java.awt.Font("DINPro-Medium", 0, 18)); // NOI18N
         DateTxt.setText("Date");
 
-        DateDatePicker.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        DateDatePicker.setFont(new java.awt.Font("DINPro-Medium", 0, 14)); // NOI18N
 
-        BuildingRoomTxt.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        BuildingRoomTxt.setFont(new java.awt.Font("DINPro-Medium", 0, 18)); // NOI18N
         BuildingRoomTxt.setText("Building/Room");
 
-        BuildingRoomTxtField.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        BuildingRoomTxtField.setFont(new java.awt.Font("DINPro-Medium", 0, 14)); // NOI18N
 
-        SeatTxt.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        SeatTxt.setFont(new java.awt.Font("DINPro-Medium", 0, 18)); // NOI18N
         SeatTxt.setText("Seat");
 
-        SeatTxtField.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        SeatTxtField.setFont(new java.awt.Font("DINPro-Medium", 0, 14)); // NOI18N
 
-        TimeTxt.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        TimeTxt.setFont(new java.awt.Font("DINPro-Medium", 0, 18)); // NOI18N
         TimeTxt.setText("Time");
 
-        HourSpinner.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        HourSpinner.setFont(new java.awt.Font("DINPro-Medium", 0, 14)); // NOI18N
 
-        MinuteSpinner.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        MinuteSpinner.setFont(new java.awt.Font("DINPro-Medium", 0, 14)); // NOI18N
 
-        AMPMComboBox.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        AMPMComboBox.setFont(new java.awt.Font("DINPro-Medium", 0, 14)); // NOI18N
         AMPMComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "AM", "PM" }));
 
-        DurationTxt.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        DurationTxt.setFont(new java.awt.Font("DINPro-Medium", 0, 18)); // NOI18N
         DurationTxt.setText("Duration");
 
-        DurationSpinner.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        DurationSpinner.setFont(new java.awt.Font("DINPro-Medium", 0, 14)); // NOI18N
 
-        DurationInfoTxt.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        DurationInfoTxt.setFont(new java.awt.Font("DINPro-Light", 0, 14)); // NOI18N
         DurationInfoTxt.setText("minutes (ending at unknown)");
 
-        DetailTxt.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        DetailTxt.setFont(new java.awt.Font("DINPro-Medium", 0, 18)); // NOI18N
         DetailTxt.setText("Detail");
 
         DetailTxtArea.setColumns(20);
-        DetailTxtArea.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        DetailTxtArea.setFont(new java.awt.Font("DINPro-Medium", 0, 14)); // NOI18N
         DetailTxtArea.setRows(5);
         DetailScrollPane.setViewportView(DetailTxtArea);
 
-        CancelBtn.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        CancelBtn.setFont(new java.awt.Font("DINPro-Medium", 0, 14)); // NOI18N
         CancelBtn.setText("Cancel");
         CancelBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         CancelBtn.addActionListener(new java.awt.event.ActionListener() {
@@ -145,7 +145,7 @@ public class NewExam extends javax.swing.JFrame {
         });
 
         SaveBtn.setBackground(new java.awt.Color(59, 162, 191));
-        SaveBtn.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        SaveBtn.setFont(new java.awt.Font("DINPro-Medium", 0, 14)); // NOI18N
         SaveBtn.setText("Save");
         SaveBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
@@ -167,27 +167,25 @@ public class NewExam extends javax.swing.JFrame {
                                 .addComponent(DetailScrollPane, javax.swing.GroupLayout.Alignment.LEADING)
                                 .addGroup(layout.createSequentialGroup()
                                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                        .addComponent(DateTxt, javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(DateDatePicker, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 241, Short.MAX_VALUE)
                                         .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                .addComponent(TimeTxt)
-                                                .addGroup(layout.createSequentialGroup()
-                                                    .addComponent(HourSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                                .addComponent(DateTxt, javax.swing.GroupLayout.Alignment.LEADING)
+                                                .addComponent(TimeTxt, javax.swing.GroupLayout.Alignment.LEADING)
+                                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                                    .addComponent(HourSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                    .addComponent(MinuteSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                            .addComponent(AMPMComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addComponent(DateDatePicker, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 245, Short.MAX_VALUE))
+                                                    .addComponent(MinuteSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                    .addComponent(AMPMComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                            .addGap(0, 0, Short.MAX_VALUE)))
                                     .addGap(18, 18, 18)
                                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                         .addGroup(layout.createSequentialGroup()
-                                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                                .addGroup(layout.createSequentialGroup()
-                                                    .addComponent(BuildingRoomTxt)
-                                                    .addGap(182, 182, 182))
-                                                .addGroup(layout.createSequentialGroup()
-                                                    .addComponent(BuildingRoomTxtField, javax.swing.GroupLayout.PREFERRED_SIZE, 281, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                    .addGap(18, 18, 18)))
+                                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                .addComponent(BuildingRoomTxtField, javax.swing.GroupLayout.PREFERRED_SIZE, 285, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addComponent(BuildingRoomTxt))
+                                            .addGap(18, 18, 18)
                                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                                 .addComponent(SeatTxtField, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                 .addComponent(SeatTxt)))
@@ -215,46 +213,36 @@ public class NewExam extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(SubjectTxt)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(SubjectComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(SubjectAddBtn))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(DateTxt)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(DateDatePicker, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(BuildingRoomTxt)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(BuildingRoomTxtField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(SeatTxt)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(SeatTxtField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(TimeTxt)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(HourSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(MinuteSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(AMPMComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(DurationTxt)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(DurationSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(DurationInfoTxt))))
-                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
+                    .addComponent(SubjectComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(SubjectAddBtn))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
+                    .addComponent(SeatTxt)
+                    .addComponent(BuildingRoomTxt)
+                    .addComponent(DateTxt))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
+                    .addComponent(DateDatePicker, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(BuildingRoomTxtField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(SeatTxtField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
+                    .addComponent(DurationTxt)
+                    .addComponent(TimeTxt))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
+                    .addComponent(HourSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(MinuteSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(AMPMComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(DurationSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(DurationInfoTxt))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(DetailTxt)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(DetailScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
                     .addComponent(SaveBtn)
                     .addComponent(CancelBtn))
                 .addContainerGap(18, Short.MAX_VALUE))

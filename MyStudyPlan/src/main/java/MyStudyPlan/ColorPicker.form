@@ -53,7 +53,7 @@
           <Color blue="bf" green="a2" red="3b" type="rgb"/>
         </Property>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Arial" size="14" style="0"/>
+          <Font name="DINPro-Medium" size="14" style="0"/>
         </Property>
         <Property name="text" type="java.lang.String" value="OK"/>
         <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">

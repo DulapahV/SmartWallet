@@ -54,7 +54,7 @@ public class NewClass extends javax.swing.JFrame {
 
         TopBanner.setBackground(new java.awt.Color(59, 162, 191));
 
-        jLabel1.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("DINPro-Medium", 0, 24)); // NOI18N
         jLabel1.setText("New Class");
 
         javax.swing.GroupLayout TopBannerLayout = new javax.swing.GroupLayout(TopBanner);
@@ -69,18 +69,18 @@ public class NewClass extends javax.swing.JFrame {
         TopBannerLayout.setVerticalGroup(
             TopBannerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, TopBannerLayout.createSequentialGroup()
-                .addContainerGap(22, Short.MAX_VALUE)
+                .addContainerGap(18, Short.MAX_VALUE)
                 .addComponent(jLabel1)
                 .addGap(18, 18, 18))
         );
 
-        SubjectTxt.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        SubjectTxt.setFont(new java.awt.Font("DINPro-Medium", 0, 18)); // NOI18N
         SubjectTxt.setText("Subject");
 
-        SubjectComboBox.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        SubjectComboBox.setFont(new java.awt.Font("DINPro-Medium", 0, 14)); // NOI18N
         SubjectComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
-        SubjectAddBtn.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        SubjectAddBtn.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         SubjectAddBtn.setText("+");
         SubjectAddBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         SubjectAddBtn.addActionListener(new java.awt.event.ActionListener() {
@@ -89,45 +89,50 @@ public class NewClass extends javax.swing.JFrame {
             }
         });
 
-        SectorTxt.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        SectorTxt.setFont(new java.awt.Font("DINPro-Medium", 0, 18)); // NOI18N
         SectorTxt.setText("Sector");
 
-        SectorTxtField.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        SectorTxtField.setFont(new java.awt.Font("DINPro-Medium", 0, 14)); // NOI18N
+        SectorTxtField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SectorTxtFieldActionPerformed(evt);
+            }
+        });
 
-        RoomTxt.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        RoomTxt.setFont(new java.awt.Font("DINPro-Medium", 0, 18)); // NOI18N
         RoomTxt.setText("Room");
 
-        RoomTxtField.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        RoomTxtField.setFont(new java.awt.Font("DINPro-Medium", 0, 14)); // NOI18N
         RoomTxtField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 RoomTxtFieldActionPerformed(evt);
             }
         });
 
-        BuildingTxt.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        BuildingTxt.setFont(new java.awt.Font("DINPro-Medium", 0, 18)); // NOI18N
         BuildingTxt.setText("Building");
 
-        BuildingTxtField.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        BuildingTxtField.setFont(new java.awt.Font("DINPro-Medium", 0, 14)); // NOI18N
         BuildingTxtField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BuildingTxtFieldActionPerformed(evt);
             }
         });
 
-        TeacherTxt.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        TeacherTxt.setFont(new java.awt.Font("DINPro-Medium", 0, 18)); // NOI18N
         TeacherTxt.setText("Teacher");
 
-        TeacherTxtField.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        TeacherTxtField.setFont(new java.awt.Font("DINPro-Medium", 0, 14)); // NOI18N
 
-        DetailTxt.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        DetailTxt.setFont(new java.awt.Font("DINPro-Medium", 0, 18)); // NOI18N
         DetailTxt.setText("Detail");
 
         DetailTxtArea.setColumns(20);
-        DetailTxtArea.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        DetailTxtArea.setFont(new java.awt.Font("DINPro-Medium", 0, 14)); // NOI18N
         DetailTxtArea.setRows(5);
         DetailScrollPane.setViewportView(DetailTxtArea);
 
-        CancelBtn.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        CancelBtn.setFont(new java.awt.Font("DINPro-Medium", 0, 14)); // NOI18N
         CancelBtn.setText("Cancel");
         CancelBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         CancelBtn.addActionListener(new java.awt.event.ActionListener() {
@@ -137,7 +142,7 @@ public class NewClass extends javax.swing.JFrame {
         });
 
         SaveBtn.setBackground(new java.awt.Color(59, 162, 191));
-        SaveBtn.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        SaveBtn.setFont(new java.awt.Font("DINPro-Medium", 0, 14)); // NOI18N
         SaveBtn.setText("Save");
         SaveBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
@@ -188,31 +193,31 @@ public class NewClass extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(SubjectTxt)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(SubjectComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(SubjectAddBtn))
-                .addGap(16, 16, 16)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
+                    .addComponent(SubjectAddBtn)
+                    .addComponent(SubjectComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
                     .addComponent(SectorTxt)
                     .addComponent(RoomTxt)
                     .addComponent(BuildingTxt))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(SectorTxtField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
                     .addComponent(RoomTxtField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(SectorTxtField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(BuildingTxtField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(19, 19, 19)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(TeacherTxt)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(TeacherTxtField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(DetailTxt)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(DetailScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(SaveBtn)
-                    .addComponent(CancelBtn))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
+                    .addComponent(CancelBtn)
+                    .addComponent(SaveBtn))
                 .addContainerGap(18, Short.MAX_VALUE))
         );
 
@@ -245,6 +250,10 @@ public class NewClass extends javax.swing.JFrame {
     private void BuildingTxtFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BuildingTxtFieldActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_BuildingTxtFieldActionPerformed
+
+    private void SectorTxtFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SectorTxtFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_SectorTxtFieldActionPerformed
 
     /**
      * @param args the command line arguments

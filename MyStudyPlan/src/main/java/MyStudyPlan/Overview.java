@@ -75,17 +75,16 @@ public class Overview extends javax.swing.JFrame {
         setTitle("MyStudyPlan");
         setBackground(new java.awt.Color(46, 52, 64));
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        setMinimumSize(new java.awt.Dimension(1108, 630));
+        setMinimumSize(new java.awt.Dimension(1108, 632));
         setName("MainMenu"); // NOI18N
-        setPreferredSize(new java.awt.Dimension(1108, 630));
-        setSize(new java.awt.Dimension(1108, 630));
+        setSize(new java.awt.Dimension(1108, 632));
 
         LeftPanel.setBackground(new java.awt.Color(30, 33, 41));
         LeftPanel.setFocusable(false);
 
         OverviewBtn.setBackground(new java.awt.Color(30, 33, 41));
         OverviewBtn.setBorder(null);
-        OverviewBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/MyStudyPlan/img/overview.png"))); // NOI18N
+        OverviewBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/overview.png"))); // NOI18N
         OverviewBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 OverviewBtnActionPerformed(evt);
@@ -94,7 +93,7 @@ public class Overview extends javax.swing.JFrame {
 
         CalendarBtn.setBackground(new java.awt.Color(30, 33, 41));
         CalendarBtn.setBorder(null);
-        CalendarBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/MyStudyPlan/img/calendar.png"))); // NOI18N
+        CalendarBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/calendar.png"))); // NOI18N
         CalendarBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 CalendarBtnActionPerformed(evt);
@@ -103,7 +102,7 @@ public class Overview extends javax.swing.JFrame {
 
         TasksBtn.setBackground(new java.awt.Color(30, 33, 41));
         TasksBtn.setBorder(null);
-        TasksBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/MyStudyPlan/img/tasks.png"))); // NOI18N
+        TasksBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/tasks.png"))); // NOI18N
         TasksBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 TasksBtnActionPerformed(evt);
@@ -112,7 +111,7 @@ public class Overview extends javax.swing.JFrame {
 
         ExamsBtn.setBackground(new java.awt.Color(30, 33, 41));
         ExamsBtn.setBorder(null);
-        ExamsBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/MyStudyPlan/img/exams.png"))); // NOI18N
+        ExamsBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/exams.png"))); // NOI18N
         ExamsBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ExamsBtnActionPerformed(evt);
@@ -121,7 +120,7 @@ public class Overview extends javax.swing.JFrame {
 
         ScheduleBtn.setBackground(new java.awt.Color(30, 33, 41));
         ScheduleBtn.setBorder(null);
-        ScheduleBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/MyStudyPlan/img/schedule.png"))); // NOI18N
+        ScheduleBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/schedule.png"))); // NOI18N
         ScheduleBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ScheduleBtnActionPerformed(evt);
@@ -155,33 +154,33 @@ public class Overview extends javax.swing.JFrame {
                 .addComponent(ExamsBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(ScheduleBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(127, Short.MAX_VALUE))
+                .addContainerGap(129, Short.MAX_VALUE))
         );
 
         TopPanel.setBackground(new java.awt.Color(59, 162, 191));
 
-        TodayTxt.setFont(new java.awt.Font("Arial", 0, 32)); // NOI18N
+        TodayTxt.setFont(new java.awt.Font("DINPro-Medium", 0, 32)); // NOI18N
         TodayTxt.setText("Today");
 
-        DateTxt.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        DateTxt.setFont(new java.awt.Font("DINPro-Light", 0, 18)); // NOI18N
         DateTxt.setText("Wednesday, October 26");
 
-        ScheduleTopTxt.setFont(new java.awt.Font("Arial", 0, 28)); // NOI18N
+        ScheduleTopTxt.setFont(new java.awt.Font("DINPro-Medium", 0, 28)); // NOI18N
         ScheduleTopTxt.setText("Schedule");
 
-        ScheduleTopVal.setFont(new java.awt.Font("Arial", 0, 28)); // NOI18N
+        ScheduleTopVal.setFont(new java.awt.Font("DINPro-Medium", 0, 28)); // NOI18N
         ScheduleTopVal.setText("0");
 
-        TasksTopTxt.setFont(new java.awt.Font("Arial", 0, 28)); // NOI18N
+        TasksTopTxt.setFont(new java.awt.Font("DINPro-Medium", 0, 28)); // NOI18N
         TasksTopTxt.setText("Tasks");
 
-        TasksTopVal.setFont(new java.awt.Font("Arial", 0, 28)); // NOI18N
+        TasksTopVal.setFont(new java.awt.Font("DINPro-Medium", 0, 28)); // NOI18N
         TasksTopVal.setText("0");
 
-        ExamsTopTxt.setFont(new java.awt.Font("Arial", 0, 28)); // NOI18N
+        ExamsTopTxt.setFont(new java.awt.Font("DINPro-Medium", 0, 28)); // NOI18N
         ExamsTopTxt.setText("Exams");
 
-        ExamsTopVal.setFont(new java.awt.Font("Arial", 0, 28)); // NOI18N
+        ExamsTopVal.setFont(new java.awt.Font("DINPro-Medium", 0, 28)); // NOI18N
         ExamsTopVal.setText("0");
 
         javax.swing.GroupLayout TopPanelLayout = new javax.swing.GroupLayout(TopPanel);
@@ -214,16 +213,16 @@ public class Overview extends javax.swing.JFrame {
                 .addComponent(TodayTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
                 .addComponent(DateTxt)
-                .addContainerGap(18, Short.MAX_VALUE))
+                .addContainerGap(21, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, TopPanelLayout.createSequentialGroup()
-                .addContainerGap(38, Short.MAX_VALUE)
-                .addGroup(TopPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(TopPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
+                    .addComponent(ScheduleTopTxt)
+                    .addComponent(ScheduleTopVal)
+                    .addComponent(TasksTopTxt)
                     .addComponent(TasksTopVal)
                     .addComponent(ExamsTopTxt)
-                    .addComponent(TasksTopTxt)
-                    .addComponent(ExamsTopVal)
-                    .addComponent(ScheduleTopVal)
-                    .addComponent(ScheduleTopTxt))
+                    .addComponent(ExamsTopVal))
                 .addGap(35, 35, 35))
         );
 
@@ -238,26 +237,26 @@ public class Overview extends javax.swing.JFrame {
         TaskPaneContainer.setLayout(verticalLayout2);
 
         AssignmentTaskPane.setBackground(new java.awt.Color(46, 52, 64));
-        AssignmentTaskPane.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        AssignmentTaskPane.setFont(new java.awt.Font("DINPro-Medium", 0, 14)); // NOI18N
         AssignmentTaskPane.setSpecial(true);
         AssignmentTaskPane.setTitle("Assignment (0)");
         TaskPaneContainer.add(AssignmentTaskPane);
 
-        ReminderTaskPane.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        ReminderTaskPane.setFont(new java.awt.Font("DINPro-Medium", 0, 14)); // NOI18N
         ReminderTaskPane.setSpecial(true);
         ReminderTaskPane.setTitle("Reminder (0)");
         TaskPaneContainer.add(ReminderTaskPane);
 
-        RevisionTaskPane.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        RevisionTaskPane.setFont(new java.awt.Font("DINPro-Medium", 0, 14)); // NOI18N
         RevisionTaskPane.setSpecial(true);
         RevisionTaskPane.setTitle("Revision (0)");
         TaskPaneContainer.add(RevisionTaskPane);
 
-        ScheduleTxt.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
+        ScheduleTxt.setFont(new java.awt.Font("DINPro-Medium", 0, 24)); // NOI18N
         ScheduleTxt.setText("Schedule");
 
         NewClassBtn.setBackground(new java.awt.Color(59, 162, 191));
-        NewClassBtn.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        NewClassBtn.setFont(new java.awt.Font("DINPro-Medium", 0, 12)); // NOI18N
         NewClassBtn.setText("+ New Class");
         NewClassBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         NewClassBtn.setMargin(new java.awt.Insets(3, 8, 3, 8));
@@ -267,10 +266,10 @@ public class Overview extends javax.swing.JFrame {
             }
         });
 
-        ScheduleTable.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        ScheduleTable.setFont(new java.awt.Font("DINPro-Medium", 0, 14)); // NOI18N
         ScheduleTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-
+                {null, null}
             },
             new String [] {
                 "Time", "Subjects"
@@ -289,14 +288,14 @@ public class Overview extends javax.swing.JFrame {
         ScheduleTable.getTableHeader().setReorderingAllowed(false);
         SchedulePane.setViewportView(ScheduleTable);
         if (ScheduleTable.getColumnModel().getColumnCount() > 0) {
-            ScheduleTable.getColumnModel().getColumn(1).setPreferredWidth(250);
+            ScheduleTable.getColumnModel().getColumn(1).setPreferredWidth(150);
         }
 
-        TasksTxt.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
+        TasksTxt.setFont(new java.awt.Font("DINPro-Medium", 0, 24)); // NOI18N
         TasksTxt.setText("Tasks");
 
         NewTaskBtn.setBackground(new java.awt.Color(59, 162, 191));
-        NewTaskBtn.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        NewTaskBtn.setFont(new java.awt.Font("DINPro-Medium", 0, 12)); // NOI18N
         NewTaskBtn.setText("+ New Task");
         NewTaskBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         NewTaskBtn.setMargin(new java.awt.Insets(3, 8, 3, 8));
@@ -306,11 +305,11 @@ public class Overview extends javax.swing.JFrame {
             }
         });
 
-        ExamsTxt.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
+        ExamsTxt.setFont(new java.awt.Font("DINPro-Medium", 0, 24)); // NOI18N
         ExamsTxt.setText("Exams");
 
         NewExamBtn.setBackground(new java.awt.Color(59, 162, 191));
-        NewExamBtn.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        NewExamBtn.setFont(new java.awt.Font("DINPro-Medium", 0, 12)); // NOI18N
         NewExamBtn.setText("+ New Exam");
         NewExamBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         NewExamBtn.setMargin(new java.awt.Insets(3, 8, 3, 8));
@@ -320,7 +319,7 @@ public class Overview extends javax.swing.JFrame {
             }
         });
 
-        ExamTable.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        ExamTable.setFont(new java.awt.Font("DINPro-Medium", 0, 14)); // NOI18N
         ExamTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -341,7 +340,7 @@ public class Overview extends javax.swing.JFrame {
         ExamTable.getTableHeader().setReorderingAllowed(false);
         ExamsPane.setViewportView(ExamTable);
         if (ExamTable.getColumnModel().getColumnCount() > 0) {
-            ExamTable.getColumnModel().getColumn(1).setPreferredWidth(250);
+            ExamTable.getColumnModel().getColumn(1).setPreferredWidth(150);
         }
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -358,7 +357,7 @@ public class Overview extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(ScheduleTxt)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 139, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 142, Short.MAX_VALUE)
                                 .addComponent(NewClassBtn))
                             .addComponent(SchedulePane, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -367,7 +366,7 @@ public class Overview extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addComponent(TasksTxt)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 175, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 176, Short.MAX_VALUE)
                                 .addComponent(NewTaskBtn))
                             .addComponent(TaskPaneContainer, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -376,7 +375,7 @@ public class Overview extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(ExamsTxt)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 163, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 165, Short.MAX_VALUE)
                                 .addComponent(NewExamBtn))
                             .addComponent(ExamsPane, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
                         .addContainerGap())))
@@ -393,78 +392,25 @@ public class Overview extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(Separator1)
                             .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
                                     .addComponent(ScheduleTxt, javax.swing.GroupLayout.DEFAULT_SIZE, 34, Short.MAX_VALUE)
+                                    .addComponent(NewClassBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(TasksTxt, javax.swing.GroupLayout.DEFAULT_SIZE, 34, Short.MAX_VALUE)
+                                    .addComponent(NewTaskBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(ExamsTxt, javax.swing.GroupLayout.DEFAULT_SIZE, 34, Short.MAX_VALUE)
-                                    .addComponent(NewExamBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(NewTaskBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(NewClassBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                    .addComponent(NewExamBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(TaskPaneContainer, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(SchedulePane, javax.swing.GroupLayout.DEFAULT_SIZE, 478, Short.MAX_VALUE)
                                     .addComponent(ExamsPane)))
-                            .addComponent(Separator2))))
-                .addGap(0, 0, 0))
+                            .addComponent(Separator2)))))
         );
 
         layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {ExamsTxt, ScheduleTxt, TasksTxt});
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void OverviewBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_OverviewBtnActionPerformed
-        // Do nothing
-    }//GEN-LAST:event_OverviewBtnActionPerformed
-
-    private void CalendarBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CalendarBtnActionPerformed
-        Calendar calendar = new Calendar();
-        if (this.getExtendedState() == this.MAXIMIZED_BOTH) {
-            calendar.setExtendedState(this.MAXIMIZED_BOTH);
-        } else {
-            calendar.setSize(this.getSize());
-            calendar.setLocation(this.getLocation());
-        }
-        calendar.setVisible(true);
-        this.setVisible(false);
-    }//GEN-LAST:event_CalendarBtnActionPerformed
-
-    private void TasksBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TasksBtnActionPerformed
-        Tasks tasks = new Tasks();
-        if (this.getExtendedState() == this.MAXIMIZED_BOTH) {
-            tasks.setExtendedState(this.MAXIMIZED_BOTH);
-        } else {
-            tasks.setSize(this.getSize());
-            tasks.setLocation(this.getLocation());
-        }
-        tasks.setVisible(true);
-        this.setVisible(false);
-    }//GEN-LAST:event_TasksBtnActionPerformed
-
-    private void ExamsBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ExamsBtnActionPerformed
-        Exams exams = new Exams();
-        if (this.getExtendedState() == this.MAXIMIZED_BOTH) {
-            exams.setExtendedState(this.MAXIMIZED_BOTH);
-        } else {
-            exams.setSize(this.getSize());
-            exams.setLocation(this.getLocation());
-        }
-        exams.setVisible(true);
-        this.setVisible(false);
-    }//GEN-LAST:event_ExamsBtnActionPerformed
-
-    private void ScheduleBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ScheduleBtnActionPerformed
-        Schedule schedule = new Schedule();
-        if (this.getExtendedState() == this.MAXIMIZED_BOTH) {
-            schedule.setExtendedState(this.MAXIMIZED_BOTH);
-        } else {
-            schedule.setSize(this.getSize());
-            schedule.setLocation(this.getLocation());
-        }
-        schedule.setVisible(true);
-        this.setVisible(false);
-    }//GEN-LAST:event_ScheduleBtnActionPerformed
 
     private void NewClassBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NewClassBtnActionPerformed
         NewClass newClass = new NewClass();
@@ -510,6 +456,58 @@ public class Overview extends javax.swing.JFrame {
             }
         });
     }//GEN-LAST:event_NewExamBtnActionPerformed
+
+    private void ScheduleBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ScheduleBtnActionPerformed
+        Schedule schedule = new Schedule();
+        if (this.getExtendedState() == this.MAXIMIZED_BOTH) {
+            schedule.setExtendedState(this.MAXIMIZED_BOTH);
+        } else {
+            schedule.setSize(this.getSize());
+            schedule.setLocation(this.getLocation());
+        }
+        schedule.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_ScheduleBtnActionPerformed
+
+    private void ExamsBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ExamsBtnActionPerformed
+        Exams exams = new Exams();
+        if (this.getExtendedState() == this.MAXIMIZED_BOTH) {
+            exams.setExtendedState(this.MAXIMIZED_BOTH);
+        } else {
+            exams.setSize(this.getSize());
+            exams.setLocation(this.getLocation());
+        }
+        exams.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_ExamsBtnActionPerformed
+
+    private void TasksBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TasksBtnActionPerformed
+        Tasks tasks = new Tasks();
+        if (this.getExtendedState() == this.MAXIMIZED_BOTH) {
+            tasks.setExtendedState(this.MAXIMIZED_BOTH);
+        } else {
+            tasks.setSize(this.getSize());
+            tasks.setLocation(this.getLocation());
+        }
+        tasks.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_TasksBtnActionPerformed
+
+    private void CalendarBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CalendarBtnActionPerformed
+        Calendar calendar = new Calendar();
+        if (this.getExtendedState() == this.MAXIMIZED_BOTH) {
+            calendar.setExtendedState(this.MAXIMIZED_BOTH);
+        } else {
+            calendar.setSize(this.getSize());
+            calendar.setLocation(this.getLocation());
+        }
+        calendar.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_CalendarBtnActionPerformed
+
+    private void OverviewBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_OverviewBtnActionPerformed
+        // Do nothing
+    }//GEN-LAST:event_OverviewBtnActionPerformed
 
     /**
      * @param args the command line arguments

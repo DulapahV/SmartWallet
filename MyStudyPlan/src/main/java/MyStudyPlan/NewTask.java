@@ -52,7 +52,7 @@ public class NewTask extends javax.swing.JFrame {
 
         TopBanner.setBackground(new java.awt.Color(59, 162, 191));
 
-        jLabel1.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("DINPro-Medium", 0, 24)); // NOI18N
         jLabel1.setText("New Task");
 
         javax.swing.GroupLayout TopBannerLayout = new javax.swing.GroupLayout(TopBanner);
@@ -67,18 +67,18 @@ public class NewTask extends javax.swing.JFrame {
         TopBannerLayout.setVerticalGroup(
             TopBannerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, TopBannerLayout.createSequentialGroup()
-                .addContainerGap(22, Short.MAX_VALUE)
+                .addContainerGap(18, Short.MAX_VALUE)
                 .addComponent(jLabel1)
                 .addGap(18, 18, 18))
         );
 
-        SubjectTxt.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        SubjectTxt.setFont(new java.awt.Font("DINPro-Medium", 0, 18)); // NOI18N
         SubjectTxt.setText("Subject");
 
-        SubjectComboBox.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        SubjectComboBox.setFont(new java.awt.Font("DINPro-Medium", 0, 14)); // NOI18N
         SubjectComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
-        SubjectAddBtn.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        SubjectAddBtn.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         SubjectAddBtn.setText("+");
         SubjectAddBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         SubjectAddBtn.addActionListener(new java.awt.event.ActionListener() {
@@ -87,31 +87,31 @@ public class NewTask extends javax.swing.JFrame {
             }
         });
 
-        TypeTxt.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        TypeTxt.setFont(new java.awt.Font("DINPro-Medium", 0, 18)); // NOI18N
         TypeTxt.setText("Type");
 
-        TypeComboBox.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        TypeComboBox.setFont(new java.awt.Font("DINPro-Medium", 0, 14)); // NOI18N
         TypeComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Assignment", "Reminder", "Revision" }));
 
-        DueDateTxt.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        DueDateTxt.setFont(new java.awt.Font("DINPro-Medium", 0, 18)); // NOI18N
         DueDateTxt.setText("Due Date");
 
-        DueDateDatePicker.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        DueDateDatePicker.setFont(new java.awt.Font("DINPro-Medium", 0, 14)); // NOI18N
 
-        TitleTxt.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        TitleTxt.setFont(new java.awt.Font("DINPro-Medium", 0, 18)); // NOI18N
         TitleTxt.setText("Title");
 
-        TitleTxtField.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        TitleTxtField.setFont(new java.awt.Font("DINPro-Medium", 0, 14)); // NOI18N
 
-        DetailTxt.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        DetailTxt.setFont(new java.awt.Font("DINPro-Medium", 0, 18)); // NOI18N
         DetailTxt.setText("Detail");
 
         DetailTxtArea.setColumns(20);
-        DetailTxtArea.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        DetailTxtArea.setFont(new java.awt.Font("DINPro-Medium", 0, 14)); // NOI18N
         DetailTxtArea.setRows(5);
         DetailScrollPane.setViewportView(DetailTxtArea);
 
-        CancelBtn.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        CancelBtn.setFont(new java.awt.Font("DINPro-Medium", 0, 14)); // NOI18N
         CancelBtn.setText("Cancel");
         CancelBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         CancelBtn.addActionListener(new java.awt.event.ActionListener() {
@@ -121,7 +121,7 @@ public class NewTask extends javax.swing.JFrame {
         });
 
         SaveBtn.setBackground(new java.awt.Color(59, 162, 191));
-        SaveBtn.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        SaveBtn.setFont(new java.awt.Font("DINPro-Medium", 0, 14)); // NOI18N
         SaveBtn.setText("Save");
         SaveBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
@@ -175,29 +175,29 @@ public class NewTask extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(SubjectTxt)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
                     .addComponent(SubjectComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(SubjectAddBtn))
-                .addGap(16, 16, 16)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
                     .addComponent(TypeTxt)
                     .addComponent(DueDateTxt))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(TypeComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(DueDateDatePicker, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
+                    .addComponent(DueDateDatePicker, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(TypeComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(TitleTxt)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(TitleTxtField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(DetailTxt)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(DetailScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(SaveBtn)
-                    .addComponent(CancelBtn))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
+                    .addComponent(CancelBtn)
+                    .addComponent(SaveBtn))
                 .addContainerGap(18, Short.MAX_VALUE))
         );
 

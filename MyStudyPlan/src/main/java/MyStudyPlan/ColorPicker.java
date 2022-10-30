@@ -36,7 +36,7 @@ public class ColorPicker extends javax.swing.JFrame {
         setUndecorated(true);
 
         SaveBtn.setBackground(new java.awt.Color(59, 162, 191));
-        SaveBtn.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        SaveBtn.setFont(new java.awt.Font("DINPro-Medium", 0, 14)); // NOI18N
         SaveBtn.setText("OK");
         SaveBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         SaveBtn.addActionListener(new java.awt.event.ActionListener() {

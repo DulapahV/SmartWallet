@@ -43,31 +43,33 @@
                                   <Component id="CodeTxt" min="-2" max="-2" attributes="0"/>
                                   <Component id="CodeTxtField" min="-2" pref="105" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="SubjectTxtField" max="32767" attributes="0"/>
                                   <Group type="102" attributes="0">
                                       <Component id="SubjectTxt" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                                   </Group>
+                                  <Component id="SubjectTxtField" max="32767" attributes="0"/>
+                              </Group>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="ColorTxt" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Component id="ColorTxtField" min="-2" pref="76" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="SubjectAddBtn1" min="-2" max="-2" attributes="0"/>
+                                  </Group>
                               </Group>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="102" attributes="0">
-                                      <Component id="ColorTxtField" min="-2" pref="93" max="-2" attributes="0"/>
-                                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                                      <Component id="SubjectAddBtn" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="SubjectRemoveBtn" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Component id="ColorTxt" min="-2" max="-2" attributes="0"/>
-                              </Group>
+                              <Component id="SubjectAddBtn" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="SubjectRemoveBtn" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
-                              <Component id="jXSearchPanel1" min="-2" max="-2" attributes="0"/>
+                              <Component id="SearchPanel" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="SearchBtn" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="0" pref="150" max="32767" attributes="0"/>
+                              <EmptySpace min="0" pref="149" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>
@@ -81,30 +83,31 @@
           <Group type="102" alignment="0" attributes="0">
               <Component id="TopBanner" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="CodeTxt" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="SubjectTxt" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="ColorTxt" alignment="3" min="-2" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="2" attributes="0">
+                  <Component id="CodeTxt" alignment="2" min="-2" max="-2" attributes="0"/>
+                  <Component id="SubjectTxt" alignment="2" min="-2" max="-2" attributes="0"/>
+                  <Component id="ColorTxt" alignment="2" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="2" attributes="0">
-                  <Component id="SubjectAddBtn" alignment="2" min="-2" max="-2" attributes="0"/>
-                  <Component id="ColorTxtField" alignment="2" min="-2" max="-2" attributes="0"/>
-                  <Component id="SubjectRemoveBtn" alignment="2" min="-2" max="-2" attributes="0"/>
-                  <Component id="SubjectTxtField" alignment="2" min="-2" max="-2" attributes="0"/>
                   <Component id="CodeTxtField" alignment="2" min="-2" max="-2" attributes="0"/>
+                  <Component id="SubjectTxtField" alignment="2" min="-2" max="-2" attributes="0"/>
+                  <Component id="ColorTxtField" alignment="2" min="-2" max="-2" attributes="0"/>
+                  <Component id="SubjectAddBtn1" alignment="2" min="-2" max="-2" attributes="0"/>
+                  <Component id="SubjectAddBtn" alignment="2" min="-2" max="-2" attributes="0"/>
+                  <Component id="SubjectRemoveBtn" alignment="2" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="2" attributes="0">
+                  <Component id="SearchPanel" alignment="2" min="-2" max="-2" attributes="0"/>
                   <Component id="SearchBtn" alignment="2" min="-2" max="-2" attributes="0"/>
-                  <Component id="jXSearchPanel1" alignment="2" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Component id="SubjectsScrollPane" min="-2" pref="231" max="-2" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="SaveBtn" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="CancelBtn" alignment="3" min="-2" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="2" attributes="0">
+                  <Component id="SaveBtn" alignment="2" min="-2" max="-2" attributes="0"/>
+                  <Component id="CancelBtn" alignment="2" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
           </Group>
@@ -132,7 +135,7 @@
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="1" attributes="0">
-                  <EmptySpace pref="22" max="32767" attributes="0"/>
+                  <EmptySpace pref="18" max="32767" attributes="0"/>
                   <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
               </Group>
@@ -143,7 +146,7 @@
         <Component class="javax.swing.JLabel" name="jLabel1">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Arial" size="24" style="0"/>
+              <Font name="DINPro-Medium" size="24" style="0"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Manage Subjects"/>
           </Properties>
@@ -153,7 +156,7 @@
     <Component class="javax.swing.JLabel" name="CodeTxt">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Arial" size="18" style="0"/>
+          <Font name="DINPro-Medium" size="18" style="0"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Code"/>
       </Properties>
@@ -161,14 +164,14 @@
     <Component class="javax.swing.JTextField" name="CodeTxtField">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Arial" size="14" style="0"/>
+          <Font name="DINPro-Medium" size="14" style="0"/>
         </Property>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="SubjectTxt">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Arial" size="18" style="0"/>
+          <Font name="DINPro-Medium" size="18" style="0"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Subject"/>
       </Properties>
@@ -176,14 +179,14 @@
     <Component class="javax.swing.JTextField" name="SubjectTxtField">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Arial" size="14" style="0"/>
+          <Font name="DINPro-Medium" size="14" style="0"/>
         </Property>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="ColorTxt">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Arial" size="18" style="0"/>
+          <Font name="DINPro-Medium" size="18" style="0"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Color"/>
       </Properties>
@@ -191,18 +194,18 @@
     <Component class="javax.swing.JTextField" name="ColorTxtField">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Arial" size="14" style="0"/>
+          <Font name="DINPro-Medium" size="14" style="0"/>
         </Property>
       </Properties>
       <Events>
-        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="ColorTxtFieldMouseClicked"/>
-        <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="ColorTxtFieldMousePressed"/>
+        <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="ColorTxtFieldFocusLost"/>
+        <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="ColorTxtFieldKeyPressed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JButton" name="SubjectAddBtn">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Arial" size="14" style="0"/>
+          <Font name="Arial" size="14" style="1"/>
         </Property>
         <Property name="text" type="java.lang.String" value="+"/>
         <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
@@ -227,10 +230,10 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="SubjectRemoveBtnActionPerformed"/>
       </Events>
     </Component>
-    <Component class="org.jdesktop.swingx.JXSearchPanel" name="jXSearchPanel1">
+    <Component class="org.jdesktop.swingx.JXSearchPanel" name="SearchPanel">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Arial" size="14" style="0"/>
+          <Font name="DINPro-Medium" size="14" style="0"/>
         </Property>
       </Properties>
     </Component>
@@ -240,7 +243,7 @@
           <Color blue="76" green="60" red="56" type="rgb"/>
         </Property>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Arial" size="12" style="0"/>
+          <Font name="DINPro-Medium" size="12" style="0"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Search"/>
         <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
@@ -261,23 +264,12 @@
         <Component class="javax.swing.JTable" name="SubjectsTable">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Arial" size="14" style="0"/>
+              <Font name="DINPro-Medium" size="14" style="0"/>
             </Property>
             <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-              <Table columnCount="2" rowCount="10">
+              <Table columnCount="2" rowCount="0">
                 <Column editable="false" title="Code" type="java.lang.Object"/>
-                <Column editable="false" title="Subjects" type="java.lang.Object">
-                  <Data value=""/>
-                  <Data value="null"/>
-                  <Data value="null"/>
-                  <Data value="null"/>
-                  <Data value="null"/>
-                  <Data value="null"/>
-                  <Data value="null"/>
-                  <Data value="null"/>
-                  <Data value="null"/>
-                  <Data value="null"/>
-                </Column>
+                <Column editable="false" title="Subjects" type="java.lang.Object"/>
               </Table>
             </Property>
             <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
@@ -307,7 +299,7 @@
     <Component class="javax.swing.JButton" name="CancelBtn">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Arial" size="14" style="0"/>
+          <Font name="DINPro-Medium" size="14" style="0"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Cancel"/>
         <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
@@ -324,13 +316,28 @@
           <Color blue="bf" green="a2" red="3b" type="rgb"/>
         </Property>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Arial" size="14" style="0"/>
+          <Font name="DINPro-Medium" size="14" style="0"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Save"/>
         <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
           <Color id="Hand Cursor"/>
         </Property>
       </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="SubjectAddBtn1">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Arial" size="14" style="1"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="?"/>
+        <Property name="toolTipText" type="java.lang.String" value=""/>
+        <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
+          <Color id="Hand Cursor"/>
+        </Property>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="SubjectAddBtn1ActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>

@@ -5,6 +5,7 @@
 package MyStudyPlan;
 
 import java.awt.Color;
+import java.awt.event.KeyEvent;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import javax.swing.BorderFactory;
@@ -41,12 +42,13 @@ public class ManageSubjects extends javax.swing.JFrame {
         ColorTxtField = new javax.swing.JTextField();
         SubjectAddBtn = new javax.swing.JButton();
         SubjectRemoveBtn = new javax.swing.JButton();
-        jXSearchPanel1 = new org.jdesktop.swingx.JXSearchPanel();
+        SearchPanel = new org.jdesktop.swingx.JXSearchPanel();
         SearchBtn = new javax.swing.JButton();
         SubjectsScrollPane = new javax.swing.JScrollPane();
         SubjectsTable = new javax.swing.JTable();
         CancelBtn = new javax.swing.JButton();
         SaveBtn = new javax.swing.JButton();
+        SubjectAddBtn1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Manage Subjects");
@@ -54,7 +56,7 @@ public class ManageSubjects extends javax.swing.JFrame {
 
         TopBanner.setBackground(new java.awt.Color(59, 162, 191));
 
-        jLabel1.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("DINPro-Medium", 0, 24)); // NOI18N
         jLabel1.setText("Manage Subjects");
 
         javax.swing.GroupLayout TopBannerLayout = new javax.swing.GroupLayout(TopBanner);
@@ -69,35 +71,37 @@ public class ManageSubjects extends javax.swing.JFrame {
         TopBannerLayout.setVerticalGroup(
             TopBannerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, TopBannerLayout.createSequentialGroup()
-                .addContainerGap(22, Short.MAX_VALUE)
+                .addContainerGap(18, Short.MAX_VALUE)
                 .addComponent(jLabel1)
                 .addGap(18, 18, 18))
         );
 
-        CodeTxt.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        CodeTxt.setFont(new java.awt.Font("DINPro-Medium", 0, 18)); // NOI18N
         CodeTxt.setText("Code");
 
-        CodeTxtField.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        CodeTxtField.setFont(new java.awt.Font("DINPro-Medium", 0, 14)); // NOI18N
 
-        SubjectTxt.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        SubjectTxt.setFont(new java.awt.Font("DINPro-Medium", 0, 18)); // NOI18N
         SubjectTxt.setText("Subject");
 
-        SubjectTxtField.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        SubjectTxtField.setFont(new java.awt.Font("DINPro-Medium", 0, 14)); // NOI18N
 
-        ColorTxt.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        ColorTxt.setFont(new java.awt.Font("DINPro-Medium", 0, 18)); // NOI18N
         ColorTxt.setText("Color");
 
-        ColorTxtField.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        ColorTxtField.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                ColorTxtFieldMouseClicked(evt);
+        ColorTxtField.setFont(new java.awt.Font("DINPro-Medium", 0, 14)); // NOI18N
+        ColorTxtField.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                ColorTxtFieldFocusLost(evt);
             }
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                ColorTxtFieldMousePressed(evt);
+        });
+        ColorTxtField.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                ColorTxtFieldKeyPressed(evt);
             }
         });
 
-        SubjectAddBtn.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        SubjectAddBtn.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         SubjectAddBtn.setText("+");
         SubjectAddBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         SubjectAddBtn.addActionListener(new java.awt.event.ActionListener() {
@@ -115,27 +119,18 @@ public class ManageSubjects extends javax.swing.JFrame {
             }
         });
 
-        jXSearchPanel1.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        SearchPanel.setFont(new java.awt.Font("DINPro-Medium", 0, 14)); // NOI18N
 
         SearchBtn.setBackground(new java.awt.Color(86, 96, 118));
-        SearchBtn.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        SearchBtn.setFont(new java.awt.Font("DINPro-Medium", 0, 12)); // NOI18N
         SearchBtn.setText("Search");
         SearchBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         SearchBtn.setMargin(new java.awt.Insets(3, 8, 3, 8));
 
-        SubjectsTable.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        SubjectsTable.setFont(new java.awt.Font("DINPro-Medium", 0, 14)); // NOI18N
         SubjectsTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, ""},
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null}
+
             },
             new String [] {
                 "Code", "Subjects"
@@ -160,7 +155,7 @@ public class ManageSubjects extends javax.swing.JFrame {
             SubjectsTable.getColumnModel().getColumn(1).setPreferredWidth(450);
         }
 
-        CancelBtn.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        CancelBtn.setFont(new java.awt.Font("DINPro-Medium", 0, 14)); // NOI18N
         CancelBtn.setText("Cancel");
         CancelBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         CancelBtn.addActionListener(new java.awt.event.ActionListener() {
@@ -170,9 +165,19 @@ public class ManageSubjects extends javax.swing.JFrame {
         });
 
         SaveBtn.setBackground(new java.awt.Color(59, 162, 191));
-        SaveBtn.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        SaveBtn.setFont(new java.awt.Font("DINPro-Medium", 0, 14)); // NOI18N
         SaveBtn.setText("Save");
         SaveBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+
+        SubjectAddBtn1.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        SubjectAddBtn1.setText("?");
+        SubjectAddBtn1.setToolTipText("");
+        SubjectAddBtn1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        SubjectAddBtn1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SubjectAddBtn1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -194,26 +199,28 @@ public class ManageSubjects extends javax.swing.JFrame {
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(CodeTxt)
                                     .addComponent(CodeTxtField, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(18, 18, 18)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(SubjectTxtField)
                                     .addGroup(layout.createSequentialGroup()
                                         .addComponent(SubjectTxt)
-                                        .addGap(0, 0, Short.MAX_VALUE)))
-                                .addGap(18, 18, 18)
+                                        .addGap(0, 0, Short.MAX_VALUE))
+                                    .addComponent(SubjectTxtField))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(ColorTxt)
                                     .addGroup(layout.createSequentialGroup()
-                                        .addComponent(ColorTxtField, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(SubjectAddBtn)
+                                        .addComponent(ColorTxtField, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(SubjectRemoveBtn))
-                                    .addComponent(ColorTxt)))
+                                        .addComponent(SubjectAddBtn1)))
+                                .addGap(18, 18, 18)
+                                .addComponent(SubjectAddBtn)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(SubjectRemoveBtn))
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jXSearchPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(SearchPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(SearchBtn)
-                                .addGap(0, 150, Short.MAX_VALUE)))))
+                                .addGap(0, 149, Short.MAX_VALUE)))))
                 .addGap(38, 38, 38))
         );
         layout.setVerticalGroup(
@@ -221,25 +228,26 @@ public class ManageSubjects extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addComponent(TopBanner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
                     .addComponent(CodeTxt)
                     .addComponent(SubjectTxt)
                     .addComponent(ColorTxt))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
-                    .addComponent(SubjectAddBtn)
-                    .addComponent(ColorTxtField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(SubjectRemoveBtn)
+                    .addComponent(CodeTxtField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(SubjectTxtField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(CodeTxtField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(ColorTxtField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(SubjectAddBtn1)
+                    .addComponent(SubjectAddBtn)
+                    .addComponent(SubjectRemoveBtn))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
-                    .addComponent(SearchBtn)
-                    .addComponent(jXSearchPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(SearchPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(SearchBtn))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(SubjectsScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 231, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
                     .addComponent(SaveBtn)
                     .addComponent(CancelBtn))
                 .addGap(18, 18, 18))
@@ -260,7 +268,7 @@ public class ManageSubjects extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_SubjectRemoveBtnActionPerformed
 
-    private void ColorTxtFieldMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ColorTxtFieldMouseClicked
+    private void SubjectAddBtn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SubjectAddBtn1ActionPerformed
         ColorPicker cp = new ColorPicker();
         cp.setLocationRelativeTo(null);
         cp.setLocation(cp.getX(), cp.getY() + 115);
@@ -277,26 +285,19 @@ public class ManageSubjects extends javax.swing.JFrame {
                 ColorTxtField.setForeground(new Color(Integer.parseInt(cp.getHexValue().substring(1), 16)));
             }
         });
-    }//GEN-LAST:event_ColorTxtFieldMouseClicked
+    }//GEN-LAST:event_SubjectAddBtn1ActionPerformed
 
-    private void ColorTxtFieldMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ColorTxtFieldMousePressed
-        ColorPicker cp = new ColorPicker();
-        cp.setLocationRelativeTo(null);
-        cp.setLocation(cp.getX(), cp.getY() + 115);
-        cp.setVisible(true);
-        this.setEnabled(false);
-        cp.getRootPane().setBorder(BorderFactory.createMatteBorder(3, 3, 3, 3, Color.decode("#3BA2BF")));
-        cp.addWindowListener(new WindowAdapter() {
-            @Override
-            public void windowClosed(WindowEvent e) {
-                ManageSubjects.this.setEnabled(true);
-                ManageSubjects.this.requestFocus();
-                ManageSubjects.this.setExtendedState(ManageSubjects.this.getExtendedState() & ~ManageSubjects.ICONIFIED);
-                ColorTxtField.setText(cp.getHexValue());
-                ColorTxtField.setForeground(new Color(Integer.parseInt(cp.getHexValue().substring(1), 16)));
-            }
-        });
-    }//GEN-LAST:event_ColorTxtFieldMousePressed
+    private void ColorTxtFieldFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_ColorTxtFieldFocusLost
+        if (!ColorTxtField.getText().isEmpty()) {
+            ColorTxtField.setForeground(new Color(Integer.parseInt(ColorTxtField.getText().substring(1), 16)));
+        }
+    }//GEN-LAST:event_ColorTxtFieldFocusLost
+
+    private void ColorTxtFieldKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_ColorTxtFieldKeyPressed
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER && !ColorTxtField.getText().isEmpty()) {
+            ColorTxtField.setForeground(new Color(Integer.parseInt(ColorTxtField.getText().substring(1), 16)));
+        }
+    }//GEN-LAST:event_ColorTxtFieldKeyPressed
 
     /**
      * @param args the command line arguments
@@ -318,7 +319,9 @@ public class ManageSubjects extends javax.swing.JFrame {
     private javax.swing.JTextField ColorTxtField;
     private javax.swing.JButton SaveBtn;
     private javax.swing.JButton SearchBtn;
+    private org.jdesktop.swingx.JXSearchPanel SearchPanel;
     private javax.swing.JButton SubjectAddBtn;
+    private javax.swing.JButton SubjectAddBtn1;
     private javax.swing.JButton SubjectRemoveBtn;
     private javax.swing.JLabel SubjectTxt;
     private javax.swing.JTextField SubjectTxtField;
@@ -326,6 +329,5 @@ public class ManageSubjects extends javax.swing.JFrame {
     private javax.swing.JTable SubjectsTable;
     private javax.swing.JPanel TopBanner;
     private javax.swing.JLabel jLabel1;
-    private org.jdesktop.swingx.JXSearchPanel jXSearchPanel1;
     // End of variables declaration//GEN-END:variables
 }

@@ -11,7 +11,7 @@
       <Color id="Default Cursor"/>
     </Property>
     <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-      <Dimension value="[1108, 630]"/>
+      <Dimension value="[1108, 632]"/>
     </Property>
     <Property name="name" type="java.lang.String" value="MainMenu" noResource="true"/>
   </Properties>
@@ -43,7 +43,7 @@
                   <Group type="102" attributes="0">
                       <EmptySpace min="6" pref="6" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="TaskPaneContainer" alignment="0" max="32767" attributes="0"/>
+                          <Component id="TasksPaneContainer" alignment="0" max="32767" attributes="0"/>
                           <Group type="102" attributes="0">
                               <Component id="SearchPane" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
@@ -68,15 +68,14 @@
                       <Component id="TopPanel" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="2" attributes="0">
-                          <Component id="SearchBtn" alignment="2" min="-2" pref="26" max="-2" attributes="0"/>
                           <Component id="SearchPane" alignment="2" min="-2" max="-2" attributes="0"/>
+                          <Component id="SearchBtn" alignment="2" min="-2" pref="26" max="-2" attributes="0"/>
                           <Component id="NewTasksBtn" alignment="2" min="-2" pref="34" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="TaskPaneContainer" max="32767" attributes="0"/>
+                      <Component id="TasksPaneContainer" max="32767" attributes="0"/>
                   </Group>
               </Group>
-              <EmptySpace max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -119,7 +118,7 @@
                   <Component id="ExamsBtn" min="-2" pref="80" max="-2" attributes="0"/>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Component id="ScheduleBtn" min="-2" pref="80" max="-2" attributes="0"/>
-                  <EmptySpace pref="121" max="32767" attributes="0"/>
+                  <EmptySpace pref="129" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -134,7 +133,7 @@
               <Border info="null"/>
             </Property>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/MyStudyPlan/img/overview.png"/>
+              <Image iconType="3" name="/overview.png"/>
             </Property>
           </Properties>
           <Events>
@@ -150,7 +149,7 @@
               <Border info="null"/>
             </Property>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/MyStudyPlan/img/calendar.png"/>
+              <Image iconType="3" name="/calendar.png"/>
             </Property>
           </Properties>
           <Events>
@@ -166,7 +165,7 @@
               <Border info="null"/>
             </Property>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/MyStudyPlan/img/tasks.png"/>
+              <Image iconType="3" name="/tasks.png"/>
             </Property>
           </Properties>
           <Events>
@@ -182,7 +181,7 @@
               <Border info="null"/>
             </Property>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/MyStudyPlan/img/exams.png"/>
+              <Image iconType="3" name="/exams.png"/>
             </Property>
           </Properties>
           <Events>
@@ -198,7 +197,7 @@
               <Border info="null"/>
             </Property>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/MyStudyPlan/img/schedule.png"/>
+              <Image iconType="3" name="/schedule.png"/>
             </Property>
           </Properties>
           <Events>
@@ -227,9 +226,9 @@
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
-                  <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
                   <Component id="TodayTxt" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace pref="31" max="32767" attributes="0"/>
+                  <EmptySpace pref="33" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -238,7 +237,7 @@
         <Component class="javax.swing.JLabel" name="TodayTxt">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Arial" size="32" style="0"/>
+              <Font name="DINPro-Medium" size="32" style="0"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Tasks"/>
           </Properties>
@@ -248,7 +247,7 @@
     <Component class="org.jdesktop.swingx.JXSearchPanel" name="SearchPane">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Arial" size="14" style="0"/>
+          <Font name="DINPro-Medium" size="14" style="0"/>
         </Property>
       </Properties>
     </Component>
@@ -258,7 +257,7 @@
           <Color blue="76" green="60" red="56" type="rgb"/>
         </Property>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Arial" size="12" style="0"/>
+          <Font name="DINPro-Medium" size="12" style="0"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Search"/>
         <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
@@ -269,7 +268,7 @@
         </Property>
       </Properties>
     </Component>
-    <Container class="org.jdesktop.swingx.JXTaskPaneContainer" name="TaskPaneContainer">
+    <Container class="org.jdesktop.swingx.JXTaskPaneContainer" name="TasksPaneContainer">
       <Properties>
         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
           <Border info="org.netbeans.modules.form.compat2.border.EmptyBorderInfo">
@@ -281,7 +280,7 @@
         <Component class="org.jdesktop.swingx.JXTaskPane" name="AssignmentTaskPane">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Arial" size="14" style="1"/>
+              <Font name="DINPro-Medium" size="14" style="0"/>
             </Property>
             <Property name="special" type="boolean" value="true"/>
             <Property name="title" type="java.lang.String" value="Assignment (0)"/>
@@ -290,7 +289,7 @@
         <Component class="org.jdesktop.swingx.JXTaskPane" name="ReminnderTaskPane">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Arial" size="14" style="1"/>
+              <Font name="DINPro-Medium" size="14" style="0"/>
             </Property>
             <Property name="special" type="boolean" value="true"/>
             <Property name="title" type="java.lang.String" value="Reminder (0)"/>
@@ -299,7 +298,7 @@
         <Component class="org.jdesktop.swingx.JXTaskPane" name="RevisionTaskPane">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Arial" size="14" style="1"/>
+              <Font name="DINPro-Medium" size="14" style="0"/>
             </Property>
             <Property name="special" type="boolean" value="true"/>
             <Property name="title" type="java.lang.String" value="Revision (0)"/>
@@ -334,11 +333,11 @@
           </Parameters>
         </CodeStatement>
         <CodeStatement>
-          <CodeExpression id="3_TaskPaneContainer">
-            <CodeVariable name="TaskPaneContainer" type="8194" declaredType="org.jdesktop.swingx.JXTaskPaneContainer"/>
+          <CodeExpression id="3_TasksPaneContainer">
+            <CodeVariable name="TasksPaneContainer" type="8194" declaredType="org.jdesktop.swingx.JXTaskPaneContainer"/>
             <ExpressionOrigin>
               <ExpressionProvider type="ComponentRef">
-                <ComponentRef name="TaskPaneContainer"/>
+                <ComponentRef name="TasksPaneContainer"/>
               </ExpressionProvider>
             </ExpressionOrigin>
           </CodeExpression>
@@ -357,7 +356,7 @@
           <Color blue="bf" green="a2" red="3b" type="rgb"/>
         </Property>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Arial" size="12" style="0"/>
+          <Font name="DINPro-Medium" size="12" style="0"/>
         </Property>
         <Property name="text" type="java.lang.String" value="+ New Task"/>
         <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
