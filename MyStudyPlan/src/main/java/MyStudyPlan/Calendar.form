@@ -55,7 +55,7 @@
                           <Group type="102" attributes="0">
                               <Component id="Calendar" min="-2" pref="383" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jScrollPane1" pref="607" max="32767" attributes="0"/>
+                              <Component id="CalendarScrollPane" pref="607" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
@@ -79,7 +79,7 @@
               <EmptySpace min="-2" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="Calendar" max="32767" attributes="0"/>
-                  <Component id="jScrollPane1" pref="0" max="32767" attributes="0"/>
+                  <Component id="CalendarScrollPane" pref="0" max="32767" attributes="0"/>
               </Group>
           </Group>
           <Component id="LeftPanel" max="32767" attributes="0"/>
@@ -333,11 +333,11 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="CalendarActionPerformed"/>
       </Events>
     </Component>
-    <Container class="javax.swing.JScrollPane" name="jScrollPane1">
+    <Container class="javax.swing.JScrollPane" name="CalendarScrollPane">
 
       <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
       <SubComponents>
-        <Container class="javax.swing.JPanel" name="jPanel1">
+        <Container class="javax.swing.JPanel" name="CalendarPanel">
 
           <Layout>
             <DimensionLayout dim="0">
@@ -346,8 +346,8 @@
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="SchedulePane" pref="583" max="32767" attributes="0"/>
-                          <Component id="TaskPaneContainer" max="32767" attributes="0"/>
-                          <Component id="SchedulePane1" alignment="0" max="32767" attributes="0"/>
+                          <Component id="TasksPaneContainer" max="32767" attributes="0"/>
+                          <Component id="ExamsPane" alignment="0" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
@@ -359,9 +359,9 @@
                       <EmptySpace min="-2" max="-2" attributes="0"/>
                       <Component id="SchedulePane" pref="160" max="32767" attributes="0"/>
                       <EmptySpace min="-2" max="-2" attributes="0"/>
-                      <Component id="TaskPaneContainer" pref="200" max="32767" attributes="0"/>
+                      <Component id="TasksPaneContainer" pref="200" max="32767" attributes="0"/>
                       <EmptySpace min="-2" max="-2" attributes="0"/>
-                      <Component id="SchedulePane1" pref="156" max="32767" attributes="0"/>
+                      <Component id="ExamsPane" pref="156" max="32767" attributes="0"/>
                       <EmptySpace min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
@@ -420,7 +420,7 @@
                 </Component>
               </SubComponents>
             </Container>
-            <Container class="org.jdesktop.swingx.JXTaskPaneContainer" name="TaskPaneContainer">
+            <Container class="org.jdesktop.swingx.JXTaskPaneContainer" name="TasksPaneContainer">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="40" green="34" red="2e" type="rgb"/>
@@ -434,7 +434,7 @@
                 </Property>
               </Properties>
               <SubComponents>
-                <Component class="org.jdesktop.swingx.JXTaskPane" name="AssignmentTaskPane">
+                <Component class="org.jdesktop.swingx.JXTaskPane" name="AssignmentTasksPane">
                   <Properties>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="40" green="34" red="2e" type="rgb"/>
@@ -446,7 +446,7 @@
                     <Property name="title" type="java.lang.String" value="Assignment (0)"/>
                   </Properties>
                 </Component>
-                <Component class="org.jdesktop.swingx.JXTaskPane" name="ReminderTaskPane">
+                <Component class="org.jdesktop.swingx.JXTaskPane" name="ReminderTasksPane">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="DINPro-Medium" size="14" style="0"/>
@@ -455,7 +455,7 @@
                     <Property name="title" type="java.lang.String" value="Reminder (0)"/>
                   </Properties>
                 </Component>
-                <Component class="org.jdesktop.swingx.JXTaskPane" name="RevisionTaskPane">
+                <Component class="org.jdesktop.swingx.JXTaskPane" name="RevisionTasksPane">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="DINPro-Medium" size="14" style="0"/>
@@ -493,11 +493,11 @@
                   </Parameters>
                 </CodeStatement>
                 <CodeStatement>
-                  <CodeExpression id="3_TaskPaneContainer">
-                    <CodeVariable name="TaskPaneContainer" type="8194" declaredType="org.jdesktop.swingx.JXTaskPaneContainer"/>
+                  <CodeExpression id="3_TasksPaneContainer">
+                    <CodeVariable name="TasksPaneContainer" type="8194" declaredType="org.jdesktop.swingx.JXTaskPaneContainer"/>
                     <ExpressionOrigin>
                       <ExpressionProvider type="ComponentRef">
-                        <ComponentRef name="TaskPaneContainer"/>
+                        <ComponentRef name="TasksPaneContainer"/>
                       </ExpressionProvider>
                     </ExpressionOrigin>
                   </CodeExpression>
@@ -510,7 +510,7 @@
                 </CodeStatement>
               </LayoutCode>
             </Container>
-            <Container class="javax.swing.JScrollPane" name="SchedulePane1">
+            <Container class="javax.swing.JScrollPane" name="ExamsPane">
               <Properties>
                 <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                   <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
@@ -526,7 +526,7 @@
 
               <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
               <SubComponents>
-                <Component class="javax.swing.JTable" name="ScheduleTable1">
+                <Component class="javax.swing.JTable" name="ExamsTable">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="DINPro-Medium" size="14" style="0"/>

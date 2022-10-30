@@ -56,20 +56,20 @@ public class Overview extends javax.swing.JFrame {
         ExamsTopVal = new javax.swing.JLabel();
         Separator1 = new javax.swing.JSeparator();
         Separator2 = new javax.swing.JSeparator();
-        TaskPaneContainer = new org.jdesktop.swingx.JXTaskPaneContainer();
-        AssignmentTaskPane = new org.jdesktop.swingx.JXTaskPane();
-        ReminderTaskPane = new org.jdesktop.swingx.JXTaskPane();
-        RevisionTaskPane = new org.jdesktop.swingx.JXTaskPane();
         ScheduleTxt = new javax.swing.JLabel();
         NewClassBtn = new javax.swing.JButton();
         SchedulePane = new javax.swing.JScrollPane();
         ScheduleTable = new javax.swing.JTable();
         TasksTxt = new javax.swing.JLabel();
         NewTaskBtn = new javax.swing.JButton();
+        TasksPaneContainer = new org.jdesktop.swingx.JXTaskPaneContainer();
+        AssignmentTasksPane = new org.jdesktop.swingx.JXTaskPane();
+        ReminderTasksPane = new org.jdesktop.swingx.JXTaskPane();
+        RevisionTasksPane = new org.jdesktop.swingx.JXTaskPane();
         ExamsTxt = new javax.swing.JLabel();
         NewExamBtn = new javax.swing.JButton();
         ExamsPane = new javax.swing.JScrollPane();
-        ExamTable = new javax.swing.JTable();
+        ExamsTable = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("MyStudyPlan");
@@ -230,28 +230,6 @@ public class Overview extends javax.swing.JFrame {
 
         Separator2.setOrientation(javax.swing.SwingConstants.VERTICAL);
 
-        TaskPaneContainer.setBackground(new java.awt.Color(46, 52, 64));
-        TaskPaneContainer.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        org.jdesktop.swingx.VerticalLayout verticalLayout2 = new org.jdesktop.swingx.VerticalLayout();
-        verticalLayout2.setGap(14);
-        TaskPaneContainer.setLayout(verticalLayout2);
-
-        AssignmentTaskPane.setBackground(new java.awt.Color(46, 52, 64));
-        AssignmentTaskPane.setFont(new java.awt.Font("DINPro-Medium", 0, 14)); // NOI18N
-        AssignmentTaskPane.setSpecial(true);
-        AssignmentTaskPane.setTitle("Assignment (0)");
-        TaskPaneContainer.add(AssignmentTaskPane);
-
-        ReminderTaskPane.setFont(new java.awt.Font("DINPro-Medium", 0, 14)); // NOI18N
-        ReminderTaskPane.setSpecial(true);
-        ReminderTaskPane.setTitle("Reminder (0)");
-        TaskPaneContainer.add(ReminderTaskPane);
-
-        RevisionTaskPane.setFont(new java.awt.Font("DINPro-Medium", 0, 14)); // NOI18N
-        RevisionTaskPane.setSpecial(true);
-        RevisionTaskPane.setTitle("Revision (0)");
-        TaskPaneContainer.add(RevisionTaskPane);
-
         ScheduleTxt.setFont(new java.awt.Font("DINPro-Medium", 0, 24)); // NOI18N
         ScheduleTxt.setText("Schedule");
 
@@ -305,6 +283,28 @@ public class Overview extends javax.swing.JFrame {
             }
         });
 
+        TasksPaneContainer.setBackground(new java.awt.Color(46, 52, 64));
+        TasksPaneContainer.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        org.jdesktop.swingx.VerticalLayout verticalLayout2 = new org.jdesktop.swingx.VerticalLayout();
+        verticalLayout2.setGap(14);
+        TasksPaneContainer.setLayout(verticalLayout2);
+
+        AssignmentTasksPane.setBackground(new java.awt.Color(46, 52, 64));
+        AssignmentTasksPane.setFont(new java.awt.Font("DINPro-Medium", 0, 14)); // NOI18N
+        AssignmentTasksPane.setSpecial(true);
+        AssignmentTasksPane.setTitle("Assignment (0)");
+        TasksPaneContainer.add(AssignmentTasksPane);
+
+        ReminderTasksPane.setFont(new java.awt.Font("DINPro-Medium", 0, 14)); // NOI18N
+        ReminderTasksPane.setSpecial(true);
+        ReminderTasksPane.setTitle("Reminder (0)");
+        TasksPaneContainer.add(ReminderTasksPane);
+
+        RevisionTasksPane.setFont(new java.awt.Font("DINPro-Medium", 0, 14)); // NOI18N
+        RevisionTasksPane.setSpecial(true);
+        RevisionTasksPane.setTitle("Revision (0)");
+        TasksPaneContainer.add(RevisionTasksPane);
+
         ExamsTxt.setFont(new java.awt.Font("DINPro-Medium", 0, 24)); // NOI18N
         ExamsTxt.setText("Exams");
 
@@ -319,8 +319,8 @@ public class Overview extends javax.swing.JFrame {
             }
         });
 
-        ExamTable.setFont(new java.awt.Font("DINPro-Medium", 0, 14)); // NOI18N
-        ExamTable.setModel(new javax.swing.table.DefaultTableModel(
+        ExamsTable.setFont(new java.awt.Font("DINPro-Medium", 0, 14)); // NOI18N
+        ExamsTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -336,11 +336,11 @@ public class Overview extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
-        ExamTable.setShowVerticalLines(true);
-        ExamTable.getTableHeader().setReorderingAllowed(false);
-        ExamsPane.setViewportView(ExamTable);
-        if (ExamTable.getColumnModel().getColumnCount() > 0) {
-            ExamTable.getColumnModel().getColumn(1).setPreferredWidth(150);
+        ExamsTable.setShowVerticalLines(true);
+        ExamsTable.getTableHeader().setReorderingAllowed(false);
+        ExamsPane.setViewportView(ExamsTable);
+        if (ExamsTable.getColumnModel().getColumnCount() > 0) {
+            ExamsTable.getColumnModel().getColumn(1).setPreferredWidth(150);
         }
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -368,7 +368,7 @@ public class Overview extends javax.swing.JFrame {
                                 .addComponent(TasksTxt)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 176, Short.MAX_VALUE)
                                 .addComponent(NewTaskBtn))
-                            .addComponent(TaskPaneContainer, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(TasksPaneContainer, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(Separator2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -401,7 +401,7 @@ public class Overview extends javax.swing.JFrame {
                                     .addComponent(NewExamBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(TaskPaneContainer, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(TasksPaneContainer, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(SchedulePane, javax.swing.GroupLayout.DEFAULT_SIZE, 478, Short.MAX_VALUE)
                                     .addComponent(ExamsPane)))
                             .addComponent(Separator2)))))
@@ -526,12 +526,12 @@ public class Overview extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private org.jdesktop.swingx.JXTaskPane AssignmentTaskPane;
+    private org.jdesktop.swingx.JXTaskPane AssignmentTasksPane;
     private org.jdesktop.swingx.JXButton CalendarBtn;
     private javax.swing.JLabel DateTxt;
-    private javax.swing.JTable ExamTable;
     private org.jdesktop.swingx.JXButton ExamsBtn;
     private javax.swing.JScrollPane ExamsPane;
+    private javax.swing.JTable ExamsTable;
     private javax.swing.JLabel ExamsTopTxt;
     private javax.swing.JLabel ExamsTopVal;
     private javax.swing.JLabel ExamsTxt;
@@ -540,8 +540,8 @@ public class Overview extends javax.swing.JFrame {
     private javax.swing.JButton NewExamBtn;
     private javax.swing.JButton NewTaskBtn;
     private org.jdesktop.swingx.JXButton OverviewBtn;
-    private org.jdesktop.swingx.JXTaskPane ReminderTaskPane;
-    private org.jdesktop.swingx.JXTaskPane RevisionTaskPane;
+    private org.jdesktop.swingx.JXTaskPane ReminderTasksPane;
+    private org.jdesktop.swingx.JXTaskPane RevisionTasksPane;
     private org.jdesktop.swingx.JXButton ScheduleBtn;
     private javax.swing.JScrollPane SchedulePane;
     private javax.swing.JTable ScheduleTable;
@@ -550,8 +550,8 @@ public class Overview extends javax.swing.JFrame {
     private javax.swing.JLabel ScheduleTxt;
     private javax.swing.JSeparator Separator1;
     private javax.swing.JSeparator Separator2;
-    private org.jdesktop.swingx.JXTaskPaneContainer TaskPaneContainer;
     private org.jdesktop.swingx.JXButton TasksBtn;
+    private org.jdesktop.swingx.JXTaskPaneContainer TasksPaneContainer;
     private javax.swing.JLabel TasksTopTxt;
     private javax.swing.JLabel TasksTopVal;
     private javax.swing.JLabel TasksTxt;

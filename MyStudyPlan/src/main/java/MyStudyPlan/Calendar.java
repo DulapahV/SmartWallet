@@ -49,16 +49,16 @@ public class Calendar extends javax.swing.JFrame {
         SearchPane = new org.jdesktop.swingx.JXSearchPanel();
         SearchBtn = new javax.swing.JButton();
         Calendar = new org.jdesktop.swingx.JXMonthView();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jPanel1 = new javax.swing.JPanel();
+        CalendarScrollPane = new javax.swing.JScrollPane();
+        CalendarPanel = new javax.swing.JPanel();
         SchedulePane = new javax.swing.JScrollPane();
         ScheduleTable = new javax.swing.JTable();
-        TaskPaneContainer = new org.jdesktop.swingx.JXTaskPaneContainer();
-        AssignmentTaskPane = new org.jdesktop.swingx.JXTaskPane();
-        ReminderTaskPane = new org.jdesktop.swingx.JXTaskPane();
-        RevisionTaskPane = new org.jdesktop.swingx.JXTaskPane();
-        SchedulePane1 = new javax.swing.JScrollPane();
-        ScheduleTable1 = new javax.swing.JTable();
+        TasksPaneContainer = new org.jdesktop.swingx.JXTaskPaneContainer();
+        AssignmentTasksPane = new org.jdesktop.swingx.JXTaskPane();
+        ReminderTasksPane = new org.jdesktop.swingx.JXTaskPane();
+        RevisionTasksPane = new org.jdesktop.swingx.JXTaskPane();
+        ExamsPane = new javax.swing.JScrollPane();
+        ExamsTable = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("MyStudyPlan");
@@ -225,32 +225,32 @@ public class Calendar extends javax.swing.JFrame {
             ScheduleTable.getColumnModel().getColumn(1).setPreferredWidth(300);
         }
 
-        TaskPaneContainer.setBackground(new java.awt.Color(46, 52, 64));
-        TaskPaneContainer.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Tasks", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("DINPro-Medium", 0, 18))); // NOI18N
+        TasksPaneContainer.setBackground(new java.awt.Color(46, 52, 64));
+        TasksPaneContainer.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Tasks", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("DINPro-Medium", 0, 18))); // NOI18N
         org.jdesktop.swingx.VerticalLayout verticalLayout2 = new org.jdesktop.swingx.VerticalLayout();
         verticalLayout2.setGap(14);
-        TaskPaneContainer.setLayout(verticalLayout2);
+        TasksPaneContainer.setLayout(verticalLayout2);
 
-        AssignmentTaskPane.setBackground(new java.awt.Color(46, 52, 64));
-        AssignmentTaskPane.setFont(new java.awt.Font("DINPro-Medium", 0, 14)); // NOI18N
-        AssignmentTaskPane.setSpecial(true);
-        AssignmentTaskPane.setTitle("Assignment (0)");
-        TaskPaneContainer.add(AssignmentTaskPane);
+        AssignmentTasksPane.setBackground(new java.awt.Color(46, 52, 64));
+        AssignmentTasksPane.setFont(new java.awt.Font("DINPro-Medium", 0, 14)); // NOI18N
+        AssignmentTasksPane.setSpecial(true);
+        AssignmentTasksPane.setTitle("Assignment (0)");
+        TasksPaneContainer.add(AssignmentTasksPane);
 
-        ReminderTaskPane.setFont(new java.awt.Font("DINPro-Medium", 0, 14)); // NOI18N
-        ReminderTaskPane.setSpecial(true);
-        ReminderTaskPane.setTitle("Reminder (0)");
-        TaskPaneContainer.add(ReminderTaskPane);
+        ReminderTasksPane.setFont(new java.awt.Font("DINPro-Medium", 0, 14)); // NOI18N
+        ReminderTasksPane.setSpecial(true);
+        ReminderTasksPane.setTitle("Reminder (0)");
+        TasksPaneContainer.add(ReminderTasksPane);
 
-        RevisionTaskPane.setFont(new java.awt.Font("DINPro-Medium", 0, 14)); // NOI18N
-        RevisionTaskPane.setSpecial(true);
-        RevisionTaskPane.setTitle("Revision (0)");
-        TaskPaneContainer.add(RevisionTaskPane);
+        RevisionTasksPane.setFont(new java.awt.Font("DINPro-Medium", 0, 14)); // NOI18N
+        RevisionTasksPane.setSpecial(true);
+        RevisionTasksPane.setTitle("Revision (0)");
+        TasksPaneContainer.add(RevisionTasksPane);
 
-        SchedulePane1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Exams", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("DINPro-Medium", 0, 18))); // NOI18N
+        ExamsPane.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Exams", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("DINPro-Medium", 0, 18))); // NOI18N
 
-        ScheduleTable1.setFont(new java.awt.Font("DINPro-Medium", 0, 14)); // NOI18N
-        ScheduleTable1.setModel(new javax.swing.table.DefaultTableModel(
+        ExamsTable.setFont(new java.awt.Font("DINPro-Medium", 0, 14)); // NOI18N
+        ExamsTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -266,39 +266,39 @@ public class Calendar extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
-        ScheduleTable1.setPreferredSize(new java.awt.Dimension(325, 80));
-        ScheduleTable1.setShowVerticalLines(true);
-        ScheduleTable1.getTableHeader().setReorderingAllowed(false);
-        SchedulePane1.setViewportView(ScheduleTable1);
-        if (ScheduleTable1.getColumnModel().getColumnCount() > 0) {
-            ScheduleTable1.getColumnModel().getColumn(1).setPreferredWidth(300);
+        ExamsTable.setPreferredSize(new java.awt.Dimension(325, 80));
+        ExamsTable.setShowVerticalLines(true);
+        ExamsTable.getTableHeader().setReorderingAllowed(false);
+        ExamsPane.setViewportView(ExamsTable);
+        if (ExamsTable.getColumnModel().getColumnCount() > 0) {
+            ExamsTable.getColumnModel().getColumn(1).setPreferredWidth(300);
         }
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
+        javax.swing.GroupLayout CalendarPanelLayout = new javax.swing.GroupLayout(CalendarPanel);
+        CalendarPanel.setLayout(CalendarPanelLayout);
+        CalendarPanelLayout.setHorizontalGroup(
+            CalendarPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(CalendarPanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(CalendarPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(SchedulePane, javax.swing.GroupLayout.DEFAULT_SIZE, 583, Short.MAX_VALUE)
-                    .addComponent(TaskPaneContainer, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(SchedulePane1))
+                    .addComponent(TasksPaneContainer, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(ExamsPane))
                 .addContainerGap())
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
+        CalendarPanelLayout.setVerticalGroup(
+            CalendarPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(CalendarPanelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(SchedulePane, javax.swing.GroupLayout.DEFAULT_SIZE, 160, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(TaskPaneContainer, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)
+                .addComponent(TasksPaneContainer, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(SchedulePane1, javax.swing.GroupLayout.DEFAULT_SIZE, 156, Short.MAX_VALUE)
+                .addComponent(ExamsPane, javax.swing.GroupLayout.DEFAULT_SIZE, 156, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
-        jScrollPane1.setViewportView(jPanel1);
+        CalendarScrollPane.setViewportView(CalendarPanel);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -324,7 +324,7 @@ public class Calendar extends javax.swing.JFrame {
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(Calendar, javax.swing.GroupLayout.PREFERRED_SIZE, 383, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 607, Short.MAX_VALUE)))
+                                .addComponent(CalendarScrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 607, Short.MAX_VALUE)))
                         .addContainerGap())))
         );
         layout.setVerticalGroup(
@@ -341,7 +341,7 @@ public class Calendar extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(Calendar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)))
+                    .addComponent(CalendarScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)))
             .addComponent(LeftPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
@@ -421,29 +421,29 @@ public class Calendar extends javax.swing.JFrame {
 //    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private org.jdesktop.swingx.JXTaskPane AssignmentTaskPane;
+    private org.jdesktop.swingx.JXTaskPane AssignmentTasksPane;
     private org.jdesktop.swingx.JXMonthView Calendar;
     private org.jdesktop.swingx.JXButton CalendarBtn;
+    private javax.swing.JPanel CalendarPanel;
+    private javax.swing.JScrollPane CalendarScrollPane;
     private org.jdesktop.swingx.JXDatePicker DatePicker;
     private javax.swing.JLabel DateTxt;
     private org.jdesktop.swingx.JXButton ExamsBtn;
+    private javax.swing.JScrollPane ExamsPane;
+    private javax.swing.JTable ExamsTable;
     private javax.swing.JPanel LeftPanel;
     private org.jdesktop.swingx.JXButton OverviewBtn;
-    private org.jdesktop.swingx.JXTaskPane ReminderTaskPane;
-    private org.jdesktop.swingx.JXTaskPane RevisionTaskPane;
+    private org.jdesktop.swingx.JXTaskPane ReminderTasksPane;
+    private org.jdesktop.swingx.JXTaskPane RevisionTasksPane;
     private org.jdesktop.swingx.JXButton ScheduleBtn;
     private javax.swing.JScrollPane SchedulePane;
-    private javax.swing.JScrollPane SchedulePane1;
     private javax.swing.JTable ScheduleTable;
-    private javax.swing.JTable ScheduleTable1;
     private javax.swing.JButton SearchBtn;
     private org.jdesktop.swingx.JXSearchPanel SearchPane;
-    private org.jdesktop.swingx.JXTaskPaneContainer TaskPaneContainer;
     private org.jdesktop.swingx.JXButton TasksBtn;
+    private org.jdesktop.swingx.JXTaskPaneContainer TasksPaneContainer;
     private javax.swing.JButton TodayBtn;
     private javax.swing.JLabel TodayTxt;
     private javax.swing.JPanel TopPanel;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
 }

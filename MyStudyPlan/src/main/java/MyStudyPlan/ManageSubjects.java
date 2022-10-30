@@ -40,6 +40,7 @@ public class ManageSubjects extends javax.swing.JFrame {
         SubjectTxtField = new javax.swing.JTextField();
         ColorTxt = new javax.swing.JLabel();
         ColorTxtField = new javax.swing.JTextField();
+        ColorPickerBtn = new javax.swing.JButton();
         SubjectAddBtn = new javax.swing.JButton();
         SubjectRemoveBtn = new javax.swing.JButton();
         SearchPanel = new org.jdesktop.swingx.JXSearchPanel();
@@ -48,7 +49,6 @@ public class ManageSubjects extends javax.swing.JFrame {
         SubjectsTable = new javax.swing.JTable();
         CancelBtn = new javax.swing.JButton();
         SaveBtn = new javax.swing.JButton();
-        SubjectAddBtn1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Manage Subjects");
@@ -101,6 +101,17 @@ public class ManageSubjects extends javax.swing.JFrame {
             }
         });
 
+        ColorPickerBtn.setBackground(new java.awt.Color(255, 0, 51));
+        ColorPickerBtn.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        ColorPickerBtn.setText(" ");
+        ColorPickerBtn.setToolTipText("");
+        ColorPickerBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        ColorPickerBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ColorPickerBtnActionPerformed(evt);
+            }
+        });
+
         SubjectAddBtn.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         SubjectAddBtn.setText("+");
         SubjectAddBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -150,8 +161,6 @@ public class ManageSubjects extends javax.swing.JFrame {
         SubjectsTable.getTableHeader().setReorderingAllowed(false);
         SubjectsScrollPane.setViewportView(SubjectsTable);
         if (SubjectsTable.getColumnModel().getColumnCount() > 0) {
-            SubjectsTable.getColumnModel().getColumn(0).setResizable(false);
-            SubjectsTable.getColumnModel().getColumn(1).setResizable(false);
             SubjectsTable.getColumnModel().getColumn(1).setPreferredWidth(450);
         }
 
@@ -168,16 +177,6 @@ public class ManageSubjects extends javax.swing.JFrame {
         SaveBtn.setFont(new java.awt.Font("DINPro-Medium", 0, 14)); // NOI18N
         SaveBtn.setText("Save");
         SaveBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-
-        SubjectAddBtn1.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        SubjectAddBtn1.setText("?");
-        SubjectAddBtn1.setToolTipText("");
-        SubjectAddBtn1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        SubjectAddBtn1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                SubjectAddBtn1ActionPerformed(evt);
-            }
-        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -211,7 +210,7 @@ public class ManageSubjects extends javax.swing.JFrame {
                                     .addGroup(layout.createSequentialGroup()
                                         .addComponent(ColorTxtField, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(SubjectAddBtn1)))
+                                        .addComponent(ColorPickerBtn)))
                                 .addGap(18, 18, 18)
                                 .addComponent(SubjectAddBtn)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -237,7 +236,7 @@ public class ManageSubjects extends javax.swing.JFrame {
                     .addComponent(CodeTxtField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(SubjectTxtField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(ColorTxtField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(SubjectAddBtn1)
+                    .addComponent(ColorPickerBtn)
                     .addComponent(SubjectAddBtn)
                     .addComponent(SubjectRemoveBtn))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -268,7 +267,7 @@ public class ManageSubjects extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_SubjectRemoveBtnActionPerformed
 
-    private void SubjectAddBtn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SubjectAddBtn1ActionPerformed
+    private void ColorPickerBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ColorPickerBtnActionPerformed
         ColorPicker cp = new ColorPicker();
         cp.setLocationRelativeTo(null);
         cp.setLocation(cp.getX(), cp.getY() + 115);
@@ -283,19 +282,22 @@ public class ManageSubjects extends javax.swing.JFrame {
                 ManageSubjects.this.setExtendedState(ManageSubjects.this.getExtendedState() & ~ManageSubjects.ICONIFIED);
                 ColorTxtField.setText(cp.getHexValue());
                 ColorTxtField.setForeground(new Color(Integer.parseInt(cp.getHexValue().substring(1), 16)));
+                ColorPickerBtn.setBackground(new Color(Integer.parseInt(cp.getHexValue().substring(1), 16)));
             }
         });
-    }//GEN-LAST:event_SubjectAddBtn1ActionPerformed
+    }//GEN-LAST:event_ColorPickerBtnActionPerformed
 
     private void ColorTxtFieldFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_ColorTxtFieldFocusLost
         if (!ColorTxtField.getText().isEmpty()) {
             ColorTxtField.setForeground(new Color(Integer.parseInt(ColorTxtField.getText().substring(1), 16)));
+            ColorPickerBtn.setBackground(new Color(Integer.parseInt(ColorTxtField.getText().substring(1), 16)));
         }
     }//GEN-LAST:event_ColorTxtFieldFocusLost
 
     private void ColorTxtFieldKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_ColorTxtFieldKeyPressed
         if (evt.getKeyCode() == KeyEvent.VK_ENTER && !ColorTxtField.getText().isEmpty()) {
             ColorTxtField.setForeground(new Color(Integer.parseInt(ColorTxtField.getText().substring(1), 16)));
+            ColorPickerBtn.setBackground(new Color(Integer.parseInt(ColorTxtField.getText().substring(1), 16)));
         }
     }//GEN-LAST:event_ColorTxtFieldKeyPressed
 
@@ -315,13 +317,13 @@ public class ManageSubjects extends javax.swing.JFrame {
     private javax.swing.JButton CancelBtn;
     private javax.swing.JLabel CodeTxt;
     private javax.swing.JTextField CodeTxtField;
+    private javax.swing.JButton ColorPickerBtn;
     private javax.swing.JLabel ColorTxt;
     private javax.swing.JTextField ColorTxtField;
     private javax.swing.JButton SaveBtn;
     private javax.swing.JButton SearchBtn;
     private org.jdesktop.swingx.JXSearchPanel SearchPanel;
     private javax.swing.JButton SubjectAddBtn;
-    private javax.swing.JButton SubjectAddBtn1;
     private javax.swing.JButton SubjectRemoveBtn;
     private javax.swing.JLabel SubjectTxt;
     private javax.swing.JTextField SubjectTxtField;

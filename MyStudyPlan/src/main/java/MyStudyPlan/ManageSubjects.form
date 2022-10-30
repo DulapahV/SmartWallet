@@ -57,7 +57,7 @@
                                   <Group type="102" alignment="0" attributes="0">
                                       <Component id="ColorTxtField" min="-2" pref="76" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="SubjectAddBtn1" min="-2" max="-2" attributes="0"/>
+                                      <Component id="ColorPickerBtn" min="-2" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
@@ -93,7 +93,7 @@
                   <Component id="CodeTxtField" alignment="2" min="-2" max="-2" attributes="0"/>
                   <Component id="SubjectTxtField" alignment="2" min="-2" max="-2" attributes="0"/>
                   <Component id="ColorTxtField" alignment="2" min="-2" max="-2" attributes="0"/>
-                  <Component id="SubjectAddBtn1" alignment="2" min="-2" max="-2" attributes="0"/>
+                  <Component id="ColorPickerBtn" alignment="2" min="-2" max="-2" attributes="0"/>
                   <Component id="SubjectAddBtn" alignment="2" min="-2" max="-2" attributes="0"/>
                   <Component id="SubjectRemoveBtn" alignment="2" min="-2" max="-2" attributes="0"/>
               </Group>
@@ -202,6 +202,24 @@
         <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="ColorTxtFieldKeyPressed"/>
       </Events>
     </Component>
+    <Component class="javax.swing.JButton" name="ColorPickerBtn">
+      <Properties>
+        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="33" green="0" red="ff" type="rgb"/>
+        </Property>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Arial" size="14" style="1"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value=" "/>
+        <Property name="toolTipText" type="java.lang.String" value=""/>
+        <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
+          <Color id="Hand Cursor"/>
+        </Property>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ColorPickerBtnActionPerformed"/>
+      </Events>
+    </Component>
     <Component class="javax.swing.JButton" name="SubjectAddBtn">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
@@ -274,12 +292,12 @@
             </Property>
             <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
               <TableColumnModel selectionModel="0">
-                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="false">
+                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
                   <Title/>
                   <Editor/>
                   <Renderer/>
                 </Column>
-                <Column maxWidth="-1" minWidth="-1" prefWidth="450" resizable="false">
+                <Column maxWidth="-1" minWidth="-1" prefWidth="450" resizable="true">
                   <Title/>
                   <Editor/>
                   <Renderer/>
@@ -323,21 +341,6 @@
           <Color id="Hand Cursor"/>
         </Property>
       </Properties>
-    </Component>
-    <Component class="javax.swing.JButton" name="SubjectAddBtn1">
-      <Properties>
-        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Arial" size="14" style="1"/>
-        </Property>
-        <Property name="text" type="java.lang.String" value="?"/>
-        <Property name="toolTipText" type="java.lang.String" value=""/>
-        <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-          <Color id="Hand Cursor"/>
-        </Property>
-      </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="SubjectAddBtn1ActionPerformed"/>
-      </Events>
     </Component>
   </SubComponents>
 </Form>
