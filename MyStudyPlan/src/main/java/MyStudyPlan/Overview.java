@@ -22,7 +22,8 @@ public class Overview extends javax.swing.JFrame {
     public Overview() {
         initComponents();
 
-        this.setLocationRelativeTo(null); // Center App on the screen
+        this.setLocationRelativeTo(null);
+        setIconImage(new javax.swing.ImageIcon(getClass().getResource("/icon.png")).getImage());
         OverviewBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         CalendarBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         TasksBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));

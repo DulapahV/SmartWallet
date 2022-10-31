@@ -9,7 +9,8 @@ import java.awt.event.WindowEvent;
 
 /**
  *
- * @author Dulapah Vibulsanti
+ * @author Dulapah Vibulsanti (64011388), Anucha Cheewachanon (64011338),
+ * Annopdanai Pamarapa (64011337)
  */
 public class NewClass extends javax.swing.JFrame {
 
@@ -18,6 +19,8 @@ public class NewClass extends javax.swing.JFrame {
      */
     public NewClass() {
         initComponents();
+
+        setIconImage(new javax.swing.ImageIcon(getClass().getResource("/icon.png")).getImage());
     }
 
     /**

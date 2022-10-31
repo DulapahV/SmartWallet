@@ -23,6 +23,8 @@ public class Tasks extends javax.swing.JFrame {
      */
     public Tasks() {
         initComponents();
+
+        setIconImage(new javax.swing.ImageIcon(getClass().getResource("/icon.png")).getImage());
         OverviewBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         CalendarBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         TasksBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));

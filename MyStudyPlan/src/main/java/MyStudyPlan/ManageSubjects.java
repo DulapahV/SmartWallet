@@ -12,7 +12,8 @@ import javax.swing.BorderFactory;
 
 /**
  *
- * @author Dulapah Vibulsanti
+ * @author Dulapah Vibulsanti (64011388), Anucha Cheewachanon (64011338),
+ * Annopdanai Pamarapa (64011337)
  */
 public class ManageSubjects extends javax.swing.JFrame {
 
@@ -21,6 +22,8 @@ public class ManageSubjects extends javax.swing.JFrame {
      */
     public ManageSubjects() {
         initComponents();
+
+        setIconImage(new javax.swing.ImageIcon(getClass().getResource("/icon.png")).getImage());
     }
 
     /**

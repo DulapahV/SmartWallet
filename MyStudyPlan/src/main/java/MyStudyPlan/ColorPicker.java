@@ -8,7 +8,8 @@ import java.awt.Color;
 
 /**
  *
- * @author Dulapah Vibulsanti
+ * @author Dulapah Vibulsanti (64011388), Anucha Cheewachanon (64011338),
+ * Annopdanai Pamarapa (64011337)
  */
 public class ColorPicker extends javax.swing.JFrame {
 
@@ -17,6 +18,8 @@ public class ColorPicker extends javax.swing.JFrame {
      */
     public ColorPicker() {
         initComponents();
+
+        setIconImage(new javax.swing.ImageIcon(getClass().getResource("/icon.png")).getImage());
     }
 
     /**
