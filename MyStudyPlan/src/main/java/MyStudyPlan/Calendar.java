@@ -24,6 +24,8 @@ public class Calendar extends javax.swing.JFrame {
         TasksBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         ExamsBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         ScheduleBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        CalendarScrollPane.getVerticalScrollBar().setUnitIncrement(16);
+        CalendarScrollPane.getHorizontalScrollBar().setUnitIncrement(16);
     }
 
     /**
