@@ -343,22 +343,6 @@ public class Schedule extends javax.swing.JFrame {
         // Do nothing
     }//GEN-LAST:event_ScheduleBtnActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
-//    public static void main(String args[]) {
-//        /* Set the theme */
-//        FlatNordIJTheme.setup();
-//        //FlatCarbonIJTheme.setup();
-//        
-//        /* Create and display the form */
-//        java.awt.EventQueue.invokeLater(new Runnable() {
-//            public void run() {
-//                new Calendar().setVisible(true);
-//            }
-//        });
-//    }
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private org.jdesktop.swingx.JXButton CalendarBtn;
     private org.jdesktop.swingx.JXButton ExamsBtn;

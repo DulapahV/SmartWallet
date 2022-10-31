@@ -408,22 +408,6 @@ public class Calendar extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_CalendarActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
-//    public static void main(String args[]) {
-//        /* Set the theme */
-//        FlatNordIJTheme.setup();
-//        //FlatCarbonIJTheme.setup();
-//        
-//        /* Create and display the form */
-//        java.awt.EventQueue.invokeLater(new Runnable() {
-//            public void run() {
-//                new Calendar().setVisible(true);
-//            }
-//        });
-//    }
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private org.jdesktop.swingx.JXTaskPane AssignmentTasksPane;
     private org.jdesktop.swingx.JXMonthView Calendar;

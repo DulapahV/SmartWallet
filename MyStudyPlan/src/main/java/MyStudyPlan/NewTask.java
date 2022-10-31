@@ -226,18 +226,6 @@ public class NewTask extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_CancelBtnActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
-//    public static void main(String args[]) {
-//        /* Create and display the form */
-//        java.awt.EventQueue.invokeLater(new Runnable() {
-//            public void run() {
-//                new NewTask().setVisible(true);
-//            }
-//        });
-//    }
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton CancelBtn;
     private javax.swing.JScrollPane DetailScrollPane;
