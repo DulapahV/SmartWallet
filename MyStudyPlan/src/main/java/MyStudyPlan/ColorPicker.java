@@ -96,7 +96,6 @@ public class ColorPicker extends javax.swing.JFrame {
         Font font = null;
         try {
             font = Font.createFont(Font.TRUETYPE_FONT, getClass().getResourceAsStream("/font/" + fontName)).deriveFont(fontStyle, fontSize);
-            font = font.deriveFont(fontSize);
         } catch (FontFormatException | IOException ex) {
             Logger.getLogger(Overview.class.getName()).log(Level.SEVERE, null, ex);
         }

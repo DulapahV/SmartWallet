@@ -4,7 +4,6 @@
  */
 package MyStudyPlan;
 
-import com.formdev.flatlaf.intellijthemes.FlatNordIJTheme;
 import java.awt.Font;
 import java.awt.FontFormatException;
 import java.awt.event.WindowAdapter;
@@ -12,7 +11,6 @@ import java.awt.event.WindowEvent;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-//import com.formdev.flatlaf.intellijthemes.FlatCarbonIJTheme;
 
 /**
  *
@@ -369,7 +367,6 @@ public class Schedule extends javax.swing.JFrame {
         Font font = null;
         try {
             font = Font.createFont(Font.TRUETYPE_FONT, getClass().getResourceAsStream("/font/" + fontName)).deriveFont(fontStyle, fontSize);
-            font = font.deriveFont(fontSize);
         } catch (FontFormatException | IOException ex) {
             Logger.getLogger(Overview.class.getName()).log(Level.SEVERE, null, ex);
         }
