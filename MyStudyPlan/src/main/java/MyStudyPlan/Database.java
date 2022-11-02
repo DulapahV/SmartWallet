@@ -3,10 +3,19 @@
 
 package MyStudyPlan;
 
+import java.io.File;
+import java.util.Vector;
+
 import org.json.*;
 
 public class Database {
     private static Database instance = null;
+    private JSONObject database;
+    File fileIO = new File("~/Documents/MyStudyPlan/database.json");
+    private Vector<TaskInstance> taskList;
+    private Vector<ScheduleInstance> scheduleList;
+    private Vector<ExamInstance> examList;
+
     private Database (String username){
 
     }
