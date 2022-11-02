@@ -36,14 +36,14 @@ public class ColorPicker extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jColorChooser1 = new javax.swing.JColorChooser();
+        ColorChooser1 = new javax.swing.JColorChooser();
         SaveBtn = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Color Picker");
         setUndecorated(true);
 
-        jColorChooser1.setFont(getFont("DINPro-Medium.otf", Font.PLAIN, 12));
+        ColorChooser1.setFont(getFont("DINPro-Medium.otf", Font.PLAIN, 12));
 
         SaveBtn.setBackground(new java.awt.Color(59, 162, 191));
         SaveBtn.setFont(getFont("DINPro-Medium.otf", Font.PLAIN, 14));
@@ -59,16 +59,16 @@ public class ColorPicker extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jColorChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, 640, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(ColorChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, 640, javax.swing.GroupLayout.PREFERRED_SIZE)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(SaveBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(527, 527, 527)
+                .addComponent(SaveBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGap(38, 38, 38))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jColorChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, 322, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(ColorChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, 322, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(SaveBtn)
                 .addContainerGap(21, Short.MAX_VALUE))
@@ -82,14 +82,14 @@ public class ColorPicker extends javax.swing.JFrame {
     }//GEN-LAST:event_SaveBtnActionPerformed
 
     String getHexValue() {
-        Color color = jColorChooser1.getColor();
+        Color color = ColorChooser1.getColor();
         String hex = String.format("#%02x%02x%02x", color.getRed(), color.getGreen(), color.getBlue());
         return hex;
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JColorChooser ColorChooser1;
     private javax.swing.JButton SaveBtn;
-    private javax.swing.JColorChooser jColorChooser1;
     // End of variables declaration//GEN-END:variables
 
     private Font getFont(String fontName, int fontStyle, float fontSize) {
