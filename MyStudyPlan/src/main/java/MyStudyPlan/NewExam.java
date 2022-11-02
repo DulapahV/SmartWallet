@@ -4,8 +4,13 @@
  */
 package MyStudyPlan;
 
+import java.awt.Font;
+import java.awt.FontFormatException;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -61,7 +66,7 @@ public class NewExam extends javax.swing.JFrame {
 
         TopBanner.setBackground(new java.awt.Color(59, 162, 191));
 
-        jLabel1.setFont(new java.awt.Font("DINPro-Medium", 0, 24)); // NOI18N
+        jLabel1.setFont(getFont("DINPro-Medium.otf", Font.PLAIN, 24));
         jLabel1.setText("New Exam");
 
         javax.swing.GroupLayout TopBannerLayout = new javax.swing.GroupLayout(TopBanner);
@@ -81,10 +86,10 @@ public class NewExam extends javax.swing.JFrame {
                 .addGap(18, 18, 18))
         );
 
-        SubjectTxt.setFont(new java.awt.Font("DINPro-Medium", 0, 18)); // NOI18N
+        SubjectTxt.setFont(getFont("DINPro-Medium.otf", Font.PLAIN, 18));
         SubjectTxt.setText("Subject");
 
-        SubjectComboBox.setFont(new java.awt.Font("DINPro-Medium", 0, 14)); // NOI18N
+        SubjectComboBox.setFont(getFont("DINPro-Medium.otf", Font.PLAIN, 14));
         SubjectComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         SubjectAddBtn.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
@@ -96,48 +101,48 @@ public class NewExam extends javax.swing.JFrame {
             }
         });
 
-        DateTxt.setFont(new java.awt.Font("DINPro-Medium", 0, 18)); // NOI18N
+        DateTxt.setFont(getFont("DINPro-Medium.otf", Font.PLAIN, 18));
         DateTxt.setText("Date");
 
-        DateDatePicker.setFont(new java.awt.Font("DINPro-Medium", 0, 14)); // NOI18N
+        DateDatePicker.setFont(getFont("DINPro-Medium.otf", Font.PLAIN, 14));
 
-        BuildingRoomTxt.setFont(new java.awt.Font("DINPro-Medium", 0, 18)); // NOI18N
+        BuildingRoomTxt.setFont(getFont("DINPro-Medium.otf", Font.PLAIN, 18));
         BuildingRoomTxt.setText("Building/Room");
 
-        BuildingRoomTxtField.setFont(new java.awt.Font("DINPro-Medium", 0, 14)); // NOI18N
+        BuildingRoomTxtField.setFont(getFont("DINPro-Medium.otf", Font.PLAIN, 14));
 
-        SeatTxt.setFont(new java.awt.Font("DINPro-Medium", 0, 18)); // NOI18N
+        SeatTxt.setFont(getFont("DINPro-Medium.otf", Font.PLAIN, 18));
         SeatTxt.setText("Seat");
 
-        SeatTxtField.setFont(new java.awt.Font("DINPro-Medium", 0, 14)); // NOI18N
+        SeatTxtField.setFont(getFont("DINPro-Medium.otf", Font.PLAIN, 14));
 
-        TimeTxt.setFont(new java.awt.Font("DINPro-Medium", 0, 18)); // NOI18N
+        TimeTxt.setFont(getFont("DINPro-Medium.otf", Font.PLAIN, 18));
         TimeTxt.setText("Time");
 
-        HourSpinner.setFont(new java.awt.Font("DINPro-Medium", 0, 14)); // NOI18N
+        HourSpinner.setFont(getFont("DINPro-Medium.otf", Font.PLAIN, 14));
 
-        MinuteSpinner.setFont(new java.awt.Font("DINPro-Medium", 0, 14)); // NOI18N
+        MinuteSpinner.setFont(getFont("DINPro-Medium.otf", Font.PLAIN, 14));
 
-        AMPMComboBox.setFont(new java.awt.Font("DINPro-Medium", 0, 14)); // NOI18N
+        AMPMComboBox.setFont(getFont("DINPro-Medium.otf", Font.PLAIN, 14));
         AMPMComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "AM", "PM" }));
 
-        DurationTxt.setFont(new java.awt.Font("DINPro-Medium", 0, 18)); // NOI18N
+        DurationTxt.setFont(getFont("DINPro-Medium.otf", Font.PLAIN, 18));
         DurationTxt.setText("Duration");
 
-        DurationSpinner.setFont(new java.awt.Font("DINPro-Medium", 0, 14)); // NOI18N
+        DurationSpinner.setFont(getFont("DINPro-Medium.otf", Font.PLAIN, 14));
 
-        DurationInfoTxt.setFont(new java.awt.Font("DINPro-Light", 0, 16)); // NOI18N
+        DurationInfoTxt.setFont(getFont("DINPro-Light.otf", Font.PLAIN, 16));
         DurationInfoTxt.setText("minutes (ending at unknown)");
 
-        DetailTxt.setFont(new java.awt.Font("DINPro-Medium", 0, 18)); // NOI18N
+        DetailTxt.setFont(getFont("DINPro-Medium.otf", Font.PLAIN, 18));
         DetailTxt.setText("Detail");
 
         DetailTxtArea.setColumns(20);
-        DetailTxtArea.setFont(new java.awt.Font("DINPro-Medium", 0, 14)); // NOI18N
+        DetailTxtArea.setFont(getFont("DINPro-Medium.otf", Font.PLAIN, 14));
         DetailTxtArea.setRows(5);
         DetailScrollPane.setViewportView(DetailTxtArea);
 
-        CancelBtn.setFont(new java.awt.Font("DINPro-Medium", 0, 14)); // NOI18N
+        CancelBtn.setFont(getFont("DINPro-Medium.otf", Font.PLAIN, 14));
         CancelBtn.setText("Cancel");
         CancelBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         CancelBtn.addActionListener(new java.awt.event.ActionListener() {
@@ -147,7 +152,7 @@ public class NewExam extends javax.swing.JFrame {
         });
 
         SaveBtn.setBackground(new java.awt.Color(59, 162, 191));
-        SaveBtn.setFont(new java.awt.Font("DINPro-Medium", 0, 14)); // NOI18N
+        SaveBtn.setFont(getFont("DINPro-Medium.otf", Font.PLAIN, 14));
         SaveBtn.setText("Save");
         SaveBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
@@ -297,4 +302,15 @@ public class NewExam extends javax.swing.JFrame {
     private javax.swing.JPanel TopBanner;
     private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
+
+    private Font getFont(String fontName, int fontStyle, float fontSize) {
+        Font font = null;
+        try {
+            font = Font.createFont(Font.TRUETYPE_FONT, getClass().getResourceAsStream("/font/" + fontName)).deriveFont(fontStyle, fontSize);
+            font = font.deriveFont(fontSize);
+        } catch (FontFormatException | IOException ex) {
+            Logger.getLogger(Overview.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return font;
+    }
 }

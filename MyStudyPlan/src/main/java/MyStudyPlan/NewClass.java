@@ -4,8 +4,13 @@
  */
 package MyStudyPlan;
 
+import java.awt.Font;
+import java.awt.FontFormatException;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -57,7 +62,7 @@ public class NewClass extends javax.swing.JFrame {
 
         TopBanner.setBackground(new java.awt.Color(59, 162, 191));
 
-        jLabel1.setFont(new java.awt.Font("DINPro-Medium", 0, 24)); // NOI18N
+        jLabel1.setFont(getFont("DINPro-Medium.otf", Font.PLAIN, 24));
         jLabel1.setText("New Class");
 
         javax.swing.GroupLayout TopBannerLayout = new javax.swing.GroupLayout(TopBanner);
@@ -77,10 +82,10 @@ public class NewClass extends javax.swing.JFrame {
                 .addGap(18, 18, 18))
         );
 
-        SubjectTxt.setFont(new java.awt.Font("DINPro-Medium", 0, 18)); // NOI18N
+        SubjectTxt.setFont(getFont("DINPro-Medium.otf", Font.PLAIN, 18));
         SubjectTxt.setText("Subject");
 
-        SubjectComboBox.setFont(new java.awt.Font("DINPro-Medium", 0, 14)); // NOI18N
+        SubjectComboBox.setFont(getFont("DINPro-Medium.otf", Font.PLAIN, 14));
         SubjectComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         SubjectAddBtn.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
@@ -92,50 +97,50 @@ public class NewClass extends javax.swing.JFrame {
             }
         });
 
-        SectorTxt.setFont(new java.awt.Font("DINPro-Medium", 0, 18)); // NOI18N
+        SectorTxt.setFont(getFont("DINPro-Medium.otf", Font.PLAIN, 18));
         SectorTxt.setText("Sector");
 
-        SectorTxtField.setFont(new java.awt.Font("DINPro-Medium", 0, 14)); // NOI18N
+        SectorTxtField.setFont(getFont("DINPro-Medium.otf", Font.PLAIN, 14));
         SectorTxtField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 SectorTxtFieldActionPerformed(evt);
             }
         });
 
-        RoomTxt.setFont(new java.awt.Font("DINPro-Medium", 0, 18)); // NOI18N
+        RoomTxt.setFont(getFont("DINPro-Medium.otf", Font.PLAIN, 18));
         RoomTxt.setText("Room");
 
-        RoomTxtField.setFont(new java.awt.Font("DINPro-Medium", 0, 14)); // NOI18N
+        RoomTxtField.setFont(getFont("DINPro-Medium.otf", Font.PLAIN, 14));
         RoomTxtField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 RoomTxtFieldActionPerformed(evt);
             }
         });
 
-        BuildingTxt.setFont(new java.awt.Font("DINPro-Medium", 0, 18)); // NOI18N
+        BuildingTxt.setFont(getFont("DINPro-Medium.otf", Font.PLAIN, 18));
         BuildingTxt.setText("Building");
 
-        BuildingTxtField.setFont(new java.awt.Font("DINPro-Medium", 0, 14)); // NOI18N
+        BuildingTxtField.setFont(getFont("DINPro-Medium.otf", Font.PLAIN, 14));
         BuildingTxtField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BuildingTxtFieldActionPerformed(evt);
             }
         });
 
-        TeacherTxt.setFont(new java.awt.Font("DINPro-Medium", 0, 18)); // NOI18N
+        TeacherTxt.setFont(getFont("DINPro-Medium.otf", Font.PLAIN, 18));
         TeacherTxt.setText("Teacher");
 
-        TeacherTxtField.setFont(new java.awt.Font("DINPro-Medium", 0, 14)); // NOI18N
+        TeacherTxtField.setFont(getFont("DINPro-Medium.otf", Font.PLAIN, 14));
 
-        DetailTxt.setFont(new java.awt.Font("DINPro-Medium", 0, 18)); // NOI18N
+        DetailTxt.setFont(getFont("DINPro-Medium.otf", Font.PLAIN, 18));
         DetailTxt.setText("Detail");
 
         DetailTxtArea.setColumns(20);
-        DetailTxtArea.setFont(new java.awt.Font("DINPro-Medium", 0, 14)); // NOI18N
+        DetailTxtArea.setFont(getFont("DINPro-Medium.otf", Font.PLAIN, 14));
         DetailTxtArea.setRows(5);
         DetailScrollPane.setViewportView(DetailTxtArea);
 
-        CancelBtn.setFont(new java.awt.Font("DINPro-Medium", 0, 14)); // NOI18N
+        CancelBtn.setFont(getFont("DINPro-Medium.otf", Font.PLAIN, 14));
         CancelBtn.setText("Cancel");
         CancelBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         CancelBtn.addActionListener(new java.awt.event.ActionListener() {
@@ -145,7 +150,7 @@ public class NewClass extends javax.swing.JFrame {
         });
 
         SaveBtn.setBackground(new java.awt.Color(59, 162, 191));
-        SaveBtn.setFont(new java.awt.Font("DINPro-Medium", 0, 14)); // NOI18N
+        SaveBtn.setFont(getFont("DINPro-Medium.otf", Font.PLAIN, 14));
         SaveBtn.setText("Save");
         SaveBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
@@ -278,4 +283,15 @@ public class NewClass extends javax.swing.JFrame {
     private javax.swing.JPanel TopBanner;
     private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
+
+    private Font getFont(String fontName, int fontStyle, float fontSize) {
+        Font font = null;
+        try {
+            font = Font.createFont(Font.TRUETYPE_FONT, getClass().getResourceAsStream("/font/" + fontName)).deriveFont(fontStyle, fontSize);
+            font = font.deriveFont(fontSize);
+        } catch (FontFormatException | IOException ex) {
+            Logger.getLogger(Overview.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return font;
+    }
 }

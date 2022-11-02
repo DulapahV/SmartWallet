@@ -5,9 +5,14 @@
 package MyStudyPlan;
 
 import java.awt.Color;
+import java.awt.Font;
+import java.awt.FontFormatException;
 import java.awt.event.KeyEvent;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.BorderFactory;
 
 /**
@@ -59,7 +64,7 @@ public class ManageSubjects extends javax.swing.JFrame {
 
         TopBanner.setBackground(new java.awt.Color(59, 162, 191));
 
-        jLabel1.setFont(new java.awt.Font("DINPro-Medium", 0, 24)); // NOI18N
+        jLabel1.setFont(getFont("DINPro-Medium.otf", Font.PLAIN, 24));
         jLabel1.setText("Manage Subjects");
 
         javax.swing.GroupLayout TopBannerLayout = new javax.swing.GroupLayout(TopBanner);
@@ -79,20 +84,20 @@ public class ManageSubjects extends javax.swing.JFrame {
                 .addGap(18, 18, 18))
         );
 
-        CodeTxt.setFont(new java.awt.Font("DINPro-Medium", 0, 18)); // NOI18N
+        CodeTxt.setFont(getFont("DINPro-Medium.otf", Font.PLAIN, 18));
         CodeTxt.setText("Code");
 
-        CodeTxtField.setFont(new java.awt.Font("DINPro-Medium", 0, 14)); // NOI18N
+        CodeTxtField.setFont(getFont("DINPro-Medium.otf", Font.PLAIN, 14));
 
-        SubjectTxt.setFont(new java.awt.Font("DINPro-Medium", 0, 18)); // NOI18N
+        SubjectTxt.setFont(getFont("DINPro-Medium.otf", Font.PLAIN, 18));
         SubjectTxt.setText("Subject");
 
-        SubjectTxtField.setFont(new java.awt.Font("DINPro-Medium", 0, 14)); // NOI18N
+        SubjectTxtField.setFont(getFont("DINPro-Medium.otf", Font.PLAIN, 14));
 
-        ColorTxt.setFont(new java.awt.Font("DINPro-Medium", 0, 18)); // NOI18N
+        ColorTxt.setFont(getFont("DINPro-Medium.otf", Font.PLAIN, 18));
         ColorTxt.setText("Color");
 
-        ColorTxtField.setFont(new java.awt.Font("DINPro-Medium", 0, 14)); // NOI18N
+        ColorTxtField.setFont(getFont("DINPro-Medium.otf", Font.PLAIN, 14));
         ColorTxtField.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusLost(java.awt.event.FocusEvent evt) {
                 ColorTxtFieldFocusLost(evt);
@@ -133,15 +138,15 @@ public class ManageSubjects extends javax.swing.JFrame {
             }
         });
 
-        SearchPanel.setFont(new java.awt.Font("DINPro-Medium", 0, 14)); // NOI18N
+        SearchPanel.setFont(getFont("DINPro-Medium.otf", Font.PLAIN, 12));
 
         SearchBtn.setBackground(new java.awt.Color(86, 96, 118));
-        SearchBtn.setFont(new java.awt.Font("DINPro-Medium", 0, 12)); // NOI18N
+        SearchBtn.setFont(getFont("DINPro-Medium.otf", Font.PLAIN, 12));
         SearchBtn.setText("Search");
         SearchBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         SearchBtn.setMargin(new java.awt.Insets(3, 8, 3, 8));
 
-        SubjectsTable.setFont(new java.awt.Font("DINPro-Medium", 0, 14)); // NOI18N
+        SubjectsTable.setFont(getFont("DINPro-Medium.otf", Font.PLAIN, 14));
         SubjectsTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -167,7 +172,7 @@ public class ManageSubjects extends javax.swing.JFrame {
             SubjectsTable.getColumnModel().getColumn(1).setPreferredWidth(450);
         }
 
-        CancelBtn.setFont(new java.awt.Font("DINPro-Medium", 0, 14)); // NOI18N
+        CancelBtn.setFont(getFont("DINPro-Medium.otf", Font.PLAIN, 14));
         CancelBtn.setText("Cancel");
         CancelBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         CancelBtn.addActionListener(new java.awt.event.ActionListener() {
@@ -177,7 +182,7 @@ public class ManageSubjects extends javax.swing.JFrame {
         });
 
         SaveBtn.setBackground(new java.awt.Color(59, 162, 191));
-        SaveBtn.setFont(new java.awt.Font("DINPro-Medium", 0, 14)); // NOI18N
+        SaveBtn.setFont(getFont("DINPro-Medium.otf", Font.PLAIN, 14));
         SaveBtn.setText("Save");
         SaveBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
@@ -222,7 +227,7 @@ public class ManageSubjects extends javax.swing.JFrame {
                                 .addComponent(SearchPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(SearchBtn)
-                                .addGap(0, 149, Short.MAX_VALUE)))))
+                                .addGap(0, 153, Short.MAX_VALUE)))))
                 .addGap(38, 38, 38))
         );
         layout.setVerticalGroup(
@@ -323,4 +328,15 @@ public class ManageSubjects extends javax.swing.JFrame {
     private javax.swing.JPanel TopBanner;
     private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
+
+    private Font getFont(String fontName, int fontStyle, float fontSize) {
+        Font font = null;
+        try {
+            font = Font.createFont(Font.TRUETYPE_FONT, getClass().getResourceAsStream("/font/" + fontName)).deriveFont(fontStyle, fontSize);
+            font = font.deriveFont(fontSize);
+        } catch (FontFormatException | IOException ex) {
+            Logger.getLogger(Overview.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return font;
+    }
 }

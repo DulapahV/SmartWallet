@@ -5,8 +5,13 @@
 package MyStudyPlan;
 
 import com.formdev.flatlaf.intellijthemes.FlatNordIJTheme;
+import java.awt.Font;
+import java.awt.FontFormatException;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 //import com.formdev.flatlaf.intellijthemes.FlatCarbonIJTheme;
 
 /**
@@ -160,28 +165,28 @@ public class Overview extends javax.swing.JFrame {
 
         TopPanel.setBackground(new java.awt.Color(59, 162, 191));
 
-        TodayTxt.setFont(new java.awt.Font("DINPro-Medium", 0, 32)); // NOI18N
+        TodayTxt.setFont(getFont("DINPro-Medium.otf", Font.PLAIN, 32));
         TodayTxt.setText("Today");
 
-        DateTxt.setFont(new java.awt.Font("DINPro-Light", 0, 18)); // NOI18N
+        DateTxt.setFont(getFont("DINPro-Light.otf", Font.PLAIN, 18));
         DateTxt.setText("Wednesday, October 26");
 
-        ScheduleTopTxt.setFont(new java.awt.Font("DINPro-Medium", 0, 28)); // NOI18N
+        ScheduleTopTxt.setFont(getFont("DINPro-Medium.otf", Font.PLAIN, 28));
         ScheduleTopTxt.setText("Schedule");
 
-        ScheduleTopVal.setFont(new java.awt.Font("DINPro-Medium", 0, 28)); // NOI18N
+        ScheduleTopVal.setFont(getFont("DINPro-Medium.otf", Font.PLAIN, 28));
         ScheduleTopVal.setText("0");
 
-        TasksTopTxt.setFont(new java.awt.Font("DINPro-Medium", 0, 28)); // NOI18N
+        TasksTopTxt.setFont(getFont("DINPro-Medium.otf", Font.PLAIN, 28));
         TasksTopTxt.setText("Tasks");
 
-        TasksTopVal.setFont(new java.awt.Font("DINPro-Medium", 0, 28)); // NOI18N
+        TasksTopVal.setFont(getFont("DINPro-Medium.otf", Font.PLAIN, 28));
         TasksTopVal.setText("0");
 
-        ExamsTopTxt.setFont(new java.awt.Font("DINPro-Medium", 0, 28)); // NOI18N
+        ExamsTopTxt.setFont(getFont("DINPro-Medium.otf", Font.PLAIN, 28));
         ExamsTopTxt.setText("Exams");
 
-        ExamsTopVal.setFont(new java.awt.Font("DINPro-Medium", 0, 28)); // NOI18N
+        ExamsTopVal.setFont(getFont("DINPro-Medium.otf", Font.PLAIN, 28));
         ExamsTopVal.setText("0");
 
         javax.swing.GroupLayout TopPanelLayout = new javax.swing.GroupLayout(TopPanel);
@@ -193,7 +198,7 @@ public class Overview extends javax.swing.JFrame {
                 .addGroup(TopPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(DateTxt, javax.swing.GroupLayout.DEFAULT_SIZE, 205, Short.MAX_VALUE)
                     .addComponent(TodayTxt, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 267, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(ScheduleTopTxt)
                 .addGap(18, 18, 18)
                 .addComponent(ScheduleTopVal)
@@ -224,18 +229,18 @@ public class Overview extends javax.swing.JFrame {
                     .addComponent(TasksTopVal)
                     .addComponent(ExamsTopTxt)
                     .addComponent(ExamsTopVal))
-                .addGap(35, 35, 35))
+                .addGap(34, 34, 34))
         );
 
         Separator1.setOrientation(javax.swing.SwingConstants.VERTICAL);
 
         Separator2.setOrientation(javax.swing.SwingConstants.VERTICAL);
 
-        ScheduleTxt.setFont(new java.awt.Font("DINPro-Medium", 0, 24)); // NOI18N
+        ScheduleTxt.setFont(getFont("DINPro-Medium.otf", Font.PLAIN, 24));
         ScheduleTxt.setText("Schedule");
 
         NewClassBtn.setBackground(new java.awt.Color(59, 162, 191));
-        NewClassBtn.setFont(new java.awt.Font("DINPro-Medium", 0, 12)); // NOI18N
+        NewClassBtn.setFont(getFont("DINPro-Medium.otf", Font.PLAIN, 12));
         NewClassBtn.setText("+ New Class");
         NewClassBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         NewClassBtn.setMargin(new java.awt.Insets(3, 8, 3, 8));
@@ -245,7 +250,7 @@ public class Overview extends javax.swing.JFrame {
             }
         });
 
-        ScheduleTable.setFont(new java.awt.Font("DINPro-Medium", 0, 14)); // NOI18N
+        ScheduleTable.setFont(getFont("DINPro-Medium.otf", Font.PLAIN, 14));
         ScheduleTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null}
@@ -270,11 +275,11 @@ public class Overview extends javax.swing.JFrame {
             ScheduleTable.getColumnModel().getColumn(1).setPreferredWidth(150);
         }
 
-        TasksTxt.setFont(new java.awt.Font("DINPro-Medium", 0, 24)); // NOI18N
+        TasksTxt.setFont(getFont("DINPro-Medium.otf", Font.PLAIN, 24));
         TasksTxt.setText("Tasks");
 
         NewTaskBtn.setBackground(new java.awt.Color(59, 162, 191));
-        NewTaskBtn.setFont(new java.awt.Font("DINPro-Medium", 0, 12)); // NOI18N
+        NewTaskBtn.setFont(getFont("DINPro-Medium.otf", Font.PLAIN, 12));
         NewTaskBtn.setText("+ New Task");
         NewTaskBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         NewTaskBtn.setMargin(new java.awt.Insets(3, 8, 3, 8));
@@ -291,7 +296,7 @@ public class Overview extends javax.swing.JFrame {
         TasksPaneContainer.setLayout(verticalLayout2);
 
         AssignmentTasksPane.setBackground(new java.awt.Color(46, 52, 64));
-        AssignmentTasksPane.setFont(new java.awt.Font("DINPro-Medium", 0, 14)); // NOI18N
+        AssignmentTasksPane.setFont(getFont("DINPro-Medium.otf", Font.PLAIN, 14));
         AssignmentTasksPane.setSpecial(true);
         AssignmentTasksPane.setTitle("Assignment (0)");
         TasksPaneContainer.add(AssignmentTasksPane);
@@ -306,11 +311,11 @@ public class Overview extends javax.swing.JFrame {
         RevisionTasksPane.setTitle("Revision (0)");
         TasksPaneContainer.add(RevisionTasksPane);
 
-        ExamsTxt.setFont(new java.awt.Font("DINPro-Medium", 0, 24)); // NOI18N
+        ExamsTxt.setFont(getFont("DINPro-Medium.otf", Font.PLAIN, 24));
         ExamsTxt.setText("Exams");
 
         NewExamBtn.setBackground(new java.awt.Color(59, 162, 191));
-        NewExamBtn.setFont(new java.awt.Font("DINPro-Medium", 0, 12)); // NOI18N
+        NewExamBtn.setFont(getFont("DINPro-Medium.otf", Font.PLAIN, 12));
         NewExamBtn.setText("+ New Exam");
         NewExamBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         NewExamBtn.setMargin(new java.awt.Insets(3, 8, 3, 8));
@@ -320,7 +325,7 @@ public class Overview extends javax.swing.JFrame {
             }
         });
 
-        ExamsTable.setFont(new java.awt.Font("DINPro-Medium", 0, 14)); // NOI18N
+        ExamsTable.setFont(getFont("DINPro-Medium.otf", Font.PLAIN, 14));
         ExamsTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -358,7 +363,7 @@ public class Overview extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(ScheduleTxt)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 142, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 144, Short.MAX_VALUE)
                                 .addComponent(NewClassBtn))
                             .addComponent(SchedulePane, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -376,7 +381,7 @@ public class Overview extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(ExamsTxt)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 165, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 163, Short.MAX_VALUE)
                                 .addComponent(NewExamBtn))
                             .addComponent(ExamsPane, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
                         .addContainerGap())))
@@ -403,7 +408,7 @@ public class Overview extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(TasksPaneContainer, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(SchedulePane, javax.swing.GroupLayout.DEFAULT_SIZE, 478, Short.MAX_VALUE)
+                                    .addComponent(SchedulePane, javax.swing.GroupLayout.DEFAULT_SIZE, 486, Short.MAX_VALUE)
                                     .addComponent(ExamsPane)))
                             .addComponent(Separator2)))))
         );
@@ -559,4 +564,15 @@ public class Overview extends javax.swing.JFrame {
     private javax.swing.JLabel TodayTxt;
     private javax.swing.JPanel TopPanel;
     // End of variables declaration//GEN-END:variables
+
+    private Font getFont(String fontName, int fontStyle, float fontSize) {
+        Font font = null;
+        try {
+            font = Font.createFont(Font.TRUETYPE_FONT, getClass().getResourceAsStream("/font/" + fontName)).deriveFont(fontStyle, fontSize);
+            font = font.deriveFont(fontSize);
+        } catch (FontFormatException | IOException ex) {
+            Logger.getLogger(Overview.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return font;
+    }
 }

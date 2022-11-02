@@ -5,6 +5,11 @@
 package MyStudyPlan;
 
 import com.formdev.flatlaf.intellijthemes.FlatNordIJTheme;
+import java.awt.Font;
+import java.awt.FontFormatException;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 //import com.formdev.flatlaf.intellijthemes.FlatCarbonIJTheme;
 
 /**
@@ -151,7 +156,7 @@ public class Calendar extends javax.swing.JFrame {
 
         TopPanel.setBackground(new java.awt.Color(59, 162, 191));
 
-        TodayTxt.setFont(new java.awt.Font("DINPro-Medium", 0, 32)); // NOI18N
+        TodayTxt.setFont(getFont("DINPro-Medium.otf", Font.PLAIN, 32));
         TodayTxt.setText("Calendar");
 
         javax.swing.GroupLayout TopPanelLayout = new javax.swing.GroupLayout(TopPanel);
@@ -171,28 +176,28 @@ public class Calendar extends javax.swing.JFrame {
                 .addContainerGap(33, Short.MAX_VALUE))
         );
 
-        DateTxt.setFont(new java.awt.Font("DINPro-Medium", 0, 14)); // NOI18N
+        DateTxt.setFont(getFont("DINPro-Medium.otf", Font.PLAIN, 14));
         DateTxt.setText("Date");
 
-        DatePicker.setFont(new java.awt.Font("DINPro-Medium", 0, 12)); // NOI18N
+        DatePicker.setFont(getFont("DINPro-Medium.otf", Font.PLAIN, 12));
 
         TodayBtn.setBackground(new java.awt.Color(86, 96, 118));
-        TodayBtn.setFont(new java.awt.Font("DINPro-Medium", 0, 12)); // NOI18N
+        TodayBtn.setFont(getFont("DINPro-Medium.otf", Font.PLAIN, 12));
         TodayBtn.setText("Today");
         TodayBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         TodayBtn.setMargin(new java.awt.Insets(3, 8, 3, 8));
 
-        SearchPane.setFont(new java.awt.Font("DINPro-Medium", 0, 14)); // NOI18N
+        SearchPane.setFont(getFont("DINPro-Medium.otf", Font.PLAIN, 12));
 
         SearchBtn.setBackground(new java.awt.Color(86, 96, 118));
-        SearchBtn.setFont(new java.awt.Font("DINPro-Medium", 0, 12)); // NOI18N
+        SearchBtn.setFont(getFont("DINPro-Medium.otf", Font.PLAIN, 12));
         SearchBtn.setText("Search");
         SearchBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         SearchBtn.setMargin(new java.awt.Insets(3, 8, 3, 8));
 
         Calendar.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(59, 65, 83), 1, true));
         Calendar.setDaysOfTheWeekForeground(new java.awt.Color(59, 162, 191));
-        Calendar.setFont(new java.awt.Font("DINPro-Medium", 0, 20)); // NOI18N
+        Calendar.setFont(getFont("DINPro-Medium.otf", Font.PLAIN, 20));
         Calendar.setMonthStringBackground(new java.awt.Color(59, 162, 191));
         Calendar.setPreferredSize(new java.awt.Dimension(289, 222));
         Calendar.setTraversable(true);
@@ -202,9 +207,9 @@ public class Calendar extends javax.swing.JFrame {
             }
         });
 
-        SchedulePane.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Schedule", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("DINPro-Medium", 0, 18))); // NOI18N
+        SchedulePane.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Schedule", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, getFont("DINPro-Medium.otf", Font.PLAIN, 18)));
 
-        ScheduleTable.setFont(new java.awt.Font("DINPro-Medium", 0, 14)); // NOI18N
+        ScheduleTable.setFont(getFont("DINPro-Medium.otf", Font.PLAIN, 14));
         ScheduleTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -230,30 +235,30 @@ public class Calendar extends javax.swing.JFrame {
         }
 
         TasksPaneContainer.setBackground(new java.awt.Color(46, 52, 64));
-        TasksPaneContainer.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Tasks", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("DINPro-Medium", 0, 18))); // NOI18N
+        TasksPaneContainer.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Tasks", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, getFont("DINPro-Medium.otf", Font.PLAIN, 18)));
         org.jdesktop.swingx.VerticalLayout verticalLayout2 = new org.jdesktop.swingx.VerticalLayout();
         verticalLayout2.setGap(14);
         TasksPaneContainer.setLayout(verticalLayout2);
 
         AssignmentTasksPane.setBackground(new java.awt.Color(46, 52, 64));
-        AssignmentTasksPane.setFont(new java.awt.Font("DINPro-Medium", 0, 14)); // NOI18N
+        AssignmentTasksPane.setFont(getFont("DINPro-Medium.otf", Font.PLAIN, 14));
         AssignmentTasksPane.setSpecial(true);
         AssignmentTasksPane.setTitle("Assignment (0)");
         TasksPaneContainer.add(AssignmentTasksPane);
 
-        ReminderTasksPane.setFont(new java.awt.Font("DINPro-Medium", 0, 14)); // NOI18N
+        ReminderTasksPane.setFont(getFont("DINPro-Medium.otf", Font.PLAIN, 14));
         ReminderTasksPane.setSpecial(true);
         ReminderTasksPane.setTitle("Reminder (0)");
         TasksPaneContainer.add(ReminderTasksPane);
 
-        RevisionTasksPane.setFont(new java.awt.Font("DINPro-Medium", 0, 14)); // NOI18N
+        RevisionTasksPane.setFont(getFont("DINPro-Medium.otf", Font.PLAIN, 14));
         RevisionTasksPane.setSpecial(true);
         RevisionTasksPane.setTitle("Revision (0)");
         TasksPaneContainer.add(RevisionTasksPane);
 
-        ExamsPane.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Exams", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("DINPro-Medium", 0, 18))); // NOI18N
+        ExamsPane.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Schedule", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, getFont("DINPro-Medium.otf", Font.PLAIN, 18)));
 
-        ExamsTable.setFont(new java.awt.Font("DINPro-Medium", 0, 14)); // NOI18N
+        ExamsTable.setFont(getFont("DINPro-Medium.otf", Font.PLAIN, 14));
         ExamsTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -434,4 +439,15 @@ public class Calendar extends javax.swing.JFrame {
     private javax.swing.JLabel TodayTxt;
     private javax.swing.JPanel TopPanel;
     // End of variables declaration//GEN-END:variables
+
+    private Font getFont(String fontName, int fontStyle, float fontSize) {
+        Font font = null;
+        try {
+            font = Font.createFont(Font.TRUETYPE_FONT, getClass().getResourceAsStream("/font/" + fontName)).deriveFont(fontStyle, fontSize);
+            font = font.deriveFont(fontSize);
+        } catch (FontFormatException | IOException ex) {
+            Logger.getLogger(Overview.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return font;
+    }
 }

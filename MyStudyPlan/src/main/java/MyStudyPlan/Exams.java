@@ -5,8 +5,13 @@
 package MyStudyPlan;
 
 import com.formdev.flatlaf.intellijthemes.FlatNordIJTheme;
+import java.awt.Font;
+import java.awt.FontFormatException;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 //import com.formdev.flatlaf.intellijthemes.FlatCarbonIJTheme;
 
 /**
@@ -140,7 +145,7 @@ public class Exams extends javax.swing.JFrame {
 
         TopPanel.setBackground(new java.awt.Color(59, 162, 191));
 
-        TodayTxt.setFont(new java.awt.Font("DINPro-Medium", 0, 32)); // NOI18N
+        TodayTxt.setFont(getFont("DINPro-Medium.otf", Font.PLAIN, 32));
         TodayTxt.setText("Exams");
 
         javax.swing.GroupLayout TopPanelLayout = new javax.swing.GroupLayout(TopPanel);
@@ -160,16 +165,16 @@ public class Exams extends javax.swing.JFrame {
                 .addContainerGap(33, Short.MAX_VALUE))
         );
 
-        SearchPane.setFont(new java.awt.Font("DINPro-Medium", 0, 14)); // NOI18N
+        SearchPane.setFont(getFont("DINPro-Medium.otf", Font.PLAIN, 12));
 
         SearchBtn.setBackground(new java.awt.Color(86, 96, 118));
-        SearchBtn.setFont(new java.awt.Font("DINPro-Medium", 0, 12)); // NOI18N
+        SearchBtn.setFont(getFont("DINPro-Medium.otf", Font.PLAIN, 12));
         SearchBtn.setText("Search");
         SearchBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         SearchBtn.setMargin(new java.awt.Insets(3, 8, 3, 8));
 
         NewExamBtn.setBackground(new java.awt.Color(59, 162, 191));
-        NewExamBtn.setFont(new java.awt.Font("DINPro-Medium", 0, 12)); // NOI18N
+        NewExamBtn.setFont(getFont("DINPro-Medium.otf", Font.PLAIN, 12));
         NewExamBtn.setText("+ New Exam");
         NewExamBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         NewExamBtn.setMargin(new java.awt.Insets(3, 8, 3, 8));
@@ -179,7 +184,7 @@ public class Exams extends javax.swing.JFrame {
             }
         });
 
-        ScheduleTable.setFont(new java.awt.Font("DINPro-Medium", 0, 14)); // NOI18N
+        ScheduleTable.setFont(getFont("DINPro-Medium.otf", Font.PLAIN, 14));
         ScheduleTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -239,7 +244,7 @@ public class Exams extends javax.swing.JFrame {
                             .addComponent(SearchBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(NewExamBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(SchedulePane, javax.swing.GroupLayout.DEFAULT_SIZE, 478, Short.MAX_VALUE))))
+                        .addComponent(SchedulePane, javax.swing.GroupLayout.DEFAULT_SIZE, 504, Short.MAX_VALUE))))
         );
 
         pack();
@@ -327,4 +332,15 @@ public class Exams extends javax.swing.JFrame {
     private javax.swing.JLabel TodayTxt;
     private javax.swing.JPanel TopPanel;
     // End of variables declaration//GEN-END:variables
+
+    private Font getFont(String fontName, int fontStyle, float fontSize) {
+        Font font = null;
+        try {
+            font = Font.createFont(Font.TRUETYPE_FONT, getClass().getResourceAsStream("/font/" + fontName)).deriveFont(fontStyle, fontSize);
+            font = font.deriveFont(fontSize);
+        } catch (FontFormatException | IOException ex) {
+            Logger.getLogger(Overview.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return font;
+    }
 }

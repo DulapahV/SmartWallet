@@ -5,6 +5,11 @@
 package MyStudyPlan;
 
 import java.awt.Color;
+import java.awt.Font;
+import java.awt.FontFormatException;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -38,8 +43,10 @@ public class ColorPicker extends javax.swing.JFrame {
         setTitle("Color Picker");
         setUndecorated(true);
 
+        jColorChooser1.setFont(getFont("DINPro-Medium.otf", Font.PLAIN, 12));
+
         SaveBtn.setBackground(new java.awt.Color(59, 162, 191));
-        SaveBtn.setFont(new java.awt.Font("DINPro-Medium", 0, 14)); // NOI18N
+        SaveBtn.setFont(getFont("DINPro-Medium.otf", Font.PLAIN, 14));
         SaveBtn.setText("OK");
         SaveBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         SaveBtn.addActionListener(new java.awt.event.ActionListener() {
@@ -64,7 +71,7 @@ public class ColorPicker extends javax.swing.JFrame {
                 .addComponent(jColorChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, 322, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(SaveBtn)
-                .addContainerGap(18, Short.MAX_VALUE))
+                .addContainerGap(21, Short.MAX_VALUE))
         );
 
         pack();
@@ -84,4 +91,15 @@ public class ColorPicker extends javax.swing.JFrame {
     private javax.swing.JButton SaveBtn;
     private javax.swing.JColorChooser jColorChooser1;
     // End of variables declaration//GEN-END:variables
+
+    private Font getFont(String fontName, int fontStyle, float fontSize) {
+        Font font = null;
+        try {
+            font = Font.createFont(Font.TRUETYPE_FONT, getClass().getResourceAsStream("/font/" + fontName)).deriveFont(fontStyle, fontSize);
+            font = font.deriveFont(fontSize);
+        } catch (FontFormatException | IOException ex) {
+            Logger.getLogger(Overview.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return font;
+    }
 }
