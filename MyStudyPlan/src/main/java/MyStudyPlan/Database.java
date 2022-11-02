@@ -3,7 +3,7 @@
 
 package MyStudyPlan;
 
-import org.json
+import org.json.*;
 
 public class Database {
     private static Database instance = null;
