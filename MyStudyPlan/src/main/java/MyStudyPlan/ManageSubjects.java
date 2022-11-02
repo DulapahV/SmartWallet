@@ -23,7 +23,7 @@ public class ManageSubjects extends javax.swing.JFrame {
     public ManageSubjects() {
         initComponents();
 
-        setIconImage(new javax.swing.ImageIcon(getClass().getResource("/icon.png")).getImage());
+        setIconImage(new javax.swing.ImageIcon(getClass().getResource("/img/icon.png")).getImage());
     }
 
     /**

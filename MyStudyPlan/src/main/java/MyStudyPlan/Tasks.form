@@ -133,7 +133,7 @@
               <Border info="null"/>
             </Property>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/overview.png"/>
+              <Image iconType="3" name="/img/overview.png"/>
             </Property>
           </Properties>
           <Events>
@@ -149,7 +149,7 @@
               <Border info="null"/>
             </Property>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/calendar.png"/>
+              <Image iconType="3" name="/img/calendar.png"/>
             </Property>
           </Properties>
           <Events>
@@ -165,7 +165,7 @@
               <Border info="null"/>
             </Property>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/tasks.png"/>
+              <Image iconType="3" name="/img/tasks.png"/>
             </Property>
           </Properties>
           <Events>
@@ -181,7 +181,7 @@
               <Border info="null"/>
             </Property>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/exams.png"/>
+              <Image iconType="3" name="/img/exams.png"/>
             </Property>
           </Properties>
           <Events>
@@ -197,7 +197,7 @@
               <Border info="null"/>
             </Property>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/schedule.png"/>
+              <Image iconType="3" name="/img/schedule.png"/>
             </Property>
           </Properties>
           <Events>

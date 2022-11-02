@@ -20,7 +20,7 @@ public class Calendar extends javax.swing.JFrame {
     public Calendar() {
         initComponents();
 
-        setIconImage(new javax.swing.ImageIcon(getClass().getResource("/icon.png")).getImage());
+        setIconImage(new javax.swing.ImageIcon(getClass().getResource("/img/icon.png")).getImage());
         OverviewBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         CalendarBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         TasksBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -76,7 +76,7 @@ public class Calendar extends javax.swing.JFrame {
 
         OverviewBtn.setBackground(new java.awt.Color(30, 33, 41));
         OverviewBtn.setBorder(null);
-        OverviewBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/overview.png"))); // NOI18N
+        OverviewBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/overview.png"))); // NOI18N
         OverviewBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 OverviewBtnActionPerformed(evt);
@@ -85,7 +85,7 @@ public class Calendar extends javax.swing.JFrame {
 
         CalendarBtn.setBackground(new java.awt.Color(30, 33, 41));
         CalendarBtn.setBorder(null);
-        CalendarBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/calendar.png"))); // NOI18N
+        CalendarBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/calendar.png"))); // NOI18N
         CalendarBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 CalendarBtnActionPerformed(evt);
@@ -94,7 +94,7 @@ public class Calendar extends javax.swing.JFrame {
 
         TasksBtn.setBackground(new java.awt.Color(30, 33, 41));
         TasksBtn.setBorder(null);
-        TasksBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/tasks.png"))); // NOI18N
+        TasksBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/tasks.png"))); // NOI18N
         TasksBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 TasksBtnActionPerformed(evt);
@@ -103,7 +103,7 @@ public class Calendar extends javax.swing.JFrame {
 
         ExamsBtn.setBackground(new java.awt.Color(30, 33, 41));
         ExamsBtn.setBorder(null);
-        ExamsBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/exams.png"))); // NOI18N
+        ExamsBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/exams.png"))); // NOI18N
         ExamsBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ExamsBtnActionPerformed(evt);
@@ -112,7 +112,7 @@ public class Calendar extends javax.swing.JFrame {
 
         ScheduleBtn.setBackground(new java.awt.Color(30, 33, 41));
         ScheduleBtn.setBorder(null);
-        ScheduleBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/schedule.png"))); // NOI18N
+        ScheduleBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/schedule.png"))); // NOI18N
         ScheduleBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ScheduleBtnActionPerformed(evt);
@@ -352,45 +352,9 @@ public class Calendar extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void OverviewBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_OverviewBtnActionPerformed
-        Overview overview = new Overview();
-        if (this.getExtendedState() == this.MAXIMIZED_BOTH) {
-            overview.setExtendedState(this.MAXIMIZED_BOTH);
-        } else {
-            overview.setSize(this.getSize());
-            overview.setLocation(this.getLocation());
-        }
-        overview.setVisible(true);
-        this.setVisible(false);
-    }//GEN-LAST:event_OverviewBtnActionPerformed
-
-    private void CalendarBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CalendarBtnActionPerformed
-        // Do nothing
-    }//GEN-LAST:event_CalendarBtnActionPerformed
-
-    private void TasksBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TasksBtnActionPerformed
-        Tasks tasks = new Tasks();
-        if (this.getExtendedState() == this.MAXIMIZED_BOTH) {
-            tasks.setExtendedState(this.MAXIMIZED_BOTH);
-        } else {
-            tasks.setSize(this.getSize());
-            tasks.setLocation(this.getLocation());
-        }
-        tasks.setVisible(true);
-        this.setVisible(false);
-    }//GEN-LAST:event_TasksBtnActionPerformed
-
-    private void ExamsBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ExamsBtnActionPerformed
-        Exams exams = new Exams();
-        if (this.getExtendedState() == this.MAXIMIZED_BOTH) {
-            exams.setExtendedState(this.MAXIMIZED_BOTH);
-        } else {
-            exams.setSize(this.getSize());
-            exams.setLocation(this.getLocation());
-        }
-        exams.setVisible(true);
-        this.setVisible(false);
-    }//GEN-LAST:event_ExamsBtnActionPerformed
+    private void CalendarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CalendarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_CalendarActionPerformed
 
     private void ScheduleBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ScheduleBtnActionPerformed
         Schedule schedule = new Schedule();
@@ -404,9 +368,45 @@ public class Calendar extends javax.swing.JFrame {
         this.setVisible(false);
     }//GEN-LAST:event_ScheduleBtnActionPerformed
 
-    private void CalendarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CalendarActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_CalendarActionPerformed
+    private void ExamsBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ExamsBtnActionPerformed
+        Exams exams = new Exams();
+        if (this.getExtendedState() == this.MAXIMIZED_BOTH) {
+            exams.setExtendedState(this.MAXIMIZED_BOTH);
+        } else {
+            exams.setSize(this.getSize());
+            exams.setLocation(this.getLocation());
+        }
+        exams.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_ExamsBtnActionPerformed
+
+    private void TasksBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TasksBtnActionPerformed
+        Tasks tasks = new Tasks();
+        if (this.getExtendedState() == this.MAXIMIZED_BOTH) {
+            tasks.setExtendedState(this.MAXIMIZED_BOTH);
+        } else {
+            tasks.setSize(this.getSize());
+            tasks.setLocation(this.getLocation());
+        }
+        tasks.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_TasksBtnActionPerformed
+
+    private void CalendarBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CalendarBtnActionPerformed
+        // Do nothing
+    }//GEN-LAST:event_CalendarBtnActionPerformed
+
+    private void OverviewBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_OverviewBtnActionPerformed
+        Overview overview = new Overview();
+        if (this.getExtendedState() == this.MAXIMIZED_BOTH) {
+            overview.setExtendedState(this.MAXIMIZED_BOTH);
+        } else {
+            overview.setSize(this.getSize());
+            overview.setLocation(this.getLocation());
+        }
+        overview.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_OverviewBtnActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private org.jdesktop.swingx.JXTaskPane AssignmentTasksPane;

@@ -18,6 +18,8 @@ public class NewExam extends javax.swing.JFrame {
      */
     public NewExam() {
         initComponents();
+        
+        setIconImage(new javax.swing.ImageIcon(getClass().getResource("/img/icon.png")).getImage());
     }
 
     /**

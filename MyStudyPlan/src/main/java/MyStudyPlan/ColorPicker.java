@@ -19,7 +19,7 @@ public class ColorPicker extends javax.swing.JFrame {
     public ColorPicker() {
         initComponents();
 
-        setIconImage(new javax.swing.ImageIcon(getClass().getResource("/icon.png")).getImage());
+        setIconImage(new javax.swing.ImageIcon(getClass().getResource("/img/icon.png")).getImage());
     }
 
     /**
