@@ -1,18 +1,21 @@
 package MyStudyPlan;
 
-import java.time.LocalDateTime;
+import java.time.LocalDate;
+import java.time.LocalTime;
 
 public class ExamInstance extends AbstractJob {
     private String room;
     private String seat;
-    private LocalDateTime time;
+    private LocalDate date;
+    private LocalTime time;
     private int duration;
     
-    ExamInstance(Subject subject, LocalDateTime time, String room, String seat, int duration, String description){
+    ExamInstance(Subject subject, LocalDate date, LocalTime time, String room, String seat, int duration, String description){
         this.subject = subject;
         this.room = room;
         this.seat = seat;
-        this.time = time; //CONSTRUCT YOUR OWN LOCALDATETIME OR CALL ME FOR HELP
+        this.date = date;
+        this.time = time;
         this.duration = duration;
         this.description = description;
     }
@@ -29,7 +32,11 @@ public class ExamInstance extends AbstractJob {
         return seat;
     }
 
-    public LocalDateTime getTime() {
+    public LocalDate getDate() {
+        return date;
+    }
+
+    public LocalTime getTime() {
         return time;
     }
 
@@ -53,7 +60,11 @@ public class ExamInstance extends AbstractJob {
         this.seat = seat;
     }
 
-    public void setTime(LocalDateTime time) {
+    public void setDate(LocalDate date) {
+        this.date = date;
+    }
+
+    public void setTime(LocalTime time) {
         this.time = time;
     }
 
