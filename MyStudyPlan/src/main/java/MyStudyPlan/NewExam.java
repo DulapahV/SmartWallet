@@ -105,6 +105,11 @@ public class NewExam extends javax.swing.JFrame {
         DateTxt.setText("Date");
 
         DateDatePicker.setFont(getFont("DINPro-Medium.otf", Font.PLAIN, 14));
+        DateDatePicker.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                DateDatePickerActionPerformed(evt);
+            }
+        });
 
         BuildingRoomTxt.setFont(getFont("DINPro-Medium.otf", Font.PLAIN, 18));
         BuildingRoomTxt.setText("Building/Room");
@@ -155,6 +160,11 @@ public class NewExam extends javax.swing.JFrame {
         SaveBtn.setFont(getFont("DINPro-Medium.otf", Font.PLAIN, 14));
         SaveBtn.setText("Save");
         SaveBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        SaveBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SaveBtnActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -276,6 +286,14 @@ public class NewExam extends javax.swing.JFrame {
     private void CancelBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CancelBtnActionPerformed
         this.dispose();
     }//GEN-LAST:event_CancelBtnActionPerformed
+
+    private void SaveBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SaveBtnActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_SaveBtnActionPerformed
+
+    private void DateDatePickerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DateDatePickerActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_DateDatePickerActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> AMPMComboBox;
