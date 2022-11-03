@@ -42,7 +42,7 @@
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" attributes="0">
                               <EmptySpace min="6" pref="6" max="-2" attributes="0"/>
-                              <Component id="SearchPane" max="-2" attributes="0"/>
+                              <Component id="SearchPanel" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="SearchBtn" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="32767" attributes="0"/>
@@ -71,7 +71,7 @@
                       <Component id="TopPanel" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="2" attributes="0">
-                          <Component id="SearchPane" alignment="2" min="-2" max="-2" attributes="0"/>
+                          <Component id="SearchPanel" alignment="2" min="-2" max="-2" attributes="0"/>
                           <Component id="SearchBtn" alignment="2" min="-2" pref="26" max="-2" attributes="0"/>
                           <Component id="ManageSubjectsBtn" alignment="2" min="-2" pref="34" max="-2" attributes="0"/>
                           <Component id="NewClassBtn" alignment="2" min="-2" pref="34" max="-2" attributes="0"/>
@@ -248,7 +248,7 @@
         </Component>
       </SubComponents>
     </Container>
-    <Component class="org.jdesktop.swingx.JXSearchPanel" name="SearchPane">
+    <Component class="org.jdesktop.swingx.JXSearchPanel" name="SearchPanel">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
           <Connection code="getFont(&quot;DINPro-Medium.otf&quot;, Font.PLAIN, 12)" type="code"/>

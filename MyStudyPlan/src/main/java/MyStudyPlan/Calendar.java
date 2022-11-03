@@ -7,8 +7,12 @@ package MyStudyPlan;
 import java.awt.Font;
 import java.awt.FontFormatException;
 import java.io.IOException;
+import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import java.util.regex.Pattern;
+import org.jdesktop.swingx.JXDatePicker;
+import org.jdesktop.swingx.JXSearchPanel;
 
 /**
  *
@@ -53,7 +57,7 @@ public class Calendar extends javax.swing.JFrame {
         DateTxt = new javax.swing.JLabel();
         DatePicker = new org.jdesktop.swingx.JXDatePicker();
         TodayBtn = new javax.swing.JButton();
-        SearchPane = new org.jdesktop.swingx.JXSearchPanel();
+        SearchPanel = new org.jdesktop.swingx.JXSearchPanel();
         SearchBtn = new javax.swing.JButton();
         Calendar = new org.jdesktop.swingx.JXMonthView();
         CalendarScrollPane = new javax.swing.JScrollPane();
@@ -185,7 +189,7 @@ public class Calendar extends javax.swing.JFrame {
         TodayBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         TodayBtn.setMargin(new java.awt.Insets(3, 8, 3, 8));
 
-        SearchPane.setFont(getFont("DINPro-Medium.otf", Font.PLAIN, 12));
+        SearchPanel.setFont(getFont("DINPro-Medium.otf", Font.PLAIN, 12));
 
         SearchBtn.setBackground(new java.awt.Color(86, 96, 118));
         SearchBtn.setFont(getFont("DINPro-Medium.otf", Font.PLAIN, 12));
@@ -325,7 +329,7 @@ public class Calendar extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(TodayBtn)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(SearchPane, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(SearchPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(SearchBtn))
                             .addGroup(layout.createSequentialGroup()
@@ -341,7 +345,7 @@ public class Calendar extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
                     .addComponent(SearchBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(SearchPane, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(SearchPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(TodayBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(DatePicker, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(DateTxt))
@@ -430,7 +434,7 @@ public class Calendar extends javax.swing.JFrame {
     private javax.swing.JScrollPane SchedulePane;
     private javax.swing.JTable ScheduleTable;
     private javax.swing.JButton SearchBtn;
-    private org.jdesktop.swingx.JXSearchPanel SearchPane;
+    private org.jdesktop.swingx.JXSearchPanel SearchPanel;
     private org.jdesktop.swingx.JXButton TasksBtn;
     private org.jdesktop.swingx.JXTaskPaneContainer TasksPaneContainer;
     private javax.swing.JButton TodayBtn;
@@ -443,8 +447,16 @@ public class Calendar extends javax.swing.JFrame {
         try {
             font = Font.createFont(Font.TRUETYPE_FONT, getClass().getResourceAsStream("/font/" + fontName)).deriveFont(fontStyle, fontSize);
         } catch (FontFormatException | IOException ex) {
-            Logger.getLogger(Overview.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Calendar.class.getName()).log(Level.SEVERE, null, ex);
         }
         return font;
+    }
+
+    public Date getDate() {
+        return DatePicker.getDate();
+    }
+
+    public Pattern getSearchPanel() {
+        return SearchPanel.getPattern();
     }
 }

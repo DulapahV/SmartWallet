@@ -9,6 +9,8 @@ import java.awt.FontFormatException;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.io.IOException;
+import java.util.Date;
+import java.time.LocalTime;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -23,7 +25,7 @@ public class NewExam extends javax.swing.JFrame {
      */
     public NewExam() {
         initComponents();
-        
+
         setIconImage(new javax.swing.ImageIcon(getClass().getResource("/img/icon.png")).getImage());
     }
 
@@ -308,8 +310,56 @@ public class NewExam extends javax.swing.JFrame {
         try {
             font = Font.createFont(Font.TRUETYPE_FONT, getClass().getResourceAsStream("/font/" + fontName)).deriveFont(fontStyle, fontSize);
         } catch (FontFormatException | IOException ex) {
-            Logger.getLogger(Overview.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(NewExam.class.getName()).log(Level.SEVERE, null, ex);
         }
         return font;
+    }
+
+    public String getAMPM() {
+        return AMPMComboBox.getSelectedItem().toString();
+    }
+
+    public String getBuildingRoom() {
+        return BuildingRoomTxtField.getText();
+    }
+
+    public String getDetail() {
+        return DetailTxtArea.getText();
+    }
+
+    public int getDuration() {
+        return (int) DurationSpinner.getValue();
+    }
+
+    public int getHour() {
+        return (int) HourSpinner.getValue();
+    }
+
+    public int getMinute() {
+        return (int) MinuteSpinner.getValue();
+    }
+
+    public String getSeat() {
+        return SeatTxtField.getText();
+    }
+
+    public String getSubject() {
+        return SubjectComboBox.getSelectedItem().toString();
+    }
+
+    public LocalTime getStartTime() {
+        return LocalTime.of(getHour(), getMinute());
+    }
+
+    public LocalTime getEndTime() {
+        return getStartTime().plusMinutes(getDuration());
+    }
+
+    public Date getStartDate() {
+        return DateDatePicker.getDate();
+    }
+
+    public Date getEndDate() {
+        return Date.from(getStartDate().toInstant().plusSeconds(getEndTime().toSecondOfDay()));
     }
 }
