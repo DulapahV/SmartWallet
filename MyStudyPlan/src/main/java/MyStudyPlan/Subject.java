@@ -48,4 +48,9 @@ public class Subject {
     public void setColor(Color color) {
         this.color = color;
     }
+
+    @Override
+    public String toString() {
+        return code + " " + name;
+    }
 }
