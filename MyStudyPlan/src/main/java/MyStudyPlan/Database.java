@@ -12,8 +12,9 @@ public class Database {
     private static Database instance = null;
     private JSONObject database;
     File fileIO = new File("~/Documents/MyStudyPlan/database.json");
+    private Vector<Subject> subjList;
     private Vector<TaskInstance> taskList;
-    private Vector<ScheduleInstance> scheduleList;
+    private Vector<ClassInstance> classList;
     private Vector<ExamInstance> examList;
 
     private Database (String username){
