@@ -499,8 +499,8 @@
         </Component>
         <Component class="org.jdesktop.swingx.JXTaskPane" name="ReminderTasksPane">
           <Properties>
-            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="DINPro-Medium" size="14" style="0"/>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+              <Connection code="getFont(&quot;DINPro-Medium.otf&quot;, Font.PLAIN, 14)" type="code"/>
             </Property>
             <Property name="special" type="boolean" value="true"/>
             <Property name="title" type="java.lang.String" value="Reminder (0)"/>
@@ -508,8 +508,8 @@
         </Component>
         <Component class="org.jdesktop.swingx.JXTaskPane" name="RevisionTasksPane">
           <Properties>
-            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="DINPro-Medium" size="14" style="0"/>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+              <Connection code="getFont(&quot;DINPro-Medium.otf&quot;, Font.PLAIN, 14)" type="code"/>
             </Property>
             <Property name="special" type="boolean" value="true"/>
             <Property name="title" type="java.lang.String" value="Revision (0)"/>

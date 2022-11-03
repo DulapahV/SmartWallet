@@ -11,6 +11,8 @@ import java.awt.event.WindowEvent;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import java.util.regex.Pattern;
+import org.jdesktop.swingx.JXSearchPanel;
 
 /**
  *
@@ -50,7 +52,7 @@ public class Schedule extends javax.swing.JFrame {
         ScheduleBtn = new org.jdesktop.swingx.JXButton();
         TopPanel = new javax.swing.JPanel();
         TodayTxt = new javax.swing.JLabel();
-        SearchPane = new org.jdesktop.swingx.JXSearchPanel();
+        SearchPanel = new org.jdesktop.swingx.JXSearchPanel();
         SearchBtn = new javax.swing.JButton();
         ManageSubjectsBtn = new javax.swing.JButton();
         NewClassBtn = new javax.swing.JButton();
@@ -164,7 +166,7 @@ public class Schedule extends javax.swing.JFrame {
                 .addContainerGap(33, Short.MAX_VALUE))
         );
 
-        SearchPane.setFont(getFont("DINPro-Medium.otf", Font.PLAIN, 12));
+        SearchPanel.setFont(getFont("DINPro-Medium.otf", Font.PLAIN, 12));
 
         SearchBtn.setBackground(new java.awt.Color(86, 96, 118));
         SearchBtn.setFont(getFont("DINPro-Medium.otf", Font.PLAIN, 12));
@@ -231,7 +233,7 @@ public class Schedule extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(6, 6, 6)
-                                .addComponent(SearchPane, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(SearchPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(SearchBtn)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -253,7 +255,7 @@ public class Schedule extends javax.swing.JFrame {
                         .addComponent(TopPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
-                            .addComponent(SearchPane, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(SearchPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(SearchBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(ManageSubjectsBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(NewClassBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -357,7 +359,7 @@ public class Schedule extends javax.swing.JFrame {
     private javax.swing.JScrollPane SchedulePane;
     private javax.swing.JTable ScheduleTable;
     private javax.swing.JButton SearchBtn;
-    private org.jdesktop.swingx.JXSearchPanel SearchPane;
+    private org.jdesktop.swingx.JXSearchPanel SearchPanel;
     private org.jdesktop.swingx.JXButton TasksBtn;
     private javax.swing.JLabel TodayTxt;
     private javax.swing.JPanel TopPanel;
@@ -368,8 +370,12 @@ public class Schedule extends javax.swing.JFrame {
         try {
             font = Font.createFont(Font.TRUETYPE_FONT, getClass().getResourceAsStream("/font/" + fontName)).deriveFont(fontStyle, fontSize);
         } catch (FontFormatException | IOException ex) {
-            Logger.getLogger(Overview.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Schedule.class.getName()).log(Level.SEVERE, null, ex);
         }
         return font;
+    }
+
+    public Pattern getSearchPanel() {
+        return SearchPanel.getPattern();
     }
 }

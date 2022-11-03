@@ -13,7 +13,10 @@ import java.awt.event.WindowEvent;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import java.util.regex.Pattern;
 import javax.swing.BorderFactory;
+import javax.swing.JTextField;
+import org.jdesktop.swingx.JXSearchPanel;
 
 /**
  *
@@ -334,8 +337,24 @@ public class ManageSubjects extends javax.swing.JFrame {
         try {
             font = Font.createFont(Font.TRUETYPE_FONT, getClass().getResourceAsStream("/font/" + fontName)).deriveFont(fontStyle, fontSize);
         } catch (FontFormatException | IOException ex) {
-            Logger.getLogger(Overview.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ManageSubjects.class.getName()).log(Level.SEVERE, null, ex);
         }
         return font;
+    }
+
+    public String getCode() {
+        return CodeTxtField.toString();
+    }
+
+    public String getColor() {
+        return ColorTxtField.getText();
+    }
+
+    public Pattern getSearchPanel() {
+        return SearchPanel.getPattern();
+    }
+
+    public String getSubject() {
+        return SubjectTxtField.getText();
     }
 }

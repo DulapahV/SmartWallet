@@ -300,12 +300,12 @@ public class Overview extends javax.swing.JFrame {
         AssignmentTasksPane.setTitle("Assignment (0)");
         TasksPaneContainer.add(AssignmentTasksPane);
 
-        ReminderTasksPane.setFont(new java.awt.Font("DINPro-Medium", 0, 14)); // NOI18N
+        ReminderTasksPane.setFont(getFont("DINPro-Medium.otf", Font.PLAIN, 14));
         ReminderTasksPane.setSpecial(true);
         ReminderTasksPane.setTitle("Reminder (0)");
         TasksPaneContainer.add(ReminderTasksPane);
 
-        RevisionTasksPane.setFont(new java.awt.Font("DINPro-Medium", 0, 14)); // NOI18N
+        RevisionTasksPane.setFont(getFont("DINPro-Medium.otf", Font.PLAIN, 14));
         RevisionTasksPane.setSpecial(true);
         RevisionTasksPane.setTitle("Revision (0)");
         TasksPaneContainer.add(RevisionTasksPane);
