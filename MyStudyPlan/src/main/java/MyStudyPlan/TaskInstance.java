@@ -6,14 +6,12 @@ enum TaskType {
    Assignment, Reminder, Revision
 }
 
-public class TaskInstance {
-    private String subject;
+public class TaskInstance extends AbstractJob {
     private String title;
     private TaskType type;
     private LocalDate dueDate;
-    private String description;
 
-    public TaskInstance(String subject, String title, TaskType type, LocalDate dueDate, String description) {
+    public TaskInstance(Subject subject, String title, TaskType type, LocalDate dueDate, String description) {
         this.subject = subject;
         this.title = title;
         this.type = type;
@@ -21,7 +19,7 @@ public class TaskInstance {
         this.description = description;
     }
 
-    public String getSubject() {
+    public Subject getSubject() {
         return subject;
     }
 
@@ -41,7 +39,7 @@ public class TaskInstance {
         return description;
     }
 
-    public void setSubject(String subject) {
+    public void setSubject(Subject subject) {
         this.subject = subject;
     }
 
