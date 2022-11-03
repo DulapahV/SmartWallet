@@ -19,6 +19,12 @@ public class Subject {
         this.color = Color.decode(colorcode);
     }
 
+    public Subject(String code, String name, Color color){
+        this.code = "";
+        this.name = "";
+        this.color = color;
+    }
+
     public String getCode() {
         return code;
     }
