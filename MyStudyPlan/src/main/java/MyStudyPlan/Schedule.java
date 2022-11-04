@@ -363,6 +363,13 @@ public class Schedule extends javax.swing.JFrame {
     private org.jdesktop.swingx.JXButton TasksBtn;
     private javax.swing.JLabel TodayTxt;
     private javax.swing.JPanel TopPanel;
+    
+    /** 
+     * @param fontName
+     * @param fontStyle
+     * @param fontSize
+     * @return Font
+     */
     // End of variables declaration//GEN-END:variables
 
     private Font getFont(String fontName, int fontStyle, float fontSize) {
@@ -375,6 +382,10 @@ public class Schedule extends javax.swing.JFrame {
         return font;
     }
 
+    
+    /** 
+     * @return Pattern
+     */
     public Pattern getSearchPanel() {
         return SearchPanel.getPattern();
     }

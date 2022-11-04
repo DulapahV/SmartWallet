@@ -561,6 +561,13 @@ public class Overview extends javax.swing.JFrame {
     private javax.swing.JLabel TasksTxt;
     private javax.swing.JLabel TodayTxt;
     private javax.swing.JPanel TopPanel;
+    
+    /** 
+     * @param fontName
+     * @param fontStyle
+     * @param fontSize
+     * @return Font
+     */
     // End of variables declaration//GEN-END:variables
 
     private Font getFont(String fontName, int fontStyle, float fontSize) {

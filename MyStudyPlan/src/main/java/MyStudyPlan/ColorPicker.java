@@ -81,6 +81,10 @@ public class ColorPicker extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_SaveBtnActionPerformed
 
+    
+    /** 
+     * @return String
+     */
     String getHexValue() {
         Color color = ColorChooser1.getColor();
         String hex = String.format("#%02x%02x%02x", color.getRed(), color.getGreen(), color.getBlue());
@@ -90,6 +94,13 @@ public class ColorPicker extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JColorChooser ColorChooser1;
     private javax.swing.JButton SaveBtn;
+    
+    /** 
+     * @param fontName
+     * @param fontStyle
+     * @param fontSize
+     * @return Font
+     */
     // End of variables declaration//GEN-END:variables
 
     private Font getFont(String fontName, int fontStyle, float fontSize) {

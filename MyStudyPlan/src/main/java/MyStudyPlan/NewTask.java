@@ -248,6 +248,13 @@ public class NewTask extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> TypeComboBox;
     private javax.swing.JLabel TypeTxt;
     private javax.swing.JLabel jLabel1;
+    
+    /** 
+     * @param fontName
+     * @param fontStyle
+     * @param fontSize
+     * @return Font
+     */
     // End of variables declaration//GEN-END:variables
 
     private Font getFont(String fontName, int fontStyle, float fontSize) {
@@ -260,26 +267,50 @@ public class NewTask extends javax.swing.JFrame {
         return font;
     }
 
+    
+    /** 
+     * @return String
+     */
     public String getDetail() {
         return DetailTxtArea.getText();
     }
 
+    
+    /** 
+     * @return LocalDate
+     */
     public LocalDate getDueDate() {
         return DueDateDatePicker.getDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
     }
 
+    
+    /** 
+     * @return Subject
+     */
     public Subject getSubject() {
         return (Subject) SubjectComboBox.getSelectedItem();
     }
 
+    
+    /** 
+     * @return String
+     */
     public String getTitle() {
         return TitleTxtField.getText();
     }
 
+    
+    /** 
+     * @return TaskType
+     */
     public TaskType getTaskType() {
         return (TaskType) TypeComboBox.getSelectedItem();
     }
 
+    
+    /** 
+     * @return TaskInstance
+     */
     public TaskInstance getTaskInstance() {
         return new TaskInstance(getSubject(), getTitle(), getTaskType(), getDueDate(), getDetail());
     }

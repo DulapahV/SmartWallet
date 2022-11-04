@@ -330,6 +330,13 @@ public class ManageSubjects extends javax.swing.JFrame {
     private javax.swing.JTable SubjectsTable;
     private javax.swing.JPanel TopBanner;
     private javax.swing.JLabel jLabel1;
+    
+    /** 
+     * @param fontName
+     * @param fontStyle
+     * @param fontSize
+     * @return Font
+     */
     // End of variables declaration//GEN-END:variables
 
     private Font getFont(String fontName, int fontStyle, float fontSize) {
@@ -342,18 +349,34 @@ public class ManageSubjects extends javax.swing.JFrame {
         return font;
     }
 
+    
+    /** 
+     * @return String
+     */
     public String getCode() {
         return CodeTxtField.toString();
     }
 
+    
+    /** 
+     * @return String
+     */
     public String getColor() {
         return ColorTxtField.getText();
     }
 
+    
+    /** 
+     * @return Pattern
+     */
     public Pattern getSearchPanel() {
         return SearchPanel.getPattern();
     }
 
+    
+    /** 
+     * @return String
+     */
     public String getSubject() {
         return SubjectTxtField.getText();
     }

@@ -440,6 +440,13 @@ public class Calendar extends javax.swing.JFrame {
     private javax.swing.JButton TodayBtn;
     private javax.swing.JLabel TodayTxt;
     private javax.swing.JPanel TopPanel;
+    
+    /** 
+     * @param fontName
+     * @param fontStyle
+     * @param fontSize
+     * @return Font
+     */
     // End of variables declaration//GEN-END:variables
 
     private Font getFont(String fontName, int fontStyle, float fontSize) {
@@ -452,10 +459,18 @@ public class Calendar extends javax.swing.JFrame {
         return font;
     }
 
+    
+    /** 
+     * @return Date
+     */
     public Date getDate() {
         return DatePicker.getDate();
     }
 
+    
+    /** 
+     * @return Pattern
+     */
     public Pattern getSearchPanel() {
         return SearchPanel.getPattern();
     }

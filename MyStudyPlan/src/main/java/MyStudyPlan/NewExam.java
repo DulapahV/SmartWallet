@@ -322,6 +322,13 @@ public class NewExam extends javax.swing.JFrame {
     private javax.swing.JLabel TimeTxt;
     private javax.swing.JPanel TopBanner;
     private javax.swing.JLabel jLabel1;
+    
+    /** 
+     * @param fontName
+     * @param fontStyle
+     * @param fontSize
+     * @return Font
+     */
     // End of variables declaration//GEN-END:variables
 
     private Font getFont(String fontName, int fontStyle, float fontSize) {
@@ -334,54 +341,106 @@ public class NewExam extends javax.swing.JFrame {
         return font;
     }
 
+    
+    /** 
+     * @return String
+     */
     public String getAMPM() {
         return AMPMComboBox.getSelectedItem().toString();
     }
 
+    
+    /** 
+     * @return String
+     */
     public String getBuildingRoom() {
         return BuildingRoomTxtField.getText();
     }
 
+    
+    /** 
+     * @return String
+     */
     public String getDetail() {
         return DetailTxtArea.getText();
     }
 
+    
+    /** 
+     * @return int
+     */
     public int getDuration() {
         return (int) DurationSpinner.getValue();
     }
 
+    
+    /** 
+     * @return int
+     */
     public int getHour() {
         return (int) HourSpinner.getValue();
     }
 
+    
+    /** 
+     * @return int
+     */
     public int getMinute() {
         return (int) MinuteSpinner.getValue();
     }
 
+    
+    /** 
+     * @return String
+     */
     public String getSeat() {
         return SeatTxtField.getText();
     }
 
+    
+    /** 
+     * @return Subject
+     */
     public Subject getSubject() {
         return (Subject) SubjectComboBox.getSelectedItem();
     }
 
+    
+    /** 
+     * @return LocalTime
+     */
     public LocalTime getStartTime() {
         return LocalTime.of(getHour(), getMinute());
     }
 
+    
+    /** 
+     * @return LocalTime
+     */
     public LocalTime getEndTime() {
         return getStartTime().plusMinutes(getDuration());
     }
 
+    
+    /** 
+     * @return LocalDate
+     */
     public LocalDate getStartDate() {
         return DateDatePicker.getDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
     }
 
+    
+    /** 
+     * @return LocalDate
+     */
     public LocalDate getEndDate() {
         return getStartDate().plusDays(getDuration() / 1440); // 60 minutes * 24 hours = 1440 minutes;
     }
 
+    
+    /** 
+     * @return ExamInstance
+     */
     public ExamInstance getExamInstance() {
         return new ExamInstance(getSubject(), getStartDate(), getStartTime(), getBuildingRoom(), getSeat(), getDuration(), getDetail());
     }
