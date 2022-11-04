@@ -9,8 +9,9 @@ import java.awt.FontFormatException;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.io.IOException;
-import java.util.Date;
+import java.time.LocalDate;
 import java.time.LocalTime;
+import java.time.ZoneId;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -361,8 +362,8 @@ public class NewExam extends javax.swing.JFrame {
         return SeatTxtField.getText();
     }
 
-    public String getSubject() {
-        return SubjectComboBox.getSelectedItem().toString();
+    public Subject getSubject() {
+        return (Subject) SubjectComboBox.getSelectedItem();
     }
 
     public LocalTime getStartTime() {
@@ -373,11 +374,15 @@ public class NewExam extends javax.swing.JFrame {
         return getStartTime().plusMinutes(getDuration());
     }
 
-    public Date getStartDate() {
-        return DateDatePicker.getDate();
+    public LocalDate getStartDate() {
+        return DateDatePicker.getDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
     }
 
-    public Date getEndDate() {
-        return Date.from(getStartDate().toInstant().plusSeconds(getEndTime().toSecondOfDay()));
+    public LocalDate getEndDate() {
+        return getStartDate().plusDays(getDuration() / 1440); // 60 minutes * 24 hours = 1440 minutes;
+    }
+
+    public ExamInstance getExamInstance() {
+        return new ExamInstance(getSubject(), getStartDate(), getStartTime(), getBuildingRoom(), getSeat(), getDuration(), getDetail());
     }
 }

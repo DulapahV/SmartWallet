@@ -10,7 +10,8 @@ import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.io.IOException;
 import java.time.LocalTime;
-import java.util.Date;
+import java.time.LocalDate;
+import java.time.ZoneId;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -389,22 +390,22 @@ public class NewClass extends javax.swing.JFrame {
         return RoomTxtField.toString();
     }
 
-    public String getSector() {
-        return SectorTxtField.toString();
+    public int getSector() {
+        return Integer.parseInt(SectorTxtField.toString());
     }
 
-    public String getSubject() {
-        return SubjectComboBox.getSelectedItem().toString();
+    public Subject getSubject() {
+        return (Subject) SubjectComboBox.getSelectedItem();
     }
 
     public String getTeacher() {
         return TeacherTxtField.toString();
     }
-    
+
     public String getAMPM() {
         return AMPMComboBox.getSelectedItem().toString();
     }
-    
+
     public int getDuration() {
         return (int) DurationSpinner.getValue();
     }
@@ -416,7 +417,7 @@ public class NewClass extends javax.swing.JFrame {
     public int getMinute() {
         return (int) MinuteSpinner.getValue();
     }
-    
+
     public LocalTime getStartTime() {
         return LocalTime.of(getHour(), getMinute());
     }
@@ -425,11 +426,15 @@ public class NewClass extends javax.swing.JFrame {
         return getStartTime().plusMinutes(getDuration());
     }
 
-    public Date getStartDate() {
-        return DatePicker.getDate();
+    public LocalDate getStartDate() {
+        return DatePicker.getDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
     }
 
-    public Date getEndDate() {
-        return Date.from(getStartDate().toInstant().plusSeconds(getEndTime().toSecondOfDay()));
+    public LocalDate getEndDate() {
+        return getStartDate().plusDays(getDuration() / 1440); // 60 minutes * 24 hours = 1440 minutes
     }
+
+    // public ClassInstance getClassInstance() {
+    //     return new ClassInstance(getSubject(), getSector(), getRoom(), getRoom(), getBuilding(), getTeacher(), getStartDate(), getStartTime(), getDuration());
+    // }
 }

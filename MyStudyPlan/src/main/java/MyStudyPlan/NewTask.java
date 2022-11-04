@@ -9,7 +9,8 @@ import java.awt.FontFormatException;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.io.IOException;
-import java.util.Date;
+import java.time.LocalDate;
+import java.time.ZoneId;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -263,19 +264,23 @@ public class NewTask extends javax.swing.JFrame {
         return DetailTxtArea.getText();
     }
 
-    public Date getDate() {
-        return DueDateDatePicker.getDate();
+    public LocalDate getDueDate() {
+        return DueDateDatePicker.getDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
     }
 
-    public String getSubject() {
-        return SubjectComboBox.getSelectedItem().toString();
+    public Subject getSubject() {
+        return (Subject) SubjectComboBox.getSelectedItem();
     }
 
     public String getTitle() {
         return TitleTxtField.getText();
     }
 
-    public String getTaskType() {
-        return TypeComboBox.getSelectedItem().toString();
+    public TaskType getTaskType() {
+        return (TaskType) TypeComboBox.getSelectedItem();
+    }
+
+    public TaskInstance getTaskInstance() {
+        return new TaskInstance(getSubject(), getTitle(), getTaskType(), getDueDate(), getDetail());
     }
 }
