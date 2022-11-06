@@ -29,50 +29,98 @@ public class ClassInstance extends AbstractJob {
         this.description = description;
     }
 
+    
+    /** 
+     * @return Subject
+     */
     public Subject getSubject() {
         return subject;
     }
 
+    
+    /** 
+     * @return int
+     */
     public int getSector() {
         return sector;
     }
 
+    
+    /** 
+     * @return String
+     */
     public String getRoom() {
         return room;
     }
 
+    
+    /** 
+     * @return String
+     */
     public String getBuilding() {
         return building;
     }
 
+    
+    /** 
+     * @return String
+     */
     public String getTeacher() {
         return teacher;
     }
 
+    
+    /** 
+     * @return String
+     */
     public String getDescription() {
         return description;
     }
 
+    
+    /** 
+     * @param subject
+     */
     public void setSubject(Subject subject) {
         this.subject = subject;
     }
 
+    
+    /** 
+     * @param sector
+     */
     public void setSector(int sector) {
         this.sector = sector;
     }
 
+    
+    /** 
+     * @param room
+     */
     public void setRoom(String room) {
         this.room = room;
     }
 
+    
+    /** 
+     * @param building
+     */
     public void setBuilding(String building) {
         this.building = building;
     }
 
+    
+    /** 
+     * @param teacher
+     */
     public void setTeacher(String teacher) {
         this.teacher = teacher;
     }
 
+    
+    /** 
+     * @param description
+     */
     public void setDescription(String description) {
         this.description = description;
     }

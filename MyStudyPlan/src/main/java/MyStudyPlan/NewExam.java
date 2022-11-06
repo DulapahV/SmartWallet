@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package MyStudyPlan;
 
 import java.awt.Font;
@@ -17,7 +13,8 @@ import java.util.logging.Logger;
 
 /**
  *
- * @author Dulapah Vibulsanti
+ * @author Dulapah Vibulsanti (64011388), Anucha Cheewachanon (64011338),
+ * Annopdanai Pamarapa (64011337)
  */
 public class NewExam extends javax.swing.JFrame {
 
