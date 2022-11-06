@@ -25,30 +25,58 @@ public class Subject {
         this.color = color;
     }
 
+    
+    /** 
+     * @return String
+     */
     public String getCode() {
         return code;
     }
 
+    
+    /** 
+     * @param code
+     */
     public void setCode(String code) {
         this.code = code;
     }
 
+    
+    /** 
+     * @return String
+     */
     public String getName() {
         return name;
     }
 
+    
+    /** 
+     * @param name
+     */
     public void setName(String name) {
         this.name = name;
     }
 
+    
+    /** 
+     * @return Color
+     */
     public Color getColor() {
         return color;
     }
 
+    
+    /** 
+     * @param color
+     */
     public void setColor(Color color) {
         this.color = color;
     }
 
+    
+    /** 
+     * @return String
+     */
     @Override
     public String toString() {
         return code + " " + name;

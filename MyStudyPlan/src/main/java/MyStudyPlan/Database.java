@@ -22,6 +22,11 @@ public class Database {
     private Database (String username){
 
     }
+    
+    /** 
+     * @param username
+     * @return Database
+     */
     public static Database getInstance(String username){
         if(instance == null){
             instance = new Database(username);
@@ -29,6 +34,10 @@ public class Database {
         return instance;
     }
 
+    
+    /** 
+     * @return Database
+     */
     public static Database getInstance(){
         if(instance == null){
             instance = new Database("default");
@@ -36,34 +45,66 @@ public class Database {
         return instance;
     }
 
+    
+    /** 
+     * @param subject
+     */
     public static void addSubject(Subject subject){
         instance.subjList.add(subject);
     }
 
+    
+    /** 
+     * @param task
+     */
     public static void addTask(TaskInstance task){
         instance.taskList.add(task);
     }
 
+    
+    /** 
+     * @param classInstance
+     */
     public static void addClass(ClassInstance classInstance){
         instance.classList.add(classInstance);
     }
 
+    
+    /** 
+     * @param exam
+     */
     public static void addExam(ExamInstance exam){
         instance.examList.add(exam);
     }
 
+    
+    /** 
+     * @param subject
+     */
     public static void removeSubject(Subject subject){
         instance.subjList.remove(subject);
     }
 
+    
+    /** 
+     * @param task
+     */
     public static void removeTask(TaskInstance task){
         instance.taskList.remove(task);
     }
 
+    
+    /** 
+     * @param classInstance
+     */
     public static void removeClass(ClassInstance classInstance){
         instance.classList.remove(classInstance);
     }
 
+    
+    /** 
+     * @param exam
+     */
     public static void removeExam(ExamInstance exam){
         instance.examList.remove(exam);
     }
