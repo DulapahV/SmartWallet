@@ -26,9 +26,9 @@ public class Overview extends javax.swing.JFrame {
         if (time >= 0 && time < 12) {
             TodayTxt.setText("Good Morning!");
         } else if (time >= 12 && time < 18) {
-            TodayTxt.setText("Good Afternoon");
+            TodayTxt.setText("Good Afternoon!");
         } else {
-            TodayTxt.setText("Good Evening");
+            TodayTxt.setText("Good Evening!");
         }
     }
 
