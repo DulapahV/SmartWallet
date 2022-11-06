@@ -26,13 +26,14 @@ public class Overview extends javax.swing.JFrame {
     public Overview() {
         initComponents();
 
-        this.setLocationRelativeTo(null);
-        setIconImage(new javax.swing.ImageIcon(getClass().getResource("/img/icon.png")).getImage());
-        OverviewBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        CalendarBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        TasksBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        ExamsBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        ScheduleBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        int time = java.time.LocalTime.now().getHour();
+        if (time >= 6 && time < 12) {
+            TodayTxt.setText("Good Morning!");
+        } else if (time >= 12 && time < 18) {
+            TodayTxt.setText("Good Afternoon");
+        } else {
+            TodayTxt.setText("Good Evening");
+        }
     }
 
     /**
@@ -80,6 +81,7 @@ public class Overview extends javax.swing.JFrame {
         setTitle("MyStudyPlan");
         setBackground(new java.awt.Color(46, 52, 64));
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        setIconImage(new javax.swing.ImageIcon(getClass().getResource("/img/icon.png")).getImage());
         setMinimumSize(new java.awt.Dimension(1108, 632));
         setName("MainMenu"); // NOI18N
         setSize(new java.awt.Dimension(1108, 632));
@@ -90,6 +92,7 @@ public class Overview extends javax.swing.JFrame {
         OverviewBtn.setBackground(new java.awt.Color(30, 33, 41));
         OverviewBtn.setBorder(null);
         OverviewBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/overview.png"))); // NOI18N
+        OverviewBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         OverviewBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 OverviewBtnActionPerformed(evt);
@@ -99,6 +102,7 @@ public class Overview extends javax.swing.JFrame {
         CalendarBtn.setBackground(new java.awt.Color(30, 33, 41));
         CalendarBtn.setBorder(null);
         CalendarBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/calendar.png"))); // NOI18N
+        CalendarBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         CalendarBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 CalendarBtnActionPerformed(evt);
@@ -108,6 +112,7 @@ public class Overview extends javax.swing.JFrame {
         TasksBtn.setBackground(new java.awt.Color(30, 33, 41));
         TasksBtn.setBorder(null);
         TasksBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/tasks.png"))); // NOI18N
+        TasksBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         TasksBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 TasksBtnActionPerformed(evt);
@@ -117,6 +122,7 @@ public class Overview extends javax.swing.JFrame {
         ExamsBtn.setBackground(new java.awt.Color(30, 33, 41));
         ExamsBtn.setBorder(null);
         ExamsBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/exams.png"))); // NOI18N
+        ExamsBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         ExamsBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ExamsBtnActionPerformed(evt);
@@ -126,6 +132,7 @@ public class Overview extends javax.swing.JFrame {
         ScheduleBtn.setBackground(new java.awt.Color(30, 33, 41));
         ScheduleBtn.setBorder(null);
         ScheduleBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/schedule.png"))); // NOI18N
+        ScheduleBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         ScheduleBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ScheduleBtnActionPerformed(evt);
@@ -165,10 +172,10 @@ public class Overview extends javax.swing.JFrame {
         TopPanel.setBackground(new java.awt.Color(59, 162, 191));
 
         TodayTxt.setFont(getFont("DINPro-Medium.otf", Font.PLAIN, 32));
-        TodayTxt.setText("Today");
+        TodayTxt.setText("Good Morning!");
 
         DateTxt.setFont(getFont("DINPro-Light.otf", Font.PLAIN, 18));
-        DateTxt.setText("Wednesday, October 26");
+        DateTxt.setText(new java.text.SimpleDateFormat("EEEE, d MMMM yyyy").format(new java.util.Date()));
 
         ScheduleTopTxt.setFont(getFont("DINPro-Medium.otf", Font.PLAIN, 28));
         ScheduleTopTxt.setText("Schedule");
@@ -415,6 +422,7 @@ public class Overview extends javax.swing.JFrame {
         layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {ExamsTxt, ScheduleTxt, TasksTxt});
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void NewClassBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NewClassBtnActionPerformed
@@ -561,15 +569,14 @@ public class Overview extends javax.swing.JFrame {
     private javax.swing.JLabel TasksTxt;
     private javax.swing.JLabel TodayTxt;
     private javax.swing.JPanel TopPanel;
-    
-    /** 
+    // End of variables declaration//GEN-END:variables
+
+    /**
      * @param fontName
      * @param fontStyle
      * @param fontSize
      * @return Font
      */
-    // End of variables declaration//GEN-END:variables
-
     private Font getFont(String fontName, int fontStyle, float fontSize) {
         Font font = null;
         try {

@@ -10,6 +10,9 @@
     <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
       <Color id="Default Cursor"/>
     </Property>
+    <Property name="iconImage" type="java.awt.Image" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+      <Connection code="new javax.swing.ImageIcon(getClass().getResource(&quot;/img/icon.png&quot;)).getImage()" type="code"/>
+    </Property>
     <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
       <Dimension value="[1108, 632]"/>
     </Property>
@@ -20,7 +23,7 @@
   </Properties>
   <SyntheticProperties>
     <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
-    <SyntheticProperty name="generateCenter" type="boolean" value="false"/>
+    <SyntheticProperty name="generateCenter" type="boolean" value="true"/>
   </SyntheticProperties>
   <AuxValues>
     <AuxValue name="FormSettings_autoResourcing" type="java.lang.Integer" value="0"/>
@@ -174,6 +177,9 @@
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="OverviewBtnActionPerformed"/>
           </Events>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="OverviewBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));"/>
+          </AuxValues>
         </Component>
         <Component class="org.jdesktop.swingx.JXButton" name="CalendarBtn">
           <Properties>
@@ -190,6 +196,9 @@
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="CalendarBtnActionPerformed"/>
           </Events>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="CalendarBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));"/>
+          </AuxValues>
         </Component>
         <Component class="org.jdesktop.swingx.JXButton" name="TasksBtn">
           <Properties>
@@ -206,6 +215,9 @@
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="TasksBtnActionPerformed"/>
           </Events>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="TasksBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));"/>
+          </AuxValues>
         </Component>
         <Component class="org.jdesktop.swingx.JXButton" name="ExamsBtn">
           <Properties>
@@ -222,6 +234,9 @@
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ExamsBtnActionPerformed"/>
           </Events>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="ExamsBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));"/>
+          </AuxValues>
         </Component>
         <Component class="org.jdesktop.swingx.JXButton" name="ScheduleBtn">
           <Properties>
@@ -238,6 +253,9 @@
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ScheduleBtnActionPerformed"/>
           </Events>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="ScheduleBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));"/>
+          </AuxValues>
         </Component>
       </SubComponents>
     </Container>
@@ -303,7 +321,7 @@
             <Property name="font" type="java.awt.Font" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
               <Connection code="getFont(&quot;DINPro-Medium.otf&quot;, Font.PLAIN, 32)" type="code"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Today"/>
+            <Property name="text" type="java.lang.String" value="Good Morning!"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="DateTxt">
@@ -311,7 +329,9 @@
             <Property name="font" type="java.awt.Font" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
               <Connection code="getFont(&quot;DINPro-Light.otf&quot;, Font.PLAIN, 18)" type="code"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Wednesday, October 26"/>
+            <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+              <Connection code="new java.text.SimpleDateFormat(&quot;EEEE, d MMMM yyyy&quot;).format(new java.util.Date())" type="code"/>
+            </Property>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="ScheduleTopTxt">

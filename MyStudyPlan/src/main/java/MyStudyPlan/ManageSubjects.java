@@ -15,8 +15,6 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.util.regex.Pattern;
 import javax.swing.BorderFactory;
-import javax.swing.JTextField;
-import org.jdesktop.swingx.JXSearchPanel;
 
 /**
  *
@@ -30,8 +28,6 @@ public class ManageSubjects extends javax.swing.JFrame {
      */
     public ManageSubjects() {
         initComponents();
-
-        setIconImage(new javax.swing.ImageIcon(getClass().getResource("/img/icon.png")).getImage());
     }
 
     /**
@@ -63,6 +59,7 @@ public class ManageSubjects extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Manage Subjects");
+        setIconImage(new javax.swing.ImageIcon(getClass().getResource("/img/icon.png")).getImage());
         setResizable(false);
 
         TopBanner.setBackground(new java.awt.Color(59, 162, 191));
@@ -330,15 +327,14 @@ public class ManageSubjects extends javax.swing.JFrame {
     private javax.swing.JTable SubjectsTable;
     private javax.swing.JPanel TopBanner;
     private javax.swing.JLabel jLabel1;
-    
-    /** 
+    // End of variables declaration//GEN-END:variables
+
+    /**
      * @param fontName
      * @param fontStyle
      * @param fontSize
      * @return Font
      */
-    // End of variables declaration//GEN-END:variables
-
     private Font getFont(String fontName, int fontStyle, float fontSize) {
         Font font = null;
         try {
@@ -349,32 +345,28 @@ public class ManageSubjects extends javax.swing.JFrame {
         return font;
     }
 
-    
-    /** 
+    /**
      * @return String
      */
     public String getCode() {
         return CodeTxtField.toString();
     }
 
-    
-    /** 
+    /**
      * @return String
      */
     public String getColor() {
         return ColorTxtField.getText();
     }
 
-    
-    /** 
+    /**
      * @return Pattern
      */
     public Pattern getSearchPanel() {
         return SearchPanel.getPattern();
     }
 
-    
-    /** 
+    /**
      * @return String
      */
     public String getSubject() {

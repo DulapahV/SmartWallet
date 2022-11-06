@@ -143,6 +143,9 @@
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="OverviewBtnActionPerformed"/>
           </Events>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="OverviewBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));"/>
+          </AuxValues>
         </Component>
         <Component class="org.jdesktop.swingx.JXButton" name="CalendarBtn">
           <Properties>
@@ -159,6 +162,9 @@
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="CalendarBtnActionPerformed"/>
           </Events>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="CalendarBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));"/>
+          </AuxValues>
         </Component>
         <Component class="org.jdesktop.swingx.JXButton" name="TasksBtn">
           <Properties>
@@ -175,6 +181,9 @@
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="TasksBtnActionPerformed"/>
           </Events>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="TasksBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));"/>
+          </AuxValues>
         </Component>
         <Component class="org.jdesktop.swingx.JXButton" name="ExamsBtn">
           <Properties>
@@ -191,6 +200,9 @@
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ExamsBtnActionPerformed"/>
           </Events>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="ExamsBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));"/>
+          </AuxValues>
         </Component>
         <Component class="org.jdesktop.swingx.JXButton" name="ScheduleBtn">
           <Properties>
@@ -207,6 +219,9 @@
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ScheduleBtnActionPerformed"/>
           </Events>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="ScheduleBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));"/>
+          </AuxValues>
         </Component>
       </SubComponents>
     </Container>

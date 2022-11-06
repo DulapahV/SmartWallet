@@ -26,8 +26,6 @@ public class NewTask extends javax.swing.JFrame {
      */
     public NewTask() {
         initComponents();
-
-        setIconImage(new javax.swing.ImageIcon(getClass().getResource("/img/icon.png")).getImage());
     }
 
     /**
@@ -58,6 +56,7 @@ public class NewTask extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("New Task");
+        setIconImage(new javax.swing.ImageIcon(getClass().getResource("/img/icon.png")).getImage());
         setResizable(false);
 
         TopBanner.setBackground(new java.awt.Color(59, 162, 191));
@@ -248,15 +247,14 @@ public class NewTask extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> TypeComboBox;
     private javax.swing.JLabel TypeTxt;
     private javax.swing.JLabel jLabel1;
-    
-    /** 
+    // End of variables declaration//GEN-END:variables
+
+    /**
      * @param fontName
      * @param fontStyle
      * @param fontSize
      * @return Font
      */
-    // End of variables declaration//GEN-END:variables
-
     private Font getFont(String fontName, int fontStyle, float fontSize) {
         Font font = null;
         try {
@@ -267,48 +265,42 @@ public class NewTask extends javax.swing.JFrame {
         return font;
     }
 
-    
-    /** 
+    /**
      * @return String
      */
     public String getDetail() {
         return DetailTxtArea.getText();
     }
 
-    
-    /** 
+    /**
      * @return LocalDate
      */
     public LocalDate getDueDate() {
         return DueDateDatePicker.getDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
     }
 
-    
-    /** 
+    /**
      * @return Subject
      */
     public Subject getSubject() {
         return (Subject) SubjectComboBox.getSelectedItem();
     }
 
-    
-    /** 
+    /**
      * @return String
      */
     public String getTitle() {
         return TitleTxtField.getText();
     }
 
-    
-    /** 
+    /**
      * @return TaskType
      */
     public TaskType getTaskType() {
         return (TaskType) TypeComboBox.getSelectedItem();
     }
 
-    
-    /** 
+    /**
      * @return TaskInstance
      */
     public TaskInstance getTaskInstance() {

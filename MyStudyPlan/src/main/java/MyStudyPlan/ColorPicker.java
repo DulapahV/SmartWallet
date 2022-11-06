@@ -23,8 +23,6 @@ public class ColorPicker extends javax.swing.JFrame {
      */
     public ColorPicker() {
         initComponents();
-
-        setIconImage(new javax.swing.ImageIcon(getClass().getResource("/img/icon.png")).getImage());
     }
 
     /**
@@ -41,6 +39,7 @@ public class ColorPicker extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Color Picker");
+        setIconImage(new javax.swing.ImageIcon(getClass().getResource("/img/icon.png")).getImage());
         setUndecorated(true);
 
         ColorChooser1.setFont(getFont("DINPro-Medium.otf", Font.PLAIN, 12));
@@ -81,8 +80,7 @@ public class ColorPicker extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_SaveBtnActionPerformed
 
-    
-    /** 
+    /**
      * @return String
      */
     String getHexValue() {
@@ -94,15 +92,14 @@ public class ColorPicker extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JColorChooser ColorChooser1;
     private javax.swing.JButton SaveBtn;
-    
-    /** 
+    // End of variables declaration//GEN-END:variables
+
+    /**
      * @param fontName
      * @param fontStyle
      * @param fontSize
      * @return Font
      */
-    // End of variables declaration//GEN-END:variables
-
     private Font getFont(String fontName, int fontStyle, float fontSize) {
         Font font = null;
         try {

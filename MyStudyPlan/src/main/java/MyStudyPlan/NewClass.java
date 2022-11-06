@@ -27,8 +27,6 @@ public class NewClass extends javax.swing.JFrame {
      */
     public NewClass() {
         initComponents();
-
-        setIconImage(new javax.swing.ImageIcon(getClass().getResource("/img/icon.png")).getImage());
     }
 
     /**
@@ -70,6 +68,8 @@ public class NewClass extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("New Schedule");
+        setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        setIconImage(new javax.swing.ImageIcon(getClass().getResource("/img/icon.png")).getImage());
         setResizable(false);
 
         TopBanner.setBackground(new java.awt.Color(59, 162, 191));
@@ -366,15 +366,14 @@ public class NewClass extends javax.swing.JFrame {
     private javax.swing.JLabel TimeTxt;
     private javax.swing.JPanel TopBanner;
     private javax.swing.JLabel jLabel1;
-    
-    /** 
+    // End of variables declaration//GEN-END:variables
+
+    /**
      * @param fontName
      * @param fontStyle
      * @param fontSize
      * @return Font
      */
-    // End of variables declaration//GEN-END:variables
-
     private Font getFont(String fontName, int fontStyle, float fontSize) {
         Font font = null;
         try {
@@ -385,112 +384,98 @@ public class NewClass extends javax.swing.JFrame {
         return font;
     }
 
-    
-    /** 
+    /**
      * @return String
      */
     public String getBuilding() {
         return BuildingTxtField.toString();
     }
 
-    
-    /** 
+    /**
      * @return String
      */
     public String getDetail() {
         return DetailTxtArea.toString();
     }
 
-    
-    /** 
+    /**
      * @return String
      */
     public String getRoom() {
         return RoomTxtField.toString();
     }
 
-    
-    /** 
+    /**
      * @return int
      */
     public int getSector() {
         return Integer.parseInt(SectorTxtField.toString());
     }
 
-    
-    /** 
+    /**
      * @return Subject
      */
     public Subject getSubject() {
         return (Subject) SubjectComboBox.getSelectedItem();
     }
 
-    
-    /** 
+    /**
      * @return String
      */
     public String getTeacher() {
         return TeacherTxtField.toString();
     }
 
-    
-    /** 
+    /**
      * @return String
      */
     public String getAMPM() {
         return AMPMComboBox.getSelectedItem().toString();
     }
 
-    
-    /** 
+    /**
      * @return int
      */
     public int getDuration() {
         return (int) DurationSpinner.getValue();
     }
 
-    
-    /** 
+    /**
      * @return int
      */
     public int getHour() {
         return (int) HourSpinner.getValue();
     }
 
-    
-    /** 
+    /**
      * @return int
      */
     public int getMinute() {
         return (int) MinuteSpinner.getValue();
     }
 
-    
-    /** 
+    /**
      * @return LocalTime
      */
     public LocalTime getStartTime() {
         return LocalTime.of(getHour(), getMinute());
     }
 
-    
-    /** 
+    /**
      * @return LocalTime
      */
     public LocalTime getEndTime() {
         return getStartTime().plusMinutes(getDuration());
     }
 
-    
-    /** 
+    /**
      * @return LocalDate
      */
     public LocalDate getStartDate() {
         return DatePicker.getDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
     }
 
-    
-    /** 
+    /**
      * @return LocalDate
      */
     public LocalDate getEndDate() {
