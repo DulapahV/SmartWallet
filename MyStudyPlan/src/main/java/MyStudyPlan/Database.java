@@ -4,6 +4,8 @@
 package MyStudyPlan;
 
 import java.io.File;
+import java.nio.file.Files;
+import java.nio.file.Path;
 import java.util.Vector;
 
 import org.json.*;
@@ -11,27 +13,72 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
 public class Database {
+    private String username = "default";
     private static Database instance = null;
-    private JSONObject database;
-    File fileIO = new File("~/Documents/MyStudyPlan/database.json");
-    private Vector<Subject> subjList;
-    private Vector<TaskInstance> taskList;
-    private Vector<ClassInstance> classList;
-    private Vector<ExamInstance> examList;
+    private Vector<Subject> subjList = new Vector<Subject>();
+    private Vector<TaskInstance> taskList = new Vector<TaskInstance>();
+    private Vector<ClassInstance> classList = new Vector<ClassInstance>();
+    private Vector<ExamInstance> examList = new Vector<ExamInstance>();
 
-    private Database (String username){
-
+    private Database (String username) throws JSONException {
+        this.username = username;
     }
     public static Database getInstance(String username){
         if(instance == null){
-            instance = new Database(username);
+            String rawjson = null;
+            if (System.getProperty("os.name").contains("Windows")) {
+                try{
+                    rawjson = Files.readString(Path.of("%userprofile%\\Documents\\MyStudyPlan\\" + username + ".json"));
+                } catch (Exception e) {
+                    //TODO: dialogue box to create new file
+                }
+            } else {
+                try{
+                    rawjson = Files.readString(Path.of("~/Documents/MyStudyPlan/" + username + ".json"));
+                } catch (Exception e) {
+                    //TODO: dialogue box to create new file
+                }
+            }
+            if (rawjson == null) {
+                try {
+                    instance = new Database(username);
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            } else {
+                Gson gson = new GsonBuilder().create();
+                instance = gson.fromJson(rawjson, Database.class);
+            }
         }
         return instance;
     }
 
     public static Database getInstance(){
         if(instance == null){
-            instance = new Database("default");
+            String rawjson = null;
+            if (System.getProperty("os.name").contains("Windows")) {
+                try{
+                    rawjson = Files.readString(Path.of("%userprofile%\\Documents\\MyStudyPlan\\default.json"));
+                } catch (Exception e) {
+                    //TODO: dialogue box to create new file
+                }
+            } else {
+                try{
+                    rawjson = Files.readString(Path.of("~/Documents/MyStudyPlan/default.json"));
+                } catch (Exception e) {
+                    //TODO: dialogue box to create new file
+                }
+            }
+            if (rawjson == null) {
+                try {
+                    instance = new Database("default");
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            } else {
+                Gson gson = new GsonBuilder().create();
+                instance = gson.fromJson(rawjson, Database.class);
+            }
         }
         return instance;
     }
