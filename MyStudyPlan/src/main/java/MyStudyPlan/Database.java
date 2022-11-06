@@ -68,18 +68,34 @@ public class Database {
         instance.examList.remove(exam);
     }
 
+    
+    /** 
+     * @return Vector<Subject>
+     */
     public static Vector<Subject> getSubjList(){
         return instance.subjList;
     }
 
+    
+    /** 
+     * @return Vector<TaskInstance>
+     */
     public static Vector<TaskInstance> getTaskList(){
         return instance.taskList;
     }
 
+    
+    /** 
+     * @return Vector<ClassInstance>
+     */
     public static Vector<ClassInstance> getClassList(){
         return instance.classList;
     }
 
+    
+    /** 
+     * @return Vector<ExamInstance>
+     */
     public static Vector<ExamInstance> getExamList(){
         return instance.examList;
     }
