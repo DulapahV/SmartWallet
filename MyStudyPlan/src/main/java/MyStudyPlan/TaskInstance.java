@@ -2,6 +2,11 @@ package MyStudyPlan;
 
 import java.time.LocalDate;
 
+/**
+ *
+ * @author Dulapah Vibulsanti (64011388), Anucha Cheewachanon (64011338),
+ * Annopdanai Pamarapa (64011337)
+ */
 enum TaskType {
    Assignment, Reminder, Revision
 }

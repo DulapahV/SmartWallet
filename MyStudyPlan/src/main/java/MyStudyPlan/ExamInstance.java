@@ -3,6 +3,11 @@ package MyStudyPlan;
 import java.time.LocalDate;
 import java.time.LocalTime;
 
+/**
+ *
+ * @author Dulapah Vibulsanti (64011388), Anucha Cheewachanon (64011338),
+ * Annopdanai Pamarapa (64011337)
+ */
 public class ExamInstance extends AbstractJob {
     private String room;
     private String seat;

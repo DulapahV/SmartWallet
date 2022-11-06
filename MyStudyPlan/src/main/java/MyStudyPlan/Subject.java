@@ -2,6 +2,11 @@ package MyStudyPlan;
 
 import java.awt.Color;
 
+/**
+ *
+ * @author Dulapah Vibulsanti (64011388), Anucha Cheewachanon (64011338),
+ * Annopdanai Pamarapa (64011337)
+ */
 public class Subject {
     private String code;
     private String name;
