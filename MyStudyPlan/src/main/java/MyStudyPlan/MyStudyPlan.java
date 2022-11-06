@@ -6,7 +6,10 @@ package MyStudyPlan;
  * Annopdanai Pamarapa (64011337)
  */
 public class MyStudyPlan {
+
     public static void main(String[] args) {
-        // TODO code application logic here
+        // init database
+//        Database db = Database.getInstance();
+//        db.addSubject(null);
     }
 }
