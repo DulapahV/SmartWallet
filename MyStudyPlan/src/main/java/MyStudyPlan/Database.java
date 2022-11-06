@@ -28,10 +28,13 @@ public class Database {
     private Database(String username) throws JSONException {
         this.username = username;
     }
-
-    /**
-     * @param username
-     * @return Database
+    
+    /** 
+     * Get the instance of the database
+     * If the database is not created, create a new database with the given username
+     * @param username The username of the database
+     * 
+     * @return The database
      */
     public static Database getInstance(String username) {
         if (instance == null) {
@@ -63,8 +66,11 @@ public class Database {
         return instance;
     }
 
-    /**
-     * @return Database
+    
+    /** 
+     * Get the instance of the database
+     * If the database is not initialized, it will be initialized with the default username
+     * @return The database
      */
     public static Database getInstance() {
         if (instance == null) {
@@ -96,84 +102,112 @@ public class Database {
         return instance;
     }
 
-    /**
+    
+    /** 
+     * Add a subject to the database
      * @param subject
+     * 
      */
     public static void addSubject(Subject subject) {
         instance.subjList.add(subject);
     }
 
-    /**
+    
+    /** 
+     * Add a task to the database
      * @param task
+     * 
      */
     public static void addTask(TaskInstance task) {
         instance.taskList.add(task);
     }
 
-    /**
+    
+    /** 
+     * Add a class to the database
      * @param classInstance
+     * 
      */
     public static void addClass(ClassInstance classInstance) {
         instance.classList.add(classInstance);
     }
 
-    /**
+    
+    /** 
+     * Add an exam to the database
      * @param exam
+     * 
      */
     public static void addExam(ExamInstance exam) {
         instance.examList.add(exam);
     }
 
-    /**
+    
+    /** 
+     * Remove a subject from the database
      * @param subject
      */
     public static void removeSubject(Subject subject) {
         instance.subjList.remove(subject);
     }
 
-    /**
+    
+    /** 
+     * Remove a task from the database
      * @param task
      */
     public static void removeTask(TaskInstance task) {
         instance.taskList.remove(task);
     }
 
-    /**
+    
+    /** 
+     * Remove a class from the database
      * @param classInstance
      */
     public static void removeClass(ClassInstance classInstance) {
         instance.classList.remove(classInstance);
     }
 
-    /**
+    
+    /** 
+     * Remove an exam from the database
      * @param exam
      */
     public static void removeExam(ExamInstance exam) {
         instance.examList.remove(exam);
     }
 
-    /**
+    
+    /** 
+     * Get the list of subjects in the database
      * @return Vector<Subject>
      */
     public static Vector<Subject> getSubjList() {
         return instance.subjList;
     }
 
-    /**
+    
+    /** 
+     * Get the list of tasks in the database
      * @return Vector<TaskInstance>
      */
     public static Vector<TaskInstance> getTaskList() {
         return instance.taskList;
     }
 
-    /**
+    
+    /** 
+     * Get the list of classes in the database
      * @return Vector<ClassInstance>
      */
     public static Vector<ClassInstance> getClassList() {
         return instance.classList;
     }
 
-    /**
+    
+    /** 
+     * Get the list of exams in the database
      * @return Vector<ExamInstance>
      */
     public static Vector<ExamInstance> getExamList() {
