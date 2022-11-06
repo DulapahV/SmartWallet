@@ -30,8 +30,11 @@ public class Database {
     }
     
     /** 
-     * @param username
-     * @return Database
+     * Get the instance of the database
+     * If the database is not created, create a new database with the given username
+     * @param username The username of the database
+     * 
+     * @return The database
      */
     public static Database getInstance(String username){
         if(instance == null){
@@ -65,7 +68,9 @@ public class Database {
 
     
     /** 
-     * @return Database
+     * Get the instance of the database
+     * If the database is not initialized, it will be initialized with the default username
+     * @return The database
      */
     public static Database getInstance(){
         if(instance == null){
@@ -99,7 +104,9 @@ public class Database {
 
     
     /** 
+     * Add a subject to the database
      * @param subject
+     * 
      */
     public static void addSubject(Subject subject){
         instance.subjList.add(subject);
@@ -107,7 +114,9 @@ public class Database {
 
     
     /** 
+     * Add a task to the database
      * @param task
+     * 
      */
     public static void addTask(TaskInstance task){
         instance.taskList.add(task);
@@ -115,7 +124,9 @@ public class Database {
 
     
     /** 
+     * Add a class to the database
      * @param classInstance
+     * 
      */
     public static void addClass(ClassInstance classInstance){
         instance.classList.add(classInstance);
@@ -123,7 +134,9 @@ public class Database {
 
     
     /** 
+     * Add an exam to the database
      * @param exam
+     * 
      */
     public static void addExam(ExamInstance exam){
         instance.examList.add(exam);
@@ -131,6 +144,7 @@ public class Database {
 
     
     /** 
+     * Remove a subject from the database
      * @param subject
      */
     public static void removeSubject(Subject subject){
@@ -139,6 +153,7 @@ public class Database {
 
     
     /** 
+     * Remove a task from the database
      * @param task
      */
     public static void removeTask(TaskInstance task){
@@ -147,6 +162,7 @@ public class Database {
 
     
     /** 
+     * Remove a class from the database
      * @param classInstance
      */
     public static void removeClass(ClassInstance classInstance){
@@ -155,6 +171,7 @@ public class Database {
 
     
     /** 
+     * Remove an exam from the database
      * @param exam
      */
     public static void removeExam(ExamInstance exam){
@@ -163,6 +180,7 @@ public class Database {
 
     
     /** 
+     * Get the list of subjects in the database
      * @return Vector<Subject>
      */
     public static Vector<Subject> getSubjList(){
@@ -171,6 +189,7 @@ public class Database {
 
     
     /** 
+     * Get the list of tasks in the database
      * @return Vector<TaskInstance>
      */
     public static Vector<TaskInstance> getTaskList(){
@@ -179,6 +198,7 @@ public class Database {
 
     
     /** 
+     * Get the list of classes in the database
      * @return Vector<ClassInstance>
      */
     public static Vector<ClassInstance> getClassList(){
@@ -187,6 +207,7 @@ public class Database {
 
     
     /** 
+     * Get the list of exams in the database
      * @return Vector<ExamInstance>
      */
     public static Vector<ExamInstance> getExamList(){
