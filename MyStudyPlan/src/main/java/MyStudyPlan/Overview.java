@@ -23,7 +23,7 @@ public class Overview extends javax.swing.JFrame {
         initComponents();
 
         int time = java.time.LocalTime.now().getHour();
-        if (time >= 6 && time < 12) {
+        if (time >= 0 && time < 12) {
             TodayTxt.setText("Good Morning!");
         } else if (time >= 12 && time < 18) {
             TodayTxt.setText("Good Afternoon");
