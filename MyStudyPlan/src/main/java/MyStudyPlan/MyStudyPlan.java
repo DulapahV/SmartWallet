@@ -9,7 +9,6 @@ public class MyStudyPlan {
 
     public static void main(String[] args) {
         // init database
-//        Database db = Database.getInstance();
-//        db.addSubject(null);
+       Database db = Database.getInstance();
     }
 }
