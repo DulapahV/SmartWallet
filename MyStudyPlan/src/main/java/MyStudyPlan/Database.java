@@ -65,6 +65,10 @@ public class Database {
                         File file = new File(pathWindows);
                         file.getParentFile().mkdirs();
                         file.createNewFile();
+                        instance = new Database("default");
+                        Gson gson = new GsonBuilder().setPrettyPrinting().create();
+                        String json = gson.toJson(instance);
+                        Files.writeString(Path.of(pathWindows), json);
                         System.out.println("Successfully created new database file.");
                     } catch (Exception e) {
                         System.out.println("Error creating database file! " + e);
@@ -95,6 +99,10 @@ public class Database {
                         File file = new File(pathUnix);
                         file.getParentFile().mkdirs();
                         file.createNewFile();
+                        instance = new Database("default");
+                        Gson gson = new GsonBuilder().setPrettyPrinting().create();
+                        String json = gson.toJson(instance);
+                        Files.writeString(Path.of(pathUnix), json);
                         System.out.println("Successfully created new database file.");
                     } catch (Exception e) {
                         System.out.println("Error creating database file! " + e);
