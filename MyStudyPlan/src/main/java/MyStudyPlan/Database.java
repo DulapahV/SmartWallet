@@ -77,7 +77,7 @@ public class Database {
                 break;
             case "Unix":
                 // Get Database path
-                String pathUnix = "~/Documents/MyStudyPlan/default.json";
+                String pathUnix = "~/Documents/MyStudyPlan/database.json";
                 System.out.println("Database path: " + '"' + pathUnix + '"');
                 // If file exist
                 if (Files.exists(Path.of(pathUnix))) {
