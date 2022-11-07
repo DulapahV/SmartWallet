@@ -9,6 +9,10 @@ public class MyStudyPlan {
 
     public static void main(String[] args) {
         // init database
-       Database db = Database.getInstance();
+       Database db = Database.initDatabase();
+       if (db == null) {
+           System.out.println("Database is either empty or contains error! Going to login page...");
+           return;
+       }
     }
 }
