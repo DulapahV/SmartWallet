@@ -68,12 +68,12 @@ public class Login extends javax.swing.JFrame {
         setName("MainMenu"); // NOI18N
         setResizable(false);
 
-        LoginPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Login", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("DINPro-Medium", 0, 24))); // NOI18N
+        LoginPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Login", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, getFont("DINPro-Medium.otf", Font.PLAIN, 24)));
 
-        LoginUsernameTxt.setFont(new java.awt.Font("DINPro-Light", 0, 14)); // NOI18N
+        LoginUsernameTxt.setFont(getFont("DINPro-Light.otf", Font.PLAIN, 14));
         LoginUsernameTxt.setText("Username");
 
-        LoginUsernameTxtField.setFont(new java.awt.Font("DINPro-Medium", 0, 18)); // NOI18N
+        LoginUsernameTxtField.setFont(getFont("DINPro-Medium.otf", Font.PLAIN, 18));
         LoginUsernameTxtField.setText("Enter your email address...");
         LoginUsernameTxtField.setToolTipText("");
         LoginUsernameTxtField.addFocusListener(new java.awt.event.FocusAdapter() {
@@ -85,10 +85,10 @@ public class Login extends javax.swing.JFrame {
             }
         });
 
-        LoginPasswdTxt.setFont(new java.awt.Font("DINPro-Light", 0, 14)); // NOI18N
+        LoginPasswdTxt.setFont(getFont("DINPro-Light.otf", Font.PLAIN, 14));
         LoginPasswdTxt.setText("Password");
 
-        LoginPasswdTxtField.setFont(new java.awt.Font("DINPro-Medium", 0, 18)); // NOI18N
+        LoginPasswdTxtField.setFont(getFont("DINPro-Medium.otf", Font.PLAIN, 18));
         LoginPasswdTxtField.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 LoginPasswdTxtFieldFocusGained(evt);
@@ -104,7 +104,7 @@ public class Login extends javax.swing.JFrame {
         });
 
         LoginBtn.setBackground(new java.awt.Color(59, 162, 191));
-        LoginBtn.setFont(new java.awt.Font("DINPro-Medium", 0, 18)); // NOI18N
+        LoginBtn.setFont(getFont("DINPro-Medium.otf", Font.PLAIN, 18));
         LoginBtn.setText("Login");
         LoginBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -151,11 +151,11 @@ public class Login extends javax.swing.JFrame {
 
         icon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/welcome.png"))); // NOI18N
 
-        Welcome1Txt.setFont(new java.awt.Font("DINPro-Medium", 0, 24)); // NOI18N
+        Welcome1Txt.setFont(getFont("DINPro-Medium.otf", Font.PLAIN, 24));
         Welcome1Txt.setForeground(new java.awt.Color(255, 255, 255));
         Welcome1Txt.setText("Welcome to MyStudyPlan");
 
-        Welcome2Txt.setFont(new java.awt.Font("DINPro-Light", 0, 24)); // NOI18N
+        Welcome2Txt.setFont(getFont("DINPro-Light.otf", Font.PLAIN, 24));
         Welcome2Txt.setForeground(new java.awt.Color(255, 255, 255));
         Welcome2Txt.setText("Log in to sync your content.");
 
@@ -164,31 +164,31 @@ public class Login extends javax.swing.JFrame {
         LeftPanelLayout.setHorizontalGroup(
             LeftPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(LeftPanelLayout.createSequentialGroup()
-                .addGap(84, 84, 84)
+                .addGap(69, 69, 69)
                 .addGroup(LeftPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
                     .addComponent(Welcome1Txt)
                     .addComponent(icon)
                     .addComponent(Welcome2Txt))
-                .addContainerGap(83, Short.MAX_VALUE))
+                .addContainerGap(69, Short.MAX_VALUE))
         );
         LeftPanelLayout.setVerticalGroup(
             LeftPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(LeftPanelLayout.createSequentialGroup()
-                .addGap(214, 214, 214)
+                .addGap(210, 210, 210)
                 .addComponent(icon)
                 .addGap(18, 18, 18)
                 .addComponent(Welcome1Txt)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(Welcome2Txt)
-                .addContainerGap(200, Short.MAX_VALUE))
+                .addContainerGap(133, Short.MAX_VALUE))
         );
 
-        RegisterPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Register", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("DINPro-Medium", 0, 24))); // NOI18N
+        RegisterPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Register", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, getFont("DINPro-Medium.otf", Font.PLAIN, 24)));
 
-        RegUsernameTxt.setFont(new java.awt.Font("DINPro-Light", 0, 14)); // NOI18N
+        RegUsernameTxt.setFont(getFont("DINPro-Light.otf", Font.PLAIN, 14));
         RegUsernameTxt.setText("Username");
 
-        RegUsernameTxtField.setFont(new java.awt.Font("DINPro-Medium", 0, 18)); // NOI18N
+        RegUsernameTxtField.setFont(getFont("DINPro-Medium.otf", Font.PLAIN, 18));
         RegUsernameTxtField.setText("Enter your email address...");
         RegUsernameTxtField.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
@@ -199,10 +199,10 @@ public class Login extends javax.swing.JFrame {
             }
         });
 
-        RegPasswdTxt.setFont(new java.awt.Font("DINPro-Light", 0, 14)); // NOI18N
+        RegPasswdTxt.setFont(getFont("DINPro-Light.otf", Font.PLAIN, 14));
         RegPasswdTxt.setText("Password");
 
-        RegPasswdTxtField.setFont(new java.awt.Font("DINPro-Medium", 0, 18)); // NOI18N
+        RegPasswdTxtField.setFont(getFont("DINPro-Medium.otf", Font.PLAIN, 18));
         RegPasswdTxtField.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 RegPasswdTxtFieldFocusGained(evt);
@@ -212,10 +212,10 @@ public class Login extends javax.swing.JFrame {
             }
         });
 
-        RegConfirmPasswdTxt.setFont(new java.awt.Font("DINPro-Light", 0, 14)); // NOI18N
+        RegConfirmPasswdTxt.setFont(getFont("DINPro-Light.otf", Font.PLAIN, 14));
         RegConfirmPasswdTxt.setText("Confirm Password");
 
-        RegConfirmPasswdTxtField.setFont(new java.awt.Font("DINPro-Medium", 0, 18)); // NOI18N
+        RegConfirmPasswdTxtField.setFont(getFont("DINPro-Medium.otf", Font.PLAIN, 18));
         RegConfirmPasswdTxtField.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 RegConfirmPasswdTxtFieldFocusGained(evt);
@@ -226,7 +226,7 @@ public class Login extends javax.swing.JFrame {
         });
 
         RegisterBtn.setBackground(new java.awt.Color(59, 162, 191));
-        RegisterBtn.setFont(new java.awt.Font("DINPro-Medium", 0, 18)); // NOI18N
+        RegisterBtn.setFont(getFont("DINPro-Medium.otf", Font.PLAIN, 18));
         RegisterBtn.setText("Register");
         RegisterBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -281,11 +281,11 @@ public class Login extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(LeftPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(65, 65, 65)
+                .addGap(69, 69, 69)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(LoginPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(RegisterPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(69, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -294,7 +294,7 @@ public class Login extends javax.swing.JFrame {
                 .addComponent(LoginPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(34, 34, 34)
                 .addComponent(RegisterPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 46, Short.MAX_VALUE))
+                .addContainerGap(46, Short.MAX_VALUE))
             .addComponent(LeftPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
@@ -393,6 +393,7 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JLabel Welcome2Txt;
     private javax.swing.JLabel icon;
     // End of variables declaration//GEN-END:variables
+
     /**
      * @param fontName
      * @param fontStyle
