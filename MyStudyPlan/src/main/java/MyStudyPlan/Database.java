@@ -12,6 +12,8 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.Vector;
 
+import javax.swing.filechooser.FileSystemView;
+
 import org.json.*;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -42,15 +44,15 @@ public class Database {
             String rawjson = null;
             if (System.getProperty("os.name").contains("Windows")) {
                 try {
-                    rawjson = Files.readString(Path.of("%userprofile%\\Documents\\MyStudyPlan\\" + username + ".json"));
+                    rawjson = Files.readString(Path.of(FileSystemView.getFileSystemView().getDefaultDirectory().getPath() + "\\MyStudyPlan\\" + username + ".json"));
                 } catch (Exception e) {
-                    //TODO: dialogue box to create new file
+                    System.err.println(username + ".json not found!");
                 }
             } else {
                 try {
                     rawjson = Files.readString(Path.of("~/Documents/MyStudyPlan/" + username + ".json"));
                 } catch (Exception e) {
-                    //TODO: dialogue box to create new file
+                    System.err.println(username + ".json not found!");
                 }
             }
             if (rawjson == null) {
@@ -77,16 +79,36 @@ public class Database {
         if (instance == null) {
             String rawjson = null;
             if (System.getProperty("os.name").contains("Windows")) {
+                System.out.println("Windows OS detected.");
+                String path = FileSystemView.getFileSystemView().getDefaultDirectory().getPath() + "\\MyStudyPlan\\default.json";
                 try {
-                    rawjson = Files.readString(Path.of("%userprofile%\\Documents\\MyStudyPlan\\default.json"));
+                    rawjson = Files.readString(Path.of(path));
                 } catch (Exception e) {
-                    System.err.println("Error reading: " + e);
+                    try {
+                        System.out.println("default.json not found, creating one...");
+                        File file = new File(path);
+                        file.getParentFile().mkdirs();
+                        file.createNewFile();
+                        System.out.println("Successfully created default.json at " + '"' + path + '"');
+                    } catch (Exception ex) {
+                        System.err.println("Error creating default.json at " + '"' + path + '"' + ". " + ex);
+                    }
                 }
             } else {
+                System.out.println("Linux OS detected.");
+                String path = "~/Documents/MyStudyPlan/default.json";
                 try {
-                    rawjson = Files.readString(Path.of("~/Documents/MyStudyPlan/default.json"));
+                    rawjson = Files.readString(Path.of(path));
                 } catch (Exception e) {
-                    System.err.println("Error reading: " + e);
+                    try {
+                        System.out.println("default.json not found, creating one...");
+                        File file = new File(path);
+                        file.getParentFile().mkdirs();
+                        file.createNewFile();
+                        System.out.println("Created default.json at " + '"' + path + '"');
+                    } catch (Exception ex) {
+                        System.err.println("Error creating default.json at " + '"' + path + '"' + ". " + ex);
+                    }
                 }
             }
             if (rawjson == null) {
