@@ -26,9 +26,9 @@ public class Login extends javax.swing.JFrame {
         for (int i = 0; i < 8; i++) {
             genPasswd += (char) (Math.random() * 94 + 33);
         }
-        setLoginPasswdTxtField(genPasswd);
-        setRegPasswdTxtField(genPasswd);
-        setRegConfirmPasswdTxtField(genPasswd);
+        setLoginPasswd(genPasswd);
+        setRegPasswd(genPasswd);
+        setRegConfirmPasswd(genPasswd);
     }
 
     /**
@@ -40,16 +40,17 @@ public class Login extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        LeftPanel = new javax.swing.JPanel();
+        icon = new javax.swing.JLabel();
+        Welcome1Txt = new javax.swing.JLabel();
+        Welcome2Txt = new javax.swing.JLabel();
         LoginPanel = new javax.swing.JPanel();
         LoginUsernameTxt = new javax.swing.JLabel();
         LoginUsernameTxtField = new javax.swing.JTextField();
         LoginPasswdTxt = new javax.swing.JLabel();
         LoginPasswdTxtField = new javax.swing.JPasswordField();
         LoginBtn = new javax.swing.JButton();
-        LeftPanel = new javax.swing.JPanel();
-        icon = new javax.swing.JLabel();
-        Welcome1Txt = new javax.swing.JLabel();
-        Welcome2Txt = new javax.swing.JLabel();
+        LoginStatusTxt = new javax.swing.JLabel();
         RegisterPanel = new javax.swing.JPanel();
         RegUsernameTxt = new javax.swing.JLabel();
         RegUsernameTxtField = new javax.swing.JTextField();
@@ -58,6 +59,7 @@ public class Login extends javax.swing.JFrame {
         RegConfirmPasswdTxt = new javax.swing.JLabel();
         RegConfirmPasswdTxtField = new javax.swing.JPasswordField();
         RegisterBtn = new javax.swing.JButton();
+        RegisterStatusTxt = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("MyStudyPlan");
@@ -67,6 +69,42 @@ public class Login extends javax.swing.JFrame {
         setMinimumSize(new java.awt.Dimension(1108, 632));
         setName("MainMenu"); // NOI18N
         setResizable(false);
+
+        LeftPanel.setBackground(new java.awt.Color(59, 162, 191));
+
+        icon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/welcome.png"))); // NOI18N
+
+        Welcome1Txt.setFont(getFont("DINPro-Medium.otf", Font.PLAIN, 24));
+        Welcome1Txt.setForeground(new java.awt.Color(255, 255, 255));
+        Welcome1Txt.setText("Welcome to MyStudyPlan");
+
+        Welcome2Txt.setFont(getFont("DINPro-Light.otf", Font.PLAIN, 24));
+        Welcome2Txt.setForeground(new java.awt.Color(255, 255, 255));
+        Welcome2Txt.setText("Log in to sync your content.");
+
+        javax.swing.GroupLayout LeftPanelLayout = new javax.swing.GroupLayout(LeftPanel);
+        LeftPanel.setLayout(LeftPanelLayout);
+        LeftPanelLayout.setHorizontalGroup(
+            LeftPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(LeftPanelLayout.createSequentialGroup()
+                .addGap(69, 69, 69)
+                .addGroup(LeftPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
+                    .addComponent(Welcome1Txt)
+                    .addComponent(icon)
+                    .addComponent(Welcome2Txt))
+                .addContainerGap(69, Short.MAX_VALUE))
+        );
+        LeftPanelLayout.setVerticalGroup(
+            LeftPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(LeftPanelLayout.createSequentialGroup()
+                .addGap(210, 210, 210)
+                .addComponent(icon)
+                .addGap(18, 18, 18)
+                .addComponent(Welcome1Txt)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(Welcome2Txt)
+                .addContainerGap(133, Short.MAX_VALUE))
+        );
 
         LoginPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Login", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, getFont("DINPro-Medium.otf", Font.PLAIN, 24)));
 
@@ -112,6 +150,10 @@ public class Login extends javax.swing.JFrame {
             }
         });
 
+        LoginStatusTxt.setFont(getFont("DINPro-Medium.otf", Font.PLAIN, 18));
+        LoginStatusTxt.setForeground(new java.awt.Color(255, 0, 51));
+        LoginStatusTxt.setToolTipText("");
+
         javax.swing.GroupLayout LoginPanelLayout = new javax.swing.GroupLayout(LoginPanel);
         LoginPanel.setLayout(LoginPanelLayout);
         LoginPanelLayout.setHorizontalGroup(
@@ -127,7 +169,8 @@ public class Login extends javax.swing.JFrame {
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addComponent(LoginUsernameTxtField, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 518, Short.MAX_VALUE)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, LoginPanelLayout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(LoginStatusTxt)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(LoginBtn)))
                 .addContainerGap())
         );
@@ -143,44 +186,10 @@ public class Login extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(LoginPasswdTxtField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(LoginBtn)
+                .addGroup(LoginPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
+                    .addComponent(LoginStatusTxt)
+                    .addComponent(LoginBtn))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-
-        LeftPanel.setBackground(new java.awt.Color(59, 162, 191));
-
-        icon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/welcome.png"))); // NOI18N
-
-        Welcome1Txt.setFont(getFont("DINPro-Medium.otf", Font.PLAIN, 24));
-        Welcome1Txt.setForeground(new java.awt.Color(255, 255, 255));
-        Welcome1Txt.setText("Welcome to MyStudyPlan");
-
-        Welcome2Txt.setFont(getFont("DINPro-Light.otf", Font.PLAIN, 24));
-        Welcome2Txt.setForeground(new java.awt.Color(255, 255, 255));
-        Welcome2Txt.setText("Log in to sync your content.");
-
-        javax.swing.GroupLayout LeftPanelLayout = new javax.swing.GroupLayout(LeftPanel);
-        LeftPanel.setLayout(LeftPanelLayout);
-        LeftPanelLayout.setHorizontalGroup(
-            LeftPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(LeftPanelLayout.createSequentialGroup()
-                .addGap(69, 69, 69)
-                .addGroup(LeftPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
-                    .addComponent(Welcome1Txt)
-                    .addComponent(icon)
-                    .addComponent(Welcome2Txt))
-                .addContainerGap(69, Short.MAX_VALUE))
-        );
-        LeftPanelLayout.setVerticalGroup(
-            LeftPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(LeftPanelLayout.createSequentialGroup()
-                .addGap(210, 210, 210)
-                .addComponent(icon)
-                .addGap(18, 18, 18)
-                .addComponent(Welcome1Txt)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(Welcome2Txt)
-                .addContainerGap(133, Short.MAX_VALUE))
         );
 
         RegisterPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Register", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, getFont("DINPro-Medium.otf", Font.PLAIN, 24)));
@@ -234,6 +243,10 @@ public class Login extends javax.swing.JFrame {
             }
         });
 
+        RegisterStatusTxt.setFont(getFont("DINPro-Medium.otf", Font.PLAIN, 18));
+        RegisterStatusTxt.setForeground(new java.awt.Color(255, 0, 51));
+        RegisterStatusTxt.setToolTipText("");
+
         javax.swing.GroupLayout RegisterPanelLayout = new javax.swing.GroupLayout(RegisterPanel);
         RegisterPanel.setLayout(RegisterPanelLayout);
         RegisterPanelLayout.setHorizontalGroup(
@@ -248,9 +261,10 @@ public class Login extends javax.swing.JFrame {
                             .addComponent(RegPasswdTxt, javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(RegConfirmPasswdTxt, javax.swing.GroupLayout.Alignment.LEADING))
                         .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(RegUsernameTxtField, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(RegUsernameTxtField, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 518, Short.MAX_VALUE)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, RegisterPanelLayout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(RegisterStatusTxt)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(RegisterBtn))
                     .addComponent(RegConfirmPasswdTxtField))
                 .addContainerGap())
@@ -271,7 +285,9 @@ public class Login extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(RegConfirmPasswdTxtField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, Short.MAX_VALUE)
-                .addComponent(RegisterBtn)
+                .addGroup(RegisterPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
+                    .addComponent(RegisterStatusTxt)
+                    .addComponent(RegisterBtn))
                 .addContainerGap())
         );
 
@@ -302,11 +318,23 @@ public class Login extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void LoginBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LoginBtnActionPerformed
-        // TODO add your handling code here:
+        if (getLoginUsername().isEmpty() || getLoginUsername().equals("Enter your email address...")) {
+            setLoginStatus("Username cannot be empty!");
+        } else {
+            System.out.println("Login OK");
+        }
     }//GEN-LAST:event_LoginBtnActionPerformed
 
     private void RegisterBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegisterBtnActionPerformed
-        // TODO add your handling code here:
+        if (getRegUsername().isEmpty() || getRegUsername().equals("Enter your email address..."))
+            setRegStatus("Username cannot be empty!");
+        else if (getRegPasswd().isEmpty() || getRegPasswd().equals(genPasswd))
+            setRegStatus("Password cannot be empty!");
+        else if (!getRegConfirmPasswd().equals(getRegPasswd()))
+            setRegStatus("Passwords do not match!");
+        else {
+            System.out.println("Register OK");
+        }
     }//GEN-LAST:event_RegisterBtnActionPerformed
 
     private void LoginPasswdTxtFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LoginPasswdTxtFieldActionPerformed
@@ -314,62 +342,66 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_LoginPasswdTxtFieldActionPerformed
 
     private void LoginUsernameTxtFieldFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_LoginUsernameTxtFieldFocusGained
+        setLoginStatus("");
         if (getLoginUsername().equals("Enter your email address...")) {
-            setLoginUsernameTxtField("");
+            setLoginUsername("");
         }
     }//GEN-LAST:event_LoginUsernameTxtFieldFocusGained
 
     private void LoginUsernameTxtFieldFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_LoginUsernameTxtFieldFocusLost
         if (getLoginUsername().equals("")) {
-            setLoginUsernameTxtField("Enter your email address...");
+            setLoginUsername("Enter your email address...");
         }
     }//GEN-LAST:event_LoginUsernameTxtFieldFocusLost
 
     private void LoginPasswdTxtFieldFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_LoginPasswdTxtFieldFocusGained
         if (getLoginPasswd().equals(genPasswd)) {
-            setLoginPasswdTxtField("");
+            setLoginPasswd("");
         }
     }//GEN-LAST:event_LoginPasswdTxtFieldFocusGained
 
     private void LoginPasswdTxtFieldFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_LoginPasswdTxtFieldFocusLost
         if (getLoginPasswd().equals("")) {
-            setLoginPasswdTxtField(genPasswd);
+            setLoginPasswd(genPasswd);
         }
     }//GEN-LAST:event_LoginPasswdTxtFieldFocusLost
 
     private void RegUsernameTxtFieldFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_RegUsernameTxtFieldFocusGained
+        setRegStatus("");
         if (getRegUsername().equals("Enter your email address...")) {
-            setRegUsernameTxtField("");
+            setRegUsername("");
         }
     }//GEN-LAST:event_RegUsernameTxtFieldFocusGained
 
     private void RegUsernameTxtFieldFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_RegUsernameTxtFieldFocusLost
         if (getRegUsername().equals("")) {
-            setRegUsernameTxtField("Enter your email address...");
+            setRegUsername("Enter your email address...");
         }
     }//GEN-LAST:event_RegUsernameTxtFieldFocusLost
 
     private void RegPasswdTxtFieldFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_RegPasswdTxtFieldFocusGained
+        setRegStatus("");
         if (getRegPasswd().equals(genPasswd)) {
-            setRegPasswdTxtField("");
+            setRegPasswd("");
         }
     }//GEN-LAST:event_RegPasswdTxtFieldFocusGained
 
     private void RegPasswdTxtFieldFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_RegPasswdTxtFieldFocusLost
         if (getRegPasswd().equals("")) {
-            setRegPasswdTxtField(genPasswd);
+            setRegPasswd(genPasswd);
         }
     }//GEN-LAST:event_RegPasswdTxtFieldFocusLost
 
     private void RegConfirmPasswdTxtFieldFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_RegConfirmPasswdTxtFieldFocusGained
+        setRegStatus("");
         if (getRegConfirmPasswd().equals(genPasswd)) {
-            setRegConfirmPasswdTxtField("");
+            setRegConfirmPasswd("");
         }
     }//GEN-LAST:event_RegConfirmPasswdTxtFieldFocusGained
 
     private void RegConfirmPasswdTxtFieldFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_RegConfirmPasswdTxtFieldFocusLost
         if (getRegConfirmPasswd().equals("")) {
-            setRegConfirmPasswdTxtField(genPasswd);
+            setRegConfirmPasswd(genPasswd);
         }
     }//GEN-LAST:event_RegConfirmPasswdTxtFieldFocusLost
 
@@ -379,6 +411,7 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JPanel LoginPanel;
     private javax.swing.JLabel LoginPasswdTxt;
     private javax.swing.JPasswordField LoginPasswdTxtField;
+    private javax.swing.JLabel LoginStatusTxt;
     private javax.swing.JLabel LoginUsernameTxt;
     private javax.swing.JTextField LoginUsernameTxtField;
     private javax.swing.JLabel RegConfirmPasswdTxt;
@@ -389,6 +422,7 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JTextField RegUsernameTxtField;
     private javax.swing.JButton RegisterBtn;
     private javax.swing.JPanel RegisterPanel;
+    private javax.swing.JLabel RegisterStatusTxt;
     private javax.swing.JLabel Welcome1Txt;
     private javax.swing.JLabel Welcome2Txt;
     private javax.swing.JLabel icon;
@@ -448,35 +482,47 @@ public class Login extends javax.swing.JFrame {
     /**
      * @param string
      */
-    public void setLoginPasswdTxtField(String string) {
+    public void setLoginPasswd(String string) {
         LoginPasswdTxtField.setText(string);
     }
 
     /**
      * @param string
      */
-    public void setLoginUsernameTxtField(String string) {
+    public void setLoginUsername(String string) {
         LoginUsernameTxtField.setText(string);
     }
 
     /**
      * @param string
      */
-    public void setRegConfirmPasswdTxtField(String string) {
+    public void setRegConfirmPasswd(String string) {
         RegConfirmPasswdTxtField.setText(string);
     }
 
     /**
      * @param string
      */
-    public void setRegPasswdTxtField(String string) {
+    public void setRegPasswd(String string) {
         RegPasswdTxtField.setText(string);
     }
 
     /**
      * @param string
      */
-    public void setRegUsernameTxtField(String string) {
+    public void setRegUsername(String string) {
         RegUsernameTxtField.setText(string);
+    }
+
+    public void setLoginStatus(String string) {
+        LoginStatusTxt.setText(string);
+    }
+
+    public void setRegStatus(String string) {
+        RegisterStatusTxt.setText(string);
+    }
+
+    private void checkCredential() {
+        // TODO add your handling code here:
     }
 }
