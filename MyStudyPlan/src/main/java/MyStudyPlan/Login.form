@@ -201,7 +201,9 @@
             <Property name="font" type="java.awt.Font" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
               <Connection code="getFont(&quot;DINPro-Medium.otf&quot;, Font.PLAIN, 18)" type="code"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Enter your email address..."/>
+            <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+              <Connection code="usernameGuide" type="code"/>
+            </Property>
             <Property name="toolTipText" type="java.lang.String" value=""/>
           </Properties>
           <Events>
@@ -222,12 +224,18 @@
             <Property name="font" type="java.awt.Font" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
               <Connection code="getFont(&quot;DINPro-Medium.otf&quot;, Font.PLAIN, 18)" type="code"/>
             </Property>
+            <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+              <Connection code="passwdGuide" type="code"/>
+            </Property>
           </Properties>
           <Events>
             <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="LoginPasswdTxtFieldFocusGained"/>
             <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="LoginPasswdTxtFieldFocusLost"/>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="LoginPasswdTxtFieldActionPerformed"/>
           </Events>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="LoginPasswdTxtField.setEchoChar((char) 0);"/>
+          </AuxValues>
         </Component>
         <Component class="javax.swing.JButton" name="LoginBtn">
           <Properties>
@@ -333,7 +341,9 @@
             <Property name="font" type="java.awt.Font" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
               <Connection code="getFont(&quot;DINPro-Medium.otf&quot;, Font.PLAIN, 18)" type="code"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Enter your email address..."/>
+            <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+              <Connection code="usernameGuide" type="code"/>
+            </Property>
           </Properties>
           <Events>
             <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="RegUsernameTxtFieldFocusGained"/>
@@ -353,11 +363,17 @@
             <Property name="font" type="java.awt.Font" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
               <Connection code="getFont(&quot;DINPro-Medium.otf&quot;, Font.PLAIN, 18)" type="code"/>
             </Property>
+            <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+              <Connection code="passwdGuide" type="code"/>
+            </Property>
           </Properties>
           <Events>
             <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="RegPasswdTxtFieldFocusGained"/>
             <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="RegPasswdTxtFieldFocusLost"/>
           </Events>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="RegPasswdTxtField.setEchoChar((char) 0);"/>
+          </AuxValues>
         </Component>
         <Component class="javax.swing.JLabel" name="RegConfirmPasswdTxt">
           <Properties>
@@ -372,11 +388,17 @@
             <Property name="font" type="java.awt.Font" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
               <Connection code="getFont(&quot;DINPro-Medium.otf&quot;, Font.PLAIN, 18)" type="code"/>
             </Property>
+            <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+              <Connection code="confirmPasswdGuide" type="code"/>
+            </Property>
           </Properties>
           <Events>
             <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="RegConfirmPasswdTxtFieldFocusGained"/>
             <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="RegConfirmPasswdTxtFieldFocusLost"/>
           </Events>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="RegConfirmPasswdTxtField.setEchoChar((char) 0);"/>
+          </AuxValues>
         </Component>
         <Component class="javax.swing.JButton" name="RegisterBtn">
           <Properties>

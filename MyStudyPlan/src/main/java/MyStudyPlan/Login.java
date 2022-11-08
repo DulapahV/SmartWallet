@@ -12,8 +12,14 @@ import java.util.logging.Logger;
  * Annopdanai Pamarapa (64011337)
  */
 public class Login extends javax.swing.JFrame {
-
-    private String genPasswd = "";
+    
+    private final String usernameGuide = "Enter your username...";
+    private final String passwdGuide = "Enter your password...";
+    private final String confirmPasswdGuide = "Confirm your password...";
+    private final String emptyUsername = "Username cannot be empty!";
+    private final String emptyPasswd = "Password cannot be empty!";
+    private final String passwdNotMatch = "Password does not match!";
+    private final char passwdChar = '\u2022';
 
     /**
      * Creates new form MainMenu
@@ -22,13 +28,6 @@ public class Login extends javax.swing.JFrame {
         initComponents();
 
         getContentPane().requestFocusInWindow(); //disable automatic focus
-
-        for (int i = 0; i < 8; i++) {
-            genPasswd += (char) (Math.random() * 94 + 33);
-        }
-        setLoginPasswd(genPasswd);
-        setRegPasswd(genPasswd);
-        setRegConfirmPasswd(genPasswd);
     }
 
     /**
@@ -112,7 +111,7 @@ public class Login extends javax.swing.JFrame {
         LoginUsernameTxt.setText("Username");
 
         LoginUsernameTxtField.setFont(getFont("DINPro-Medium.otf", Font.PLAIN, 18));
-        LoginUsernameTxtField.setText("Enter your email address...");
+        LoginUsernameTxtField.setText(usernameGuide);
         LoginUsernameTxtField.setToolTipText("");
         LoginUsernameTxtField.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
@@ -127,6 +126,8 @@ public class Login extends javax.swing.JFrame {
         LoginPasswdTxt.setText("Password");
 
         LoginPasswdTxtField.setFont(getFont("DINPro-Medium.otf", Font.PLAIN, 18));
+        LoginPasswdTxtField.setText(passwdGuide);
+        LoginPasswdTxtField.setEchoChar((char) 0);
         LoginPasswdTxtField.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 LoginPasswdTxtFieldFocusGained(evt);
@@ -198,7 +199,7 @@ public class Login extends javax.swing.JFrame {
         RegUsernameTxt.setText("Username");
 
         RegUsernameTxtField.setFont(getFont("DINPro-Medium.otf", Font.PLAIN, 18));
-        RegUsernameTxtField.setText("Enter your email address...");
+        RegUsernameTxtField.setText(usernameGuide);
         RegUsernameTxtField.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 RegUsernameTxtFieldFocusGained(evt);
@@ -212,6 +213,8 @@ public class Login extends javax.swing.JFrame {
         RegPasswdTxt.setText("Password");
 
         RegPasswdTxtField.setFont(getFont("DINPro-Medium.otf", Font.PLAIN, 18));
+        RegPasswdTxtField.setText(passwdGuide);
+        RegPasswdTxtField.setEchoChar((char) 0);
         RegPasswdTxtField.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 RegPasswdTxtFieldFocusGained(evt);
@@ -225,6 +228,8 @@ public class Login extends javax.swing.JFrame {
         RegConfirmPasswdTxt.setText("Confirm Password");
 
         RegConfirmPasswdTxtField.setFont(getFont("DINPro-Medium.otf", Font.PLAIN, 18));
+        RegConfirmPasswdTxtField.setText(confirmPasswdGuide);
+        RegConfirmPasswdTxtField.setEchoChar((char) 0);
         RegConfirmPasswdTxtField.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 RegConfirmPasswdTxtFieldFocusGained(evt);
@@ -318,20 +323,22 @@ public class Login extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void LoginBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LoginBtnActionPerformed
-        if (getLoginUsername().isEmpty() || getLoginUsername().equals("Enter your email address...")) {
-            setLoginStatus("Username cannot be empty!");
+        if (getLoginUsername().isEmpty() || getLoginUsername().equals(usernameGuide)) {
+            setLoginStatus(emptyUsername);
+        } else if (getLoginPasswd().isEmpty() || getLoginPasswd().equals(passwdGuide)) {
+            setLoginStatus(emptyPasswd);
         } else {
             System.out.println("Login OK");
         }
     }//GEN-LAST:event_LoginBtnActionPerformed
 
     private void RegisterBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegisterBtnActionPerformed
-        if (getRegUsername().isEmpty() || getRegUsername().equals("Enter your email address..."))
-            setRegStatus("Username cannot be empty!");
-        else if (getRegPasswd().isEmpty() || getRegPasswd().equals(genPasswd))
-            setRegStatus("Password cannot be empty!");
+        if (getRegUsername().isEmpty() || getRegUsername().equals(usernameGuide))
+            setRegStatus(emptyUsername);
+        else if (getRegPasswd().isEmpty() || getRegPasswd().equals(passwdGuide))
+            setRegStatus(emptyPasswd);
         else if (!getRegConfirmPasswd().equals(getRegPasswd()))
-            setRegStatus("Passwords do not match!");
+            setRegStatus(passwdNotMatch);
         else {
             System.out.println("Register OK");
         }
@@ -343,65 +350,71 @@ public class Login extends javax.swing.JFrame {
 
     private void LoginUsernameTxtFieldFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_LoginUsernameTxtFieldFocusGained
         setLoginStatus("");
-        if (getLoginUsername().equals("Enter your email address...")) {
+        if (getLoginUsername().equals(usernameGuide)) {
             setLoginUsername("");
         }
     }//GEN-LAST:event_LoginUsernameTxtFieldFocusGained
 
     private void LoginUsernameTxtFieldFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_LoginUsernameTxtFieldFocusLost
         if (getLoginUsername().equals("")) {
-            setLoginUsername("Enter your email address...");
+            setLoginUsername(usernameGuide);
         }
     }//GEN-LAST:event_LoginUsernameTxtFieldFocusLost
 
     private void LoginPasswdTxtFieldFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_LoginPasswdTxtFieldFocusGained
-        if (getLoginPasswd().equals(genPasswd)) {
+        if (getLoginPasswd().equals(passwdGuide)) {
             setLoginPasswd("");
+            LoginPasswdTxtField.setEchoChar(passwdChar);
         }
     }//GEN-LAST:event_LoginPasswdTxtFieldFocusGained
 
     private void LoginPasswdTxtFieldFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_LoginPasswdTxtFieldFocusLost
         if (getLoginPasswd().equals("")) {
-            setLoginPasswd(genPasswd);
+            setLoginPasswd(passwdGuide);
+            LoginPasswdTxtField.setEchoChar((char) 0);
         }
     }//GEN-LAST:event_LoginPasswdTxtFieldFocusLost
 
     private void RegUsernameTxtFieldFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_RegUsernameTxtFieldFocusGained
         setRegStatus("");
-        if (getRegUsername().equals("Enter your email address...")) {
+        if (getRegUsername().equals(usernameGuide)) {
             setRegUsername("");
         }
     }//GEN-LAST:event_RegUsernameTxtFieldFocusGained
 
     private void RegUsernameTxtFieldFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_RegUsernameTxtFieldFocusLost
         if (getRegUsername().equals("")) {
-            setRegUsername("Enter your email address...");
+            setRegUsername(usernameGuide);
         }
     }//GEN-LAST:event_RegUsernameTxtFieldFocusLost
 
     private void RegPasswdTxtFieldFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_RegPasswdTxtFieldFocusGained
         setRegStatus("");
-        if (getRegPasswd().equals(genPasswd)) {
+        if (getRegPasswd().equals(passwdGuide)) {
             setRegPasswd("");
+            RegPasswdTxtField.setEchoChar(passwdChar);
         }
     }//GEN-LAST:event_RegPasswdTxtFieldFocusGained
 
     private void RegPasswdTxtFieldFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_RegPasswdTxtFieldFocusLost
         if (getRegPasswd().equals("")) {
-            setRegPasswd(genPasswd);
+            setRegPasswd(passwdGuide);
+            RegPasswdTxtField.setEchoChar((char) 0);
         }
     }//GEN-LAST:event_RegPasswdTxtFieldFocusLost
 
     private void RegConfirmPasswdTxtFieldFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_RegConfirmPasswdTxtFieldFocusGained
         setRegStatus("");
-        if (getRegConfirmPasswd().equals(genPasswd)) {
+        if (getRegConfirmPasswd().equals(confirmPasswdGuide)) {
             setRegConfirmPasswd("");
+            RegConfirmPasswdTxtField.setEchoChar(passwdChar);
         }
     }//GEN-LAST:event_RegConfirmPasswdTxtFieldFocusGained
 
     private void RegConfirmPasswdTxtFieldFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_RegConfirmPasswdTxtFieldFocusLost
         if (getRegConfirmPasswd().equals("")) {
-            setRegConfirmPasswd(genPasswd);
+            setRegConfirmPasswd(confirmPasswdGuide);
+            RegConfirmPasswdTxtField.setEchoChar((char) 0);
         }
     }//GEN-LAST:event_RegConfirmPasswdTxtFieldFocusLost
 

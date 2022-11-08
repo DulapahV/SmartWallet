@@ -34,7 +34,7 @@ public class Database {
     private Vector<ExamInstance> examList;
 
     private Database() throws JSONException {
-        this.username = "";
+        this.username = null;
         this.subjList = new Vector<Subject>();
         this.taskList = new Vector<TaskInstance>();
         this.classList = new Vector<ClassInstance>();
