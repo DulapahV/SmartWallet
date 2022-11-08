@@ -7,19 +7,20 @@ package MyStudyPlan;
  * @author Dulapah Vibulsanti (64011388), Anucha Cheewachanon (64011338),
  * Annopdanai Pamarapa (64011337)
  */
+import java.awt.Color;
 import java.io.File;
 import java.nio.file.Files;
 import java.nio.file.Path;
-import java.util.Vector;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
-import java.awt.Color;
+import java.util.Vector;
 import java.util.logging.Logger;
 
 import javax.swing.filechooser.FileSystemView;
 
-import org.json.*;
+import org.json.JSONException;
+
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
