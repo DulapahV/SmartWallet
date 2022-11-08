@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 
-<Form version="1.3" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
+<Form version="1.5" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="2"/>
     <Property name="title" type="java.lang.String" value="New Exam"/>
@@ -43,7 +43,7 @@
                               <Component id="DetailScrollPane" alignment="0" max="32767" attributes="0"/>
                               <Group type="102" attributes="0">
                                   <Group type="103" groupAlignment="1" attributes="0">
-                                      <Component id="DateDatePicker" alignment="0" pref="241" max="32767" attributes="0"/>
+                                      <Component id="DatePicker" alignment="0" pref="241" max="32767" attributes="0"/>
                                       <Group type="102" alignment="0" attributes="0">
                                           <Group type="103" groupAlignment="1" attributes="0">
                                               <Component id="DateTxt" alignment="0" min="-2" max="-2" attributes="0"/>
@@ -120,7 +120,7 @@
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="2" attributes="0">
-                  <Component id="DateDatePicker" alignment="2" min="-2" max="-2" attributes="0"/>
+                  <Component id="DatePicker" alignment="2" min="-2" max="-2" attributes="0"/>
                   <Component id="BuildingRoomTxtField" alignment="2" min="-2" max="-2" attributes="0"/>
                   <Component id="SeatTxtField" alignment="2" min="-2" max="-2" attributes="0"/>
               </Group>
@@ -238,14 +238,14 @@
         <Property name="text" type="java.lang.String" value="Date"/>
       </Properties>
     </Component>
-    <Component class="org.jdesktop.swingx.JXDatePicker" name="DateDatePicker">
+    <Component class="org.jdesktop.swingx.JXDatePicker" name="DatePicker">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
           <Connection code="getFont(&quot;DINPro-Medium.otf&quot;, Font.PLAIN, 14)" type="code"/>
         </Property>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="DateDatePickerActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="DatePickerActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="BuildingRoomTxt">
@@ -291,12 +291,18 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
           <Connection code="getFont(&quot;DINPro-Medium.otf&quot;, Font.PLAIN, 14)" type="code"/>
         </Property>
+        <Property name="model" type="javax.swing.SpinnerModel" editor="org.netbeans.modules.form.editors2.SpinnerModelEditor">
+          <SpinnerModel initial="9" maximum="12" minimum="1" numberType="java.lang.Integer" stepSize="1" type="number"/>
+        </Property>
       </Properties>
     </Component>
     <Component class="javax.swing.JSpinner" name="MinuteSpinner">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
           <Connection code="getFont(&quot;DINPro-Medium.otf&quot;, Font.PLAIN, 14)" type="code"/>
+        </Property>
+        <Property name="model" type="javax.swing.SpinnerModel" editor="org.netbeans.modules.form.editors2.SpinnerModelEditor">
+          <SpinnerModel initial="0" maximum="60" minimum="0" numberType="java.lang.Integer" stepSize="5" type="number"/>
         </Property>
       </Properties>
     </Component>
@@ -328,6 +334,9 @@
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
           <Connection code="getFont(&quot;DINPro-Medium.otf&quot;, Font.PLAIN, 14)" type="code"/>
+        </Property>
+        <Property name="model" type="javax.swing.SpinnerModel" editor="org.netbeans.modules.form.editors2.SpinnerModelEditor">
+          <SpinnerModel initial="5" maximum="720" minimum="5" numberType="java.lang.Integer" stepSize="5" type="number"/>
         </Property>
       </Properties>
     </Component>

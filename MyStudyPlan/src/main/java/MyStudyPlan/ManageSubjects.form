@@ -204,6 +204,9 @@
         <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="ColorTxtFieldFocusLost"/>
         <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="ColorTxtFieldKeyPressed"/>
       </Events>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="ColorTxtField.setText(String.format(&quot;#%02x%02x%02x&quot;, ColorPickerBtn.getBackground().getRed(),&#xa;                ColorPickerBtn.getBackground().getGreen(), ColorPickerBtn.getBackground().getBlue()));&#xa;ColorTxtField.setForeground(ColorPickerBtn.getBackground());"/>
+      </AuxValues>
     </Component>
     <Component class="javax.swing.JButton" name="ColorPickerBtn">
       <Properties>

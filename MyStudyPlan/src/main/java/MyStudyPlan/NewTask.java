@@ -9,6 +9,11 @@ import java.time.LocalDate;
 import java.time.ZoneId;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import java.awt.Color;
+import java.awt.Dimension;
+
+import javax.swing.BorderFactory;
+import java.util.logging.Logger;
 
 /**
  *
@@ -129,6 +134,11 @@ public class NewTask extends javax.swing.JFrame {
         SaveBtn.setFont(getFont("DINPro-Medium.otf", Font.PLAIN, 14));
         SaveBtn.setText("Save");
         SaveBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        SaveBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SaveBtnActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -226,6 +236,24 @@ public class NewTask extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_CancelBtnActionPerformed
 
+    private void SaveBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SaveBtnActionPerformed
+        boolean flag = false;
+        if (getTitle().isEmpty()) {
+            TitleTxtField.setBorder(BorderFactory.createLineBorder(Color.red));
+            TitleTxtField.setPreferredSize(new Dimension(TitleTxtField.getWidth(), TitleTxtField.getHeight() + 1));
+            flag = true;
+        }
+        if (getDueDate() == null) {
+            DueDateDatePicker.setBorder(BorderFactory.createLineBorder(Color.red));
+            flag = true;
+        }
+        if (flag) {
+            Logger.getLogger(NewTask.class.getName()).log(java.util.logging.Level.WARNING, "Missing or incorrect information!");
+            return;
+        }
+        Logger.getLogger(NewTask.class.getName()).log(java.util.logging.Level.INFO, "Successfully created new task.");
+    }//GEN-LAST:event_SaveBtnActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton CancelBtn;
     private javax.swing.JScrollPane DetailScrollPane;
@@ -272,7 +300,11 @@ public class NewTask extends javax.swing.JFrame {
      * @return LocalDate
      */
     public LocalDate getDueDate() {
-        return DueDateDatePicker.getDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+        try {
+            return DueDateDatePicker.getDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+        } catch (Exception e) {
+            return null;
+        }
     }
 
     /**
@@ -300,6 +332,10 @@ public class NewTask extends javax.swing.JFrame {
      * @return TaskInstance
      */
     public TaskInstance getTaskInstance() {
-        return new TaskInstance(getSubject(), getTitle(), getTaskType(), getDueDate(), getDetail());
+        try {
+            return new TaskInstance(getSubject(), getTitle(), getTaskType(), getDueDate(), getDetail());
+        } catch (Exception e) {
+            return null;
+        }
     }
 }

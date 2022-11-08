@@ -42,7 +42,8 @@ public class Database {
             .registerTypeAdapter(LocalDate.class, new LocalDateDeserializer())
             .registerTypeAdapter(LocalDateTime.class, new LocalDateTimeDeserializer())
             .registerTypeAdapter(LocalTime.class, new LocalTimeDeserializer())
-            .registerTypeAdapter(Color.class, new ColorDeserializer()).setPrettyPrinting().create();
+            .registerTypeAdapter(Color.class, new ColorDeserializer())
+            .setPrettyPrinting().create();
 
     private Database() throws JSONException {
         this.username = "";
@@ -76,7 +77,6 @@ public class Database {
     }
 
     /**
-     * @param gsonBuilder
      * @param path
      * @return Database
      */

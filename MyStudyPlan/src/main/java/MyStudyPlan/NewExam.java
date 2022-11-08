@@ -1,5 +1,6 @@
 package MyStudyPlan;
 
+import java.awt.Color;
 import java.awt.Font;
 import java.awt.FontFormatException;
 import java.awt.event.WindowAdapter;
@@ -10,6 +11,8 @@ import java.time.LocalTime;
 import java.time.ZoneId;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+
+import javax.swing.BorderFactory;
 
 /**
  *
@@ -40,7 +43,7 @@ public class NewExam extends javax.swing.JFrame {
         SubjectComboBox = new javax.swing.JComboBox<>();
         SubjectAddBtn = new javax.swing.JButton();
         DateTxt = new javax.swing.JLabel();
-        DateDatePicker = new org.jdesktop.swingx.JXDatePicker();
+        DatePicker = new org.jdesktop.swingx.JXDatePicker();
         BuildingRoomTxt = new javax.swing.JLabel();
         BuildingRoomTxtField = new javax.swing.JTextField();
         SeatTxt = new javax.swing.JLabel();
@@ -103,10 +106,10 @@ public class NewExam extends javax.swing.JFrame {
         DateTxt.setFont(getFont("DINPro-Medium.otf", Font.PLAIN, 18));
         DateTxt.setText("Date");
 
-        DateDatePicker.setFont(getFont("DINPro-Medium.otf", Font.PLAIN, 14));
-        DateDatePicker.addActionListener(new java.awt.event.ActionListener() {
+        DatePicker.setFont(getFont("DINPro-Medium.otf", Font.PLAIN, 14));
+        DatePicker.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                DateDatePickerActionPerformed(evt);
+                DatePickerActionPerformed(evt);
             }
         });
 
@@ -124,8 +127,10 @@ public class NewExam extends javax.swing.JFrame {
         TimeTxt.setText("Time");
 
         HourSpinner.setFont(getFont("DINPro-Medium.otf", Font.PLAIN, 14));
+        HourSpinner.setModel(new javax.swing.SpinnerNumberModel(9, 1, 12, 1));
 
         MinuteSpinner.setFont(getFont("DINPro-Medium.otf", Font.PLAIN, 14));
+        MinuteSpinner.setModel(new javax.swing.SpinnerNumberModel(0, 0, 60, 5));
 
         AMPMComboBox.setFont(getFont("DINPro-Medium.otf", Font.PLAIN, 14));
         AMPMComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "AM", "PM" }));
@@ -134,6 +139,7 @@ public class NewExam extends javax.swing.JFrame {
         DurationTxt.setText("Duration");
 
         DurationSpinner.setFont(getFont("DINPro-Medium.otf", Font.PLAIN, 14));
+        DurationSpinner.setModel(new javax.swing.SpinnerNumberModel(5, 5, 720, 5));
 
         DurationInfoTxt.setFont(getFont("DINPro-Light.otf", Font.PLAIN, 16));
         DurationInfoTxt.setText("minutes (ending at unknown)");
@@ -183,7 +189,7 @@ public class NewExam extends javax.swing.JFrame {
                                 .addComponent(DetailScrollPane, javax.swing.GroupLayout.Alignment.LEADING)
                                 .addGroup(layout.createSequentialGroup()
                                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                        .addComponent(DateDatePicker, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 241, Short.MAX_VALUE)
+                                        .addComponent(DatePicker, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 241, Short.MAX_VALUE)
                                         .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                                 .addComponent(DateTxt, javax.swing.GroupLayout.Alignment.LEADING)
@@ -239,7 +245,7 @@ public class NewExam extends javax.swing.JFrame {
                     .addComponent(DateTxt))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
-                    .addComponent(DateDatePicker, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(DatePicker, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(BuildingRoomTxtField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(SeatTxtField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -287,19 +293,27 @@ public class NewExam extends javax.swing.JFrame {
     }//GEN-LAST:event_CancelBtnActionPerformed
 
     private void SaveBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SaveBtnActionPerformed
-        // TODO add your handling code here:
+        boolean flag = false;
+        if (getStartDate() == null) {
+            DatePicker.setBorder(BorderFactory.createLineBorder(Color.red));
+            flag = true;
+        }
+        if (flag) {
+            Logger.getLogger(NewTask.class.getName()).log(java.util.logging.Level.WARNING, "Missing or incorrect information!");
+            return;
+        }
     }//GEN-LAST:event_SaveBtnActionPerformed
 
-    private void DateDatePickerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DateDatePickerActionPerformed
+    private void DatePickerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DatePickerActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_DateDatePickerActionPerformed
+    }//GEN-LAST:event_DatePickerActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> AMPMComboBox;
     private javax.swing.JLabel BuildingRoomTxt;
     private javax.swing.JTextField BuildingRoomTxtField;
     private javax.swing.JButton CancelBtn;
-    private org.jdesktop.swingx.JXDatePicker DateDatePicker;
+    private org.jdesktop.swingx.JXDatePicker DatePicker;
     private javax.swing.JLabel DateTxt;
     private javax.swing.JScrollPane DetailScrollPane;
     private javax.swing.JLabel DetailTxt;
@@ -410,7 +424,7 @@ public class NewExam extends javax.swing.JFrame {
      * @return LocalDate
      */
     public LocalDate getStartDate() {
-        return DateDatePicker.getDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+        return DatePicker.getDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
     }
 
     /**

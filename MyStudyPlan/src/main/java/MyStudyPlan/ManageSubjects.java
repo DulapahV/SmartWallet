@@ -257,7 +257,10 @@ public class ManageSubjects extends javax.swing.JFrame {
                 .addGap(18, 18, 18))
         );
 
-        pack();
+        ColorTxtField.setText(getColorBtn());
+    ColorTxtField.setForeground(ColorPickerBtn.getBackground());
+
+    pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void SubjectAddBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SubjectAddBtnActionPerformed
@@ -356,6 +359,15 @@ public class ManageSubjects extends javax.swing.JFrame {
         return ColorTxtField.getText();
     }
 
+    
+    /** 
+     * @return String
+     */
+    public String getColorBtn() {
+        return String.format("#%02x%02x%02x", ColorPickerBtn.getBackground().getRed(),
+        ColorPickerBtn.getBackground().getGreen(), ColorPickerBtn.getBackground().getBlue());
+    }
+
     /**
      * @return Pattern
      */
@@ -368,5 +380,37 @@ public class ManageSubjects extends javax.swing.JFrame {
      */
     public String getSubject() {
         return SubjectTxtField.getText();
+    }
+
+    
+    /** 
+     * @param code
+     */
+    public void setCode(String code) {
+        CodeTxtField.setText(code);
+    }
+
+    
+    /** 
+     * @param color
+     */
+    public void setColor(String color) {
+        ColorTxtField.setText(color);
+    }
+
+    
+    /** 
+     * @param subject
+     */
+    public void setSubject(String subject) {
+        SubjectTxtField.setText(subject);
+    }
+
+    
+    /** 
+     * @param color
+     */
+    public void setColorBtn(Color color) {
+        ColorPickerBtn.setBackground(color);
     }
 }

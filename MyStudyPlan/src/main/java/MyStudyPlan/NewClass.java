@@ -1,5 +1,6 @@
 package MyStudyPlan;
 
+import java.awt.Color;
 import java.awt.Font;
 import java.awt.FontFormatException;
 import java.awt.event.WindowAdapter;
@@ -10,6 +11,8 @@ import java.time.LocalTime;
 import java.time.ZoneId;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+
+import javax.swing.BorderFactory;
 
 /**
  *
@@ -161,6 +164,11 @@ public class NewClass extends javax.swing.JFrame {
         SaveBtn.setFont(getFont("DINPro-Medium.otf", Font.PLAIN, 14));
         SaveBtn.setText("Save");
         SaveBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        SaveBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SaveBtnActionPerformed(evt);
+            }
+        });
 
         AMPMComboBox.setFont(getFont("DINPro-Medium.otf", Font.PLAIN, 14));
         AMPMComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "AM", "PM" }));
@@ -169,6 +177,7 @@ public class NewClass extends javax.swing.JFrame {
         DurationTxt.setText("Duration");
 
         DurationSpinner.setFont(getFont("DINPro-Medium.otf", Font.PLAIN, 14));
+        DurationSpinner.setModel(new javax.swing.SpinnerNumberModel(5, 5, 720, 5));
 
         DurationInfoTxt.setFont(getFont("DINPro-Light.otf", Font.PLAIN, 16));
         DurationInfoTxt.setText("minutes (ending at unknown)");
@@ -177,8 +186,10 @@ public class NewClass extends javax.swing.JFrame {
         TimeTxt.setText("Time");
 
         HourSpinner.setFont(getFont("DINPro-Medium.otf", Font.PLAIN, 14));
+        HourSpinner.setModel(new javax.swing.SpinnerNumberModel(9, 1, 12, 1));
 
         MinuteSpinner.setFont(getFont("DINPro-Medium.otf", Font.PLAIN, 14));
+        MinuteSpinner.setModel(new javax.swing.SpinnerNumberModel(0, 0, 60, 5));
 
         DatePicker.setFont(getFont("DINPro-Medium.otf", Font.PLAIN, 14));
 
@@ -334,6 +345,18 @@ public class NewClass extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_CancelBtnActionPerformed
 
+    private void SaveBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SaveBtnActionPerformed
+        boolean flag = false;
+        if (getStartDate() == null) {
+            DatePicker.setBorder(BorderFactory.createLineBorder(Color.red));
+            flag = true;
+        }
+        if (flag) {
+            Logger.getLogger(NewTask.class.getName()).log(java.util.logging.Level.WARNING, "Missing or incorrect information!");
+            return;
+        }
+    }//GEN-LAST:event_SaveBtnActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> AMPMComboBox;
     private javax.swing.JLabel BuildingTxt;
@@ -468,14 +491,22 @@ public class NewClass extends javax.swing.JFrame {
      * @return LocalDate
      */
     public LocalDate getStartDate() {
-        return DatePicker.getDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+        try {
+            return DatePicker.getDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+        } catch (Exception e) {
+            return null;
+        }
     }
 
     /**
      * @return LocalDate
      */
     public LocalDate getEndDate() {
-        return getStartDate().plusDays(getDuration() / 1440); // 60 minutes * 24 hours = 1440 minutes
+        try {
+            return getStartDate().plusDays(getDuration() / 1440); // 60 minutes * 24 hours = 1440 minutes
+        } catch (Exception e) {
+            return null;
+        }
     }
 
     // /** 
