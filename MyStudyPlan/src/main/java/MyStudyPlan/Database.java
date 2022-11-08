@@ -33,8 +33,19 @@ public class Database {
     private Vector<ClassInstance> classList;
     private Vector<ExamInstance> examList;
 
+    // Create Gson Builder with custom serializer/deserializer
+    private static Gson gson = new GsonBuilder()
+            .registerTypeAdapter(LocalDate.class, new LocalDateSerializer())
+            .registerTypeAdapter(LocalDateTime.class, new LocalDateTimeSerializer())
+            .registerTypeAdapter(LocalTime.class, new LocalTimeSerializer())
+            .registerTypeAdapter(Color.class, new ColorSerializer())
+            .registerTypeAdapter(LocalDate.class, new LocalDateDeserializer())
+            .registerTypeAdapter(LocalDateTime.class, new LocalDateTimeDeserializer())
+            .registerTypeAdapter(LocalTime.class, new LocalTimeDeserializer())
+            .registerTypeAdapter(Color.class, new ColorDeserializer()).setPrettyPrinting().create();
+
     private Database() throws JSONException {
-        this.username = null;
+        this.username = "";
         this.subjList = new Vector<Subject>();
         this.taskList = new Vector<TaskInstance>();
         this.classList = new Vector<ClassInstance>();
@@ -49,39 +60,27 @@ public class Database {
         String OS = System.getProperty("os.name").contains("Windows") ? "Windows" : "Unix";
         Logger.getLogger(Database.class.getName()).log(java.util.logging.Level.INFO, "Detected OS: " + OS);
 
-        // Create Gson Builder with custom serializer/deserializer
-        GsonBuilder gsonBuilder = new GsonBuilder();
-        gsonBuilder.registerTypeAdapter(LocalDate.class, new LocalDateSerializer());
-        gsonBuilder.registerTypeAdapter(LocalDateTime.class, new LocalDateTimeSerializer());
-        gsonBuilder.registerTypeAdapter(LocalTime.class, new LocalTimeSerializer());
-        gsonBuilder.registerTypeAdapter(Color.class, new ColorSerializer());
-        gsonBuilder.registerTypeAdapter(LocalDate.class, new LocalDateDeserializer());
-        gsonBuilder.registerTypeAdapter(LocalDateTime.class, new LocalDateTimeDeserializer());
-        gsonBuilder.registerTypeAdapter(LocalTime.class, new LocalTimeDeserializer());
-        gsonBuilder.registerTypeAdapter(Color.class, new ColorDeserializer());
-
         switch (OS) {
             case "Windows":
                 // Get Database path
                 String pathWindows = FileSystemView.getFileSystemView().getDefaultDirectory().getPath() + "\\MyStudyPlan\\database.json";
-                instance = getDatabaseInstance(gsonBuilder, pathWindows);
+                instance = getDatabaseInstance(pathWindows);
                 break;
             case "Unix":
                 // Get Database path
                 String pathUnix = "~/Documents/MyStudyPlan/database.json";
-                instance = getDatabaseInstance(gsonBuilder, pathUnix);
+                instance = getDatabaseInstance(pathUnix);
                 break;
         }
         return instance;
     }
 
-    
-    /** 
+    /**
      * @param gsonBuilder
      * @param path
      * @return Database
      */
-    private static Database getDatabaseInstance(GsonBuilder gsonBuilder, String path) {
+    private static Database getDatabaseInstance(String path) {
         Logger.getLogger(Database.class.getName()).log(java.util.logging.Level.INFO, "Database path: " + '"' + path + '"');
         // If file exist
         if (Files.exists(Path.of(path))) {
@@ -89,7 +88,7 @@ public class Database {
             Logger.getLogger(Database.class.getName()).log(java.util.logging.Level.INFO, "Database file exists. Reading...");
             try {
                 String json = Files.readString(Path.of(path));
-                Database db = gsonBuilder.create().fromJson(json, Database.class);
+                Database db = gson.fromJson(json, Database.class);
                 Logger.getLogger(Database.class.getName()).log(java.util.logging.Level.INFO, "Database read successfully.");
                 return db;
             } catch (Exception e) {
@@ -97,7 +96,7 @@ public class Database {
                 Logger.getLogger(Database.class.getName()).log(java.util.logging.Level.SEVERE, "Error reading database file! " + e + "\nWriting new database file...");
                 try {
                     Database db = new Database();
-                    Gson gson = gsonBuilder.setPrettyPrinting().create();
+
                     String json = gson.toJson(db);
                     Files.writeString(Path.of(path), json);
                     instance = db;
@@ -113,7 +112,6 @@ public class Database {
                 file.getParentFile().mkdirs();
                 file.createNewFile();
                 instance = new Database();
-                Gson gson = gsonBuilder.setPrettyPrinting().create();
                 String json = gson.toJson(instance);
                 Files.writeString(Path.of(path), json);
                 Logger.getLogger(Database.class.getName()).log(java.util.logging.Level.INFO, "Successfully created new database file.");

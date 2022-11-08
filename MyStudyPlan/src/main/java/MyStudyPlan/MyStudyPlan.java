@@ -29,17 +29,16 @@ public class MyStudyPlan {
             Logger.getLogger(MyStudyPlan.class.getName()).log(java.util.logging.Level.SEVERE, "Failed to set theme! Exiting...");
             return;
         }
-        Logger.getLogger(MyStudyPlan.class.getName()).log(java.util.logging.Level.INFO, "Successfully setup theme.");
         // If username is null, show login screen
-        if (db.getUsername() == null) {
+        if (db.getUsername().isEmpty()) {
             // show login screen
-            Logger.getLogger(MyStudyPlan.class.getName()).log(java.util.logging.Level.INFO, "Username is null, going to login screen...");
+            Logger.getLogger(MyStudyPlan.class.getName()).log(java.util.logging.Level.INFO, "Going to login screen...");
             Login login = new Login();
             login.setVisible(true);
             login.setLocationRelativeTo(null);
         } else {
             // show main screen
-            Logger.getLogger(MyStudyPlan.class.getName()).log(java.util.logging.Level.INFO, "Username found, going to main app...");
+            Logger.getLogger(MyStudyPlan.class.getName()).log(java.util.logging.Level.INFO, "Welcome back, " + db.getUsername() +"!\nGoing to main app...");
             Overview overview = new Overview();
             overview.setVisible(true);
             overview.setLocationRelativeTo(null);

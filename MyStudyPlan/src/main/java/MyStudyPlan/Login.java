@@ -362,6 +362,7 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_LoginUsernameTxtFieldFocusLost
 
     private void LoginPasswdTxtFieldFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_LoginPasswdTxtFieldFocusGained
+        setLoginStatus("");
         if (getLoginPasswd().equals(passwdGuide)) {
             setLoginPasswd("");
             LoginPasswdTxtField.setEchoChar(passwdChar);
