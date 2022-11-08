@@ -1,7 +1,5 @@
 package MyStudyPlan;
 
-import java.time.LocalDate;
-
 public class ClassInstance extends AbstractJob {
 
     //private LocalDate startDate; There are no field to add the time in NewClass form, but you might forgot it.

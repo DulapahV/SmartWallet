@@ -11,6 +11,11 @@ import java.io.File;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.Vector;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.LocalTime;
+import java.awt.Color;
+import java.util.logging.Logger;
 
 import javax.swing.filechooser.FileSystemView;
 
@@ -20,191 +25,107 @@ import com.google.gson.GsonBuilder;
 
 public class Database {
 
-    private String username = "default";
     private static Database instance = null;
-    private Vector<Subject> subjList = new Vector<Subject>();
-    private Vector<TaskInstance> taskList = new Vector<TaskInstance>();
-    private Vector<ClassInstance> classList = new Vector<ClassInstance>();
-    private Vector<ExamInstance> examList = new Vector<ExamInstance>();
+    private String username;
+    private Vector<Subject> subjList;
+    private Vector<TaskInstance> taskList;
+    private Vector<ClassInstance> classList;
+    private Vector<ExamInstance> examList;
 
-    private Database(String username) throws JSONException {
-        this.username = username;
+    private Database() throws JSONException {
+        this.username = "";
+        this.subjList = new Vector<Subject>();
+        this.taskList = new Vector<TaskInstance>();
+        this.classList = new Vector<ClassInstance>();
+        this.examList = new Vector<ExamInstance>();
     }
 
-    
-    /** 
+    /**
      * @return Database
      */
     public static Database initDatabase() {
         // Detect OS
         String OS = System.getProperty("os.name").contains("Windows") ? "Windows" : "Unix";
-        System.out.println("Detected OS: " + OS);
-        
+        Logger.getLogger(Database.class.getName()).log(java.util.logging.Level.INFO, "Detected OS: " + OS);
+
+        // Create Gson Builder with custom serializer/deserializer
+        GsonBuilder gsonBuilder = new GsonBuilder();
+        gsonBuilder.registerTypeAdapter(LocalDate.class, new LocalDateSerializer());
+        gsonBuilder.registerTypeAdapter(LocalDateTime.class, new LocalDateTimeSerializer());
+        gsonBuilder.registerTypeAdapter(LocalTime.class, new LocalTimeSerializer());
+        gsonBuilder.registerTypeAdapter(Color.class, new ColorSerializer());
+        gsonBuilder.registerTypeAdapter(LocalDate.class, new LocalDateDeserializer());
+        gsonBuilder.registerTypeAdapter(LocalDateTime.class, new LocalDateTimeDeserializer());
+        gsonBuilder.registerTypeAdapter(LocalTime.class, new LocalTimeDeserializer());
+        gsonBuilder.registerTypeAdapter(Color.class, new ColorDeserializer());
+
         switch (OS) {
             case "Windows":
                 // Get Database path
                 String pathWindows = FileSystemView.getFileSystemView().getDefaultDirectory().getPath() + "\\MyStudyPlan\\database.json";
-                System.out.println("Database path: " + '"' + pathWindows + '"');
-                // If file exist
-                if (Files.exists(Path.of(pathWindows))) {
-                    // Read file
-                    System.out.println("Database file exist. Reading...");
-                    try {
-                        String json = Files.readString(Path.of(pathWindows));
-                        JSONObject obj = new JSONObject(json);
-                        Gson gson = new GsonBuilder().create();
-                        Database db = gson.fromJson(obj.toString(), Database.class);
-                        instance = db;
-                    } catch (Exception e) {
-                        System.out.println("Error reading database file! " + e);
-                    }
-                } else {
-                    // Create file
-                    System.out.println("Database file not found. Creating new database...");
-                    try {
-                        File file = new File(pathWindows);
-                        file.getParentFile().mkdirs();
-                        file.createNewFile();
-                        instance = new Database("default");
-                        Gson gson = new GsonBuilder().setPrettyPrinting().create();
-                        String json = gson.toJson(instance);
-                        Files.writeString(Path.of(pathWindows), json);
-                        System.out.println("Successfully created new database file.");
-                    } catch (Exception e) {
-                        System.out.println("Error creating database file! " + e);
-                    }
-                }
+                instance = getDatabaseInstance(gsonBuilder, pathWindows);
                 break;
             case "Unix":
                 // Get Database path
                 String pathUnix = "~/Documents/MyStudyPlan/database.json";
-                System.out.println("Database path: " + '"' + pathUnix + '"');
-                // If file exist
-                if (Files.exists(Path.of(pathUnix))) {
-                    // Read file
-                    System.out.println("Database file exist. Reading...");
-                    try {
-                        String json = Files.readString(Path.of(pathUnix));
-                        JSONObject obj = new JSONObject(json);
-                        Gson gson = new GsonBuilder().create();
-                        Database db = gson.fromJson(obj.toString(), Database.class);
-                        instance = db;
-                    } catch (Exception e) {
-                        System.out.println("Error reading database file! " + e);
-                    }
-                } else {
-                    // Create file
-                    System.out.println("Database file not found. Creating new database...");
-                    try {
-                        File file = new File(pathUnix);
-                        file.getParentFile().mkdirs();
-                        file.createNewFile();
-                        instance = new Database("default");
-                        Gson gson = new GsonBuilder().setPrettyPrinting().create();
-                        String json = gson.toJson(instance);
-                        Files.writeString(Path.of(pathUnix), json);
-                        System.out.println("Successfully created new database file.");
-                    } catch (Exception e) {
-                        System.out.println("Error creating database file! " + e);
-                    }
-                }
+                instance = getDatabaseInstance(gsonBuilder, pathUnix);
                 break;
         }
         return instance;
     }
-    // /**
-    //  * Get the instance of the database If the database is not created, create a
-    //  * new database with the given username
-    //  *
-    //  * @param username The username of the database
-    //  *
-    //  * @return The database
-    //  */
-    // public static Database getInstance(String username) {
-    //     if (instance == null) {
-    //         String rawjson = null;
-    //         if (System.getProperty("os.name").contains("Windows")) {
-    //             try {
-    //                 rawjson = Files.readString(Path.of(FileSystemView.getFileSystemView().getDefaultDirectory().getPath() + "\\MyStudyPlan\\" + username + ".json"));
-    //             } catch (Exception e) {
-    //                 System.err.println(username + ".json not found!");
-    //             }
-    //         } else {
-    //             try {
-    //                 rawjson = Files.readString(Path.of("~/Documents/MyStudyPlan/" + username + ".json"));
-    //             } catch (Exception e) {
-    //                 System.err.println(username + ".json not found!");
-    //             }
-    //         }
-    //         if (rawjson == null) {
-    //             try {
-    //                 instance = new Database(username);
-    //             } catch (JSONException e) {
-    //                 e.printStackTrace();
-    //             }
-    //         } else {
-    //             Gson gson = new GsonBuilder().create();
-    //             instance = gson.fromJson(rawjson, Database.class);
-    //         }
-    //     }
-    //     return instance;
-    // }
 
-    // /**
-    //  * Get the instance of the database If the database is not initialized, it
-    //  * will be initialized with the default username
-    //  *
-    //  * @return The database
-    //  */
-    // public static Database getInstance() {
-    //     if (instance == null) {
-    //         String rawjson = null;
-    //         if (System.getProperty("os.name").contains("Windows")) {
-    //             System.out.println("Windows OS detected.");
-    //             String path = FileSystemView.getFileSystemView().getDefaultDirectory().getPath() + "\\MyStudyPlan\\default.json";
-    //             try {
-    //                 rawjson = Files.readString(Path.of(path));
-    //             } catch (Exception e) {
-    //                 try {
-    //                     System.out.println("default.json not found, creating one...");
-    //                     File file = new File(path);
-    //                     file.getParentFile().mkdirs();
-    //                     file.createNewFile();
-    //                     System.out.println("Successfully created default.json at " + '"' + path + '"');
-    //                 } catch (Exception ex) {
-    //                     System.err.println("Error creating default.json at " + '"' + path + '"' + ". " + ex);
-    //                 }
-    //             }
-    //         } else {
-    //             System.out.println("Linux OS detected.");
-    //             String path = "~/Documents/MyStudyPlan/default.json";
-    //             try {
-    //                 rawjson = Files.readString(Path.of(path));
-    //             } catch (Exception e) {
-    //                 try {
-    //                     System.out.println("default.json not found, creating one...");
-    //                     File file = new File(path);
-    //                     file.getParentFile().mkdirs();
-    //                     file.createNewFile();
-    //                     System.out.println("Created default.json at " + '"' + path + '"');
-    //                 } catch (Exception ex) {
-    //                     System.err.println("Error creating default.json at " + '"' + path + '"' + ". " + ex);
-    //                 }
-    //             }
-    //         }
-    //         if (rawjson == null) {
-    //             try {
-    //                 instance = new Database("default");
-    //             } catch (JSONException e) {
-    //                 e.printStackTrace();
-    //             }
-    //         } else {
-    //             Gson gson = new GsonBuilder().create();
-    //             instance = gson.fromJson(rawjson, Database.class);
-    //         }
-    //     }
-    //     return instance;
-    // }
+    private static Database getDatabaseInstance(GsonBuilder gsonBuilder, String path) {
+        Logger.getLogger(Database.class.getName()).log(java.util.logging.Level.INFO, "Database path: " + '"' + path + '"');
+        // If file exist
+        if (Files.exists(Path.of(path))) {
+            // Read file
+            Logger.getLogger(Database.class.getName()).log(java.util.logging.Level.INFO, "Database file exist. Reading...");
+            try {
+                String json = Files.readString(Path.of(path));
+                Database db = gsonBuilder.create().fromJson(json, Database.class);
+                Logger.getLogger(Database.class.getName()).log(java.util.logging.Level.INFO, "Database read successfully!");
+                return db;
+            } catch (Exception e) {
+                // write database file
+                Logger.getLogger(Database.class.getName()).log(java.util.logging.Level.SEVERE, "Error reading database file. " + e + "\nWriting new database file...");
+                try {
+                    Database db = new Database();
+                    Gson gson = gsonBuilder.setPrettyPrinting().create();
+                    String json = gson.toJson(db);
+                    Files.writeString(Path.of(path), json);
+                    instance = db;
+                } catch (Exception e2) {
+                    Logger.getLogger(Database.class.getName()).log(java.util.logging.Level.SEVERE, "Error writing database file. " + e2);
+                }
+            }
+        } else {
+            // Create file
+            Logger.getLogger(Database.class.getName()).log(java.util.logging.Level.INFO, "Database file not found. Creating new database...");
+            try {
+                File file = new File(path);
+                file.getParentFile().mkdirs();
+                file.createNewFile();
+                instance = new Database();
+                Gson gson = gsonBuilder.setPrettyPrinting().create();
+                String json = gson.toJson(instance);
+                Files.writeString(Path.of(path), json);
+                Logger.getLogger(Database.class.getName()).log(java.util.logging.Level.INFO, "Successfully created new database file.");
+            } catch (Exception e) {
+                Logger.getLogger(Database.class.getName()).log(java.util.logging.Level.SEVERE, "Error creating database file. " + e);
+            }
+        }
+        return instance;
+    }
+
+    /**
+     * Add a username to the database
+     *
+     * @param username
+     *
+     */
+    public void addUsername(String username) {
+        this.username = username;
+    }
 
     /**
      * Add a subject to the database
@@ -247,6 +168,16 @@ public class Database {
     }
 
     /**
+     * Remove a username from the database
+     *
+     * @param username
+     *
+     */
+    public void removeUsername(String username) {
+        this.username = null;
+    }
+
+    /**
      * Remove a subject from the database
      *
      * @param subject
@@ -280,6 +211,15 @@ public class Database {
      */
     public static void removeExam(ExamInstance exam) {
         instance.examList.remove(exam);
+    }
+
+    /**
+     * Get the username from the database
+     *
+     * @return username
+     */
+    public String getUsername() {
+        return username;
     }
 
     /**
