@@ -1,6 +1,5 @@
 package MyStudyPlan;
 
-import com.formdev.flatlaf.intellijthemes.FlatNordIJTheme;
 import java.awt.Font;
 import java.awt.FontFormatException;
 import java.awt.event.WindowAdapter;
@@ -8,6 +7,8 @@ import java.awt.event.WindowEvent;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+
+import com.formdev.flatlaf.intellijthemes.FlatNordIJTheme;
 
 /**
  *
