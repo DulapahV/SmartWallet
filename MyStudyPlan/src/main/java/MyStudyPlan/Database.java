@@ -86,15 +86,15 @@ public class Database {
         // If file exist
         if (Files.exists(Path.of(path))) {
             // Read file
-            Logger.getLogger(Database.class.getName()).log(java.util.logging.Level.INFO, "Database file exist. Reading...");
+            Logger.getLogger(Database.class.getName()).log(java.util.logging.Level.INFO, "Database file exists. Reading...");
             try {
                 String json = Files.readString(Path.of(path));
                 Database db = gsonBuilder.create().fromJson(json, Database.class);
-                Logger.getLogger(Database.class.getName()).log(java.util.logging.Level.INFO, "Database read successfully!");
+                Logger.getLogger(Database.class.getName()).log(java.util.logging.Level.INFO, "Database read successfully.");
                 return db;
             } catch (Exception e) {
                 // write database file
-                Logger.getLogger(Database.class.getName()).log(java.util.logging.Level.SEVERE, "Error reading database file. " + e + "\nWriting new database file...");
+                Logger.getLogger(Database.class.getName()).log(java.util.logging.Level.SEVERE, "Error reading database file! " + e + "\nWriting new database file...");
                 try {
                     Database db = new Database();
                     Gson gson = gsonBuilder.setPrettyPrinting().create();
@@ -102,7 +102,7 @@ public class Database {
                     Files.writeString(Path.of(path), json);
                     instance = db;
                 } catch (Exception e2) {
-                    Logger.getLogger(Database.class.getName()).log(java.util.logging.Level.SEVERE, "Error writing database file. " + e2);
+                    Logger.getLogger(Database.class.getName()).log(java.util.logging.Level.SEVERE, "Error writing database file! " + e2);
                 }
             }
         } else {
@@ -118,7 +118,7 @@ public class Database {
                 Files.writeString(Path.of(path), json);
                 Logger.getLogger(Database.class.getName()).log(java.util.logging.Level.INFO, "Successfully created new database file.");
             } catch (Exception e) {
-                Logger.getLogger(Database.class.getName()).log(java.util.logging.Level.SEVERE, "Error creating database file. " + e);
+                Logger.getLogger(Database.class.getName()).log(java.util.logging.Level.SEVERE, "Error creating database file! " + e);
             }
         }
         return instance;

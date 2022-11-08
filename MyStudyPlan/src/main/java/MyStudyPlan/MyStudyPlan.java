@@ -16,7 +16,7 @@ public class MyStudyPlan {
             Logger.getLogger(MyStudyPlan.class.getName()).log(java.util.logging.Level.SEVERE, "Failed to initialize database! Exiting...");
             return;
         } else {
-            Logger.getLogger(MyStudyPlan.class.getName()).log(java.util.logging.Level.INFO, "Database initialized successfully!");
+            Logger.getLogger(MyStudyPlan.class.getName()).log(java.util.logging.Level.INFO, "Database initialized successfully.");
         }
     }
 }
