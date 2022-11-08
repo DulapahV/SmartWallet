@@ -75,6 +75,12 @@ public class Database {
         return instance;
     }
 
+    
+    /** 
+     * @param gsonBuilder
+     * @param path
+     * @return Database
+     */
     private static Database getDatabaseInstance(GsonBuilder gsonBuilder, String path) {
         Logger.getLogger(Database.class.getName()).log(java.util.logging.Level.INFO, "Database path: " + '"' + path + '"');
         // If file exist
