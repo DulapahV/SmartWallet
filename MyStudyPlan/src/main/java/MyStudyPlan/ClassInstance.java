@@ -1,8 +1,12 @@
 package MyStudyPlan;
 
+import java.time.LocalDate;
+import java.time.LocalTime;
+
 public class ClassInstance extends AbstractJob {
 
-    //private LocalDate startDate; There are no field to add the time in NewClass form, but you might forgot it.
+    private LocalTime startTime;
+    private LocalDate startDate;
     private int sector;
     private String room;
     private String building;
@@ -11,18 +15,20 @@ public class ClassInstance extends AbstractJob {
     ClassInstance() {
         this.subject = null;
         this.description = "";
-        //this.startDate = null;
+        this.startTime = null;
+        this.startDate = null;
         this.sector = 0;
         this.room = "";
         this.building = "";
         this.teacher = "";
     }
 
-    ClassInstance(Subject subject, int sector, String room, String building, String teacher, String description) {
+    ClassInstance(Subject subject, int sector, String room, LocalDate startdate, LocalTime starttime, String building, String teacher, String description) {
         this.subject = subject;
         this.sector = sector;
         this.room = room;
-        //this.startDate = startDate;
+        this.startDate = startdate;
+        this.startTime = starttime;
         this.building = building;
         this.teacher = teacher;
         this.description = description;
@@ -116,7 +122,8 @@ public class ClassInstance extends AbstractJob {
     public boolean equals(Object obj){
         if (obj instanceof ClassInstance) {
             ClassInstance classInstance = (ClassInstance) obj;
-            return this.subject.equals(classInstance.subject) && this.sector == classInstance.sector;
+            return this.subject.equals(classInstance.subject) && this.sector == classInstance.sector
+            && this.startDate.equals(classInstance.startDate) && this.startTime.equals(classInstance.startTime);
         }
         return false;
     }
