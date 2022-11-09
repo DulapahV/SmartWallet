@@ -13,6 +13,7 @@ import java.util.logging.Logger;
 import java.util.regex.Pattern;
 
 import javax.swing.BorderFactory;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -21,11 +22,20 @@ import javax.swing.BorderFactory;
  */
 public class ManageSubjects extends javax.swing.JFrame {
 
+    private DefaultTableModel table;
+
     /**
      * Creates new form NewTask
      */
     public ManageSubjects() {
         initComponents();
+
+        table = (DefaultTableModel) SubjectsTable.getModel();
+
+        //add SubjList to SubjectsTable
+        for (Subject subj : Database.getInstance().getSubjList()) {
+            table.addRow(new Object[]{subj.getCode(), subj.getName(), subj.getColorHex()});
+        }
     }
 
     /**
@@ -150,21 +160,27 @@ public class ManageSubjects extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Code", "Subjects"
+                "Code", "Subjects", "Color"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false
+                false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
                 return canEdit [columnIndex];
             }
         });
+        SubjectsTable.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         SubjectsTable.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         SubjectsTable.setShowGrid(false);
         SubjectsTable.setShowVerticalLines(true);
         SubjectsTable.getTableHeader().setReorderingAllowed(false);
+        SubjectsTable.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                SubjectsTableMouseClicked(evt);
+            }
+        });
         SubjectsScrollPane.setViewportView(SubjectsTable);
         if (SubjectsTable.getColumnModel().getColumnCount() > 0) {
             SubjectsTable.getColumnModel().getColumn(1).setPreferredWidth(450);
@@ -183,6 +199,11 @@ public class ManageSubjects extends javax.swing.JFrame {
         SaveBtn.setFont(getFont("DINPro-Medium.otf", Font.PLAIN, 14));
         SaveBtn.setText("Save");
         SaveBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        SaveBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SaveBtnActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -287,6 +308,8 @@ public class ManageSubjects extends javax.swing.JFrame {
             return;
         }
         Logger.getLogger(NewTask.class.getName()).log(java.util.logging.Level.INFO, "Successfully created new subject.");
+        table.addRow(new Object[]{getCode(), getSubject(), getColor()});
+        setSubject();
     }//GEN-LAST:event_SubjectAddBtnActionPerformed
 
     private void CancelBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CancelBtnActionPerformed
@@ -294,7 +317,18 @@ public class ManageSubjects extends javax.swing.JFrame {
     }//GEN-LAST:event_CancelBtnActionPerformed
 
     private void SubjectRemoveBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SubjectRemoveBtnActionPerformed
-        // TODO add your handling code here:
+        int row = SubjectsTable.getSelectedRow();
+        if (SubjectsTable.getSelectedRow() != -1) {
+            if (CodeTxtField.getText().equals(getData(row)[0])
+                    && SubjectTxtField.getText().equals(getData(row)[1])
+                    && ColorTxtField.getText().equals(getData(row)[2])) {
+                table.removeRow(SubjectsTable.getSelectedRow());
+                removeSubject();
+                CodeTxtField.setText("");
+                SubjectTxtField.setText("");
+                ColorTxtField.setText("");
+            }
+        }
     }//GEN-LAST:event_SubjectRemoveBtnActionPerformed
 
     private void ColorPickerBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ColorPickerBtnActionPerformed
@@ -330,6 +364,21 @@ public class ManageSubjects extends javax.swing.JFrame {
             ColorPickerBtn.setBackground(new Color(Integer.parseInt(ColorTxtField.getText().substring(1), 16)));
         }
     }//GEN-LAST:event_ColorTxtFieldKeyPressed
+
+    private void SubjectsTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SubjectsTableMouseClicked
+        if (evt.getClickCount() == 2) {
+            int row = SubjectsTable.getSelectedRow();
+            CodeTxtField.setText(getData(row)[0]);
+            SubjectTxtField.setText(getData(row)[1]);
+            ColorTxtField.setText(getData(row)[2]);
+            ColorTxtField.setForeground(new Color(Integer.parseInt(ColorTxtField.getText().substring(1), 16)));
+            ColorPickerBtn.setBackground(new Color(Integer.parseInt(ColorTxtField.getText().substring(1), 16)));
+        }
+    }//GEN-LAST:event_SubjectsTableMouseClicked
+
+    private void SaveBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SaveBtnActionPerformed
+        this.dispose();
+    }//GEN-LAST:event_SaveBtnActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton CancelBtn;
@@ -403,6 +452,14 @@ public class ManageSubjects extends javax.swing.JFrame {
         return SubjectTxtField.getText();
     }
 
+    public String[] getData(int row) {
+        String[] data = new String[3];
+        data[0] = table.getValueAt(row, 0).toString();
+        data[1] = table.getValueAt(row, 1).toString();
+        data[2] = table.getValueAt(row, 2).toString();
+        return data;
+    }
+
     /**
      * @param code
      */
@@ -429,5 +486,23 @@ public class ManageSubjects extends javax.swing.JFrame {
      */
     public void setColorBtn(Color color) {
         ColorPickerBtn.setBackground(color);
+    }
+
+    public Subject getSubjectInstance() {
+        try {
+            return new Subject(getCode(), getSubject(), getColor());
+        } catch (Exception e) {
+            return null;
+        }
+    }
+
+    public void setSubject() {
+        Subject subject = getSubjectInstance();
+        Database.addSubject(subject);
+    }
+
+    public void removeSubject() {
+        Subject subject = getSubjectInstance();
+        Database.removeSubject(subject);
     }
 }

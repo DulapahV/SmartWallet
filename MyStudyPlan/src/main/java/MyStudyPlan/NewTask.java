@@ -85,7 +85,6 @@ public class NewTask extends javax.swing.JFrame {
         SubjectTxt.setText("Subject");
 
         SubjectComboBox.setFont(getFont("DINPro-Medium.otf", Font.PLAIN, 14));
-        SubjectComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         SubjectAddBtn.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         SubjectAddBtn.setText("+");
@@ -215,6 +214,10 @@ public class NewTask extends javax.swing.JFrame {
                 .addContainerGap(18, Short.MAX_VALUE))
         );
 
+        for (Subject subj : Database.getSubjList()) {
+            SubjectComboBox.addItem(subj.getCode() + " " + subj.getName());
+        }
+
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
@@ -249,6 +252,7 @@ public class NewTask extends javax.swing.JFrame {
             return;
         }
         Logger.getLogger(NewTask.class.getName()).log(java.util.logging.Level.INFO, "Successfully created new task.");
+        setTask();
     }//GEN-LAST:event_SaveBtnActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -308,7 +312,7 @@ public class NewTask extends javax.swing.JFrame {
      * @return Subject
      */
     public Subject getSubject() {
-        return (Subject) SubjectComboBox.getSelectedItem();
+        return Database.getSubjList().get(SubjectComboBox.getSelectedIndex());
     }
 
     /**
@@ -322,17 +326,20 @@ public class NewTask extends javax.swing.JFrame {
      * @return TaskType
      */
     public TaskType getTaskType() {
-        return (TaskType) TypeComboBox.getSelectedItem();
+        return TaskType.values()[TypeComboBox.getSelectedIndex()];
     }
 
     /**
      * @return TaskInstance
      */
     public TaskInstance getTaskInstance() {
-        try {
-            return new TaskInstance(getSubject(), getTitle(), getTaskType(), getDueDate(), getDetail());
-        } catch (Exception e) {
-            return null;
-        }
+
+        return new TaskInstance(getSubject(), getTitle(), getTaskType(), getDueDate(), getDetail());
+
+    }
+
+    public void setTask() {
+        TaskInstance task = getTaskInstance();
+        task.writeToDatabase(Database.getInstance());
     }
 }

@@ -20,14 +20,14 @@ public class Subject {
     }
 
     public Subject(String code, String name, String colorcode) {
-        this.code = "";
-        this.name = "";
+        this.code = code;
+        this.name = name;
         this.color = Color.decode(colorcode);
     }
 
     public Subject(String code, String name, Color color) {
-        this.code = "";
-        this.name = "";
+        this.code = code;
+        this.name = name;
         this.color = color;
     }
 
@@ -64,6 +64,10 @@ public class Subject {
      */
     public Color getColor() {
         return color;
+    }
+
+    public String getColorHex() {
+        return String.format("#%02x%02x%02x", color.getRed(), color.getGreen(), color.getBlue());
     }
 
     /**

@@ -32,6 +32,7 @@ public class Database {
     private Vector<TaskInstance> taskList;
     private Vector<ClassInstance> classList;
     private Vector<ExamInstance> examList;
+    private static String path;
 
     // Create Gson Builder with custom serializer/deserializer
     private static Gson gson = new GsonBuilder()
@@ -64,13 +65,13 @@ public class Database {
         switch (OS) {
             case "Windows":
                 // Get Database path
-                String pathWindows = FileSystemView.getFileSystemView().getDefaultDirectory().getPath() + "\\MyStudyPlan\\database.json";
-                instance = getDatabaseInstance(pathWindows);
+                path = FileSystemView.getFileSystemView().getDefaultDirectory().getPath() + "\\MyStudyPlan\\database.json";
+                instance = getDatabaseInstance(path);
                 break;
             case "Unix":
                 // Get Database path
-                String pathUnix = "~/Documents/MyStudyPlan/database.json";
-                instance = getDatabaseInstance(pathUnix);
+                String path = "~/Documents/MyStudyPlan/database.json";
+                instance = getDatabaseInstance(path);
                 break;
         }
         return instance;
@@ -122,6 +123,19 @@ public class Database {
         return instance;
     }
 
+    public static void write() {
+        try {
+            String json = gson.toJson(instance);
+            Files.writeString(Path.of(path), json);
+        } catch (Exception e) {
+            Logger.getLogger(Database.class.getName()).log(java.util.logging.Level.SEVERE, "Error writing database file! " + e);
+    }
+    }
+
+    public static Database getInstance() {
+        return instance;
+    }
+
     /**
      * Add a username to the database
      *
@@ -140,6 +154,7 @@ public class Database {
      */
     public static void addSubject(Subject subject) {
         instance.subjList.add(subject);
+        Database.write();
     }
 
     /**
@@ -150,6 +165,7 @@ public class Database {
      */
     public static void addTask(TaskInstance task) {
         instance.taskList.add(task);
+        Database.write();
     }
 
     /**
@@ -188,7 +204,13 @@ public class Database {
      * @param subject
      */
     public static void removeSubject(Subject subject) {
-        instance.subjList.remove(subject);
+        for (Subject s : instance.subjList) {
+            if (s.getCode().equals(subject.getCode()) && s.getName().equals(subject.getName()) && s.getColor().equals(subject.getColor())) {
+                instance.subjList.remove(s);
+                break;
+            }
+        }
+        Database.write();
     }
 
     /**
