@@ -21,6 +21,7 @@ public class TaskInstance extends AbstractJob {
         this.subject = subject;
         this.title = title;
         this.type = type;
+        this.dueDate = dueDate;
         this.description = description;
     }
 
