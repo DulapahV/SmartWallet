@@ -152,9 +152,15 @@ public class Database {
      * @param subject
      *
      */
-    public static void addSubject(Subject subject) {
-        instance.subjList.add(subject);
-        Database.write();
+    public static boolean addSubject(Subject subject) {
+        if (instance.subjList.contains(subject)) {
+            Logger.getLogger(Database.class.getName()).log(java.util.logging.Level.WARNING, "Subject already exists!");
+            return false;
+        } else {
+            instance.subjList.add(subject);
+            Database.write();
+            return true;
+        }
     }
 
     /**
