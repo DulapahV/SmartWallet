@@ -123,4 +123,13 @@ public class ExamInstance extends AbstractJob {
     public void setDescription(String description) {
         this.description = description;
     }
+
+    @Override
+    public boolean equals(Object obj){
+        if(obj instanceof ExamInstance){
+            ExamInstance exam = (ExamInstance) obj;
+            return this.subject.equals(exam.subject) && this.date.equals(exam.date) && this.time.equals(exam.time);
+        }
+        return false;
+    }
 }
