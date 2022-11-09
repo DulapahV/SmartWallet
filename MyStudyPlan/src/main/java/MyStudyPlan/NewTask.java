@@ -1,5 +1,7 @@
 package MyStudyPlan;
 
+import java.awt.Color;
+import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.FontFormatException;
 import java.awt.event.WindowAdapter;
@@ -9,11 +11,8 @@ import java.time.LocalDate;
 import java.time.ZoneId;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import java.awt.Color;
-import java.awt.Dimension;
 
 import javax.swing.BorderFactory;
-import java.util.logging.Logger;
 
 /**
  *
@@ -106,7 +105,9 @@ public class NewTask extends javax.swing.JFrame {
         DueDateTxt.setFont(getFont("DINPro-Medium.otf", Font.PLAIN, 18));
         DueDateTxt.setText("Due Date");
 
+        DueDateDatePicker.setDate(new java.util.Date());
         DueDateDatePicker.setFont(getFont("DINPro-Medium.otf", Font.PLAIN, 14));
+        DueDateDatePicker.setFormats("dd/MM/yyyy");
 
         TitleTxt.setFont(getFont("DINPro-Medium.otf", Font.PLAIN, 18));
         TitleTxt.setText("Title");
@@ -241,10 +242,6 @@ public class NewTask extends javax.swing.JFrame {
         if (getTitle().isEmpty()) {
             TitleTxtField.setBorder(BorderFactory.createLineBorder(Color.red));
             TitleTxtField.setPreferredSize(new Dimension(TitleTxtField.getWidth(), TitleTxtField.getHeight() + 1));
-            flag = true;
-        }
-        if (getDueDate() == null) {
-            DueDateDatePicker.setBorder(BorderFactory.createLineBorder(Color.red));
             flag = true;
         }
         if (flag) {

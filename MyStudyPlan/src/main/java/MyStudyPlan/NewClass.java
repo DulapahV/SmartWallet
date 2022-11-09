@@ -1,18 +1,19 @@
 package MyStudyPlan;
 
-import java.awt.Color;
 import java.awt.Font;
 import java.awt.FontFormatException;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.io.IOException;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.time.ZoneId;
+import java.time.format.DateTimeFormatter;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-
-import javax.swing.BorderFactory;
 
 /**
  *
@@ -172,12 +173,27 @@ public class NewClass extends javax.swing.JFrame {
 
         AMPMComboBox.setFont(getFont("DINPro-Medium.otf", Font.PLAIN, 14));
         AMPMComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "AM", "PM" }));
+        AMPMComboBox.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
+            public void propertyChange(java.beans.PropertyChangeEvent evt) {
+                AMPMComboBoxPropertyChange(evt);
+            }
+        });
+        AMPMComboBox.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                updateDurationInfo();
+            }
+        });
 
         DurationTxt.setFont(getFont("DINPro-Medium.otf", Font.PLAIN, 18));
         DurationTxt.setText("Duration");
 
         DurationSpinner.setFont(getFont("DINPro-Medium.otf", Font.PLAIN, 14));
         DurationSpinner.setModel(new javax.swing.SpinnerNumberModel(5, 5, 720, 5));
+        DurationSpinner.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                DurationSpinnerStateChanged(evt);
+            }
+        });
 
         DurationInfoTxt.setFont(getFont("DINPro-Light.otf", Font.PLAIN, 16));
         DurationInfoTxt.setText("minutes (ending at unknown)");
@@ -187,11 +203,28 @@ public class NewClass extends javax.swing.JFrame {
 
         HourSpinner.setFont(getFont("DINPro-Medium.otf", Font.PLAIN, 14));
         HourSpinner.setModel(new javax.swing.SpinnerNumberModel(9, 1, 12, 1));
+        HourSpinner.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                HourSpinnerStateChanged(evt);
+            }
+        });
 
         MinuteSpinner.setFont(getFont("DINPro-Medium.otf", Font.PLAIN, 14));
-        MinuteSpinner.setModel(new javax.swing.SpinnerNumberModel(0, 0, 60, 5));
+        MinuteSpinner.setModel(new javax.swing.SpinnerNumberModel(0, 0, 59, 5));
+        MinuteSpinner.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                MinuteSpinnerStateChanged(evt);
+            }
+        });
 
+        DatePicker.setDate(new java.util.Date());
         DatePicker.setFont(getFont("DINPro-Medium.otf", Font.PLAIN, 14));
+        DatePicker.setFormats("dd/MM/yyyy");
+        DatePicker.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                DatePickerActionPerformed(evt);
+            }
+        });
 
         DateTxt.setFont(getFont("DINPro-Medium.otf", Font.PLAIN, 18));
         DateTxt.setText("Date");
@@ -206,7 +239,7 @@ public class NewClass extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(DetailTxt)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(638, 647, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
@@ -229,14 +262,13 @@ public class NewClass extends javax.swing.JFrame {
                                         .addComponent(DurationInfoTxt, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                             .addComponent(DetailScrollPane, javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(SubjectComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 600, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(SubjectComboBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(SubjectAddBtn))
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(468, 468, 468)
-                                .addComponent(CancelBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(CancelBtn)
                                 .addGap(18, 18, 18)
-                                .addComponent(SaveBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addComponent(SaveBtn))
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addGroup(layout.createSequentialGroup()
@@ -305,9 +337,9 @@ public class NewClass extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(DetailScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
-                    .addComponent(CancelBtn)
-                    .addComponent(SaveBtn))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(SaveBtn)
+                    .addComponent(CancelBtn))
                 .addContainerGap(16, Short.MAX_VALUE))
         );
 
@@ -346,16 +378,28 @@ public class NewClass extends javax.swing.JFrame {
     }//GEN-LAST:event_CancelBtnActionPerformed
 
     private void SaveBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SaveBtnActionPerformed
-        boolean flag = false;
-        if (getStartDate() == null) {
-            DatePicker.setBorder(BorderFactory.createLineBorder(Color.red));
-            flag = true;
-        }
-        if (flag) {
-            Logger.getLogger(NewTask.class.getName()).log(java.util.logging.Level.WARNING, "Missing or incorrect information!");
-            return;
-        }
+        // TODO add your handling code here:
     }//GEN-LAST:event_SaveBtnActionPerformed
+
+    private void HourSpinnerStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_HourSpinnerStateChanged
+        updateDurationInfo();
+    }//GEN-LAST:event_HourSpinnerStateChanged
+
+    private void DatePickerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DatePickerActionPerformed
+        updateDurationInfo();
+    }//GEN-LAST:event_DatePickerActionPerformed
+
+    private void MinuteSpinnerStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_MinuteSpinnerStateChanged
+        updateDurationInfo();
+    }//GEN-LAST:event_MinuteSpinnerStateChanged
+
+    private void AMPMComboBoxPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_AMPMComboBoxPropertyChange
+        updateDurationInfo();
+    }//GEN-LAST:event_AMPMComboBoxPropertyChange
+
+    private void DurationSpinnerStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_DurationSpinnerStateChanged
+        updateDurationInfo();
+    }//GEN-LAST:event_DurationSpinnerStateChanged
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> AMPMComboBox;
@@ -477,7 +521,15 @@ public class NewClass extends javax.swing.JFrame {
      * @return LocalTime
      */
     public LocalTime getStartTime() {
-        return LocalTime.of(getHour(), getMinute());
+        if (getAMPM().equals("PM")) {
+            if (getHour() + 12 == 24) {
+                return LocalTime.of(0, getMinute());
+            } else {
+                return LocalTime.of(getHour() + 12, getMinute());
+            }
+        } else {
+            return LocalTime.of(getHour(), getMinute());
+        }
     }
 
     /**
@@ -499,13 +551,24 @@ public class NewClass extends javax.swing.JFrame {
     }
 
     /**
+     * getHour() + ((getMinute() + getDuration()) / 60) >= 12
+     *
      * @return LocalDate
      */
     public LocalDate getEndDate() {
-        try {
-            return getStartDate().plusDays(getDuration() / 1440); // 60 minutes * 24 hours = 1440 minutes
-        } catch (Exception e) {
-            return null;
+        if (getHour() + ((getMinute() + getDuration()) / 60) >= 12 && getAMPM().equals("PM")) {
+            return getStartDate().plusDays(1);
+        }
+        return getStartDate();
+    }
+
+    public void setDurationInfo(LocalDateTime date) {
+        DurationInfoTxt.setText("minutes (ending at " + date.format(DateTimeFormatter.ofPattern("dd/MM/yyyy hh:mm a")) + ")");
+    }
+
+    private void updateDurationInfo() {
+        if (getEndDate() != null) {
+            setDurationInfo(LocalDateTime.of(getEndDate(), getEndTime()));
         }
     }
 

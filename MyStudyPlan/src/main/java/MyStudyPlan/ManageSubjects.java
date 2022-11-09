@@ -1,6 +1,7 @@
 package MyStudyPlan;
 
 import java.awt.Color;
+import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.FontFormatException;
 import java.awt.event.KeyEvent;
@@ -257,14 +258,35 @@ public class ManageSubjects extends javax.swing.JFrame {
                 .addGap(18, 18, 18))
         );
 
-        ColorTxtField.setText(getColorBtn());
+        ColorTxtField.setText(String.format("#%02x%02x%02x", ColorPickerBtn.getBackground().getRed(),
+            ColorPickerBtn.getBackground().getGreen(), ColorPickerBtn.getBackground().getBlue()));
     ColorTxtField.setForeground(ColorPickerBtn.getBackground());
 
     pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void SubjectAddBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SubjectAddBtnActionPerformed
-        // TODO add your handling code here:
+        boolean flag = false;
+        if (getCode().isEmpty()) {
+            CodeTxtField.setBorder(BorderFactory.createLineBorder(Color.red));
+            CodeTxtField.setPreferredSize(new Dimension(CodeTxtField.getWidth(), CodeTxtField.getHeight() + 1));
+            flag = true;
+        }
+        if (getSubject().isEmpty()) {
+            SubjectTxtField.setBorder(BorderFactory.createLineBorder(Color.red));
+            SubjectTxtField.setPreferredSize(new Dimension(SubjectTxtField.getWidth(), SubjectTxtField.getHeight() + 1));
+            flag = true;
+        }
+        if (getColor().isEmpty()) {
+            ColorTxtField.setBorder(BorderFactory.createLineBorder(Color.red));
+            ColorTxtField.setPreferredSize(new Dimension(ColorTxtField.getWidth(), ColorTxtField.getHeight() + 1));
+            flag = true;
+        }
+        if (flag) {
+            Logger.getLogger(NewTask.class.getName()).log(java.util.logging.Level.WARNING, "Missing or incorrect information!");
+            return;
+        }
+        Logger.getLogger(NewTask.class.getName()).log(java.util.logging.Level.INFO, "Successfully created new subject.");
     }//GEN-LAST:event_SubjectAddBtnActionPerformed
 
     private void CancelBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CancelBtnActionPerformed
@@ -349,7 +371,7 @@ public class ManageSubjects extends javax.swing.JFrame {
      * @return String
      */
     public String getCode() {
-        return CodeTxtField.toString();
+        return CodeTxtField.getText();
     }
 
     /**
@@ -359,13 +381,12 @@ public class ManageSubjects extends javax.swing.JFrame {
         return ColorTxtField.getText();
     }
 
-    
-    /** 
+    /**
      * @return String
      */
     public String getColorBtn() {
         return String.format("#%02x%02x%02x", ColorPickerBtn.getBackground().getRed(),
-        ColorPickerBtn.getBackground().getGreen(), ColorPickerBtn.getBackground().getBlue());
+                ColorPickerBtn.getBackground().getGreen(), ColorPickerBtn.getBackground().getBlue());
     }
 
     /**
@@ -382,32 +403,28 @@ public class ManageSubjects extends javax.swing.JFrame {
         return SubjectTxtField.getText();
     }
 
-    
-    /** 
+    /**
      * @param code
      */
     public void setCode(String code) {
         CodeTxtField.setText(code);
     }
 
-    
-    /** 
+    /**
      * @param color
      */
     public void setColor(String color) {
         ColorTxtField.setText(color);
     }
 
-    
-    /** 
+    /**
      * @param subject
      */
     public void setSubject(String subject) {
         SubjectTxtField.setText(subject);
     }
 
-    
-    /** 
+    /**
      * @param color
      */
     public void setColorBtn(Color color) {
