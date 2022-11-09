@@ -111,4 +111,14 @@ public class ClassInstance extends AbstractJob {
     public void setDescription(String description) {
         this.description = description;
     }
+
+    @Override
+    public boolean equals(Object obj){
+        if (obj instanceof ClassInstance) {
+            ClassInstance classInstance = (ClassInstance) obj;
+            return this.subject.equals(classInstance.subject) && this.sector == classInstance.sector;
+        }
+        return false;
+    }
+    
 }
