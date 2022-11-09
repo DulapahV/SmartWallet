@@ -23,6 +23,10 @@ public class TaskInstance extends AbstractJob {
         this.type = type;
         this.description = description;
     }
+    
+    public void writeToDatabase(Database dbInstance) {
+        dbInstance.addTask(this);
+    }
 
     /**
      * @return Subject

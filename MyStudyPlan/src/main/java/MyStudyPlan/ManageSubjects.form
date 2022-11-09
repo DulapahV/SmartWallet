@@ -291,9 +291,10 @@
               <Connection code="getFont(&quot;DINPro-Medium.otf&quot;, Font.PLAIN, 14)" type="code"/>
             </Property>
             <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-              <Table columnCount="2" rowCount="0">
+              <Table columnCount="3" rowCount="0">
                 <Column editable="false" title="Code" type="java.lang.Object"/>
                 <Column editable="false" title="Subjects" type="java.lang.Object"/>
+                <Column editable="false" title="Color" type="java.lang.Object"/>
               </Table>
             </Property>
             <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
@@ -308,7 +309,15 @@
                   <Editor/>
                   <Renderer/>
                 </Column>
+                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                  <Title/>
+                  <Editor/>
+                  <Renderer/>
+                </Column>
               </TableColumnModel>
+            </Property>
+            <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
+              <Color id="Default Cursor"/>
             </Property>
             <Property name="selectionMode" type="int" value="0"/>
             <Property name="showGrid" type="boolean" value="false"/>
@@ -317,6 +326,9 @@
               <TableHeader reorderingAllowed="false" resizingAllowed="true"/>
             </Property>
           </Properties>
+          <Events>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="SubjectsTableMouseClicked"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>
@@ -347,6 +359,9 @@
           <Color id="Hand Cursor"/>
         </Property>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="SaveBtnActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>

@@ -41,7 +41,6 @@ public class Calendar extends javax.swing.JFrame {
         TodayTxt = new javax.swing.JLabel();
         DateTxt = new javax.swing.JLabel();
         DatePicker = new org.jdesktop.swingx.JXDatePicker();
-        TodayBtn = new javax.swing.JButton();
         SearchPanel = new org.jdesktop.swingx.JXSearchPanel();
         SearchBtn = new javax.swing.JButton();
         Calendar = new org.jdesktop.swingx.JXMonthView();
@@ -173,12 +172,6 @@ public class Calendar extends javax.swing.JFrame {
         DateTxt.setText("Date");
 
         DatePicker.setFont(getFont("DINPro-Medium.otf", Font.PLAIN, 12));
-
-        TodayBtn.setBackground(new java.awt.Color(86, 96, 118));
-        TodayBtn.setFont(getFont("DINPro-Medium.otf", Font.PLAIN, 12));
-        TodayBtn.setText("Today");
-        TodayBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        TodayBtn.setMargin(new java.awt.Insets(3, 8, 3, 8));
 
         SearchPanel.setFont(getFont("DINPro-Medium.otf", Font.PLAIN, 12));
 
@@ -321,8 +314,6 @@ public class Calendar extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(DatePicker, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(TodayBtn)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(SearchPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(SearchBtn))
@@ -340,7 +331,6 @@ public class Calendar extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
                     .addComponent(SearchBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(SearchPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(TodayBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(DatePicker, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(DateTxt))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -431,7 +421,6 @@ public class Calendar extends javax.swing.JFrame {
     private org.jdesktop.swingx.JXSearchPanel SearchPanel;
     private org.jdesktop.swingx.JXButton TasksBtn;
     private org.jdesktop.swingx.JXTaskPaneContainer TasksPaneContainer;
-    private javax.swing.JButton TodayBtn;
     private javax.swing.JLabel TodayTxt;
     private javax.swing.JPanel TopPanel;
     // End of variables declaration//GEN-END:variables
