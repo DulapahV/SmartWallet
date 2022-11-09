@@ -333,9 +333,11 @@ public class NewTask extends javax.swing.JFrame {
      * @return TaskInstance
      */
     public TaskInstance getTaskInstance() {
-
-        return new TaskInstance(getSubject(), getTitle(), getTaskType(), getDueDate(), getDetail());
-
+        try {
+            return new TaskInstance(getSubject(), getTitle(), getTaskType(), getDueDate(), getDetail());
+        } catch (Exception e) {
+            return null;
+        }
     }
 
     public void setTask() {

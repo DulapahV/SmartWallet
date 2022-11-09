@@ -192,6 +192,7 @@ public class Database {
      */
     public static void addExam(ExamInstance exam) {
         instance.examList.add(exam);
+        Database.write();
     }
 
     /**

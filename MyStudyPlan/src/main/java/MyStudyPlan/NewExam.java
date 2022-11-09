@@ -93,7 +93,6 @@ public class NewExam extends javax.swing.JFrame {
         SubjectTxt.setText("Subject");
 
         SubjectComboBox.setFont(getFont("DINPro-Medium.otf", Font.PLAIN, 14));
-        SubjectComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         SubjectAddBtn.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         SubjectAddBtn.setText("+");
@@ -299,6 +298,10 @@ public class NewExam extends javax.swing.JFrame {
                 .addContainerGap(18, Short.MAX_VALUE))
         );
 
+        for (Subject subj : Database.getSubjList()) {
+            SubjectComboBox.addItem(subj.getCode() + " " + subj.getName());
+        }
+
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
@@ -322,7 +325,8 @@ public class NewExam extends javax.swing.JFrame {
     }//GEN-LAST:event_CancelBtnActionPerformed
 
     private void SaveBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SaveBtnActionPerformed
-        // TODO add your handling code here:
+        setExam();
+        this.dispose();
     }//GEN-LAST:event_SaveBtnActionPerformed
 
     private void DurationSpinnerStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_DurationSpinnerStateChanged
@@ -440,7 +444,7 @@ public class NewExam extends javax.swing.JFrame {
      * @return Subject
      */
     public Subject getSubject() {
-        return (Subject) SubjectComboBox.getSelectedItem();
+        return Database.getSubjList().get(SubjectComboBox.getSelectedIndex());
     }
 
     /**
@@ -500,10 +504,12 @@ public class NewExam extends javax.swing.JFrame {
      * @return ExamInstance
      */
     public ExamInstance getExamInstance() {
-        try {
             return new ExamInstance(getSubject(), getStartDate(), getStartTime(), getBuildingRoom(), getSeat(), getDuration(), getDetail());
-        } catch (Exception e) {
-            return null;
-        }
+
+    }
+
+    public void setExam() {
+        ExamInstance exam = getExamInstance();
+        exam.writeToDatabase(Database.getInstance());
     }
 }

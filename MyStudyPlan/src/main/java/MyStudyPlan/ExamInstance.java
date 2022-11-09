@@ -26,6 +26,10 @@ public class ExamInstance extends AbstractJob {
         this.description = description;
     }
 
+    public void writeToDatabase(Database dbInstance) {
+        dbInstance.addExam(this);
+    }
+
     /**
      * @return Subject
      */
