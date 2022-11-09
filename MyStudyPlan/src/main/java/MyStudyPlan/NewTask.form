@@ -175,7 +175,7 @@
         </Property>
       </Properties>
       <AuxValues>
-        <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="for (Subject subj : Database.getSubjList()) {&#xa;        SubjectComboBox.addItem(subj.getCode() + &quot; &quot; + subj.getName());&#xa;    }"/>
+        <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="for (Subject subj : Database.getSubjList()) {&#xa;    SubjectComboBox.addItem(subj.getCode() + &quot; &quot; + subj.getName());&#xa;}"/>
         <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
       </AuxValues>
     </Component>
@@ -253,9 +253,6 @@
           <Connection code="getFont(&quot;DINPro-Medium.otf&quot;, Font.PLAIN, 14)" type="code"/>
         </Property>
       </Properties>
-      <Events>
-        <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="TitleTxtFieldFocusGained"/>
-      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="DetailTxt">
       <Properties>

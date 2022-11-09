@@ -59,14 +59,14 @@
                       <Component id="Separator1" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" alignment="1" attributes="0">
+                          <Group type="102" attributes="0">
                               <Component id="TasksTxt" min="-2" max="-2" attributes="0"/>
                               <EmptySpace pref="176" max="32767" attributes="0"/>
                               <Component id="NewTaskBtn" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <Component id="TasksPaneContainer" max="32767" attributes="0"/>
+                          <Component id="TaskScrollPane" max="32767" attributes="0"/>
                       </Group>
-                      <EmptySpace min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
                       <Component id="Separator2" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
@@ -103,11 +103,11 @@
                                   <Component id="ExamsTxt" linkSize="5" alignment="2" pref="34" max="32767" attributes="0"/>
                                   <Component id="NewExamBtn" alignment="2" min="-2" pref="34" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="TasksPaneContainer" max="32767" attributes="0"/>
                                   <Component id="SchedulePane" pref="486" max="32767" attributes="0"/>
                                   <Component id="ExamsPane" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="TaskScrollPane" alignment="1" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                           <Component id="Separator2" max="32767" attributes="0"/>
@@ -265,6 +265,9 @@
           <Color blue="bf" green="a2" red="3b" type="rgb"/>
         </Property>
       </Properties>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="ScheduleTopVal.setText(String.valueOf(Database.getSubjList().size()));"/>
+      </AuxValues>
 
       <Layout>
         <DimensionLayout dim="0">
@@ -365,6 +368,9 @@
             </Property>
             <Property name="text" type="java.lang.String" value="0"/>
           </Properties>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="TasksTopVal.setText(String.valueOf(Database.getTaskList().size()));"/>
+          </AuxValues>
         </Component>
         <Component class="javax.swing.JLabel" name="ExamsTopTxt">
           <Properties>
@@ -381,6 +387,9 @@
             </Property>
             <Property name="text" type="java.lang.String" value="0"/>
           </Properties>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="ExamsTopVal.setText(String.valueOf(Database.getExamList().size()));"/>
+          </AuxValues>
         </Component>
       </SubComponents>
     </Container>
@@ -493,94 +502,6 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="NewTaskBtnActionPerformed"/>
       </Events>
     </Component>
-    <Container class="org.jdesktop.swingx.JXTaskPaneContainer" name="TasksPaneContainer">
-      <Properties>
-        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="40" green="34" red="2e" type="rgb"/>
-        </Property>
-        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-          <Border info="org.netbeans.modules.form.compat2.border.EmptyBorderInfo">
-            <EmptyBorder/>
-          </Border>
-        </Property>
-      </Properties>
-      <SubComponents>
-        <Component class="org.jdesktop.swingx.JXTaskPane" name="AssignmentTasksPane">
-          <Properties>
-            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="40" green="34" red="2e" type="rgb"/>
-            </Property>
-            <Property name="font" type="java.awt.Font" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-              <Connection code="getFont(&quot;DINPro-Medium.otf&quot;, Font.PLAIN, 14)" type="code"/>
-            </Property>
-            <Property name="special" type="boolean" value="true"/>
-            <Property name="title" type="java.lang.String" value="Assignment (0)"/>
-          </Properties>
-        </Component>
-        <Component class="org.jdesktop.swingx.JXTaskPane" name="ReminderTasksPane">
-          <Properties>
-            <Property name="font" type="java.awt.Font" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-              <Connection code="getFont(&quot;DINPro-Medium.otf&quot;, Font.PLAIN, 14)" type="code"/>
-            </Property>
-            <Property name="special" type="boolean" value="true"/>
-            <Property name="title" type="java.lang.String" value="Reminder (0)"/>
-          </Properties>
-        </Component>
-        <Component class="org.jdesktop.swingx.JXTaskPane" name="RevisionTasksPane">
-          <Properties>
-            <Property name="font" type="java.awt.Font" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-              <Connection code="getFont(&quot;DINPro-Medium.otf&quot;, Font.PLAIN, 14)" type="code"/>
-            </Property>
-            <Property name="special" type="boolean" value="true"/>
-            <Property name="title" type="java.lang.String" value="Revision (0)"/>
-          </Properties>
-        </Component>
-      </SubComponents>
-      <LayoutCode>
-        <CodeStatement>
-          <CodeExpression id="1_verticalLayout2">
-            <CodeVariable name="verticalLayout2" type="4096" declaredType="org.jdesktop.swingx.VerticalLayout"/>
-            <ExpressionOrigin>
-              <ExpressionProvider type="CodeConstructor">
-                <CodeConstructor class="org.jdesktop.swingx.VerticalLayout" parameterTypes=""/>
-              </ExpressionProvider>
-            </ExpressionOrigin>
-          </CodeExpression>
-          <StatementProvider type="CodeExpression">
-            <CodeExpression id="1_verticalLayout2"/>
-          </StatementProvider>
-        </CodeStatement>
-        <CodeStatement>
-          <CodeExpression id="1_verticalLayout2"/>
-          <StatementProvider type="CodeMethod">
-            <CodeMethod name="setGap" class="org.jdesktop.swingx.VerticalLayout" parameterTypes="int"/>
-          </StatementProvider>
-          <Parameters>
-            <CodeExpression id="2">
-              <ExpressionOrigin>
-                <Value type="int" value="14"/>
-              </ExpressionOrigin>
-            </CodeExpression>
-          </Parameters>
-        </CodeStatement>
-        <CodeStatement>
-          <CodeExpression id="3_TasksPaneContainer">
-            <CodeVariable name="TasksPaneContainer" type="8194" declaredType="org.jdesktop.swingx.JXTaskPaneContainer"/>
-            <ExpressionOrigin>
-              <ExpressionProvider type="ComponentRef">
-                <ComponentRef name="TasksPaneContainer"/>
-              </ExpressionProvider>
-            </ExpressionOrigin>
-          </CodeExpression>
-          <StatementProvider type="CodeMethod">
-            <CodeMethod name="setLayout" class="java.awt.Container" parameterTypes="java.awt.LayoutManager"/>
-          </StatementProvider>
-          <Parameters>
-            <CodeExpression id="1_verticalLayout2"/>
-          </Parameters>
-        </CodeStatement>
-      </LayoutCode>
-    </Container>
     <Component class="javax.swing.JLabel" name="ExamsTxt">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
@@ -647,6 +568,108 @@
             </Property>
           </Properties>
         </Component>
+      </SubComponents>
+    </Container>
+    <Container class="javax.swing.JScrollPane" name="TaskScrollPane">
+      <Properties>
+        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+          <Border info="null"/>
+        </Property>
+      </Properties>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="TaskScrollPane.getVerticalScrollBar().setUnitIncrement(12);&#xa;TaskScrollPane.getHorizontalScrollBar().setUnitIncrement(12);"/>
+      </AuxValues>
+
+      <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+      <SubComponents>
+        <Container class="org.jdesktop.swingx.JXTaskPaneContainer" name="TasksPaneContainer">
+          <Properties>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="40" green="34" red="2e" type="rgb"/>
+            </Property>
+            <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+              <Border info="org.netbeans.modules.form.compat2.border.EmptyBorderInfo">
+                <EmptyBorder/>
+              </Border>
+            </Property>
+          </Properties>
+          <SubComponents>
+            <Component class="org.jdesktop.swingx.JXTaskPane" name="AssignmentTaskPane">
+              <Properties>
+                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="40" green="34" red="2e" type="rgb"/>
+                </Property>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                  <Connection code="getFont(&quot;DINPro-Medium.otf&quot;, Font.PLAIN, 14)" type="code"/>
+                </Property>
+                <Property name="special" type="boolean" value="true"/>
+                <Property name="title" type="java.lang.String" value="Assignment (0)"/>
+              </Properties>
+            </Component>
+            <Component class="org.jdesktop.swingx.JXTaskPane" name="ReminderTaskPane">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                  <Connection code="getFont(&quot;DINPro-Medium.otf&quot;, Font.PLAIN, 14)" type="code"/>
+                </Property>
+                <Property name="special" type="boolean" value="true"/>
+                <Property name="title" type="java.lang.String" value="Reminder (0)"/>
+              </Properties>
+            </Component>
+            <Component class="org.jdesktop.swingx.JXTaskPane" name="RevisionTaskPane">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                  <Connection code="getFont(&quot;DINPro-Medium.otf&quot;, Font.PLAIN, 14)" type="code"/>
+                </Property>
+                <Property name="special" type="boolean" value="true"/>
+                <Property name="title" type="java.lang.String" value="Revision (0)"/>
+              </Properties>
+            </Component>
+          </SubComponents>
+          <LayoutCode>
+            <CodeStatement>
+              <CodeExpression id="1_verticalLayout2">
+                <CodeVariable name="verticalLayout2" type="4096" declaredType="org.jdesktop.swingx.VerticalLayout"/>
+                <ExpressionOrigin>
+                  <ExpressionProvider type="CodeConstructor">
+                    <CodeConstructor class="org.jdesktop.swingx.VerticalLayout" parameterTypes=""/>
+                  </ExpressionProvider>
+                </ExpressionOrigin>
+              </CodeExpression>
+              <StatementProvider type="CodeExpression">
+                <CodeExpression id="1_verticalLayout2"/>
+              </StatementProvider>
+            </CodeStatement>
+            <CodeStatement>
+              <CodeExpression id="1_verticalLayout2"/>
+              <StatementProvider type="CodeMethod">
+                <CodeMethod name="setGap" class="org.jdesktop.swingx.VerticalLayout" parameterTypes="int"/>
+              </StatementProvider>
+              <Parameters>
+                <CodeExpression id="2">
+                  <ExpressionOrigin>
+                    <Value type="int" value="14"/>
+                  </ExpressionOrigin>
+                </CodeExpression>
+              </Parameters>
+            </CodeStatement>
+            <CodeStatement>
+              <CodeExpression id="3_TasksPaneContainer">
+                <CodeVariable name="TasksPaneContainer" type="8194" declaredType="org.jdesktop.swingx.JXTaskPaneContainer"/>
+                <ExpressionOrigin>
+                  <ExpressionProvider type="ComponentRef">
+                    <ComponentRef name="TasksPaneContainer"/>
+                  </ExpressionProvider>
+                </ExpressionOrigin>
+              </CodeExpression>
+              <StatementProvider type="CodeMethod">
+                <CodeMethod name="setLayout" class="java.awt.Container" parameterTypes="java.awt.LayoutManager"/>
+              </StatementProvider>
+              <Parameters>
+                <CodeExpression id="1_verticalLayout2"/>
+              </Parameters>
+            </CodeStatement>
+          </LayoutCode>
+        </Container>
       </SubComponents>
     </Container>
   </SubComponents>

@@ -509,7 +509,7 @@ public class NewExam extends javax.swing.JFrame {
     }
 
     public void setExam() {
-        ExamInstance exam = getExamInstance();
-        exam.writeToDatabase(Database.getInstance());
+        ExamInstance examInstance = getExamInstance();
+        examInstance.writeToDatabase(Database.getInstance());
     }
 }

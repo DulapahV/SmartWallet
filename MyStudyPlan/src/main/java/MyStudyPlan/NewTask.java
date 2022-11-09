@@ -253,6 +253,7 @@ public class NewTask extends javax.swing.JFrame {
         }
         Logger.getLogger(NewTask.class.getName()).log(java.util.logging.Level.INFO, "Successfully created new task.");
         setTask();
+        this.dispose();
     }//GEN-LAST:event_SaveBtnActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -341,7 +342,7 @@ public class NewTask extends javax.swing.JFrame {
     }
 
     public void setTask() {
-        TaskInstance task = getTaskInstance();
-        task.writeToDatabase(Database.getInstance());
+        TaskInstance taskInstance = getTaskInstance();
+        taskInstance.writeToDatabase(Database.getInstance());
     }
 }

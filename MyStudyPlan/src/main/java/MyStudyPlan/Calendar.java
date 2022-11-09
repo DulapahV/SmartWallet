@@ -3,10 +3,14 @@ package MyStudyPlan;
 import java.awt.Font;
 import java.awt.FontFormatException;
 import java.io.IOException;
+import java.time.LocalDate;
 import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.util.regex.Pattern;
+
+import javax.swing.JButton;
+import javax.swing.SwingConstants;
 
 /**
  *
@@ -20,6 +24,8 @@ public class Calendar extends javax.swing.JFrame {
      */
     public Calendar() {
         initComponents();
+
+        updateTaskPane();
     }
 
     /**
@@ -49,9 +55,9 @@ public class Calendar extends javax.swing.JFrame {
         SchedulePane = new javax.swing.JScrollPane();
         ScheduleTable = new javax.swing.JTable();
         TasksPaneContainer = new org.jdesktop.swingx.JXTaskPaneContainer();
-        AssignmentTasksPane = new org.jdesktop.swingx.JXTaskPane();
-        ReminderTasksPane = new org.jdesktop.swingx.JXTaskPane();
-        RevisionTasksPane = new org.jdesktop.swingx.JXTaskPane();
+        AssignmentTaskPane = new org.jdesktop.swingx.JXTaskPane();
+        ReminderTaskPane = new org.jdesktop.swingx.JXTaskPane();
+        RevisionTaskPane = new org.jdesktop.swingx.JXTaskPane();
         ExamsPane = new javax.swing.JScrollPane();
         ExamsTable = new javax.swing.JTable();
 
@@ -226,21 +232,21 @@ public class Calendar extends javax.swing.JFrame {
         verticalLayout2.setGap(14);
         TasksPaneContainer.setLayout(verticalLayout2);
 
-        AssignmentTasksPane.setBackground(new java.awt.Color(46, 52, 64));
-        AssignmentTasksPane.setFont(getFont("DINPro-Medium.otf", Font.PLAIN, 14));
-        AssignmentTasksPane.setSpecial(true);
-        AssignmentTasksPane.setTitle("Assignment (0)");
-        TasksPaneContainer.add(AssignmentTasksPane);
+        AssignmentTaskPane.setBackground(new java.awt.Color(46, 52, 64));
+        AssignmentTaskPane.setFont(getFont("DINPro-Medium.otf", Font.PLAIN, 14));
+        AssignmentTaskPane.setSpecial(true);
+        AssignmentTaskPane.setTitle("Assignment (0)");
+        TasksPaneContainer.add(AssignmentTaskPane);
 
-        ReminderTasksPane.setFont(getFont("DINPro-Medium.otf", Font.PLAIN, 14));
-        ReminderTasksPane.setSpecial(true);
-        ReminderTasksPane.setTitle("Reminder (0)");
-        TasksPaneContainer.add(ReminderTasksPane);
+        ReminderTaskPane.setFont(getFont("DINPro-Medium.otf", Font.PLAIN, 14));
+        ReminderTaskPane.setSpecial(true);
+        ReminderTaskPane.setTitle("Reminder (0)");
+        TasksPaneContainer.add(ReminderTaskPane);
 
-        RevisionTasksPane.setFont(getFont("DINPro-Medium.otf", Font.PLAIN, 14));
-        RevisionTasksPane.setSpecial(true);
-        RevisionTasksPane.setTitle("Revision (0)");
-        TasksPaneContainer.add(RevisionTasksPane);
+        RevisionTaskPane.setFont(getFont("DINPro-Medium.otf", Font.PLAIN, 14));
+        RevisionTaskPane.setSpecial(true);
+        RevisionTaskPane.setTitle("Revision (0)");
+        TasksPaneContainer.add(RevisionTaskPane);
 
         ExamsPane.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Schedule", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, getFont("DINPro-Medium.otf", Font.PLAIN, 18)));
 
@@ -295,8 +301,8 @@ public class Calendar extends javax.swing.JFrame {
 
         CalendarScrollPane.setViewportView(CalendarPanel);
 
-        CalendarScrollPane.getVerticalScrollBar().setUnitIncrement(16);
-        CalendarScrollPane.getHorizontalScrollBar().setUnitIncrement(16);
+        CalendarScrollPane.getVerticalScrollBar().setUnitIncrement(12);
+        CalendarScrollPane.getHorizontalScrollBar().setUnitIncrement(12);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -400,7 +406,7 @@ public class Calendar extends javax.swing.JFrame {
     }//GEN-LAST:event_OverviewBtnActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private org.jdesktop.swingx.JXTaskPane AssignmentTasksPane;
+    private org.jdesktop.swingx.JXTaskPane AssignmentTaskPane;
     private org.jdesktop.swingx.JXMonthView Calendar;
     private org.jdesktop.swingx.JXButton CalendarBtn;
     private javax.swing.JPanel CalendarPanel;
@@ -412,8 +418,8 @@ public class Calendar extends javax.swing.JFrame {
     private javax.swing.JTable ExamsTable;
     private javax.swing.JPanel LeftPanel;
     private org.jdesktop.swingx.JXButton OverviewBtn;
-    private org.jdesktop.swingx.JXTaskPane ReminderTasksPane;
-    private org.jdesktop.swingx.JXTaskPane RevisionTasksPane;
+    private org.jdesktop.swingx.JXTaskPane ReminderTaskPane;
+    private org.jdesktop.swingx.JXTaskPane RevisionTaskPane;
     private org.jdesktop.swingx.JXButton ScheduleBtn;
     private javax.swing.JScrollPane SchedulePane;
     private javax.swing.JTable ScheduleTable;
@@ -453,5 +459,43 @@ public class Calendar extends javax.swing.JFrame {
      */
     public Pattern getSearchPanel() {
         return SearchPanel.getPattern();
+    }
+
+    private void updateTaskPane() {
+        AssignmentTaskPane.removeAll();
+        ReminderTaskPane.removeAll();
+        RevisionTaskPane.removeAll();
+
+        int numAssignment = 0;
+        int numReminder = 0;
+        int numRevision = 0;
+
+        for (TaskInstance task : Database.getTaskList()) {
+            if (task.getDueDate().equals(LocalDate.now())) {
+                String string = "Due date: " + task.getDueDate() + "\nName: " + task.getTitle() + "\nSubject: " + task.getSubject().getName() + "\nDescription: " + task.getDescription();
+                JButton label = new JButton("<html>" + string.replaceAll("\\n", "<br>") + "</html>");
+                label.setBackground(task.getSubject().getColor());
+                label.setHorizontalAlignment(SwingConstants.LEFT);
+                label.setFont(getFont("DINPro-Medium.otf", Font.PLAIN, 16));
+                label.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+                switch (task.getType()) {
+                    case Assignment:
+                        AssignmentTaskPane.add(label);
+                        numAssignment++;
+                        break;
+                    case Reminder:
+                        ReminderTaskPane.add(label);
+                        numReminder++;
+                        break;
+                    case Revision:
+                        RevisionTaskPane.add(label);
+                        numRevision++;
+                        break;
+                }
+            }
+        }
+        AssignmentTaskPane.setTitle("Assignment (" + numAssignment + ")");
+        ReminderTaskPane.setTitle("Reminder (" + numReminder + ")");
+        RevisionTaskPane.setTitle("Revision (" + numRevision + ")");
     }
 }

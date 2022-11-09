@@ -333,7 +333,7 @@
     </Component>
     <Container class="javax.swing.JScrollPane" name="CalendarScrollPane">
       <AuxValues>
-        <AuxValue name="JavaCodeGenerator_LayoutCodePost" type="java.lang.String" value="CalendarScrollPane.getVerticalScrollBar().setUnitIncrement(16);&#xa;CalendarScrollPane.getHorizontalScrollBar().setUnitIncrement(16);"/>
+        <AuxValue name="JavaCodeGenerator_LayoutCodePost" type="java.lang.String" value="CalendarScrollPane.getVerticalScrollBar().setUnitIncrement(12);&#xa;CalendarScrollPane.getHorizontalScrollBar().setUnitIncrement(12);"/>
       </AuxValues>
 
       <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
@@ -435,7 +435,7 @@
                 </Property>
               </Properties>
               <SubComponents>
-                <Component class="org.jdesktop.swingx.JXTaskPane" name="AssignmentTasksPane">
+                <Component class="org.jdesktop.swingx.JXTaskPane" name="AssignmentTaskPane">
                   <Properties>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="40" green="34" red="2e" type="rgb"/>
@@ -447,7 +447,7 @@
                     <Property name="title" type="java.lang.String" value="Assignment (0)"/>
                   </Properties>
                 </Component>
-                <Component class="org.jdesktop.swingx.JXTaskPane" name="ReminderTasksPane">
+                <Component class="org.jdesktop.swingx.JXTaskPane" name="ReminderTaskPane">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
                       <Connection code="getFont(&quot;DINPro-Medium.otf&quot;, Font.PLAIN, 14)" type="code"/>
@@ -456,7 +456,7 @@
                     <Property name="title" type="java.lang.String" value="Reminder (0)"/>
                   </Properties>
                 </Component>
-                <Component class="org.jdesktop.swingx.JXTaskPane" name="RevisionTasksPane">
+                <Component class="org.jdesktop.swingx.JXTaskPane" name="RevisionTaskPane">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
                       <Connection code="getFont(&quot;DINPro-Medium.otf&quot;, Font.PLAIN, 14)" type="code"/>

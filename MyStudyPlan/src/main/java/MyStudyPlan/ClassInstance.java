@@ -8,6 +8,7 @@ public class ClassInstance extends AbstractJob {
     private LocalTime startTime;
     private LocalDate startDate;
     private int sector;
+    private int duration;
     private String room;
     private String building;
     private String teacher;
@@ -17,21 +18,27 @@ public class ClassInstance extends AbstractJob {
         this.description = "";
         this.startTime = null;
         this.startDate = null;
+        this.duration = 0;
         this.sector = 0;
         this.room = "";
         this.building = "";
         this.teacher = "";
     }
 
-    ClassInstance(Subject subject, int sector, String room, LocalDate startdate, LocalTime starttime, String building, String teacher, String description) {
+    ClassInstance(Subject subject, int sector, String room, LocalDate startDate, LocalTime startTime, int duration, String building, String teacher, String description) {
         this.subject = subject;
         this.sector = sector;
         this.room = room;
-        this.startDate = startdate;
-        this.startTime = starttime;
+        this.startDate = startDate;
+        this.startTime = startTime;
+        this.duration = duration;
         this.building = building;
         this.teacher = teacher;
         this.description = description;
+    }
+
+    public void writeToDatabase(Database dbInstance) {
+        dbInstance.addClass(this);
     }
 
     /**
@@ -74,6 +81,10 @@ public class ClassInstance extends AbstractJob {
      */
     public String getDescription() {
         return description;
+    }
+
+    public int getDuration() {
+        return duration;
     }
 
     /**

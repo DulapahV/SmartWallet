@@ -182,6 +182,7 @@ public class Database {
      */
     public static void addClass(ClassInstance classInstance) {
         instance.classList.add(classInstance);
+        Database.write();
     }
 
     /**

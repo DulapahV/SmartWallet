@@ -74,14 +74,14 @@ class LocalDateTimeDeserializer implements JsonDeserializer<LocalDateTime> {
     }
 }
 
-class LocalTimeDeserializer implements JsonDeserializer<LocalDateTime> {
-
-    @Override
-    public LocalDateTime deserialize(JsonElement json, Type typeOfT, JsonDeserializationContext context)
-            throws JsonParseException {
-        return LocalDateTime.parse(json.getAsString(),
-                DateTimeFormatter.ofPattern("HH::mm::ss").withLocale(Locale.ENGLISH));
-    }
+class LocalTimeDeserializer implements JsonDeserializer<LocalTime> {
+    
+        @Override
+        public LocalTime deserialize(JsonElement json, Type typeOfT, JsonDeserializationContext context)
+                throws JsonParseException {
+            return LocalTime.parse(json.getAsString(),
+                    DateTimeFormatter.ofPattern("HH::mm::ss").withLocale(Locale.ENGLISH));
+        }
 }
 
 class ColorDeserializer implements JsonDeserializer<Color> {

@@ -5,9 +5,14 @@ import java.awt.FontFormatException;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.io.IOException;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.util.regex.Pattern;
+
+import javax.swing.JButton;
+import javax.swing.SwingConstants;
 
 /**
  *
@@ -21,6 +26,8 @@ public class Tasks extends javax.swing.JFrame {
      */
     public Tasks() {
         initComponents();
+
+        updateTaskPane();
     }
 
     /**
@@ -42,11 +49,12 @@ public class Tasks extends javax.swing.JFrame {
         TodayTxt = new javax.swing.JLabel();
         SearchPanel = new org.jdesktop.swingx.JXSearchPanel();
         SearchBtn = new javax.swing.JButton();
+        NewTasksBtn = new javax.swing.JButton();
+        TaskScrollPane = new javax.swing.JScrollPane();
         TasksPaneContainer = new org.jdesktop.swingx.JXTaskPaneContainer();
         AssignmentTaskPane = new org.jdesktop.swingx.JXTaskPane();
-        ReminnderTaskPane = new org.jdesktop.swingx.JXTaskPane();
+        ReminderTaskPane = new org.jdesktop.swingx.JXTaskPane();
         RevisionTaskPane = new org.jdesktop.swingx.JXTaskPane();
-        NewTasksBtn = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("MyStudyPlan");
@@ -169,26 +177,6 @@ public class Tasks extends javax.swing.JFrame {
         SearchBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         SearchBtn.setMargin(new java.awt.Insets(3, 8, 3, 8));
 
-        TasksPaneContainer.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        org.jdesktop.swingx.VerticalLayout verticalLayout1 = new org.jdesktop.swingx.VerticalLayout();
-        verticalLayout1.setGap(14);
-        TasksPaneContainer.setLayout(verticalLayout1);
-
-        AssignmentTaskPane.setFont(getFont("DINPro-Medium.otf", Font.PLAIN, 14));
-        AssignmentTaskPane.setSpecial(true);
-        AssignmentTaskPane.setTitle("Assignment (0)");
-        TasksPaneContainer.add(AssignmentTaskPane);
-
-        ReminnderTaskPane.setFont(getFont("DINPro-Medium.otf", Font.PLAIN, 14));
-        ReminnderTaskPane.setSpecial(true);
-        ReminnderTaskPane.setTitle("Reminder (0)");
-        TasksPaneContainer.add(ReminnderTaskPane);
-
-        RevisionTaskPane.setFont(getFont("DINPro-Medium.otf", Font.PLAIN, 14));
-        RevisionTaskPane.setSpecial(true);
-        RevisionTaskPane.setTitle("Revision (0)");
-        TasksPaneContainer.add(RevisionTaskPane);
-
         NewTasksBtn.setBackground(new java.awt.Color(59, 162, 191));
         NewTasksBtn.setFont(getFont("DINPro-Medium.otf", Font.PLAIN, 12));
         NewTasksBtn.setText("+ New Task");
@@ -199,6 +187,32 @@ public class Tasks extends javax.swing.JFrame {
                 NewTasksBtnActionPerformed(evt);
             }
         });
+
+        TaskScrollPane.setBorder(null);
+        TaskScrollPane.getVerticalScrollBar().setUnitIncrement(12);
+        TaskScrollPane.getHorizontalScrollBar().setUnitIncrement(12);
+
+        TasksPaneContainer.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        org.jdesktop.swingx.VerticalLayout verticalLayout1 = new org.jdesktop.swingx.VerticalLayout();
+        verticalLayout1.setGap(14);
+        TasksPaneContainer.setLayout(verticalLayout1);
+
+        AssignmentTaskPane.setFont(getFont("DINPro-Medium.otf", Font.PLAIN, 14));
+        AssignmentTaskPane.setSpecial(true);
+        AssignmentTaskPane.setTitle("Assignment (0)");
+        TasksPaneContainer.add(AssignmentTaskPane);
+
+        ReminderTaskPane.setFont(getFont("DINPro-Medium.otf", Font.PLAIN, 14));
+        ReminderTaskPane.setSpecial(true);
+        ReminderTaskPane.setTitle("Reminder (0)");
+        TasksPaneContainer.add(ReminderTaskPane);
+
+        RevisionTaskPane.setFont(getFont("DINPro-Medium.otf", Font.PLAIN, 14));
+        RevisionTaskPane.setSpecial(true);
+        RevisionTaskPane.setTitle("Revision (0)");
+        TasksPaneContainer.add(RevisionTaskPane);
+
+        TaskScrollPane.setViewportView(TasksPaneContainer);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -213,7 +227,7 @@ public class Tasks extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(6, 6, 6)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(TasksPaneContainer, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(TaskScrollPane)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(SearchPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -236,7 +250,7 @@ public class Tasks extends javax.swing.JFrame {
                             .addComponent(SearchBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(NewTasksBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(TasksPaneContainer, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                        .addComponent(TaskScrollPane))))
         );
 
         pack();
@@ -253,6 +267,7 @@ public class Tasks extends javax.swing.JFrame {
                 Tasks.this.setEnabled(true);
                 Tasks.this.requestFocus();
                 Tasks.this.setExtendedState(Tasks.this.getExtendedState() & ~Tasks.ICONIFIED);
+                updateTaskPane();
             }
         });
     }//GEN-LAST:event_NewTasksBtnActionPerformed
@@ -316,11 +331,12 @@ public class Tasks extends javax.swing.JFrame {
     private javax.swing.JPanel LeftPanel;
     private javax.swing.JButton NewTasksBtn;
     private org.jdesktop.swingx.JXButton OverviewBtn;
-    private org.jdesktop.swingx.JXTaskPane ReminnderTaskPane;
+    private org.jdesktop.swingx.JXTaskPane ReminderTaskPane;
     private org.jdesktop.swingx.JXTaskPane RevisionTaskPane;
     private org.jdesktop.swingx.JXButton ScheduleBtn;
     private javax.swing.JButton SearchBtn;
     private org.jdesktop.swingx.JXSearchPanel SearchPanel;
+    private javax.swing.JScrollPane TaskScrollPane;
     private org.jdesktop.swingx.JXButton TasksBtn;
     private org.jdesktop.swingx.JXTaskPaneContainer TasksPaneContainer;
     private javax.swing.JLabel TodayTxt;
@@ -348,5 +364,48 @@ public class Tasks extends javax.swing.JFrame {
      */
     public Pattern getSearchPanel() {
         return SearchPanel.getPattern();
+    }
+
+    private void updateTaskPane() {
+        AssignmentTaskPane.removeAll();
+        ReminderTaskPane.removeAll();
+        RevisionTaskPane.removeAll();
+
+        int numAssignment = 0;
+        int numReminder = 0;
+        int numRevision = 0;
+
+        Collections.sort(Database.getTaskList(), new Comparator<TaskInstance>() {
+            @Override
+            public int compare(TaskInstance o1, TaskInstance o2) {
+                return o1.getDueDate().compareTo(o2.getDueDate());
+            }
+        });
+
+        for (TaskInstance task : Database.getTaskList()) {
+            String string = "Due date: " + task.getDueDate() + "\nName: " + task.getTitle() + "\nSubject: " + task.getSubject().getName() + "\nDescription: " + task.getDescription();
+            JButton label = new JButton("<html>" + string.replaceAll("\\n", "<br>") + "</html>");
+            label.setBackground(task.getSubject().getColor());
+            label.setHorizontalAlignment(SwingConstants.LEFT);
+            label.setFont(getFont("DINPro-Medium.otf", Font.PLAIN, 16));
+            label.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+            switch (task.getType()) {
+                case Assignment:
+                    AssignmentTaskPane.add(label);
+                    numAssignment++;
+                    break;
+                case Reminder:
+                    ReminderTaskPane.add(label);
+                    numReminder++;
+                    break;
+                case Revision:
+                    RevisionTaskPane.add(label);
+                    numRevision++;
+                    break;
+            }
+        }
+        AssignmentTaskPane.setTitle("Assignment (" + numAssignment + ")");
+        ReminderTaskPane.setTitle("Reminder (" + numReminder + ")");
+        RevisionTaskPane.setTitle("Revision (" + numRevision + ")");
     }
 }

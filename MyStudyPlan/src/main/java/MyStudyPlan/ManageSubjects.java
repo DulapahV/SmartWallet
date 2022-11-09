@@ -308,7 +308,6 @@ public class ManageSubjects extends javax.swing.JFrame {
             return;
         }
         Logger.getLogger(NewTask.class.getName()).log(java.util.logging.Level.INFO, "Successfully created new subject.");
-        table.addRow(new Object[]{getCode(), getSubject(), getColor()});
         setSubject();
     }//GEN-LAST:event_SubjectAddBtnActionPerformed
 
@@ -498,7 +497,9 @@ public class ManageSubjects extends javax.swing.JFrame {
 
     public void setSubject() {
         Subject subject = getSubjectInstance();
-        Database.addSubject(subject);
+        if (Database.addSubject(subject) == true) {
+            table.addRow(new Object[]{getCode(), getSubject(), getColor()});
+        }
     }
 
     public void removeSubject() {

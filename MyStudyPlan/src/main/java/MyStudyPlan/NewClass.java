@@ -98,7 +98,6 @@ public class NewClass extends javax.swing.JFrame {
         SubjectTxt.setText("Subject");
 
         SubjectComboBox.setFont(getFont("DINPro-Medium.otf", Font.PLAIN, 14));
-        SubjectComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         SubjectAddBtn.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         SubjectAddBtn.setText("+");
@@ -343,6 +342,10 @@ public class NewClass extends javax.swing.JFrame {
                 .addContainerGap(16, Short.MAX_VALUE))
         );
 
+        for (Subject subj : Database.getSubjList()) {
+            SubjectComboBox.addItem(subj.getCode() + " " + subj.getName());
+        }
+
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
@@ -378,7 +381,8 @@ public class NewClass extends javax.swing.JFrame {
     }//GEN-LAST:event_CancelBtnActionPerformed
 
     private void SaveBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SaveBtnActionPerformed
-        // TODO add your handling code here:
+        setClass();
+        this.dispose();
     }//GEN-LAST:event_SaveBtnActionPerformed
 
     private void HourSpinnerStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_HourSpinnerStateChanged
@@ -451,42 +455,46 @@ public class NewClass extends javax.swing.JFrame {
      * @return String
      */
     public String getBuilding() {
-        return BuildingTxtField.toString();
+        return BuildingTxtField.getText();
     }
 
     /**
      * @return String
      */
     public String getDetail() {
-        return DetailTxtArea.toString();
+        return DetailTxtArea.getText();
     }
 
     /**
      * @return String
      */
     public String getRoom() {
-        return RoomTxtField.toString();
+        return RoomTxtField.getText();
     }
 
     /**
      * @return int
      */
     public int getSector() {
-        return Integer.parseInt(SectorTxtField.toString());
+        try {
+            return Integer.parseInt(SectorTxtField.getText());
+        } catch (NumberFormatException e) {
+            return 0;
+        }
     }
 
     /**
      * @return Subject
      */
     public Subject getSubject() {
-        return (Subject) SubjectComboBox.getSelectedItem();
+        return Database.getSubjList().get(SubjectComboBox.getSelectedIndex());
     }
 
     /**
      * @return String
      */
     public String getTeacher() {
-        return TeacherTxtField.toString();
+        return TeacherTxtField.getText();
     }
 
     /**
@@ -572,10 +580,20 @@ public class NewClass extends javax.swing.JFrame {
         }
     }
 
-    // /** 
-    //  * @return ClassInstance
-    //  */
-    // public ClassInstance getClassInstance() {
-    //     return new ClassInstance(getSubject(), getSector(), getRoom(), getRoom(), getBuilding(), getTeacher(), getStartDate(), getStartTime(), getDuration());
-    // }
+    /** 
+     * @return ClassInstance
+     */
+    public ClassInstance getClassInstance() {
+        try {
+            return new ClassInstance(getSubject(), getSector(), getRoom(), getStartDate(), getStartTime(), getDuration(), getBuilding(), getTeacher(), getDetail());
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
+    public void setClass() {
+        ClassInstance classInstance = getClassInstance();
+        classInstance.writeToDatabase(Database.getInstance());
+    }
 }
