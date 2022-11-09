@@ -4,6 +4,7 @@ import java.awt.Color;
 import java.lang.reflect.Type;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Locale;
 
@@ -35,13 +36,13 @@ class LocalDateTimeSerializer implements JsonSerializer<LocalDateTime> {
     }
 }
 
-class LocalTimeSerializer implements JsonSerializer<LocalDateTime> {
+class LocalTimeSerializer implements JsonSerializer<LocalTime> {
 
     private static final DateTimeFormatter formatter = DateTimeFormatter.ofPattern("HH::mm::ss");
 
     @Override
-    public JsonElement serialize(LocalDateTime localDateTime, Type srcType, JsonSerializationContext context) {
-        return new JsonPrimitive(formatter.format(localDateTime));
+    public JsonElement serialize(LocalTime localTime, Type srcType, JsonSerializationContext context) {
+        return new JsonPrimitive(formatter.format(localTime));
     }
 }
 
