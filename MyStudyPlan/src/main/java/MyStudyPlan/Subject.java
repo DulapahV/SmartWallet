@@ -84,4 +84,13 @@ public class Subject {
     public String toString() {
         return code + " " + name;
     }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj instanceof Subject) {
+            Subject other = (Subject) obj;
+            return this.code.equals(other.code);
+        }
+        return false;
+    }
 }
