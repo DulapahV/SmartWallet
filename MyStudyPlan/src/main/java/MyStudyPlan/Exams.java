@@ -7,6 +7,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.io.IOException;
+import java.time.format.DateTimeFormatter;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.logging.Level;
@@ -54,6 +55,7 @@ public class Exams extends javax.swing.JFrame {
         NewExamBtn = new javax.swing.JButton();
         ExamScrollPane = new javax.swing.JScrollPane();
         ExamPane = new org.jdesktop.swingx.JXTaskPaneContainer();
+        ClearBtn = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("MyStudyPlan");
@@ -174,6 +176,11 @@ public class Exams extends javax.swing.JFrame {
         SearchBtn.setText("Search");
         SearchBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         SearchBtn.setMargin(new java.awt.Insets(3, 8, 3, 8));
+        SearchBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SearchBtnActionPerformed(evt);
+            }
+        });
 
         NewExamBtn.setBackground(new java.awt.Color(59, 162, 191));
         NewExamBtn.setFont(getFont("DINPro-Medium.otf", Font.PLAIN, 12));
@@ -196,6 +203,17 @@ public class Exams extends javax.swing.JFrame {
         ExamPane.setLayout(verticalLayout1);
         ExamScrollPane.setViewportView(ExamPane);
 
+        ClearBtn.setBackground(new java.awt.Color(86, 96, 118));
+        ClearBtn.setFont(getFont("DINPro-Medium.otf", Font.PLAIN, 12));
+        ClearBtn.setText("Clear");
+        ClearBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        ClearBtn.setMargin(new java.awt.Insets(3, 8, 3, 8));
+        ClearBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ClearBtnActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -213,7 +231,9 @@ public class Exams extends javax.swing.JFrame {
                                 .addComponent(SearchPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(SearchBtn)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 435, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(ClearBtn)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 395, Short.MAX_VALUE)
                                 .addComponent(NewExamBtn)))
                         .addContainerGap())))
         );
@@ -229,7 +249,8 @@ public class Exams extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
                             .addComponent(SearchPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(SearchBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(NewExamBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(NewExamBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(ClearBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(ExamScrollPane))))
         );
@@ -237,7 +258,26 @@ public class Exams extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void NewExamBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NewExamBtnActionPerformed
+    private void SearchBtnActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_SearchBtnActionPerformed
+        Pattern pattern = SearchPanel.getPattern();
+        if (pattern == null) {
+            return;
+        }
+        ExamPane.removeAll();
+        for (ExamInstance examInstance : Database.getExamList()) {
+            if (pattern.matcher(examInstance.getSubject().getName()).find()) {
+                JButton label = createLabel(examInstance);
+                ExamPane.add(label);
+            }
+        }
+        ExamPane.revalidate();
+    }// GEN-LAST:event_SearchBtnActionPerformed
+
+    private void ClearBtnActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_ClearBtnActionPerformed
+        updateExamPane();
+    }// GEN-LAST:event_ClearBtnActionPerformed
+
+    private void NewExamBtnActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_NewExamBtnActionPerformed
         NewExam newExam = new NewExam();
         newExam.setVisible(true);
         newExam.setLocationRelativeTo(this);
@@ -251,9 +291,9 @@ public class Exams extends javax.swing.JFrame {
                 updateExamPane();
             }
         });
-    }//GEN-LAST:event_NewExamBtnActionPerformed
+    }// GEN-LAST:event_NewExamBtnActionPerformed
 
-    private void OverviewBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_OverviewBtnActionPerformed
+    private void OverviewBtnActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_OverviewBtnActionPerformed
         Overview overview = new Overview();
         if (this.getExtendedState() == this.MAXIMIZED_BOTH) {
             overview.setExtendedState(this.MAXIMIZED_BOTH);
@@ -263,9 +303,9 @@ public class Exams extends javax.swing.JFrame {
         }
         overview.setVisible(true);
         this.setVisible(false);
-    }//GEN-LAST:event_OverviewBtnActionPerformed
+    }// GEN-LAST:event_OverviewBtnActionPerformed
 
-    private void CalendarBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CalendarBtnActionPerformed
+    private void CalendarBtnActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_CalendarBtnActionPerformed
         Calendar calendar = new Calendar();
         if (this.getExtendedState() == this.MAXIMIZED_BOTH) {
             calendar.setExtendedState(this.MAXIMIZED_BOTH);
@@ -275,9 +315,9 @@ public class Exams extends javax.swing.JFrame {
         }
         calendar.setVisible(true);
         this.setVisible(false);
-    }//GEN-LAST:event_CalendarBtnActionPerformed
+    }// GEN-LAST:event_CalendarBtnActionPerformed
 
-    private void TasksBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TasksBtnActionPerformed
+    private void TasksBtnActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_TasksBtnActionPerformed
         Tasks tasks = new Tasks();
         if (this.getExtendedState() == this.MAXIMIZED_BOTH) {
             tasks.setExtendedState(this.MAXIMIZED_BOTH);
@@ -287,13 +327,13 @@ public class Exams extends javax.swing.JFrame {
         }
         tasks.setVisible(true);
         this.setVisible(false);
-    }//GEN-LAST:event_TasksBtnActionPerformed
+    }// GEN-LAST:event_TasksBtnActionPerformed
 
-    private void ExamsBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ExamsBtnActionPerformed
+    private void ExamsBtnActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_ExamsBtnActionPerformed
         // Do nothing
-    }//GEN-LAST:event_ExamsBtnActionPerformed
+    }// GEN-LAST:event_ExamsBtnActionPerformed
 
-    private void ScheduleBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ScheduleBtnActionPerformed
+    private void ScheduleBtnActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_ScheduleBtnActionPerformed
         Schedule schedule = new Schedule();
         if (this.getExtendedState() == this.MAXIMIZED_BOTH) {
             schedule.setExtendedState(this.MAXIMIZED_BOTH);
@@ -303,10 +343,11 @@ public class Exams extends javax.swing.JFrame {
         }
         schedule.setVisible(true);
         this.setVisible(false);
-    }//GEN-LAST:event_ScheduleBtnActionPerformed
+    }// GEN-LAST:event_ScheduleBtnActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private org.jdesktop.swingx.JXButton CalendarBtn;
+    private javax.swing.JButton ClearBtn;
     private org.jdesktop.swingx.JXTaskPaneContainer ExamPane;
     private javax.swing.JScrollPane ExamScrollPane;
     private org.jdesktop.swingx.JXButton ExamsBtn;
@@ -330,18 +371,12 @@ public class Exams extends javax.swing.JFrame {
     private Font getFont(String fontName, int fontStyle, float fontSize) {
         Font font = null;
         try {
-            font = Font.createFont(Font.TRUETYPE_FONT, getClass().getResourceAsStream("/font/" + fontName)).deriveFont(fontStyle, fontSize);
+            font = Font.createFont(Font.TRUETYPE_FONT, getClass().getResourceAsStream("/font/" + fontName))
+                    .deriveFont(fontStyle, fontSize);
         } catch (FontFormatException | IOException ex) {
             Logger.getLogger(Exams.class.getName()).log(Level.SEVERE, null, ex);
         }
         return font;
-    }
-
-    /**
-     * @return Pattern
-     */
-    public Pattern getSearchPanel() {
-        return SearchPanel.getPattern();
     }
 
     private void updateExamPane() {
@@ -359,32 +394,41 @@ public class Exams extends javax.swing.JFrame {
         });
 
         for (ExamInstance examInstance : Database.getExamList()) {
-            String string = "Subject: " + examInstance.getSubject().getCode() + " " + examInstance.getSubject().getName() + "\nDate: " + examInstance.getDate() + "\nTime: " + examInstance.getTime() + " (" + examInstance.getDuration() + " minutes)" + "\nBuilding/Room: " + examInstance.getRoom() + "\nSeat: " + examInstance.getSeat() + "\nDescription: " + examInstance.getDescription();
-            JButton label = new JButton("<html>" + string.replaceAll("\\n", "<br>") + "</html>");
-            label.setBackground(examInstance.getSubject().getColor());
-            label.setHorizontalAlignment(SwingConstants.LEFT);
-            label.setFont(getFont("DINPro-Medium.otf", Font.PLAIN, 16));
-            label.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-            label.addActionListener(new ActionListener() {
-                @Override
-                public void actionPerformed(ActionEvent e) {
-                    ViewExam viewExam = new ViewExam(examInstance);
-                    viewExam.setLocationRelativeTo(Exams.this);
-                    viewExam.setVisible(true);
-                    Exams.this.setEnabled(false);
-                    viewExam.addWindowListener(new WindowAdapter() {
-                        @Override
-                        public void windowClosed(WindowEvent e) {
-                            Exams.this.setEnabled(true);
-                            Exams.this.requestFocus();
-                            Exams.this.setExtendedState(Exams.this.getExtendedState() & ~Exams.ICONIFIED);
-                            updateExamPane();
-                        }
-                    });
-                }
-            });
-            ExamPane.add(label);
+            ExamPane.add(createLabel(examInstance));
         }
         ExamPane.revalidate();
+    }
+
+    private JButton createLabel(ExamInstance examInstance) {
+        String string = "Subject: " + examInstance.getSubject().getCode() + " "
+                + examInstance.getSubject().getName() + "\nDate: "
+                + examInstance.getDate().format(DateTimeFormatter.ofPattern("dd/MM/yyyy")) + "\nTime: "
+                + examInstance.getTime() + " (" + examInstance.getDuration() + " minutes)" + "\nBuilding/Room: "
+                + examInstance.getRoom() + "\nSeat: " + examInstance.getSeat() + "\nDescription: "
+                + examInstance.getDescription();
+        JButton label = new JButton("<html>" + string.replaceAll("\\n", "<br>") + "</html>");
+        label.setBackground(examInstance.getSubject().getColor());
+        label.setHorizontalAlignment(SwingConstants.LEFT);
+        label.setFont(getFont("DINPro-Medium.otf", Font.PLAIN, 16));
+        label.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        label.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                ViewExam viewExam = new ViewExam(examInstance);
+                viewExam.setLocationRelativeTo(Exams.this);
+                viewExam.setVisible(true);
+                Exams.this.setEnabled(false);
+                viewExam.addWindowListener(new WindowAdapter() {
+                    @Override
+                    public void windowClosed(WindowEvent e) {
+                        Exams.this.setEnabled(true);
+                        Exams.this.requestFocus();
+                        Exams.this.setExtendedState(Exams.this.getExtendedState() & ~Exams.ICONIFIED);
+                        updateExamPane();
+                    }
+                });
+            }
+        });
+        return label;
     }
 }

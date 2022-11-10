@@ -16,7 +16,8 @@ public class ExamInstance extends AbstractJob {
     private LocalTime time;
     private int duration;
 
-    ExamInstance(Subject subject, LocalDate date, LocalTime time, String room, String seat, int duration, String description) {
+    ExamInstance(Subject subject, LocalDate date, LocalTime time, String room, String seat, int duration,
+            String description) {
         this.subject = subject;
         this.room = room;
         this.seat = seat;

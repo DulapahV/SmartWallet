@@ -65,7 +65,8 @@ public class Database {
         switch (OS) {
             case "Windows":
                 // Get Database path
-                path = FileSystemView.getFileSystemView().getDefaultDirectory().getPath() + "\\MyStudyPlan\\database.json";
+                path = FileSystemView.getFileSystemView().getDefaultDirectory().getPath()
+                        + "\\MyStudyPlan\\database.json";
                 instance = getDatabaseInstance(path);
                 break;
             case "Unix":
@@ -82,19 +83,23 @@ public class Database {
      * @return Database
      */
     private static Database getDatabaseInstance(String path) {
-        Logger.getLogger(Database.class.getName()).log(java.util.logging.Level.INFO, "Database path: " + '"' + path + '"');
+        Logger.getLogger(Database.class.getName()).log(java.util.logging.Level.INFO,
+                "Database path: " + '"' + path + '"');
         // If file exist
         if (Files.exists(Path.of(path))) {
             // Read file
-            Logger.getLogger(Database.class.getName()).log(java.util.logging.Level.INFO, "Database file exists. Reading...");
+            Logger.getLogger(Database.class.getName()).log(java.util.logging.Level.INFO,
+                    "Database file exists. Reading...");
             try {
                 String json = Files.readString(Path.of(path));
                 Database db = gson.fromJson(json, Database.class);
-                Logger.getLogger(Database.class.getName()).log(java.util.logging.Level.INFO, "Database read successfully.");
+                Logger.getLogger(Database.class.getName()).log(java.util.logging.Level.INFO,
+                        "Database read successfully.");
                 return db;
             } catch (Exception e) {
                 // write database file
-                Logger.getLogger(Database.class.getName()).log(java.util.logging.Level.SEVERE, "Error reading database file! " + e + "\nWriting new database file...");
+                Logger.getLogger(Database.class.getName()).log(java.util.logging.Level.SEVERE,
+                        "Error reading database file! " + e + "\nWriting new database file...");
                 try {
                     Database db = new Database();
 
@@ -102,12 +107,14 @@ public class Database {
                     Files.writeString(Path.of(path), json);
                     instance = db;
                 } catch (Exception e2) {
-                    Logger.getLogger(Database.class.getName()).log(java.util.logging.Level.SEVERE, "Error writing database file! " + e2);
+                    Logger.getLogger(Database.class.getName()).log(java.util.logging.Level.SEVERE,
+                            "Error writing database file! " + e2);
                 }
             }
         } else {
             // Create file
-            Logger.getLogger(Database.class.getName()).log(java.util.logging.Level.INFO, "Database file not found. Creating new database...");
+            Logger.getLogger(Database.class.getName()).log(java.util.logging.Level.INFO,
+                    "Database file not found. Creating new database...");
             try {
                 File file = new File(path);
                 file.getParentFile().mkdirs();
@@ -115,9 +122,11 @@ public class Database {
                 instance = new Database();
                 String json = gson.toJson(instance);
                 Files.writeString(Path.of(path), json);
-                Logger.getLogger(Database.class.getName()).log(java.util.logging.Level.INFO, "Successfully created new database file.");
+                Logger.getLogger(Database.class.getName()).log(java.util.logging.Level.INFO,
+                        "Successfully created new database file.");
             } catch (Exception e) {
-                Logger.getLogger(Database.class.getName()).log(java.util.logging.Level.SEVERE, "Error creating database file! " + e);
+                Logger.getLogger(Database.class.getName()).log(java.util.logging.Level.SEVERE,
+                        "Error creating database file! " + e);
             }
         }
         return instance;
@@ -128,7 +137,8 @@ public class Database {
             String json = gson.toJson(instance);
             Files.writeString(Path.of(path), json);
         } catch (Exception e) {
-            Logger.getLogger(Database.class.getName()).log(java.util.logging.Level.SEVERE, "Error writing database file! " + e);
+            Logger.getLogger(Database.class.getName()).log(java.util.logging.Level.SEVERE,
+                    "Error writing database file! " + e);
         }
     }
 
@@ -213,7 +223,8 @@ public class Database {
      */
     public static void removeSubject(Subject subject) {
         for (Subject s : instance.subjList) {
-            if (s.getCode().equals(subject.getCode()) && s.getName().equals(subject.getName()) && s.getColor().equals(subject.getColor())) {
+            if (s.getCode().equals(subject.getCode()) && s.getName().equals(subject.getName())
+                    && s.getColor().equals(subject.getColor())) {
                 instance.subjList.remove(s);
                 break;
             }

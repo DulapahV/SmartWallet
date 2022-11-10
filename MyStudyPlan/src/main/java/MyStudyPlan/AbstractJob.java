@@ -6,6 +6,7 @@ package MyStudyPlan;
  * Annopdanai Pamarapa (64011337)
  */
 public abstract class AbstractJob {
+
     protected Subject subject;
     protected String description;
 }

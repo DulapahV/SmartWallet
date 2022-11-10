@@ -3,6 +3,11 @@ package MyStudyPlan;
 import java.time.LocalDate;
 import java.time.LocalTime;
 
+/**
+ *
+ * @author Dulapah Vibulsanti (64011388), Anucha Cheewachanon (64011338),
+ * Annopdanai Pamarapa (64011337)
+ */
 public class ClassInstance extends AbstractJob {
 
     private LocalTime startTime;
@@ -25,7 +30,8 @@ public class ClassInstance extends AbstractJob {
         this.teacher = "";
     }
 
-    ClassInstance(Subject subject, int sector, String room, LocalDate startDate, LocalTime startTime, int duration, String building, String teacher, String description) {
+    ClassInstance(Subject subject, int sector, String room, LocalDate startDate, LocalTime startTime, int duration,
+            String building, String teacher, String description) {
         this.subject = subject;
         this.sector = sector;
         this.room = room;
