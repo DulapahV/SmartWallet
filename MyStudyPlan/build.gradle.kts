@@ -24,6 +24,7 @@ dependencies {
     implementation("com.google.code.gson:gson:2.10")
 }
 
+
 group = "MyStudyPlan"
 version = "1.0"
 description = "MyStudyPlan"
