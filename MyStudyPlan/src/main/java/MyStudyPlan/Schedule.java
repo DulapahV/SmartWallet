@@ -44,8 +44,8 @@ public class Schedule extends javax.swing.JFrame {
         SearchBtn = new javax.swing.JButton();
         ManageSubjectsBtn = new javax.swing.JButton();
         NewClassBtn = new javax.swing.JButton();
-        SchedulePane = new javax.swing.JScrollPane();
-        ScheduleTable = new javax.swing.JTable();
+        ScheduleScrollPane = new javax.swing.JScrollPane();
+        SchedulePane = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("MyStudyPlan");
@@ -149,7 +149,7 @@ public class Schedule extends javax.swing.JFrame {
             .addGroup(TopPanelLayout.createSequentialGroup()
                 .addGap(21, 21, 21)
                 .addComponent(TodayTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(782, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         TopPanelLayout.setVerticalGroup(
             TopPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -189,30 +189,24 @@ public class Schedule extends javax.swing.JFrame {
             }
         });
 
-        ScheduleTable.setFont(getFont("DINPro-Medium.otf", Font.PLAIN, 12));
-        ScheduleTable.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
+        ScheduleScrollPane.setBorder(null);
+        ScheduleScrollPane.getVerticalScrollBar().setUnitIncrement(12);
+        ScheduleScrollPane.getHorizontalScrollBar().setUnitIncrement(12);
 
-            },
-            new String [] {
-                "Time", "Subjects"
-            }
-        ) {
-            boolean[] canEdit = new boolean [] {
-                false, false
-            };
+        SchedulePane.setPreferredSize(new java.awt.Dimension(996, 480));
 
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
-            }
-        });
-        ScheduleTable.setPreferredSize(new java.awt.Dimension(325, 80));
-        ScheduleTable.setShowVerticalLines(true);
-        ScheduleTable.getTableHeader().setReorderingAllowed(false);
-        SchedulePane.setViewportView(ScheduleTable);
-        if (ScheduleTable.getColumnModel().getColumnCount() > 0) {
-            ScheduleTable.getColumnModel().getColumn(1).setPreferredWidth(600);
-        }
+        javax.swing.GroupLayout SchedulePaneLayout = new javax.swing.GroupLayout(SchedulePane);
+        SchedulePane.setLayout(SchedulePaneLayout);
+        SchedulePaneLayout.setHorizontalGroup(
+            SchedulePaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 996, Short.MAX_VALUE)
+        );
+        SchedulePaneLayout.setVerticalGroup(
+            SchedulePaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 504, Short.MAX_VALUE)
+        );
+
+        ScheduleScrollPane.setViewportView(SchedulePane);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -223,19 +217,17 @@ public class Schedule extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(TopPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
+                        .addGap(6, 6, 6)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(ScheduleScrollPane)
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(6, 6, 6)
                                 .addComponent(SearchPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(SearchBtn)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(NewClassBtn)
                                 .addGap(18, 18, 18)
-                                .addComponent(ManageSubjectsBtn))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(SchedulePane, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)))
+                                .addComponent(ManageSubjectsBtn)))
                         .addContainerGap())))
         );
         layout.setVerticalGroup(
@@ -253,7 +245,7 @@ public class Schedule extends javax.swing.JFrame {
                             .addComponent(ManageSubjectsBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(NewClassBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(SchedulePane, javax.swing.GroupLayout.DEFAULT_SIZE, 504, Short.MAX_VALUE))))
+                        .addComponent(ScheduleScrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 504, Short.MAX_VALUE))))
         );
 
         pack();
@@ -349,8 +341,8 @@ public class Schedule extends javax.swing.JFrame {
     private javax.swing.JButton NewClassBtn;
     private org.jdesktop.swingx.JXButton OverviewBtn;
     private org.jdesktop.swingx.JXButton ScheduleBtn;
-    private javax.swing.JScrollPane SchedulePane;
-    private javax.swing.JTable ScheduleTable;
+    private javax.swing.JPanel SchedulePane;
+    private javax.swing.JScrollPane ScheduleScrollPane;
     private javax.swing.JButton SearchBtn;
     private org.jdesktop.swingx.JXSearchPanel SearchPanel;
     private org.jdesktop.swingx.JXButton TasksBtn;

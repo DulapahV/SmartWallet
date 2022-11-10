@@ -2,12 +2,19 @@ package MyStudyPlan;
 
 import java.awt.Font;
 import java.awt.FontFormatException;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.io.IOException;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.util.regex.Pattern;
+
+import javax.swing.JButton;
+import javax.swing.SwingConstants;
 
 /**
  *
@@ -21,6 +28,8 @@ public class Exams extends javax.swing.JFrame {
      */
     public Exams() {
         initComponents();
+
+        updateExamPane();
     }
 
     /**
@@ -43,8 +52,8 @@ public class Exams extends javax.swing.JFrame {
         SearchPanel = new org.jdesktop.swingx.JXSearchPanel();
         SearchBtn = new javax.swing.JButton();
         NewExamBtn = new javax.swing.JButton();
-        SchedulePane = new javax.swing.JScrollPane();
-        ScheduleTable = new javax.swing.JTable();
+        ExamScrollPane = new javax.swing.JScrollPane();
+        ExamPane = new org.jdesktop.swingx.JXTaskPaneContainer();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("MyStudyPlan");
@@ -148,7 +157,7 @@ public class Exams extends javax.swing.JFrame {
             .addGroup(TopPanelLayout.createSequentialGroup()
                 .addGap(21, 21, 21)
                 .addComponent(TodayTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(782, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         TopPanelLayout.setVerticalGroup(
             TopPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -177,30 +186,10 @@ public class Exams extends javax.swing.JFrame {
             }
         });
 
-        ScheduleTable.setFont(getFont("DINPro-Medium.otf", Font.PLAIN, 14));
-        ScheduleTable.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
+        ExamScrollPane.setBorder(null);
 
-            },
-            new String [] {
-                "Time", "Subjects"
-            }
-        ) {
-            boolean[] canEdit = new boolean [] {
-                false, false
-            };
-
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
-            }
-        });
-        ScheduleTable.setPreferredSize(new java.awt.Dimension(325, 80));
-        ScheduleTable.setShowVerticalLines(true);
-        ScheduleTable.getTableHeader().setReorderingAllowed(false);
-        SchedulePane.setViewportView(ScheduleTable);
-        if (ScheduleTable.getColumnModel().getColumnCount() > 0) {
-            ScheduleTable.getColumnModel().getColumn(1).setPreferredWidth(600);
-        }
+        ExamPane.setBorder(null);
+        ExamScrollPane.setViewportView(ExamPane);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -214,12 +203,12 @@ public class Exams extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(6, 6, 6)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(SchedulePane, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                            .addComponent(ExamScrollPane)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(SearchPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(SearchBtn)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 435, Short.MAX_VALUE)
                                 .addComponent(NewExamBtn)))
                         .addContainerGap())))
         );
@@ -237,7 +226,7 @@ public class Exams extends javax.swing.JFrame {
                             .addComponent(SearchBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(NewExamBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(SchedulePane, javax.swing.GroupLayout.DEFAULT_SIZE, 504, Short.MAX_VALUE))))
+                        .addComponent(ExamScrollPane))))
         );
 
         pack();
@@ -254,6 +243,7 @@ public class Exams extends javax.swing.JFrame {
                 Exams.this.setEnabled(true);
                 Exams.this.requestFocus();
                 Exams.this.setExtendedState(Exams.this.getExtendedState() & ~Exams.ICONIFIED);
+                updateExamPane();
             }
         });
     }//GEN-LAST:event_NewExamBtnActionPerformed
@@ -312,13 +302,13 @@ public class Exams extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private org.jdesktop.swingx.JXButton CalendarBtn;
+    private org.jdesktop.swingx.JXTaskPaneContainer ExamPane;
+    private javax.swing.JScrollPane ExamScrollPane;
     private org.jdesktop.swingx.JXButton ExamsBtn;
     private javax.swing.JPanel LeftPanel;
     private javax.swing.JButton NewExamBtn;
     private org.jdesktop.swingx.JXButton OverviewBtn;
     private org.jdesktop.swingx.JXButton ScheduleBtn;
-    private javax.swing.JScrollPane SchedulePane;
-    private javax.swing.JTable ScheduleTable;
     private javax.swing.JButton SearchBtn;
     private org.jdesktop.swingx.JXSearchPanel SearchPanel;
     private org.jdesktop.swingx.JXButton TasksBtn;
@@ -347,5 +337,45 @@ public class Exams extends javax.swing.JFrame {
      */
     public Pattern getSearchPanel() {
         return SearchPanel.getPattern();
+    }
+
+    private void updateExamPane() {
+        ExamPane.removeAll();
+
+        Collections.sort(Database.getExamList(), new Comparator<ExamInstance>() {
+            @Override
+            public int compare(ExamInstance o1, ExamInstance o2) {
+                return o1.getDate().compareTo(o2.getDate());
+            }
+        });
+
+        for (ExamInstance exam : Database.getExamList()) {
+            String string = "Subject: " + exam.getSubject().getCode() + " " + exam.getSubject().getName() + "\nDate: " + exam.getDate() + "\nTime: " + exam.getTime() + " (" + exam.getDuration() + " minutes)" + "\nDescription: " + exam.getDescription();
+            JButton label = new JButton("<html>" + string.replaceAll("\\n", "<br>") + "</html>");
+            label.setBackground(exam.getSubject().getColor());
+            label.setHorizontalAlignment(SwingConstants.LEFT);
+            label.setFont(getFont("DINPro-Medium.otf", Font.PLAIN, 16));
+            label.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+            label.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    ViewExam viewExam = new ViewExam(exam);
+                    viewExam.setLocationRelativeTo(Exams.this);
+                    viewExam.setVisible(true);
+                    Exams.this.setEnabled(false);
+                    viewExam.addWindowListener(new WindowAdapter() {
+                        @Override
+                        public void windowClosed(WindowEvent e) {
+                            Exams.this.setEnabled(true);
+                            Exams.this.requestFocus();
+                            Exams.this.setExtendedState(Exams.this.getExtendedState() & ~Overview.ICONIFIED);
+                            updateExamPane();
+                        }
+                    });
+                }
+            });
+            ExamPane.add(label);
+        }
+        ExamPane.revalidate();
     }
 }

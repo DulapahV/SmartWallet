@@ -57,14 +57,12 @@ public class Calendar extends javax.swing.JFrame {
         Calendar = new org.jdesktop.swingx.JXMonthView();
         CalendarScrollPane = new javax.swing.JScrollPane();
         CalendarPanel = new javax.swing.JPanel();
-        SchedulePane = new javax.swing.JScrollPane();
-        ScheduleTable = new javax.swing.JTable();
         TasksPaneContainer = new org.jdesktop.swingx.JXTaskPaneContainer();
         AssignmentTaskPane = new org.jdesktop.swingx.JXTaskPane();
         ReminderTaskPane = new org.jdesktop.swingx.JXTaskPane();
         RevisionTaskPane = new org.jdesktop.swingx.JXTaskPane();
-        ExamsPane = new javax.swing.JScrollPane();
-        ExamsTable = new javax.swing.JTable();
+        SchedulePane = new javax.swing.JPanel();
+        ExamPane = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("MyStudyPlan");
@@ -204,33 +202,6 @@ public class Calendar extends javax.swing.JFrame {
             }
         });
 
-        SchedulePane.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Schedule", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, getFont("DINPro-Medium.otf", Font.PLAIN, 18)));
-
-        ScheduleTable.setFont(getFont("DINPro-Medium.otf", Font.PLAIN, 14));
-        ScheduleTable.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-
-            },
-            new String [] {
-                "Time", "Subjects"
-            }
-        ) {
-            boolean[] canEdit = new boolean [] {
-                false, false
-            };
-
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
-            }
-        });
-        ScheduleTable.setPreferredSize(new java.awt.Dimension(325, 80));
-        ScheduleTable.setShowVerticalLines(true);
-        ScheduleTable.getTableHeader().setReorderingAllowed(false);
-        SchedulePane.setViewportView(ScheduleTable);
-        if (ScheduleTable.getColumnModel().getColumnCount() > 0) {
-            ScheduleTable.getColumnModel().getColumn(1).setPreferredWidth(300);
-        }
-
         TasksPaneContainer.setBackground(new java.awt.Color(46, 52, 64));
         TasksPaneContainer.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Tasks", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, getFont("DINPro-Medium.otf", Font.PLAIN, 18)));
         org.jdesktop.swingx.VerticalLayout verticalLayout2 = new org.jdesktop.swingx.VerticalLayout();
@@ -253,32 +224,27 @@ public class Calendar extends javax.swing.JFrame {
         RevisionTaskPane.setTitle("Revision (0)");
         TasksPaneContainer.add(RevisionTaskPane);
 
-        ExamsPane.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Schedule", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, getFont("DINPro-Medium.otf", Font.PLAIN, 18)));
+        javax.swing.GroupLayout SchedulePaneLayout = new javax.swing.GroupLayout(SchedulePane);
+        SchedulePane.setLayout(SchedulePaneLayout);
+        SchedulePaneLayout.setHorizontalGroup(
+            SchedulePaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 607, Short.MAX_VALUE)
+        );
+        SchedulePaneLayout.setVerticalGroup(
+            SchedulePaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 172, Short.MAX_VALUE)
+        );
 
-        ExamsTable.setFont(getFont("DINPro-Medium.otf", Font.PLAIN, 14));
-        ExamsTable.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-
-            },
-            new String [] {
-                "Time", "Subjects"
-            }
-        ) {
-            boolean[] canEdit = new boolean [] {
-                false, false
-            };
-
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
-            }
-        });
-        ExamsTable.setPreferredSize(new java.awt.Dimension(325, 80));
-        ExamsTable.setShowVerticalLines(true);
-        ExamsTable.getTableHeader().setReorderingAllowed(false);
-        ExamsPane.setViewportView(ExamsTable);
-        if (ExamsTable.getColumnModel().getColumnCount() > 0) {
-            ExamsTable.getColumnModel().getColumn(1).setPreferredWidth(300);
-        }
+        javax.swing.GroupLayout ExamPaneLayout = new javax.swing.GroupLayout(ExamPane);
+        ExamPane.setLayout(ExamPaneLayout);
+        ExamPaneLayout.setHorizontalGroup(
+            ExamPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 607, Short.MAX_VALUE)
+        );
+        ExamPaneLayout.setVerticalGroup(
+            ExamPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 168, Short.MAX_VALUE)
+        );
 
         javax.swing.GroupLayout CalendarPanelLayout = new javax.swing.GroupLayout(CalendarPanel);
         CalendarPanel.setLayout(CalendarPanelLayout);
@@ -287,20 +253,20 @@ public class Calendar extends javax.swing.JFrame {
             .addGroup(CalendarPanelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(CalendarPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(SchedulePane, javax.swing.GroupLayout.DEFAULT_SIZE, 583, Short.MAX_VALUE)
                     .addComponent(TasksPaneContainer, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(ExamsPane))
+                    .addComponent(SchedulePane, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(ExamPane, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         CalendarPanelLayout.setVerticalGroup(
             CalendarPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(CalendarPanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(SchedulePane, javax.swing.GroupLayout.DEFAULT_SIZE, 160, Short.MAX_VALUE)
+                .addComponent(SchedulePane, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(TasksPaneContainer, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(ExamsPane, javax.swing.GroupLayout.DEFAULT_SIZE, 156, Short.MAX_VALUE)
+                .addComponent(ExamPane, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -419,16 +385,14 @@ public class Calendar extends javax.swing.JFrame {
     private javax.swing.JScrollPane CalendarScrollPane;
     private org.jdesktop.swingx.JXDatePicker DatePicker;
     private javax.swing.JLabel DateTxt;
+    private javax.swing.JPanel ExamPane;
     private org.jdesktop.swingx.JXButton ExamsBtn;
-    private javax.swing.JScrollPane ExamsPane;
-    private javax.swing.JTable ExamsTable;
     private javax.swing.JPanel LeftPanel;
     private org.jdesktop.swingx.JXButton OverviewBtn;
     private org.jdesktop.swingx.JXTaskPane ReminderTaskPane;
     private org.jdesktop.swingx.JXTaskPane RevisionTaskPane;
     private org.jdesktop.swingx.JXButton ScheduleBtn;
-    private javax.swing.JScrollPane SchedulePane;
-    private javax.swing.JTable ScheduleTable;
+    private javax.swing.JPanel SchedulePane;
     private javax.swing.JButton SearchBtn;
     private org.jdesktop.swingx.JXSearchPanel SearchPanel;
     private org.jdesktop.swingx.JXButton TasksBtn;

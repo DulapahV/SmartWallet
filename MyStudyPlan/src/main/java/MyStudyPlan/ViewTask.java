@@ -70,7 +70,7 @@ public class ViewTask extends javax.swing.JFrame {
         DeleteBtn = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("New Task");
+        setTitle("View Task");
         setIconImage(new javax.swing.ImageIcon(getClass().getResource("/img/icon.png")).getImage());
         setResizable(false);
 

@@ -394,11 +394,11 @@ public class Tasks extends javax.swing.JFrame {
             label.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
-                    ViewTask editTask = new ViewTask(task);
-                    editTask.setLocationRelativeTo(Tasks.this);
-                    editTask.setVisible(true);
+                    ViewTask viewTask = new ViewTask(task);
+                    viewTask.setLocationRelativeTo(Tasks.this);
+                    viewTask.setVisible(true);
                     Tasks.this.setEnabled(false);
-                    editTask.addWindowListener(new WindowAdapter() {
+                    viewTask.addWindowListener(new WindowAdapter() {
                         @Override
                         public void windowClosed(WindowEvent e) {
                             Tasks.this.setEnabled(true);
