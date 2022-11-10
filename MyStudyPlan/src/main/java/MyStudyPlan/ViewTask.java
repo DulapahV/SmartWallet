@@ -1,7 +1,5 @@
 package MyStudyPlan;
 
-import java.awt.Color;
-import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.FontFormatException;
 import java.awt.event.WindowAdapter;
@@ -12,20 +10,36 @@ import java.time.ZoneId;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-import javax.swing.BorderFactory;
-
 /**
  *
  * @author Dulapah Vibulsanti (64011388), Anucha Cheewachanon (64011338),
  * Annopdanai Pamarapa (64011337)
  */
-public class NewTask extends javax.swing.JFrame {
+public class ViewTask extends javax.swing.JFrame {
 
     /**
      * Creates new form NewTask
      */
-    public NewTask() {
+    public ViewTask(TaskInstance task) {
         initComponents();
+
+        for (int i = 0; i < SubjectComboBox.getItemCount(); i++) {
+            if (SubjectComboBox.getItemAt(i).equals(task.getSubject().getCode() + " " + task.getSubject().getName())) {
+                SubjectComboBox.setSelectedIndex(i);
+                break;
+            }
+        }
+        for (int i = 0; i < TypeComboBox.getItemCount(); i++) {
+            if (TypeComboBox.getItemAt(i).equals(task.getType().toString())) {
+                TypeComboBox.setSelectedIndex(i);
+                break;
+            }
+        }
+        DueDateDatePicker.setDate(java.util.Date.from(task.getDueDate().atStartOfDay(ZoneId.systemDefault()).toInstant()));
+        TitleTxtField.setText(task.getTitle());
+        DetailTxtArea.setText(task.getDescription());
+
+        DoneBtn.requestFocus();
     }
 
     /**
@@ -52,7 +66,8 @@ public class NewTask extends javax.swing.JFrame {
         DetailScrollPane = new javax.swing.JScrollPane();
         DetailTxtArea = new javax.swing.JTextArea();
         CancelBtn = new javax.swing.JButton();
-        SaveBtn = new javax.swing.JButton();
+        DoneBtn = new javax.swing.JButton();
+        DeleteBtn = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("New Task");
@@ -62,7 +77,7 @@ public class NewTask extends javax.swing.JFrame {
         TopBanner.setBackground(new java.awt.Color(59, 162, 191));
 
         jLabel1.setFont(getFont("DINPro-Medium.otf", Font.PLAIN, 24));
-        jLabel1.setText("New Task");
+        jLabel1.setText("View Task");
 
         javax.swing.GroupLayout TopBannerLayout = new javax.swing.GroupLayout(TopBanner);
         TopBanner.setLayout(TopBannerLayout);
@@ -85,10 +100,12 @@ public class NewTask extends javax.swing.JFrame {
         SubjectTxt.setText("Subject");
 
         SubjectComboBox.setFont(getFont("DINPro-Medium.otf", Font.PLAIN, 14));
+        SubjectComboBox.setEnabled(false);
 
         SubjectAddBtn.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         SubjectAddBtn.setText("+");
         SubjectAddBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        SubjectAddBtn.setEnabled(false);
         SubjectAddBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 SubjectAddBtnActionPerformed(evt);
@@ -100,11 +117,14 @@ public class NewTask extends javax.swing.JFrame {
 
         TypeComboBox.setFont(getFont("DINPro-Medium.otf", Font.PLAIN, 14));
         TypeComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Assignment", "Reminder", "Revision" }));
+        TypeComboBox.setEnabled(false);
+        TypeComboBox.setFocusable(false);
 
         DueDateTxt.setFont(getFont("DINPro-Medium.otf", Font.PLAIN, 18));
         DueDateTxt.setText("Due Date");
 
         DueDateDatePicker.setDate(new java.util.Date());
+        DueDateDatePicker.setEnabled(false);
         DueDateDatePicker.setFont(getFont("DINPro-Medium.otf", Font.PLAIN, 14));
         DueDateDatePicker.setFormats("dd/MM/yyyy");
 
@@ -112,6 +132,7 @@ public class NewTask extends javax.swing.JFrame {
         TitleTxt.setText("Title");
 
         TitleTxtField.setFont(getFont("DINPro-Medium.otf", Font.PLAIN, 14));
+        TitleTxtField.setEnabled(false);
 
         DetailTxt.setFont(getFont("DINPro-Medium.otf", Font.PLAIN, 18));
         DetailTxt.setText("Detail");
@@ -119,6 +140,7 @@ public class NewTask extends javax.swing.JFrame {
         DetailTxtArea.setColumns(20);
         DetailTxtArea.setFont(getFont("DINPro-Medium.otf", Font.PLAIN, 14));
         DetailTxtArea.setRows(5);
+        DetailTxtArea.setEnabled(false);
         DetailScrollPane.setViewportView(DetailTxtArea);
 
         CancelBtn.setFont(getFont("DINPro-Medium.otf", Font.PLAIN, 14));
@@ -130,13 +152,23 @@ public class NewTask extends javax.swing.JFrame {
             }
         });
 
-        SaveBtn.setBackground(new java.awt.Color(59, 162, 191));
-        SaveBtn.setFont(getFont("DINPro-Medium.otf", Font.PLAIN, 14));
-        SaveBtn.setText("Save");
-        SaveBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        SaveBtn.addActionListener(new java.awt.event.ActionListener() {
+        DoneBtn.setBackground(new java.awt.Color(59, 162, 191));
+        DoneBtn.setFont(getFont("DINPro-Medium.otf", Font.PLAIN, 14));
+        DoneBtn.setText("Mark as done");
+        DoneBtn.setToolTipText("");
+        DoneBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        DoneBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                SaveBtnActionPerformed(evt);
+                DoneBtnActionPerformed(evt);
+            }
+        });
+
+        DeleteBtn.setFont(getFont("DINPro-Medium.otf", Font.PLAIN, 14));
+        DeleteBtn.setText("Delete");
+        DeleteBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        DeleteBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                DeleteBtnActionPerformed(evt);
             }
         });
 
@@ -170,14 +202,18 @@ public class NewTask extends javax.swing.JFrame {
                                     .addComponent(SubjectTxt))
                                 .addGap(0, 0, Short.MAX_VALUE))
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(462, 462, 462)
-                                .addComponent(CancelBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addGap(18, 18, 18)
-                                .addComponent(SaveBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(SubjectComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 600, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(SubjectAddBtn)))
+                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(DeleteBtn)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(CancelBtn)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(DoneBtn))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(SubjectComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 600, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(SubjectAddBtn)))))
                         .addGap(38, 38, 38))))
             .addComponent(TopBanner, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
@@ -208,9 +244,10 @@ public class NewTask extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(DetailScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(DoneBtn)
                     .addComponent(CancelBtn)
-                    .addComponent(SaveBtn))
+                    .addComponent(DeleteBtn))
                 .addContainerGap(18, Short.MAX_VALUE))
         );
 
@@ -229,9 +266,9 @@ public class NewTask extends javax.swing.JFrame {
         manageSubjects.addWindowListener(new WindowAdapter() {
             @Override
             public void windowClosed(WindowEvent e) {
-                NewTask.this.setEnabled(true);
-                NewTask.this.requestFocus();
-                NewTask.this.setExtendedState(NewTask.this.getExtendedState() & ~NewTask.ICONIFIED);
+                ViewTask.this.setEnabled(true);
+                ViewTask.this.requestFocus();
+                ViewTask.this.setExtendedState(ViewTask.this.getExtendedState() & ~ViewTask.ICONIFIED);
             }
         });
     }//GEN-LAST:event_SubjectAddBtnActionPerformed
@@ -240,30 +277,25 @@ public class NewTask extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_CancelBtnActionPerformed
 
-    private void SaveBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SaveBtnActionPerformed
-        boolean flag = false;
-        if (getTitle().isEmpty()) {
-            TitleTxtField.setBorder(BorderFactory.createLineBorder(Color.red));
-            TitleTxtField.setPreferredSize(new Dimension(TitleTxtField.getWidth(), TitleTxtField.getHeight() + 1));
-            flag = true;
-        }
-        if (flag) {
-            Logger.getLogger(NewTask.class.getName()).log(java.util.logging.Level.WARNING, "Missing or incorrect information!");
-            return;
-        }
-        Logger.getLogger(NewTask.class.getName()).log(java.util.logging.Level.INFO, "Successfully created new task.");
-        Database.addTask(getTaskInstance());
+    private void DoneBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DoneBtnActionPerformed
+        Database.removeTask(getTaskInstance());
         this.dispose();
-    }//GEN-LAST:event_SaveBtnActionPerformed
+    }//GEN-LAST:event_DoneBtnActionPerformed
+
+    private void DeleteBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DeleteBtnActionPerformed
+        Database.removeTask(getTaskInstance());
+        this.dispose();
+    }//GEN-LAST:event_DeleteBtnActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton CancelBtn;
+    private javax.swing.JButton DeleteBtn;
     private javax.swing.JScrollPane DetailScrollPane;
     private javax.swing.JLabel DetailTxt;
     private javax.swing.JTextArea DetailTxtArea;
+    private javax.swing.JButton DoneBtn;
     private org.jdesktop.swingx.JXDatePicker DueDateDatePicker;
     private javax.swing.JLabel DueDateTxt;
-    private javax.swing.JButton SaveBtn;
     private javax.swing.JButton SubjectAddBtn;
     private javax.swing.JComboBox<String> SubjectComboBox;
     private javax.swing.JLabel SubjectTxt;
@@ -286,7 +318,7 @@ public class NewTask extends javax.swing.JFrame {
         try {
             font = Font.createFont(Font.TRUETYPE_FONT, getClass().getResourceAsStream("/font/" + fontName)).deriveFont(fontStyle, fontSize);
         } catch (FontFormatException | IOException ex) {
-            Logger.getLogger(NewTask.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ViewTask.class.getName()).log(Level.SEVERE, null, ex);
         }
         return font;
     }
@@ -339,5 +371,10 @@ public class NewTask extends javax.swing.JFrame {
         } catch (Exception e) {
             return null;
         }
+    }
+
+    public void setTask() {
+        TaskInstance taskInstance = getTaskInstance();
+        taskInstance.writeToDatabase(Database.getInstance());
     }
 }

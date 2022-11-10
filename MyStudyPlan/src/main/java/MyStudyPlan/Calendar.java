@@ -2,8 +2,13 @@ package MyStudyPlan;
 
 import java.awt.Font;
 import java.awt.FontFormatException;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 import java.io.IOException;
 import java.time.LocalDate;
+import java.time.ZoneId;
 import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -25,7 +30,7 @@ public class Calendar extends javax.swing.JFrame {
     public Calendar() {
         initComponents();
 
-        updateTaskPane();
+        updateTaskPane(LocalDate.now());
     }
 
     /**
@@ -350,7 +355,8 @@ public class Calendar extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void CalendarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CalendarActionPerformed
-        // TODO add your handling code here:
+        LocalDate date = Calendar.getSelectionDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+        updateTaskPane(date);
     }//GEN-LAST:event_CalendarActionPerformed
 
     private void ScheduleBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ScheduleBtnActionPerformed
@@ -461,7 +467,7 @@ public class Calendar extends javax.swing.JFrame {
         return SearchPanel.getPattern();
     }
 
-    private void updateTaskPane() {
+    private void updateTaskPane(LocalDate date) {
         AssignmentTaskPane.removeAll();
         ReminderTaskPane.removeAll();
         RevisionTaskPane.removeAll();
@@ -471,13 +477,32 @@ public class Calendar extends javax.swing.JFrame {
         int numRevision = 0;
 
         for (TaskInstance task : Database.getTaskList()) {
-            if (task.getDueDate().equals(LocalDate.now())) {
+            if (task.getDueDate().equals(date)) {
                 String string = "Due date: " + task.getDueDate() + "\nName: " + task.getTitle() + "\nSubject: " + task.getSubject().getName() + "\nDescription: " + task.getDescription();
                 JButton label = new JButton("<html>" + string.replaceAll("\\n", "<br>") + "</html>");
                 label.setBackground(task.getSubject().getColor());
                 label.setHorizontalAlignment(SwingConstants.LEFT);
                 label.setFont(getFont("DINPro-Medium.otf", Font.PLAIN, 16));
                 label.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+                label.addActionListener(new ActionListener() {
+                    @Override
+                    public void actionPerformed(ActionEvent e) {
+                        ViewTask editTask = new ViewTask(task);
+                        editTask.setLocationRelativeTo(Calendar.this);
+                        editTask.setVisible(true);
+                        Calendar.this.setEnabled(false);
+                        editTask.addWindowListener(new WindowAdapter() {
+                            @Override
+                            public void windowClosed(WindowEvent e) {
+                                Calendar.this.setEnabled(true);
+                                Calendar.this.requestFocus();
+                                Calendar.this.setExtendedState(Calendar.this.getExtendedState() & ~Overview.ICONIFIED);
+                                LocalDate date = Calendar.getSelectionDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+                                updateTaskPane(date);
+                            }
+                        });
+                    }
+                });
                 switch (task.getType()) {
                     case Assignment:
                         AssignmentTaskPane.add(label);

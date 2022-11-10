@@ -2,6 +2,8 @@ package MyStudyPlan;
 
 import java.awt.Font;
 import java.awt.FontFormatException;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.io.IOException;
@@ -389,6 +391,24 @@ public class Tasks extends javax.swing.JFrame {
             label.setHorizontalAlignment(SwingConstants.LEFT);
             label.setFont(getFont("DINPro-Medium.otf", Font.PLAIN, 16));
             label.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+            label.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    ViewTask editTask = new ViewTask(task);
+                    editTask.setLocationRelativeTo(Tasks.this);
+                    editTask.setVisible(true);
+                    Tasks.this.setEnabled(false);
+                    editTask.addWindowListener(new WindowAdapter() {
+                        @Override
+                        public void windowClosed(WindowEvent e) {
+                            Tasks.this.setEnabled(true);
+                            Tasks.this.requestFocus();
+                            Tasks.this.setExtendedState(Tasks.this.getExtendedState() & ~Overview.ICONIFIED);
+                            updateTaskPane();
+                        }
+                    });
+                }
+            });
             switch (task.getType()) {
                 case Assignment:
                     AssignmentTaskPane.add(label);

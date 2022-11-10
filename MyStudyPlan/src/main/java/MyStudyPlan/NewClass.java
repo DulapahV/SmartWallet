@@ -381,7 +381,7 @@ public class NewClass extends javax.swing.JFrame {
     }//GEN-LAST:event_CancelBtnActionPerformed
 
     private void SaveBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SaveBtnActionPerformed
-        setClass();
+        Database.addClass(getClassInstance());
         this.dispose();
     }//GEN-LAST:event_SaveBtnActionPerformed
 
@@ -590,10 +590,5 @@ public class NewClass extends javax.swing.JFrame {
             e.printStackTrace();
             return null;
         }
-    }
-
-    public void setClass() {
-        ClassInstance classInstance = getClassInstance();
-        classInstance.writeToDatabase(Database.getInstance());
     }
 }

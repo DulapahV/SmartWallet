@@ -129,7 +129,7 @@ public class Database {
             Files.writeString(Path.of(path), json);
         } catch (Exception e) {
             Logger.getLogger(Database.class.getName()).log(java.util.logging.Level.SEVERE, "Error writing database file! " + e);
-    }
+        }
     }
 
     public static Database getInstance() {
@@ -227,7 +227,13 @@ public class Database {
      * @param task
      */
     public static void removeTask(TaskInstance task) {
-        instance.taskList.remove(task);
+        for (TaskInstance t : instance.taskList) {
+            if (t.equals(task)) {
+                instance.taskList.remove(t);
+                break;
+            }
+        }
+        Database.write();
     }
 
     /**
@@ -237,6 +243,7 @@ public class Database {
      */
     public static void removeClass(ClassInstance classInstance) {
         instance.classList.remove(classInstance);
+        Database.write();
     }
 
     /**
@@ -246,6 +253,7 @@ public class Database {
      */
     public static void removeExam(ExamInstance exam) {
         instance.examList.remove(exam);
+        Database.write();
     }
 
     /**

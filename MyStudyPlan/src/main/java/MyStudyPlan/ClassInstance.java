@@ -130,13 +130,13 @@ public class ClassInstance extends AbstractJob {
     }
 
     @Override
-    public boolean equals(Object obj){
+    public boolean equals(Object obj) {
         if (obj instanceof ClassInstance) {
             ClassInstance classInstance = (ClassInstance) obj;
             return this.subject.equals(classInstance.subject) && this.sector == classInstance.sector
-            && this.startDate.equals(classInstance.startDate) && this.startTime.equals(classInstance.startTime);
+                    && this.startDate.equals(classInstance.startDate) && this.startTime.equals(classInstance.startTime);
         }
         return false;
     }
-    
+
 }

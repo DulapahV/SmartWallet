@@ -129,8 +129,8 @@ public class ExamInstance extends AbstractJob {
     }
 
     @Override
-    public boolean equals(Object obj){
-        if(obj instanceof ExamInstance){
+    public boolean equals(Object obj) {
+        if (obj instanceof ExamInstance) {
             ExamInstance exam = (ExamInstance) obj;
             return this.subject.equals(exam.subject) && this.date.equals(exam.date) && this.time.equals(exam.time);
         }

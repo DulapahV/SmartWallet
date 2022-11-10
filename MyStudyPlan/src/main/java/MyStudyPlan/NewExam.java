@@ -325,7 +325,7 @@ public class NewExam extends javax.swing.JFrame {
     }//GEN-LAST:event_CancelBtnActionPerformed
 
     private void SaveBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SaveBtnActionPerformed
-        setExam();
+        Database.addExam(getExamInstance());
         this.dispose();
     }//GEN-LAST:event_SaveBtnActionPerformed
 
@@ -506,10 +506,5 @@ public class NewExam extends javax.swing.JFrame {
     public ExamInstance getExamInstance() {
             return new ExamInstance(getSubject(), getStartDate(), getStartTime(), getBuildingRoom(), getSeat(), getDuration(), getDetail());
 
-    }
-
-    public void setExam() {
-        ExamInstance examInstance = getExamInstance();
-        examInstance.writeToDatabase(Database.getInstance());
     }
 }
