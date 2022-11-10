@@ -9,6 +9,8 @@ import java.awt.event.WindowEvent;
 import java.io.IOException;
 import java.time.LocalDate;
 import java.time.ZoneId;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -31,6 +33,8 @@ public class Calendar extends javax.swing.JFrame {
         initComponents();
 
         updateTaskPane(LocalDate.now());
+        updateExamPane(LocalDate.now());
+        updateSchedulePane(LocalDate.now());
     }
 
     /**
@@ -61,8 +65,8 @@ public class Calendar extends javax.swing.JFrame {
         AssignmentTaskPane = new org.jdesktop.swingx.JXTaskPane();
         ReminderTaskPane = new org.jdesktop.swingx.JXTaskPane();
         RevisionTaskPane = new org.jdesktop.swingx.JXTaskPane();
-        SchedulePane = new javax.swing.JPanel();
-        ExamPane = new javax.swing.JPanel();
+        ExamPane = new org.jdesktop.swingx.JXTaskPaneContainer();
+        SchedulePane = new org.jdesktop.swingx.JXTaskPaneContainer();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("MyStudyPlan");
@@ -152,7 +156,7 @@ public class Calendar extends javax.swing.JFrame {
                 .addComponent(ExamsBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(ScheduleBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(129, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         TopPanel.setBackground(new java.awt.Color(59, 162, 191));
@@ -224,27 +228,15 @@ public class Calendar extends javax.swing.JFrame {
         RevisionTaskPane.setTitle("Revision (0)");
         TasksPaneContainer.add(RevisionTaskPane);
 
-        javax.swing.GroupLayout SchedulePaneLayout = new javax.swing.GroupLayout(SchedulePane);
-        SchedulePane.setLayout(SchedulePaneLayout);
-        SchedulePaneLayout.setHorizontalGroup(
-            SchedulePaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 607, Short.MAX_VALUE)
-        );
-        SchedulePaneLayout.setVerticalGroup(
-            SchedulePaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 172, Short.MAX_VALUE)
-        );
+        ExamPane.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Exams", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, getFont("DINPro-Medium.otf", Font.PLAIN, 18)));
+        org.jdesktop.swingx.VerticalLayout verticalLayout1 = new org.jdesktop.swingx.VerticalLayout();
+        verticalLayout1.setGap(14);
+        ExamPane.setLayout(verticalLayout1);
 
-        javax.swing.GroupLayout ExamPaneLayout = new javax.swing.GroupLayout(ExamPane);
-        ExamPane.setLayout(ExamPaneLayout);
-        ExamPaneLayout.setHorizontalGroup(
-            ExamPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 607, Short.MAX_VALUE)
-        );
-        ExamPaneLayout.setVerticalGroup(
-            ExamPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 168, Short.MAX_VALUE)
-        );
+        SchedulePane.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Schedule", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, getFont("DINPro-Medium.otf", Font.PLAIN, 18)));
+        org.jdesktop.swingx.VerticalLayout verticalLayout3 = new org.jdesktop.swingx.VerticalLayout();
+        verticalLayout3.setGap(14);
+        SchedulePane.setLayout(verticalLayout3);
 
         javax.swing.GroupLayout CalendarPanelLayout = new javax.swing.GroupLayout(CalendarPanel);
         CalendarPanel.setLayout(CalendarPanelLayout);
@@ -253,20 +245,20 @@ public class Calendar extends javax.swing.JFrame {
             .addGroup(CalendarPanelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(CalendarPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(ExamPane, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(TasksPaneContainer, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(SchedulePane, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(ExamPane, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(SchedulePane, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         CalendarPanelLayout.setVerticalGroup(
             CalendarPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(CalendarPanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(SchedulePane, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(SchedulePane, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(TasksPaneContainer, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)
+                .addComponent(TasksPaneContainer, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(ExamPane, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(ExamPane, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
 
@@ -323,6 +315,8 @@ public class Calendar extends javax.swing.JFrame {
     private void CalendarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CalendarActionPerformed
         LocalDate date = Calendar.getSelectionDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
         updateTaskPane(date);
+        updateExamPane(date);
+        updateSchedulePane(date);
     }//GEN-LAST:event_CalendarActionPerformed
 
     private void ScheduleBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ScheduleBtnActionPerformed
@@ -385,14 +379,14 @@ public class Calendar extends javax.swing.JFrame {
     private javax.swing.JScrollPane CalendarScrollPane;
     private org.jdesktop.swingx.JXDatePicker DatePicker;
     private javax.swing.JLabel DateTxt;
-    private javax.swing.JPanel ExamPane;
+    private org.jdesktop.swingx.JXTaskPaneContainer ExamPane;
     private org.jdesktop.swingx.JXButton ExamsBtn;
     private javax.swing.JPanel LeftPanel;
     private org.jdesktop.swingx.JXButton OverviewBtn;
     private org.jdesktop.swingx.JXTaskPane ReminderTaskPane;
     private org.jdesktop.swingx.JXTaskPane RevisionTaskPane;
     private org.jdesktop.swingx.JXButton ScheduleBtn;
-    private javax.swing.JPanel SchedulePane;
+    private org.jdesktop.swingx.JXTaskPaneContainer SchedulePane;
     private javax.swing.JButton SearchBtn;
     private org.jdesktop.swingx.JXSearchPanel SearchPanel;
     private org.jdesktop.swingx.JXButton TasksBtn;
@@ -440,18 +434,18 @@ public class Calendar extends javax.swing.JFrame {
         int numReminder = 0;
         int numRevision = 0;
 
-        for (TaskInstance task : Database.getTaskList()) {
-            if (task.getDueDate().equals(date)) {
-                String string = "Due date: " + task.getDueDate() + "\nName: " + task.getTitle() + "\nSubject: " + task.getSubject().getName() + "\nDescription: " + task.getDescription();
+        for (TaskInstance taskInstance : Database.getTaskList()) {
+            if (taskInstance.getDueDate().equals(date)) {
+                String string = "Subject: " + taskInstance.getSubject().getCode() + " " + taskInstance.getSubject().getName() + "\nName: " + taskInstance.getTitle() + "\nDue date: " + taskInstance.getDueDate() + "\nDescription: " + taskInstance.getDescription();
                 JButton label = new JButton("<html>" + string.replaceAll("\\n", "<br>") + "</html>");
-                label.setBackground(task.getSubject().getColor());
+                label.setBackground(taskInstance.getSubject().getColor());
                 label.setHorizontalAlignment(SwingConstants.LEFT);
                 label.setFont(getFont("DINPro-Medium.otf", Font.PLAIN, 16));
                 label.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
                 label.addActionListener(new ActionListener() {
                     @Override
                     public void actionPerformed(ActionEvent e) {
-                        ViewTask editTask = new ViewTask(task);
+                        ViewTask editTask = new ViewTask(taskInstance);
                         editTask.setLocationRelativeTo(Calendar.this);
                         editTask.setVisible(true);
                         Calendar.this.setEnabled(false);
@@ -460,14 +454,16 @@ public class Calendar extends javax.swing.JFrame {
                             public void windowClosed(WindowEvent e) {
                                 Calendar.this.setEnabled(true);
                                 Calendar.this.requestFocus();
-                                Calendar.this.setExtendedState(Calendar.this.getExtendedState() & ~Overview.ICONIFIED);
-                                LocalDate date = Calendar.getSelectionDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
-                                updateTaskPane(date);
+                                Calendar.this.setExtendedState(Calendar.this.getExtendedState() & ~Calendar.this.ICONIFIED);
+                                try {
+                                    LocalDate date = Calendar.getSelectionDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+                                    updateTaskPane(date);
+                                } catch (NullPointerException ex) {}
                             }
                         });
                     }
                 });
-                switch (task.getType()) {
+                switch (taskInstance.getType()) {
                     case Assignment:
                         AssignmentTaskPane.add(label);
                         numAssignment++;
@@ -486,5 +482,88 @@ public class Calendar extends javax.swing.JFrame {
         AssignmentTaskPane.setTitle("Assignment (" + numAssignment + ")");
         ReminderTaskPane.setTitle("Reminder (" + numReminder + ")");
         RevisionTaskPane.setTitle("Revision (" + numRevision + ")");
+    }
+
+    private void updateExamPane(LocalDate date) {
+        ExamPane.removeAll();
+
+        Collections.sort(Database.getExamList(), new Comparator<ExamInstance>() {
+            @Override
+            public int compare(ExamInstance o1, ExamInstance o2) {
+                return o1.getDate().compareTo(o2.getDate());
+            }
+        });
+
+        for (ExamInstance examInstance : Database.getExamList()) {
+            if (examInstance.getDate().equals(date)) {
+                String string = "Subject: " + examInstance.getSubject().getCode() + " " + examInstance.getSubject().getName() + "\nDate: " + examInstance.getDate() + "\nTime: " + examInstance.getTime() + " (" + examInstance.getDuration() + " minutes)" + "\nBuilding/Room: " + examInstance.getRoom() + "\nSeat: " + examInstance.getSeat() + "\nDescription: " + examInstance.getDescription();
+                JButton label = new JButton("<html>" + string.replaceAll("\\n", "<br>") + "</html>");
+                label.setBackground(examInstance.getSubject().getColor());
+                label.setHorizontalAlignment(SwingConstants.LEFT);
+                label.setFont(getFont("DINPro-Medium.otf", Font.PLAIN, 16));
+                label.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+                label.addActionListener(new ActionListener() {
+                    @Override
+                    public void actionPerformed(ActionEvent e) {
+                        ViewExam viewExam = new ViewExam(examInstance);
+                        viewExam.setLocationRelativeTo(Calendar.this);
+                        viewExam.setVisible(true);
+                        Calendar.this.setEnabled(false);
+                        viewExam.addWindowListener(new WindowAdapter() {
+                            @Override
+                            public void windowClosed(WindowEvent e) {
+                                Calendar.this.setEnabled(true);
+                                Calendar.this.requestFocus();
+                                Calendar.this.setExtendedState(Calendar.this.getExtendedState() & ~Calendar.this.ICONIFIED);
+                                try {
+                                    LocalDate date = Calendar.getSelectionDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+                                    updateExamPane(date);
+                                } catch (NullPointerException ex) {}
+                            }
+                        });
+                    }
+                });
+                ExamPane.add(label);
+            }
+        }
+        ExamPane.revalidate();
+    }
+
+    private void updateSchedulePane(LocalDate date) {
+        SchedulePane.removeAll();
+
+        for (ClassInstance classInstance : Database.getClassList()) {
+            if (classInstance.getDate().equals(date)) {
+                String string = "Subject: " + classInstance.getSubject().getCode() + " " + classInstance.getSubject().getName() + "\nDate: " + classInstance.getDate() + "\nTime: " + classInstance.getTime() + " (" + classInstance.getDuration() + " minutes)" + "\nSector: " + classInstance.getSector() + "\nRoom: " + classInstance.getRoom() + "\nBuilding: " + classInstance.getBuilding() + "\nTeacher: " + classInstance.getTeacher();
+                JButton label = new JButton("<html>" + string.replaceAll("\\n", "<br>") + "</html>");
+                label.setBackground(classInstance.getSubject().getColor());
+                label.setHorizontalAlignment(SwingConstants.LEFT);
+                label.setFont(getFont("DINPro-Medium.otf", Font.PLAIN, 16));
+                label.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+                label.addActionListener(new ActionListener() {
+                    @Override
+                    public void actionPerformed(ActionEvent e) {
+                        ViewClass viewSchedule = new ViewClass(classInstance);
+                        viewSchedule.setLocationRelativeTo(Calendar.this);
+                        viewSchedule.setVisible(true);
+                        Calendar.this.setEnabled(false);
+                        viewSchedule.addWindowListener(new WindowAdapter() {
+                            @Override
+                            public void windowClosed(WindowEvent e) {
+                                Calendar.this.setEnabled(true);
+                                Calendar.this.requestFocus();
+                                Calendar.this.setExtendedState(Calendar.this.getExtendedState() & ~Calendar.this.ICONIFIED);
+                                try {
+                                    LocalDate date = Calendar.getSelectionDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+                                    updateSchedulePane(date);
+                                } catch (NullPointerException ex) {}
+                            }
+                        });
+                    }
+                });
+                SchedulePane.add(label);
+            }
+        }
+        SchedulePane.revalidate();
     }
 }

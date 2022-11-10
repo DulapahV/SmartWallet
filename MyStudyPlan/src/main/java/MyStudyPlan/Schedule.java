@@ -2,12 +2,19 @@ package MyStudyPlan;
 
 import java.awt.Font;
 import java.awt.FontFormatException;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.io.IOException;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.util.regex.Pattern;
+
+import javax.swing.JButton;
+import javax.swing.SwingConstants;
 
 /**
  *
@@ -21,6 +28,8 @@ public class Schedule extends javax.swing.JFrame {
      */
     public Schedule() {
         initComponents();
+
+        updateSchedulePane();
     }
 
     /**
@@ -45,7 +54,7 @@ public class Schedule extends javax.swing.JFrame {
         ManageSubjectsBtn = new javax.swing.JButton();
         NewClassBtn = new javax.swing.JButton();
         ScheduleScrollPane = new javax.swing.JScrollPane();
-        SchedulePane = new javax.swing.JPanel();
+        SchedulePane = new org.jdesktop.swingx.JXTaskPaneContainer();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("MyStudyPlan");
@@ -193,19 +202,10 @@ public class Schedule extends javax.swing.JFrame {
         ScheduleScrollPane.getVerticalScrollBar().setUnitIncrement(12);
         ScheduleScrollPane.getHorizontalScrollBar().setUnitIncrement(12);
 
-        SchedulePane.setPreferredSize(new java.awt.Dimension(996, 480));
-
-        javax.swing.GroupLayout SchedulePaneLayout = new javax.swing.GroupLayout(SchedulePane);
-        SchedulePane.setLayout(SchedulePaneLayout);
-        SchedulePaneLayout.setHorizontalGroup(
-            SchedulePaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 996, Short.MAX_VALUE)
-        );
-        SchedulePaneLayout.setVerticalGroup(
-            SchedulePaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 504, Short.MAX_VALUE)
-        );
-
+        SchedulePane.setBorder(null);
+        org.jdesktop.swingx.VerticalLayout verticalLayout1 = new org.jdesktop.swingx.VerticalLayout();
+        verticalLayout1.setGap(14);
+        SchedulePane.setLayout(verticalLayout1);
         ScheduleScrollPane.setViewportView(SchedulePane);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -224,7 +224,7 @@ public class Schedule extends javax.swing.JFrame {
                                 .addComponent(SearchPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(SearchBtn)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 310, Short.MAX_VALUE)
                                 .addComponent(NewClassBtn)
                                 .addGap(18, 18, 18)
                                 .addComponent(ManageSubjectsBtn)))
@@ -262,6 +262,7 @@ public class Schedule extends javax.swing.JFrame {
                 Schedule.this.setEnabled(true);
                 Schedule.this.requestFocus();
                 Schedule.this.setExtendedState(Schedule.this.getExtendedState() & ~Schedule.ICONIFIED);
+                updateSchedulePane();
             }
         });
     }//GEN-LAST:event_NewClassBtnActionPerformed
@@ -277,6 +278,7 @@ public class Schedule extends javax.swing.JFrame {
                 Schedule.this.setEnabled(true);
                 Schedule.this.requestFocus();
                 Schedule.this.setExtendedState(Schedule.this.getExtendedState() & ~Schedule.ICONIFIED);
+                updateSchedulePane();
             }
         });
     }//GEN-LAST:event_ManageSubjectsBtnActionPerformed
@@ -341,7 +343,7 @@ public class Schedule extends javax.swing.JFrame {
     private javax.swing.JButton NewClassBtn;
     private org.jdesktop.swingx.JXButton OverviewBtn;
     private org.jdesktop.swingx.JXButton ScheduleBtn;
-    private javax.swing.JPanel SchedulePane;
+    private org.jdesktop.swingx.JXTaskPaneContainer SchedulePane;
     private javax.swing.JScrollPane ScheduleScrollPane;
     private javax.swing.JButton SearchBtn;
     private org.jdesktop.swingx.JXSearchPanel SearchPanel;
@@ -371,5 +373,49 @@ public class Schedule extends javax.swing.JFrame {
      */
     public Pattern getSearchPanel() {
         return SearchPanel.getPattern();
+    }
+
+    private void updateSchedulePane() {
+        SchedulePane.removeAll();
+
+        Collections.sort(Database.getClassList(), new Comparator<ClassInstance>() {
+            @Override
+            public int compare(ClassInstance o1, ClassInstance o2) {
+                if (o1.getDate().compareTo(o2.getDate()) == 0) {
+                    return o1.getTime().compareTo(o2.getTime());
+                } else {
+                    return o1.getDate().compareTo(o2.getDate());
+                }
+            }
+        });
+
+        for (ClassInstance classInstance : Database.getClassList()) {
+            String string = "Subject: " + classInstance.getSubject().getCode() + " " + classInstance.getSubject().getName() + "\nDate: " + classInstance.getDate() + "\nTime: " + classInstance.getTime() + " (" + classInstance.getDuration() + " minutes)" + "\nSector: " + classInstance.getSector() + "\nRoom: " + classInstance.getRoom() + "\nBuilding: " + classInstance.getBuilding() + "\nTeacher: " + classInstance.getTeacher();
+            JButton label = new JButton("<html>" + string.replaceAll("\\n", "<br>") + "</html>");
+            label.setBackground(classInstance.getSubject().getColor());
+            label.setHorizontalAlignment(SwingConstants.LEFT);
+            label.setFont(getFont("DINPro-Medium.otf", Font.PLAIN, 16));
+            label.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+            label.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    ViewClass viewSchedule = new ViewClass(classInstance);
+                    viewSchedule.setLocationRelativeTo(Schedule.this);
+                    viewSchedule.setVisible(true);
+                    Schedule.this.setEnabled(false);
+                    viewSchedule.addWindowListener(new WindowAdapter() {
+                        @Override
+                        public void windowClosed(WindowEvent e) {
+                            Schedule.this.setEnabled(true);
+                            Schedule.this.requestFocus();
+                            Schedule.this.setExtendedState(Schedule.this.getExtendedState() & ~Schedule.ICONIFIED);
+                            updateSchedulePane();
+                        }
+                    });
+                }
+            });
+            SchedulePane.add(label);
+        }
+        SchedulePane.revalidate();
     }
 }

@@ -20,24 +20,24 @@ public class ViewTask extends javax.swing.JFrame {
     /**
      * Creates new form NewTask
      */
-    public ViewTask(TaskInstance task) {
+    public ViewTask(TaskInstance taskInstance) {
         initComponents();
 
         for (int i = 0; i < SubjectComboBox.getItemCount(); i++) {
-            if (SubjectComboBox.getItemAt(i).equals(task.getSubject().getCode() + " " + task.getSubject().getName())) {
+            if (SubjectComboBox.getItemAt(i).equals(taskInstance.getSubject().getCode() + " " + taskInstance.getSubject().getName())) {
                 SubjectComboBox.setSelectedIndex(i);
                 break;
             }
         }
         for (int i = 0; i < TypeComboBox.getItemCount(); i++) {
-            if (TypeComboBox.getItemAt(i).equals(task.getType().toString())) {
+            if (TypeComboBox.getItemAt(i).equals(taskInstance.getType().toString())) {
                 TypeComboBox.setSelectedIndex(i);
                 break;
             }
         }
-        DueDateDatePicker.setDate(java.util.Date.from(task.getDueDate().atStartOfDay(ZoneId.systemDefault()).toInstant()));
-        TitleTxtField.setText(task.getTitle());
-        DetailTxtArea.setText(task.getDescription());
+        DueDateDatePicker.setDate(java.util.Date.from(taskInstance.getDueDate().atStartOfDay(ZoneId.systemDefault()).toInstant()));
+        TitleTxtField.setText(taskInstance.getTitle());
+        DetailTxtArea.setText(taskInstance.getDescription());
 
         DoneBtn.requestFocus();
     }

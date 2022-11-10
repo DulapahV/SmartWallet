@@ -7,7 +7,6 @@ import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.io.IOException;
-import java.time.Duration;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
@@ -26,27 +25,28 @@ public class ViewExam extends javax.swing.JFrame {
     /**
      * Creates new form NewTask
      */
-    public ViewExam(ExamInstance exam) {
+    public ViewExam(ExamInstance examInstance) {
         initComponents();
 
         for (int i = 0; i < SubjectComboBox.getItemCount(); i++) {
-            if (SubjectComboBox.getItemAt(i).equals(exam.getSubject().getCode() + " " + exam.getSubject().getName())) {
+            if (SubjectComboBox.getItemAt(i).equals(examInstance.getSubject().getCode() + " " + examInstance.getSubject().getName())) {
                 SubjectComboBox.setSelectedIndex(i);
                 break;
             }
         }
-        DatePicker.setDate(java.util.Date.from(exam.getDate().atStartOfDay(ZoneId.systemDefault()).toInstant()));
-        BuildingRoomTxtField.setText(exam.getRoom());
-        SeatTxtField.setText(exam.getSeat());
-        HourSpinner.setValue(exam.getTime().getHour());
-        MinuteSpinner.setValue(exam.getTime().getMinute());
-        if (exam.getTime().getHour() < 12) {
-            AMPMComboBox.setSelectedIndex(0);
-        } else {
+        DatePicker.setDate(java.util.Date.from(examInstance.getDate().atStartOfDay(ZoneId.systemDefault()).toInstant()));
+        BuildingRoomTxtField.setText(examInstance.getRoom());
+        SeatTxtField.setText(examInstance.getSeat());
+        if (examInstance.getTime().getHour() > 12) {
+            HourSpinner.setValue(examInstance.getTime().getHour() - 12);
             AMPMComboBox.setSelectedIndex(1);
+        } else {
+            HourSpinner.setValue(examInstance.getTime().getHour());
+            AMPMComboBox.setSelectedIndex(0);
         }
-        DurationSpinner.setValue(exam.getDuration());
-        DetailTxtArea.setText(exam.getDescription());
+        MinuteSpinner.setValue(examInstance.getTime().getMinute());
+        DurationSpinner.setValue(examInstance.getDuration());
+        DetailTxtArea.setText(examInstance.getDescription());
 
         DoneBtn.requestFocus();
     }

@@ -25,8 +25,31 @@ public class ViewClass extends javax.swing.JFrame {
     /**
      * Creates new form NewTask
      */
-    public ViewClass() {
+    public ViewClass(ClassInstance classInstance) {
         initComponents();
+
+        for (int i = 0; i < SubjectComboBox.getItemCount(); i++) {
+            if (SubjectComboBox.getItemAt(i).equals(classInstance.getSubject().getCode() + " " + classInstance.getSubject().getName())) {
+                SubjectComboBox.setSelectedIndex(i);
+                break;
+            }
+        }
+        SectorTxtField.setText(Integer.toString(classInstance.getSector()));
+        RoomTxtField.setText(classInstance.getRoom());
+        BuildingTxtField.setText(classInstance.getBuilding());
+        DatePicker.setDate(java.util.Date.from(classInstance.getDate().atStartOfDay(ZoneId.systemDefault()).toInstant()));
+        TeacherTxtField.setText(classInstance.getTeacher());
+        HourSpinner.setValue(classInstance.getTime().getHour());
+        MinuteSpinner.setValue(classInstance.getTime().getMinute());
+        if (classInstance.getTime().getHour() > 12) {
+            HourSpinner.setValue(classInstance.getTime().getHour() - 12);
+            AMPMComboBox.setSelectedIndex(1);
+        } else {
+            HourSpinner.setValue(classInstance.getTime().getHour());
+            AMPMComboBox.setSelectedIndex(0);
+        }
+        DurationSpinner.setValue(classInstance.getDuration());
+        DetailTxtArea.setText(classInstance.getDescription());
     }
 
     /**
@@ -104,6 +127,7 @@ public class ViewClass extends javax.swing.JFrame {
         SubjectAddBtn.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         SubjectAddBtn.setText("+");
         SubjectAddBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        SubjectAddBtn.setEnabled(false);
         SubjectAddBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 SubjectAddBtnActionPerformed(evt);
@@ -406,7 +430,7 @@ public class ViewClass extends javax.swing.JFrame {
     }//GEN-LAST:event_CancelBtnActionPerformed
 
     private void DoneBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DoneBtnActionPerformed
-        Database.addClass(getClassInstance());
+        Database.removeClass(getClassInstance());
         this.dispose();
     }//GEN-LAST:event_DoneBtnActionPerformed
 
@@ -431,7 +455,8 @@ public class ViewClass extends javax.swing.JFrame {
     }//GEN-LAST:event_DurationSpinnerStateChanged
 
     private void DeleteBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DeleteBtnActionPerformed
-        // TODO add your handling code here:
+        Database.removeClass(getClassInstance());
+        this.dispose();
     }//GEN-LAST:event_DeleteBtnActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

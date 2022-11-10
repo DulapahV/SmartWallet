@@ -384,17 +384,17 @@ public class Tasks extends javax.swing.JFrame {
             }
         });
 
-        for (TaskInstance task : Database.getTaskList()) {
-            String string = "Due date: " + task.getDueDate() + "\nName: " + task.getTitle() + "\nSubject: " + task.getSubject().getName() + "\nDescription: " + task.getDescription();
+        for (TaskInstance taskInstance : Database.getTaskList()) {
+            String string = "Subject: " + taskInstance.getSubject().getCode() + " " + taskInstance.getSubject().getName() + "\nName: " + taskInstance.getTitle() + "\nDue date: " + taskInstance.getDueDate() + "\nDescription: " + taskInstance.getDescription();;
             JButton label = new JButton("<html>" + string.replaceAll("\\n", "<br>") + "</html>");
-            label.setBackground(task.getSubject().getColor());
+            label.setBackground(taskInstance.getSubject().getColor());
             label.setHorizontalAlignment(SwingConstants.LEFT);
             label.setFont(getFont("DINPro-Medium.otf", Font.PLAIN, 16));
             label.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
             label.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
-                    ViewTask viewTask = new ViewTask(task);
+                    ViewTask viewTask = new ViewTask(taskInstance);
                     viewTask.setLocationRelativeTo(Tasks.this);
                     viewTask.setVisible(true);
                     Tasks.this.setEnabled(false);
@@ -403,13 +403,13 @@ public class Tasks extends javax.swing.JFrame {
                         public void windowClosed(WindowEvent e) {
                             Tasks.this.setEnabled(true);
                             Tasks.this.requestFocus();
-                            Tasks.this.setExtendedState(Tasks.this.getExtendedState() & ~Overview.ICONIFIED);
+                            Tasks.this.setExtendedState(Tasks.this.getExtendedState() & ~Tasks.ICONIFIED);
                             updateTaskPane();
                         }
                     });
                 }
             });
-            switch (task.getType()) {
+            switch (taskInstance.getType()) {
                 case Assignment:
                     AssignmentTaskPane.add(label);
                     numAssignment++;

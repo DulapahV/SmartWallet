@@ -87,6 +87,14 @@ public class ClassInstance extends AbstractJob {
         return duration;
     }
 
+    public LocalDate getDate() {
+        return startDate;
+    }
+
+    public LocalTime getTime() {
+        return startTime;
+    }
+
     /**
      * @param subject
      */

@@ -187,8 +187,13 @@ public class Exams extends javax.swing.JFrame {
         });
 
         ExamScrollPane.setBorder(null);
+        ExamScrollPane.getVerticalScrollBar().setUnitIncrement(12);
+        ExamScrollPane.getHorizontalScrollBar().setUnitIncrement(12);
 
         ExamPane.setBorder(null);
+        org.jdesktop.swingx.VerticalLayout verticalLayout1 = new org.jdesktop.swingx.VerticalLayout();
+        verticalLayout1.setGap(14);
+        ExamPane.setLayout(verticalLayout1);
         ExamScrollPane.setViewportView(ExamPane);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -345,21 +350,25 @@ public class Exams extends javax.swing.JFrame {
         Collections.sort(Database.getExamList(), new Comparator<ExamInstance>() {
             @Override
             public int compare(ExamInstance o1, ExamInstance o2) {
-                return o1.getDate().compareTo(o2.getDate());
+                if (o1.getDate().compareTo(o2.getDate()) == 0) {
+                    return o1.getTime().compareTo(o2.getTime());
+                } else {
+                    return o1.getDate().compareTo(o2.getDate());
+                }
             }
         });
 
-        for (ExamInstance exam : Database.getExamList()) {
-            String string = "Subject: " + exam.getSubject().getCode() + " " + exam.getSubject().getName() + "\nDate: " + exam.getDate() + "\nTime: " + exam.getTime() + " (" + exam.getDuration() + " minutes)" + "\nDescription: " + exam.getDescription();
+        for (ExamInstance examInstance : Database.getExamList()) {
+            String string = "Subject: " + examInstance.getSubject().getCode() + " " + examInstance.getSubject().getName() + "\nDate: " + examInstance.getDate() + "\nTime: " + examInstance.getTime() + " (" + examInstance.getDuration() + " minutes)" + "\nBuilding/Room: " + examInstance.getRoom() + "\nSeat: " + examInstance.getSeat() + "\nDescription: " + examInstance.getDescription();
             JButton label = new JButton("<html>" + string.replaceAll("\\n", "<br>") + "</html>");
-            label.setBackground(exam.getSubject().getColor());
+            label.setBackground(examInstance.getSubject().getColor());
             label.setHorizontalAlignment(SwingConstants.LEFT);
             label.setFont(getFont("DINPro-Medium.otf", Font.PLAIN, 16));
             label.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
             label.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
-                    ViewExam viewExam = new ViewExam(exam);
+                    ViewExam viewExam = new ViewExam(examInstance);
                     viewExam.setLocationRelativeTo(Exams.this);
                     viewExam.setVisible(true);
                     Exams.this.setEnabled(false);
@@ -368,7 +377,7 @@ public class Exams extends javax.swing.JFrame {
                         public void windowClosed(WindowEvent e) {
                             Exams.this.setEnabled(true);
                             Exams.this.requestFocus();
-                            Exams.this.setExtendedState(Exams.this.getExtendedState() & ~Overview.ICONIFIED);
+                            Exams.this.setExtendedState(Exams.this.getExtendedState() & ~Exams.ICONIFIED);
                             updateExamPane();
                         }
                     });
