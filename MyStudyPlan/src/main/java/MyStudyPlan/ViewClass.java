@@ -52,6 +52,8 @@ public class ViewClass extends javax.swing.JFrame {
         }
         DurationSpinner.setValue(classInstance.getDuration());
         DetailTxtArea.setText(classInstance.getDescription());
+
+        DoneBtn.requestFocus();
     }
 
     /**
