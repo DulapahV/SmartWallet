@@ -19,7 +19,7 @@ import javax.swing.table.DefaultTableModel;
 /**
  *
  * @author Dulapah Vibulsanti (64011388), Anucha Cheewachanon (64011338),
- * Annopdanai Pamarapa (64011337)
+ *         Annopdanai Pamarapa (64011337)
  */
 public class ManageSubjects extends javax.swing.JFrame {
 
@@ -33,7 +33,7 @@ public class ManageSubjects extends javax.swing.JFrame {
 
         table = (DefaultTableModel) SubjectsTable.getModel();
         for (Subject subj : Database.getSubjList()) {
-            table.addRow(new Object[]{subj.getCode(), subj.getName(), subj.getColorHex()});
+            table.addRow(new Object[] { subj.getCode(), subj.getName(), subj.getColorHex() });
         }
     }
 
@@ -361,7 +361,7 @@ public class ManageSubjects extends javax.swing.JFrame {
             table.removeRow(i);
         }
         for (Subject subj : Database.getSubjList()) {
-            table.addRow(new Object[]{subj.getCode(), subj.getName(), subj.getColorHex()});
+            table.addRow(new Object[] { subj.getCode(), subj.getName(), subj.getColorHex() });
         }
     }// GEN-LAST:event_ClearBtnActionPerformed
 
@@ -403,6 +403,27 @@ public class ManageSubjects extends javax.swing.JFrame {
             if (CodeTxtField.getText().equals(getData(row)[0])
                     && SubjectTxtField.getText().equals(getData(row)[1])
                     && ColorTxtField.getText().equals(getData(row)[2])) {
+                for (int i = 0; i < Database.getClassList().size(); i++) {
+                    if (Database.getClassList().get(i).getSubject().getCode().equals(getData(row)[0])
+                            && Database.getClassList().get(i).getSubject().getName().equals(getData(row)[1])
+                            && Database.getClassList().get(i).getSubject().getColorHex().equals(getData(row)[2])) {
+                        Database.getClassList().remove(i);
+                    }
+                }
+                for (int i = 0; i < Database.getTaskList().size(); i++) {
+                    if (Database.getTaskList().get(i).getSubject().getCode().equals(getData(row)[0])
+                            && Database.getTaskList().get(i).getSubject().getName().equals(getData(row)[1])
+                            && Database.getTaskList().get(i).getSubject().getColorHex().equals(getData(row)[2])) {
+                        Database.getTaskList().remove(i);
+                    }
+                }
+                for (int i = 0; i < Database.getExamList().size(); i++) {
+                    if (Database.getExamList().get(i).getSubject().getCode().equals(getData(row)[0])
+                            && Database.getExamList().get(i).getSubject().getName().equals(getData(row)[1])
+                            && Database.getExamList().get(i).getSubject().getColorHex().equals(getData(row)[2])) {
+                        Database.getExamList().remove(i);
+                    }
+                }
                 table.removeRow(SubjectsTable.getSelectedRow());
                 removeSubject();
                 CodeTxtField.setText("");
@@ -448,14 +469,12 @@ public class ManageSubjects extends javax.swing.JFrame {
     }// GEN-LAST:event_ColorTxtFieldKeyPressed
 
     private void SubjectsTableMouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_SubjectsTableMouseClicked
-        if (evt.getClickCount() == 2) {
-            int row = SubjectsTable.getSelectedRow();
-            CodeTxtField.setText(getData(row)[0]);
-            SubjectTxtField.setText(getData(row)[1]);
-            ColorTxtField.setText(getData(row)[2]);
-            ColorTxtField.setForeground(new Color(Integer.parseInt(ColorTxtField.getText().substring(1), 16)));
-            ColorPickerBtn.setBackground(new Color(Integer.parseInt(ColorTxtField.getText().substring(1), 16)));
-        }
+        int row = SubjectsTable.getSelectedRow();
+        CodeTxtField.setText(getData(row)[0]);
+        SubjectTxtField.setText(getData(row)[1]);
+        ColorTxtField.setText(getData(row)[2]);
+        ColorTxtField.setForeground(new Color(Integer.parseInt(ColorTxtField.getText().substring(1), 16)));
+        ColorPickerBtn.setBackground(new Color(Integer.parseInt(ColorTxtField.getText().substring(1), 16)));
     }// GEN-LAST:event_SubjectsTableMouseClicked
 
     private void SaveBtnActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_SaveBtnActionPerformed
@@ -583,7 +602,7 @@ public class ManageSubjects extends javax.swing.JFrame {
     public void setSubject() {
         Subject subject = getSubjectInstance();
         if (Database.addSubject(subject) == true) {
-            table.addRow(new Object[]{getCode(), getSubject(), getColor()});
+            table.addRow(new Object[] { getCode(), getSubject(), getColor() });
         }
     }
 

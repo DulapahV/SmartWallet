@@ -50,12 +50,12 @@ public class Exams extends javax.swing.JFrame {
         ScheduleBtn = new org.jdesktop.swingx.JXButton();
         TopPanel = new javax.swing.JPanel();
         TodayTxt = new javax.swing.JLabel();
-        SearchPanel = new org.jdesktop.swingx.JXSearchPanel();
-        SearchBtn = new javax.swing.JButton();
         NewExamBtn = new javax.swing.JButton();
         ExamScrollPane = new javax.swing.JScrollPane();
         ExamPane = new org.jdesktop.swingx.JXTaskPaneContainer();
+        SearchPanel = new org.jdesktop.swingx.JXSearchPanel();
         ClearBtn = new javax.swing.JButton();
+        SearchBtn = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("MyStudyPlan");
@@ -159,7 +159,7 @@ public class Exams extends javax.swing.JFrame {
             .addGroup(TopPanelLayout.createSequentialGroup()
                 .addGap(21, 21, 21)
                 .addComponent(TodayTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(792, Short.MAX_VALUE))
         );
         TopPanelLayout.setVerticalGroup(
             TopPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -168,19 +168,6 @@ public class Exams extends javax.swing.JFrame {
                 .addComponent(TodayTxt)
                 .addContainerGap(33, Short.MAX_VALUE))
         );
-
-        SearchPanel.setFont(getFont("DINPro-Medium.otf", Font.PLAIN, 12));
-
-        SearchBtn.setBackground(new java.awt.Color(86, 96, 118));
-        SearchBtn.setFont(getFont("DINPro-Medium.otf", Font.PLAIN, 12));
-        SearchBtn.setText("Search");
-        SearchBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        SearchBtn.setMargin(new java.awt.Insets(3, 8, 3, 8));
-        SearchBtn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                SearchBtnActionPerformed(evt);
-            }
-        });
 
         NewExamBtn.setBackground(new java.awt.Color(59, 162, 191));
         NewExamBtn.setFont(getFont("DINPro-Medium.otf", Font.PLAIN, 12));
@@ -203,6 +190,8 @@ public class Exams extends javax.swing.JFrame {
         ExamPane.setLayout(verticalLayout1);
         ExamScrollPane.setViewportView(ExamPane);
 
+        SearchPanel.setFont(getFont("DINPro-Medium.otf", Font.PLAIN, 12));
+
         ClearBtn.setBackground(new java.awt.Color(86, 96, 118));
         ClearBtn.setFont(getFont("DINPro-Medium.otf", Font.PLAIN, 12));
         ClearBtn.setText("Clear");
@@ -211,6 +200,17 @@ public class Exams extends javax.swing.JFrame {
         ClearBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ClearBtnActionPerformed(evt);
+            }
+        });
+
+        SearchBtn.setBackground(new java.awt.Color(86, 96, 118));
+        SearchBtn.setFont(getFont("DINPro-Medium.otf", Font.PLAIN, 12));
+        SearchBtn.setText("Search");
+        SearchBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        SearchBtn.setMargin(new java.awt.Insets(3, 8, 3, 8));
+        SearchBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SearchBtnActionPerformed(evt);
             }
         });
 
@@ -226,16 +226,20 @@ public class Exams extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(6, 6, 6)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(ExamScrollPane)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(SearchPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(SearchBtn)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(ClearBtn)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 395, Short.MAX_VALUE)
-                                .addComponent(NewExamBtn)))
-                        .addContainerGap())))
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(ExamScrollPane)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(0, 0, Short.MAX_VALUE)
+                                        .addComponent(NewExamBtn)))
+                                .addContainerGap())))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -249,8 +253,8 @@ public class Exams extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
                             .addComponent(SearchPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(SearchBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(NewExamBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(ClearBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(ClearBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(NewExamBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(ExamScrollPane))))
         );

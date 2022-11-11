@@ -388,16 +388,27 @@ public class Calendar extends javax.swing.JFrame {
     }//GEN-LAST:event_SearchBtnActionPerformed
 
     private void ClearBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ClearBtnActionPerformed
-        updateTaskPane(LocalDate.now());
-        updateExamPane(LocalDate.now());
-        updateSchedulePane(LocalDate.now());
-    }//GEN-LAST:event_ClearBtnActionPerformed
-
-    private void CalendarActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_CalendarActionPerformed
-        LocalDate date = Calendar.getSelectionDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+        LocalDate date = LocalDate.now();
+        if (Calendar.getSelectionDate() != null) {
+            date = Calendar.getSelectionDate().toInstant()
+                    .atZone(ZoneId.systemDefault()).toLocalDate();
+        };
         updateTaskPane(date);
         updateExamPane(date);
         updateSchedulePane(date);
+    }//GEN-LAST:event_ClearBtnActionPerformed
+
+    private void CalendarActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_CalendarActionPerformed
+        Pattern pattern = SearchPanel.getPattern();
+        if (pattern == null) {
+            LocalDate date = Calendar.getSelectionDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+            updateTaskPane(date);
+            updateExamPane(date);
+            updateSchedulePane(date);
+        } else {
+            SearchBtnActionPerformed(null);
+        }
+        
     }// GEN-LAST:event_CalendarActionPerformed
 
     private void ScheduleBtnActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_ScheduleBtnActionPerformed
