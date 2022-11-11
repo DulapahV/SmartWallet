@@ -85,6 +85,11 @@ public class Subject {
         return code + " " + name;
     }
 
+    
+    /** 
+     * @param obj
+     * @return boolean
+     */
     @Override
     public boolean equals(Object obj) {
         if (obj instanceof Subject) {

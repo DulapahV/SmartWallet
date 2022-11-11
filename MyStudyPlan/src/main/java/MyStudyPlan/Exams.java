@@ -403,6 +403,11 @@ public class Exams extends javax.swing.JFrame {
         ExamPane.revalidate();
     }
 
+    
+    /** 
+     * @param examInstance
+     * @return JButton
+     */
     private JButton createLabel(ExamInstance examInstance) {
         String string = "Subject: " + examInstance.getSubject().getCode() + " "
                 + examInstance.getSubject().getName() + "\nDate: "

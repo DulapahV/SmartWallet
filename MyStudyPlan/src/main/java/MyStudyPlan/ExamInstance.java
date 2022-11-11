@@ -129,6 +129,11 @@ public class ExamInstance extends AbstractJob {
         this.description = description;
     }
 
+    
+    /** 
+     * @param obj
+     * @return boolean
+     */
     @Override
     public boolean equals(Object obj) {
         if (obj instanceof ExamInstance) {

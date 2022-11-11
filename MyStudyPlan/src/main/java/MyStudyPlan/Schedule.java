@@ -441,6 +441,11 @@ public class Schedule extends javax.swing.JFrame {
         SchedulePane.revalidate();
     }
 
+    
+    /** 
+     * @param classInstance
+     * @return JButton
+     */
     private JButton createLabel(ClassInstance classInstance) {
         String string = "Subject: " + classInstance.getSubject().getCode() + " "
                 + classInstance.getSubject().getName() + "\nDate: "

@@ -555,6 +555,11 @@ public class ManageSubjects extends javax.swing.JFrame {
         return SubjectTxtField.getText();
     }
 
+    
+    /** 
+     * @param row
+     * @return String[]
+     */
     public String[] getData(int row) {
         String[] data = new String[3];
         data[0] = table.getValueAt(row, 0).toString();
@@ -591,6 +596,10 @@ public class ManageSubjects extends javax.swing.JFrame {
         ColorPickerBtn.setBackground(color);
     }
 
+    
+    /** 
+     * @return Subject
+     */
     public Subject getSubjectInstance() {
         try {
             return new Subject(getCode(), getSubject(), getColor());

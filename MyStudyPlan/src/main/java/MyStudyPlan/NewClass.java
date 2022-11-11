@@ -645,6 +645,10 @@ public class NewClass extends javax.swing.JFrame {
         return getStartDate();
     }
 
+    
+    /** 
+     * @param date
+     */
     public void setDurationInfo(LocalDateTime date) {
         DurationInfoTxt
                 .setText("minutes (ending at " + date.format(DateTimeFormatter.ofPattern("dd/MM/yyyy hh:mm a")) + ")");

@@ -558,15 +558,23 @@ public class Login extends javax.swing.JFrame {
         RegUsernameTxtField.setText(string);
     }
 
+    
+    /** 
+     * @param string
+     */
     public void setLoginStatus(String string) {
         LoginStatusTxt.setText(string);
     }
 
+    
+    /** 
+     * @param string
+     */
     public void setRegStatus(String string) {
         RegisterStatusTxt.setText(string);
     }
 
-    private void checkCredential() {
-        // TODO add your handling code here:
-    }
+    // private void checkCredential() {
+    //     // TODO add your handling code here:
+    // }
 }

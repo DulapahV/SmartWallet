@@ -473,6 +473,11 @@ public class Tasks extends javax.swing.JFrame {
         RevisionTaskPane.setTitle("Revision (" + numRevision + ")");
     }
 
+    
+    /** 
+     * @param taskInstance
+     * @return JButton
+     */
     private JButton createLabel(TaskInstance taskInstance) {
         String string = "Subject: " + taskInstance.getSubject().getCode() + " "
                 + taskInstance.getSubject().getName() + "\nName: " + taskInstance.getTitle() + "\nDue date: "

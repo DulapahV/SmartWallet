@@ -142,6 +142,10 @@ public class Database {
         }
     }
 
+    
+    /** 
+     * @return Database
+     */
     public static Database getInstance() {
         return instance;
     }

@@ -510,6 +510,10 @@ public class Calendar extends javax.swing.JFrame {
         return SearchPanel.getPattern();
     }
 
+    
+    /** 
+     * @param date
+     */
     private void updateTaskPane(LocalDate date) {
         AssignmentTaskPane.removeAll();
         ReminderTaskPane.removeAll();
@@ -543,6 +547,11 @@ public class Calendar extends javax.swing.JFrame {
         RevisionTaskPane.setTitle("Revision (" + numRevision + ")");
     }
 
+    
+    /** 
+     * @param taskInstance
+     * @return JButton
+     */
     private JButton createTaskLabel(TaskInstance taskInstance) {
         String string = "Subject: " + taskInstance.getSubject().getCode() + " "
                 + taskInstance.getSubject().getName() + "\nName: " + taskInstance.getTitle() + "\nDue date: "
@@ -580,6 +589,10 @@ public class Calendar extends javax.swing.JFrame {
         return label;
     }
 
+    
+    /** 
+     * @param date
+     */
     private void updateExamPane(LocalDate date) {
         ExamPane.removeAll();
 
@@ -599,6 +612,11 @@ public class Calendar extends javax.swing.JFrame {
         ExamPane.revalidate();
     }
 
+    
+    /** 
+     * @param examInstance
+     * @return JButton
+     */
     private JButton createExamLabel(ExamInstance examInstance) {
         String string = "Subject: " + examInstance.getSubject().getCode() + " "
                 + examInstance.getSubject().getName() + "\nDate: "
@@ -638,6 +656,10 @@ public class Calendar extends javax.swing.JFrame {
         return label;
     }
 
+    
+    /** 
+     * @param date
+     */
     private void updateSchedulePane(LocalDate date) {
         SchedulePane.removeAll();
 
@@ -650,6 +672,11 @@ public class Calendar extends javax.swing.JFrame {
         SchedulePane.revalidate();
     }
 
+    
+    /** 
+     * @param classInstance
+     * @return JButton
+     */
     private JButton createScheduleLabel(ClassInstance classInstance) {
         String string = "Subject: " + classInstance.getSubject().getCode() + " "
                 + classInstance.getSubject().getName() + "\nDate: "

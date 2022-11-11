@@ -114,6 +114,11 @@ public class TaskInstance extends AbstractJob {
         this.isDone = isDone;
     }
 
+    
+    /** 
+     * @param obj
+     * @return boolean
+     */
     @Override
     public boolean equals(Object obj) {
         if (obj instanceof TaskInstance) {
