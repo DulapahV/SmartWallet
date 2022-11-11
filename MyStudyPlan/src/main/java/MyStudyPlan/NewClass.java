@@ -18,7 +18,7 @@ import java.util.logging.Logger;
 /**
  *
  * @author Dulapah Vibulsanti (64011388), Anucha Cheewachanon (64011338),
- * Annopdanai Pamarapa (64011337)
+ *         Annopdanai Pamarapa (64011337)
  */
 public class NewClass extends javax.swing.JFrame {
 
@@ -605,13 +605,17 @@ public class NewClass extends javax.swing.JFrame {
      */
     public LocalTime getStartTime() {
         if (getAMPM().equals("PM")) {
-            if (getHour() + 12 == 24) {
-                return LocalTime.of(0, getMinute());
+            if (getHour() == 12) {
+                return LocalTime.of(12, getMinute());
             } else {
                 return LocalTime.of(getHour() + 12, getMinute());
             }
         } else {
-            return LocalTime.of(getHour(), getMinute());
+            if (getHour() == 12) {
+                return LocalTime.of(0, getMinute());
+            } else {
+                return LocalTime.of(getHour(), getMinute());
+            }
         }
     }
 
@@ -645,13 +649,15 @@ public class NewClass extends javax.swing.JFrame {
         return getStartDate();
     }
 
-    
-    /** 
+    /**
      * @param date
      */
     public void setDurationInfo(LocalDateTime date) {
-        DurationInfoTxt
-                .setText("minutes (ending at " + date.format(DateTimeFormatter.ofPattern("dd/MM/yyyy hh:mm a")) + ")");
+        if (date != null) {
+            DurationInfoTxt
+                    .setText("minutes (ending at " + date.format(DateTimeFormatter.ofPattern("dd/MM/yyyy hh:mm a"))
+                            + ")");
+        }
     }
 
     private void updateDurationInfo() {
@@ -668,7 +674,6 @@ public class NewClass extends javax.swing.JFrame {
             return new ClassInstance(getSubject(), getSector(), getRoom(), getStartDate(), getStartTime(),
                     getDuration(), getBuilding(), getTeacher(), getDetail());
         } catch (Exception e) {
-            e.printStackTrace();
             return null;
         }
     }

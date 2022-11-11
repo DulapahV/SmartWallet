@@ -407,9 +407,4 @@ public class ViewTask extends javax.swing.JFrame {
             return null;
         }
     }
-
-    public void setTask() {
-        TaskInstance taskInstance = getTaskInstance();
-        taskInstance.writeToDatabase(Database.getInstance());
-    }
 }

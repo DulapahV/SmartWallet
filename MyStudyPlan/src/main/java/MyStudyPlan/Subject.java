@@ -42,7 +42,9 @@ public class Subject {
      * @param code
      */
     public void setCode(String code) {
-        this.code = code;
+        if (code != null) {
+            this.code = code;
+        }
     }
 
     /**
@@ -56,7 +58,9 @@ public class Subject {
      * @param name
      */
     public void setName(String name) {
-        this.name = name;
+        if (name != null) {
+            this.name = name;
+        }
     }
 
     /**
@@ -74,7 +78,9 @@ public class Subject {
      * @param color
      */
     public void setColor(Color color) {
-        this.color = color;
+        if (color != null) {
+            this.color = color;
+        }
     }
 
     /**

@@ -27,7 +27,9 @@ public class TaskInstance extends AbstractJob {
     }
 
     public void writeToDatabase(Database dbInstance) {
-        dbInstance.addTask(this);
+        if (dbInstance != null) {
+            dbInstance.addTask(this);
+        }
     }
 
     /**
@@ -76,35 +78,45 @@ public class TaskInstance extends AbstractJob {
      * @param subject
      */
     public void setSubject(Subject subject) {
-        this.subject = subject;
+        if (subject != null) {
+            this.subject = subject;
+        }
     }
 
     /**
      * @param title
      */
     public void setTitle(String title) {
-        this.title = title;
+        if (title != null) {
+            this.title = title;
+        }
     }
 
     /**
      * @param type
      */
     public void setType(TaskType type) {
-        this.type = type;
+        if (type != null) {
+            this.type = type;
+        }
     }
 
     /**
      * @param dueDate
      */
     public void setDueDate(LocalDate dueDate) {
-        this.dueDate = dueDate;
+        if (dueDate != null) {
+            this.dueDate = dueDate;
+        }
     }
 
     /**
      * @param description
      */
     public void setDescription(String description) {
-        this.description = description;
+        if (description != null) {
+            this.description = description;
+        }
     }
 
     /**

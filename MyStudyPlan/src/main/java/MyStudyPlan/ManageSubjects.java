@@ -561,10 +561,9 @@ public class ManageSubjects extends javax.swing.JFrame {
      * @return String[]
      */
     public String[] getData(int row) {
-        String[] data = new String[3];
-        data[0] = table.getValueAt(row, 0).toString();
-        data[1] = table.getValueAt(row, 1).toString();
-        data[2] = table.getValueAt(row, 2).toString();
+        String[] data = new String[table.getColumnCount()];
+        for(int i = 0; i < table.getColumnCount(); i++)
+            data[i] = table.getValueAt(row, i).toString();
         return data;
     }
 
@@ -572,28 +571,36 @@ public class ManageSubjects extends javax.swing.JFrame {
      * @param code
      */
     public void setCode(String code) {
-        CodeTxtField.setText(code);
+        if (code != null) {
+            CodeTxtField.setText(code);
+        }
     }
 
     /**
      * @param color
      */
     public void setColor(String color) {
-        ColorTxtField.setText(color);
+        if (color != null) {
+            ColorTxtField.setText(color);
+        }
     }
 
     /**
      * @param subject
      */
     public void setSubject(String subject) {
-        SubjectTxtField.setText(subject);
+        if (subject != null) {
+            SubjectTxtField.setText(subject);
+        }
     }
 
     /**
      * @param color
      */
     public void setColorBtn(Color color) {
-        ColorPickerBtn.setBackground(color);
+        if (color != null) {
+            ColorPickerBtn.setBackground(color);
+        }
     }
 
     

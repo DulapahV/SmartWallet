@@ -18,7 +18,7 @@ import java.util.logging.Logger;
 /**
  *
  * @author Dulapah Vibulsanti (64011388), Anucha Cheewachanon (64011338),
- * Annopdanai Pamarapa (64011337)
+ *         Annopdanai Pamarapa (64011337)
  */
 public class ViewClass extends javax.swing.JFrame {
 
@@ -670,7 +670,11 @@ public class ViewClass extends javax.swing.JFrame {
                 return LocalTime.of(getHour() + 12, getMinute());
             }
         } else {
-            return LocalTime.of(getHour(), getMinute());
+            if (getHour() == 12) {
+                return LocalTime.of(0, getMinute());
+            } else {
+                return LocalTime.of(getHour(), getMinute());
+            }
         }
     }
 
@@ -705,8 +709,11 @@ public class ViewClass extends javax.swing.JFrame {
     }
 
     public void setDurationInfo(LocalDateTime date) {
-        DurationInfoTxt
-                .setText("minutes (ending at " + date.format(DateTimeFormatter.ofPattern("dd/MM/yyyy hh:mm a")) + ")");
+        if (date != null) {
+            DurationInfoTxt
+                    .setText("minutes (ending at " + date.format(DateTimeFormatter.ofPattern("dd/MM/yyyy hh:mm a"))
+                            + ")");
+        }
     }
 
     private void updateDurationInfo() {

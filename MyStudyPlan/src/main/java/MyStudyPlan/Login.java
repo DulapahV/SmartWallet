@@ -527,35 +527,45 @@ public class Login extends javax.swing.JFrame {
      * @param string
      */
     public void setLoginPasswd(String string) {
-        LoginPasswdTxtField.setText(string);
+        if (string != null) {
+            LoginPasswdTxtField.setText(string);
+        }
     }
 
     /**
      * @param string
      */
     public void setLoginUsername(String string) {
-        LoginUsernameTxtField.setText(string);
+        if (string != null) {
+            LoginUsernameTxtField.setText(string);
+        }
     }
 
     /**
      * @param string
      */
     public void setRegConfirmPasswd(String string) {
-        RegConfirmPasswdTxtField.setText(string);
+        if (string != null) {
+            RegConfirmPasswdTxtField.setText(string);
+        }
     }
 
     /**
      * @param string
      */
     public void setRegPasswd(String string) {
-        RegPasswdTxtField.setText(string);
+        if (string != null) {
+            RegPasswdTxtField.setText(string);
+        }
     }
 
     /**
      * @param string
      */
     public void setRegUsername(String string) {
-        RegUsernameTxtField.setText(string);
+        if (string != null) {
+            RegUsernameTxtField.setText(string);
+        }
     }
 
     
@@ -563,7 +573,9 @@ public class Login extends javax.swing.JFrame {
      * @param string
      */
     public void setLoginStatus(String string) {
-        LoginStatusTxt.setText(string);
+        if (string != null) {
+            LoginStatusTxt.setText(string);
+        }
     }
 
     
@@ -571,7 +583,9 @@ public class Login extends javax.swing.JFrame {
      * @param string
      */
     public void setRegStatus(String string) {
-        RegisterStatusTxt.setText(string);
+        if (string != null) {
+            RegisterStatusTxt.setText(string);
+        }
     }
 
     // private void checkCredential() {

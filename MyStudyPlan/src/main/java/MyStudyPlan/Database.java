@@ -9,6 +9,7 @@ package MyStudyPlan;
  */
 import java.awt.Color;
 import java.io.File;
+import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.time.LocalDate;
@@ -44,7 +45,8 @@ public class Database {
             .registerTypeAdapter(LocalDateTime.class, new LocalDateTimeDeserializer())
             .registerTypeAdapter(LocalTime.class, new LocalTimeDeserializer())
             .registerTypeAdapter(Color.class, new ColorDeserializer())
-            .setPrettyPrinting().create();
+            .setPrettyPrinting()
+            .create();
 
     private Database() throws JSONException {
         this.username = "";
@@ -67,14 +69,13 @@ public class Database {
                 // Get Database path
                 path = FileSystemView.getFileSystemView().getDefaultDirectory().getPath()
                         + "\\MyStudyPlan\\database.json";
-                instance = getDatabaseInstance(path);
                 break;
             case "Unix":
                 // Get Database path
-                String path = "~/Documents/MyStudyPlan/database.json";
-                instance = getDatabaseInstance(path);
+                path = "~/Documents/MyStudyPlan/database.json";
                 break;
         }
+        instance = getDatabaseInstance(path);
         return instance;
     }
 
@@ -93,6 +94,9 @@ public class Database {
             try {
                 String json = Files.readString(Path.of(path));
                 Database db = gson.fromJson(json, Database.class);
+                if (db == null) {
+                    throw new Exception("Database file is empty!");
+                }
                 Logger.getLogger(Database.class.getName()).log(java.util.logging.Level.INFO,
                         "Database read successfully.");
                 return db;
@@ -136,9 +140,12 @@ public class Database {
         try {
             String json = gson.toJson(instance);
             Files.writeString(Path.of(path), json);
-        } catch (Exception e) {
+        } catch (IOException e) {
             Logger.getLogger(Database.class.getName()).log(java.util.logging.Level.SEVERE,
                     "Error writing database file! " + e);
+        } catch (Exception e) {
+            Logger.getLogger(Database.class.getName()).log(java.util.logging.Level.SEVERE,
+                    "An unknown error occurred while writing database file! " + e);
         }
     }
 
@@ -172,8 +179,13 @@ public class Database {
             return false;
         } else {
             instance.subjList.add(subject);
-            Database.write();
-            return true;
+            try {
+                Database.write();
+                return true;
+            } catch (Exception e) {
+                Logger.getLogger(Database.class.getName()).log(java.util.logging.Level.SEVERE, "Write to database failed! ", e.getStackTrace());
+                return false;
+            }
         }
     }
 
@@ -184,8 +196,10 @@ public class Database {
      *
      */
     public static void addTask(TaskInstance task) {
-        instance.taskList.add(task);
-        Database.write();
+        if (task != null) {
+            instance.taskList.add(task);
+            Database.write();
+        }
     }
 
     /**
@@ -195,8 +209,10 @@ public class Database {
      *
      */
     public static void addClass(ClassInstance classInstance) {
-        instance.classList.add(classInstance);
-        Database.write();
+        if (classInstance != null) {
+            instance.classList.add(classInstance);
+            Database.write();
+        }
     }
 
     /**
@@ -206,8 +222,10 @@ public class Database {
      *
      */
     public static void addExam(ExamInstance exam) {
-        instance.examList.add(exam);
-        Database.write();
+        if (exam != null) {
+            instance.examList.add(exam);
+            Database.write();
+        }
     }
 
     /**
@@ -226,14 +244,12 @@ public class Database {
      * @param subject
      */
     public static void removeSubject(Subject subject) {
-        for (Subject s : instance.subjList) {
-            if (s.getCode().equals(subject.getCode()) && s.getName().equals(subject.getName())
-                    && s.getColor().equals(subject.getColor())) {
-                instance.subjList.remove(s);
-                break;
-            }
+        if (subject == null) {
+            return;
         }
-        Database.write();
+        if (instance.subjList.remove(subject)) {
+            Database.write();
+        }
     }
 
     /**
@@ -242,12 +258,13 @@ public class Database {
      * @param task
      */
     public static void removeTask(TaskInstance task) {
-        for (TaskInstance t : instance.taskList) {
-            if (t.equals(task)) {
-                instance.taskList.remove(t);
-                break;
-            }
+        if (task == null) {
+            return;
         }
+        if (!instance.taskList.contains(task)) {
+            return;
+        }
+        instance.taskList.remove(task);
         Database.write();
     }
 
@@ -257,8 +274,10 @@ public class Database {
      * @param classInstance
      */
     public static void removeClass(ClassInstance classInstance) {
-        instance.classList.remove(classInstance);
-        Database.write();
+        if (classInstance != null) {
+            instance.classList.remove(classInstance);
+            Database.write();
+        }
     }
 
     /**
@@ -267,8 +286,10 @@ public class Database {
      * @param exam
      */
     public static void removeExam(ExamInstance exam) {
-        instance.examList.remove(exam);
-        Database.write();
+        if (exam != null) {
+            instance.examList.remove(exam);
+            Database.write();
+        }
     }
 
     /**

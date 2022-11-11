@@ -27,10 +27,6 @@ public class ExamInstance extends AbstractJob {
         this.description = description;
     }
 
-    public void writeToDatabase(Database dbInstance) {
-        dbInstance.addExam(this);
-    }
-
     /**
      * @return Subject
      */
@@ -84,35 +80,45 @@ public class ExamInstance extends AbstractJob {
      * @param subject
      */
     public void setSubject(Subject subject) {
-        this.subject = subject;
+        if (subject != null) {
+            this.subject = subject;
+        }
     }
 
     /**
      * @param room
      */
     public void setRoom(String room) {
-        this.room = room;
+        if (room != null) {
+            this.room = room;
+        }
     }
 
     /**
      * @param seat
      */
     public void setSeat(String seat) {
-        this.seat = seat;
+        if (seat != null) {
+            this.seat = seat;
+        }
     }
 
     /**
      * @param date
      */
     public void setDate(LocalDate date) {
-        this.date = date;
+        if (date != null) {
+            this.date = date;
+        }
     }
 
     /**
      * @param time
      */
     public void setTime(LocalTime time) {
-        this.time = time;
+        if (time != null) {
+            this.time = time;
+        }
     }
 
     /**
@@ -126,7 +132,9 @@ public class ExamInstance extends AbstractJob {
      * @param description
      */
     public void setDescription(String description) {
-        this.description = description;
+        if (description != null) {
+            this.description = description;
+        }
     }
 
     
@@ -136,7 +144,7 @@ public class ExamInstance extends AbstractJob {
      */
     @Override
     public boolean equals(Object obj) {
-        if (obj instanceof ExamInstance) {
+        if (obj != null && obj instanceof ExamInstance) {
             ExamInstance exam = (ExamInstance) obj;
             return this.subject.equals(exam.subject) && this.date.equals(exam.date) && this.time.equals(exam.time);
         }

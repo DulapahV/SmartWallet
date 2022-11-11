@@ -331,6 +331,19 @@ public class Tasks extends javax.swing.JFrame {
         newTask.addWindowListener(new WindowAdapter() {
             @Override
             public void windowClosed(WindowEvent e) {
+                updateTaskPane();
+            }
+
+            @Override
+            public void windowClosing(WindowEvent e) {
+                Tasks.this.setEnabled(true);
+                Tasks.this.requestFocus();
+                Tasks.this.setExtendedState(Tasks.this.getExtendedState() & ~Tasks.ICONIFIED);
+            }
+        });
+        newTask.addWindowListener(new WindowAdapter() {
+            @Override
+            public void windowClosed(WindowEvent e) {
                 Tasks.this.setEnabled(true);
                 Tasks.this.requestFocus();
                 Tasks.this.setExtendedState(Tasks.this.getExtendedState() & ~Tasks.ICONIFIED);
@@ -348,7 +361,7 @@ public class Tasks extends javax.swing.JFrame {
             overview.setLocation(this.getLocation());
         }
         overview.setVisible(true);
-        this.setVisible(false);
+        this.dispose();
     }// GEN-LAST:event_OverviewBtnActionPerformed
 
     private void CalendarBtnActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_CalendarBtnActionPerformed
@@ -360,7 +373,7 @@ public class Tasks extends javax.swing.JFrame {
             calendar.setLocation(this.getLocation());
         }
         calendar.setVisible(true);
-        this.setVisible(false);
+        this.dispose();
     }// GEN-LAST:event_CalendarBtnActionPerformed
 
     private void TasksBtnActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_TasksBtnActionPerformed
@@ -376,7 +389,7 @@ public class Tasks extends javax.swing.JFrame {
             exams.setLocation(this.getLocation());
         }
         exams.setVisible(true);
-        this.setVisible(false);
+        this.dispose();
     }// GEN-LAST:event_ExamsBtnActionPerformed
 
     private void ScheduleBtnActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_ScheduleBtnActionPerformed
@@ -388,7 +401,7 @@ public class Tasks extends javax.swing.JFrame {
             schedule.setLocation(this.getLocation());
         }
         schedule.setVisible(true);
-        this.setVisible(false);
+        this.dispose();
     }// GEN-LAST:event_ScheduleBtnActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

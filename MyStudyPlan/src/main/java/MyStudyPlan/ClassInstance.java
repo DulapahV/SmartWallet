@@ -105,7 +105,9 @@ public class ClassInstance extends AbstractJob {
      * @param subject
      */
     public void setSubject(Subject subject) {
-        this.subject = subject;
+        if (subject != null) {
+            this.subject = subject;
+        }
     }
 
     /**
@@ -119,28 +121,36 @@ public class ClassInstance extends AbstractJob {
      * @param room
      */
     public void setRoom(String room) {
-        this.room = room;
+        if (room != null) {
+            this.room = room;
+        }
     }
 
     /**
      * @param building
      */
     public void setBuilding(String building) {
-        this.building = building;
+        if (building != null) {
+            this.building = building;
+        }
     }
 
     /**
      * @param teacher
      */
     public void setTeacher(String teacher) {
-        this.teacher = teacher;
+        if (teacher != null) {
+            this.teacher = teacher;
+        }
     }
 
     /**
      * @param description
      */
     public void setDescription(String description) {
-        this.description = description;
+        if (description != null) {
+            this.description = description;
+        }
     }
 
     
@@ -150,12 +160,11 @@ public class ClassInstance extends AbstractJob {
      */
     @Override
     public boolean equals(Object obj) {
-        if (obj instanceof ClassInstance) {
+        if (obj != null && obj instanceof ClassInstance) {
             ClassInstance classInstance = (ClassInstance) obj;
             return this.subject.equals(classInstance.subject) && this.sector == classInstance.sector
                     && this.startDate.equals(classInstance.startDate) && this.startTime.equals(classInstance.startTime);
         }
         return false;
     }
-
 }
