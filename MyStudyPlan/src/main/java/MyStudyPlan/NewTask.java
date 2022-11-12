@@ -284,11 +284,8 @@ public class NewTask extends javax.swing.JFrame {
             flag = true;
         }
         if (flag) {
-            Logger.getLogger(NewTask.class.getName()).log(java.util.logging.Level.WARNING,
-                    "Missing or incorrect information!");
             return;
         }
-        Logger.getLogger(NewTask.class.getName()).log(java.util.logging.Level.INFO, "Successfully created new task.");
         Database.addTask(getTaskInstance());
         this.dispose();
     }// GEN-LAST:event_SaveBtnActionPerformed
