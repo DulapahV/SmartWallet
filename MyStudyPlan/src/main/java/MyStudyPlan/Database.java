@@ -168,7 +168,6 @@ public class Database {
         } catch (Exception e) {
             Logger.getLogger(Database.class.getName()).log(java.util.logging.Level.SEVERE,
                     "Error adding username to database!", e);
-        } finally {
             this.username = null;
         }
     }
@@ -210,7 +209,6 @@ public class Database {
         }
         catch (Exception e) {
             Logger.getLogger(Database.class.getName()).log(java.util.logging.Level.SEVERE, "Failed to add task!", e);
-        } finally {
             instance.taskList.remove(task);
         }
     }
@@ -227,8 +225,6 @@ public class Database {
             Logger.getLogger(Database.class.getName()).log(java.util.logging.Level.INFO, "Class added successfully.");
         } catch (Exception e) {
             Logger.getLogger(Database.class.getName()).log(java.util.logging.Level.SEVERE, "Failed to add class!", e);
-        } finally {
-            instance.classList.remove(classInstance);
         }
     }
 
@@ -244,7 +240,6 @@ public class Database {
             Logger.getLogger(Database.class.getName()).log(java.util.logging.Level.INFO, "Exam added successfully.");
         } catch (Exception e) {
             Logger.getLogger(Database.class.getName()).log(java.util.logging.Level.SEVERE, "Failed to add exam!", e);
-        } finally {
             instance.examList.remove(exam);
         }
     }
@@ -261,7 +256,6 @@ public class Database {
             Logger.getLogger(Database.class.getName()).log(java.util.logging.Level.INFO, "Username removed successfully.");
         } catch (Exception e) {
             Logger.getLogger(Database.class.getName()).log(java.util.logging.Level.SEVERE, "Failed to remove username!", e);
-        } finally {
             this.username = username;
         }
     }
@@ -295,7 +289,6 @@ public class Database {
             Logger.getLogger(Database.class.getName()).log(java.util.logging.Level.INFO, "Task removed successfully.");
         } catch (Exception e) {
             Logger.getLogger(Database.class.getName()).log(java.util.logging.Level.SEVERE, "Failed to remove task!", e);
-        } finally {
             instance.taskList.add(task);
         }
     }
@@ -312,7 +305,6 @@ public class Database {
             Logger.getLogger(Database.class.getName()).log(java.util.logging.Level.INFO, "Class removed successfully.");
         } catch (Exception e) {
             Logger.getLogger(Database.class.getName()).log(java.util.logging.Level.SEVERE, "Failed to remove class!", e);
-        } finally {
             instance.classList.add(classInstance);
         }
     }
@@ -329,7 +321,6 @@ public class Database {
             Logger.getLogger(Database.class.getName()).log(java.util.logging.Level.INFO, "Exam removed successfully.");
         } catch (Exception e) {
             Logger.getLogger(Database.class.getName()).log(java.util.logging.Level.SEVERE, "Failed to remove exam!", e);
-        } finally {
             instance.examList.add(exam);
         }
     }
