@@ -424,7 +424,6 @@ public class ManageSubjects extends javax.swing.JFrame {
                         Database.getExamList().remove(i);
                     }
                 }
-                table.removeRow(SubjectsTable.getSelectedRow());
                 removeSubject();
                 CodeTxtField.setText("");
                 SubjectTxtField.setText("");
@@ -623,6 +622,8 @@ public class ManageSubjects extends javax.swing.JFrame {
 
     public void removeSubject() {
         Subject subject = getSubjectInstance();
-        Database.removeSubject(subject);
+        if (Database.removeSubject(subject)) {
+            table.removeRow(SubjectsTable.getSelectedRow());
+        }
     }
 }
