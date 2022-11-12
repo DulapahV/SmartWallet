@@ -16,8 +16,6 @@ import java.util.logging.Logger;
 import javax.swing.JButton;
 import javax.swing.SwingConstants;
 
-import com.formdev.flatlaf.intellijthemes.FlatNordIJTheme;
-
 /**
  *
  * @author Dulapah Vibulsanti (64011388), Anucha Cheewachanon (64011338),
@@ -576,21 +574,6 @@ public class Overview extends javax.swing.JFrame {
     private void OverviewBtnActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_OverviewBtnActionPerformed
         // Do nothing
     }// GEN-LAST:event_OverviewBtnActionPerformed
-
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the theme */
-        FlatNordIJTheme.setup();
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new Overview().setVisible(true);
-            }
-        });
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private org.jdesktop.swingx.JXTaskPane AssignmentTaskPane;

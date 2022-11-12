@@ -24,25 +24,25 @@ public class MyStudyPlan {
                     "Successfully initialized Database.");
         }
         Logger.getLogger(MyStudyPlan.class.getName()).log(java.util.logging.Level.INFO, "Setting up theme...");
-        /* Set the theme */
+        // Set the theme
         try {
             FlatNordIJTheme.setup();
         } catch (Exception e) {
             Logger.getLogger(MyStudyPlan.class.getName()).log(java.util.logging.Level.SEVERE,
-                    "Failed to set theme! Exiting...");
+                    "Failed to set theme! Exiting...", e);
             return;
         }
         // If username is null, show login screen
         if (db.getUsername().isEmpty()) {
             // show login screen
-            Logger.getLogger(MyStudyPlan.class.getName()).log(java.util.logging.Level.INFO, "Going to login screen...");
+            Logger.getLogger(MyStudyPlan.class.getName()).log(java.util.logging.Level.INFO, "No user detected. Going to login screen...");
             Login login = new Login();
             login.setVisible(true);
             login.setLocationRelativeTo(null);
         } else {
-            // show main screen
+            // show main app
             Logger.getLogger(MyStudyPlan.class.getName()).log(java.util.logging.Level.INFO,
-                    "Welcome back, " + db.getUsername() + "!\nGoing to main app...");
+                    "User detected. Going to main app...");
             Overview overview = new Overview();
             overview.setVisible(true);
             overview.setLocationRelativeTo(null);
