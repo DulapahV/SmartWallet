@@ -330,8 +330,8 @@ public class Schedule extends javax.swing.JFrame {
 
     private void OverviewBtnActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_OverviewBtnActionPerformed
         Overview overview = new Overview();
-        if (this.getExtendedState() == this.MAXIMIZED_BOTH) {
-            overview.setExtendedState(this.MAXIMIZED_BOTH);
+        if (this.getExtendedState() == Schedule.MAXIMIZED_BOTH) {
+            overview.setExtendedState(Schedule.MAXIMIZED_BOTH);
         } else {
             overview.setSize(this.getSize());
             overview.setLocation(this.getLocation());
@@ -342,8 +342,8 @@ public class Schedule extends javax.swing.JFrame {
 
     private void CalendarBtnActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_CalendarBtnActionPerformed
         Calendar calendar = new Calendar();
-        if (this.getExtendedState() == this.MAXIMIZED_BOTH) {
-            calendar.setExtendedState(this.MAXIMIZED_BOTH);
+        if (this.getExtendedState() == Schedule.MAXIMIZED_BOTH) {
+            calendar.setExtendedState(Schedule.MAXIMIZED_BOTH);
         } else {
             calendar.setSize(this.getSize());
             calendar.setLocation(this.getLocation());
@@ -354,8 +354,8 @@ public class Schedule extends javax.swing.JFrame {
 
     private void TasksBtnActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_TasksBtnActionPerformed
         Tasks tasks = new Tasks();
-        if (this.getExtendedState() == this.MAXIMIZED_BOTH) {
-            tasks.setExtendedState(this.MAXIMIZED_BOTH);
+        if (this.getExtendedState() == Schedule.MAXIMIZED_BOTH) {
+            tasks.setExtendedState(Schedule.MAXIMIZED_BOTH);
         } else {
             tasks.setSize(this.getSize());
             tasks.setLocation(this.getLocation());
@@ -366,8 +366,8 @@ public class Schedule extends javax.swing.JFrame {
 
     private void ExamsBtnActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_ExamsBtnActionPerformed
         Exams exams = new Exams();
-        if (this.getExtendedState() == this.MAXIMIZED_BOTH) {
-            exams.setExtendedState(this.MAXIMIZED_BOTH);
+        if (this.getExtendedState() == Schedule.MAXIMIZED_BOTH) {
+            exams.setExtendedState(Schedule.MAXIMIZED_BOTH);
         } else {
             exams.setSize(this.getSize());
             exams.setLocation(this.getLocation());

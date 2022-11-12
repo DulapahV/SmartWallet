@@ -527,8 +527,8 @@ public class Overview extends javax.swing.JFrame {
 
     private void ScheduleBtnActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_ScheduleBtnActionPerformed
         Schedule schedule = new Schedule();
-        if (this.getExtendedState() == this.MAXIMIZED_BOTH) {
-            schedule.setExtendedState(this.MAXIMIZED_BOTH);
+        if (this.getExtendedState() == Overview.MAXIMIZED_BOTH) {
+            schedule.setExtendedState(Overview.MAXIMIZED_BOTH);
         } else {
             schedule.setSize(this.getSize());
             schedule.setLocation(this.getLocation());
@@ -539,8 +539,8 @@ public class Overview extends javax.swing.JFrame {
 
     private void ExamsBtnActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_ExamsBtnActionPerformed
         Exams exams = new Exams();
-        if (this.getExtendedState() == this.MAXIMIZED_BOTH) {
-            exams.setExtendedState(this.MAXIMIZED_BOTH);
+        if (this.getExtendedState() == Overview.MAXIMIZED_BOTH) {
+            exams.setExtendedState(Overview.MAXIMIZED_BOTH);
         } else {
             exams.setSize(this.getSize());
             exams.setLocation(this.getLocation());
@@ -551,8 +551,8 @@ public class Overview extends javax.swing.JFrame {
 
     private void TasksBtnActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_TasksBtnActionPerformed
         Tasks tasks = new Tasks();
-        if (this.getExtendedState() == this.MAXIMIZED_BOTH) {
-            tasks.setExtendedState(this.MAXIMIZED_BOTH);
+        if (this.getExtendedState() == Overview.MAXIMIZED_BOTH) {
+            tasks.setExtendedState(Overview.MAXIMIZED_BOTH);
         } else {
             tasks.setSize(this.getSize());
             tasks.setLocation(this.getLocation());
@@ -563,8 +563,8 @@ public class Overview extends javax.swing.JFrame {
 
     private void CalendarBtnActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_CalendarBtnActionPerformed
         Calendar calendar = new Calendar();
-        if (this.getExtendedState() == this.MAXIMIZED_BOTH) {
-            calendar.setExtendedState(this.MAXIMIZED_BOTH);
+        if (this.getExtendedState() == Overview.MAXIMIZED_BOTH) {
+            calendar.setExtendedState(Overview.MAXIMIZED_BOTH);
         } else {
             calendar.setSize(this.getSize());
             calendar.setLocation(this.getLocation());
