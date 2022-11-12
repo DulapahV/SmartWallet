@@ -16,7 +16,6 @@ public class TaskInstance extends AbstractJob {
     private String title;
     private TaskType type;
     private LocalDate dueDate;
-    private boolean isDone = false;
 
     public TaskInstance(Subject subject, String title, TaskType type, LocalDate dueDate, String description) {
         this.subject = subject;
@@ -59,13 +58,6 @@ public class TaskInstance extends AbstractJob {
      */
     public String getDescription() {
         return description;
-    }
-
-    /**
-     * @return boolean
-     */
-    public boolean isDone() {
-        return isDone;
     }
 
     /**
@@ -114,13 +106,6 @@ public class TaskInstance extends AbstractJob {
     }
 
     /**
-     * @param isDone
-     */
-    public void setIsDone(boolean isDone) {
-        this.isDone = isDone;
-    }
-
-    /**
      * @param obj
      * @return boolean
      */
@@ -130,7 +115,7 @@ public class TaskInstance extends AbstractJob {
             TaskInstance task = (TaskInstance) obj;
             return this.subject.equals(task.subject) && this.title.equals(task.title)
                     && this.type.equals(task.type) && this.dueDate.equals(task.dueDate)
-                    && this.description.equals(task.description) && this.isDone == task.isDone;
+                    && this.description.equals(task.description);
         }
         return false;
     }
