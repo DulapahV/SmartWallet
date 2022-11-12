@@ -1,5 +1,7 @@
 package MyStudyPlan;
 
+import java.awt.Color;
+import java.awt.Cursor;
 import java.awt.Font;
 import java.awt.FontFormatException;
 import java.awt.event.ActionEvent;
@@ -652,7 +654,10 @@ public class Overview extends javax.swing.JFrame {
             label.setBackground(taskInstance.getSubject().getColor());
             label.setHorizontalAlignment(SwingConstants.LEFT);
             label.setFont(getFont("DINPro-Medium.otf", Font.PLAIN, 16));
-            label.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+            label.setCursor(new Cursor(Cursor.HAND_CURSOR));
+            label.setForeground(new Color(255 - taskInstance.getSubject().getColor().getRed(),
+                255 - taskInstance.getSubject().getColor().getGreen(),
+                255 - taskInstance.getSubject().getColor().getBlue()));
             label.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
@@ -716,7 +721,10 @@ public class Overview extends javax.swing.JFrame {
             label.setBackground(examInstance.getSubject().getColor());
             label.setHorizontalAlignment(SwingConstants.LEFT);
             label.setFont(getFont("DINPro-Medium.otf", Font.PLAIN, 16));
-            label.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+            label.setCursor(new Cursor(Cursor.HAND_CURSOR));
+            label.setForeground(new Color(255 - examInstance.getSubject().getColor().getRed(),
+                255 - examInstance.getSubject().getColor().getGreen(),
+                255 - examInstance.getSubject().getColor().getBlue()));
             label.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
@@ -765,7 +773,10 @@ public class Overview extends javax.swing.JFrame {
             label.setBackground(classInstance.getSubject().getColor());
             label.setHorizontalAlignment(SwingConstants.LEFT);
             label.setFont(getFont("DINPro-Medium.otf", Font.PLAIN, 16));
-            label.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+            label.setCursor(new Cursor(Cursor.HAND_CURSOR));
+            label.setForeground(new Color(255 - classInstance.getSubject().getColor().getRed(),
+                255 - classInstance.getSubject().getColor().getGreen(),
+                255 - classInstance.getSubject().getColor().getBlue()));
             label.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
