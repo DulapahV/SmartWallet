@@ -188,6 +188,7 @@ public class Database {
             instance.subjList.add(subject);
             try {
                 Database.write();
+                Logger.getLogger(Database.class.getName()).log(java.util.logging.Level.INFO, "Subject added successfully.");
                 return true;
             } catch (Exception e) {
                 Logger.getLogger(Database.class.getName()).log(java.util.logging.Level.SEVERE, "Write to database failed!", e);

@@ -388,8 +388,6 @@ public class ManageSubjects extends javax.swing.JFrame {
                     "Missing or incorrect information!");
             return;
         }
-        Logger.getLogger(NewTask.class.getName()).log(java.util.logging.Level.INFO,
-                "Successfully created new subject.");
         setSubject();
     }// GEN-LAST:event_SubjectAddBtnActionPerformed
 
