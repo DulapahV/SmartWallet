@@ -21,7 +21,7 @@ public class MyStudyPlan {
             return;
         } else {
             Logger.getLogger(MyStudyPlan.class.getName()).log(java.util.logging.Level.INFO,
-                    "Successfully initialized Database.");
+                    "Database initialized successfully.");
         }
         Logger.getLogger(MyStudyPlan.class.getName()).log(java.util.logging.Level.INFO, "Setting up theme...");
         // Set the theme
