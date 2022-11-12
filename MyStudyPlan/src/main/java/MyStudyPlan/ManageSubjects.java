@@ -19,7 +19,7 @@ import javax.swing.table.DefaultTableModel;
 /**
  *
  * @author Dulapah Vibulsanti (64011388), Anucha Cheewachanon (64011338),
- *         Annopdanai Pamarapa (64011337)
+ * Annopdanai Pamarapa (64011337)
  */
 public class ManageSubjects extends javax.swing.JFrame {
 
@@ -33,7 +33,7 @@ public class ManageSubjects extends javax.swing.JFrame {
 
         table = (DefaultTableModel) SubjectsTable.getModel();
         for (Subject subj : Database.getSubjList()) {
-            table.addRow(new Object[] { subj.getCode(), subj.getName(), subj.getColorHex() });
+            table.addRow(new Object[]{subj.getCode(), subj.getName(), subj.getColorHex()});
         }
     }
 
@@ -361,7 +361,7 @@ public class ManageSubjects extends javax.swing.JFrame {
             table.removeRow(i);
         }
         for (Subject subj : Database.getSubjList()) {
-            table.addRow(new Object[] { subj.getCode(), subj.getName(), subj.getColorHex() });
+            table.addRow(new Object[]{subj.getCode(), subj.getName(), subj.getColorHex()});
         }
     }// GEN-LAST:event_ClearBtnActionPerformed
 
@@ -555,15 +555,15 @@ public class ManageSubjects extends javax.swing.JFrame {
         return SubjectTxtField.getText();
     }
 
-    
-    /** 
+    /**
      * @param row
      * @return String[]
      */
     public String[] getData(int row) {
         String[] data = new String[table.getColumnCount()];
-        for(int i = 0; i < table.getColumnCount(); i++)
+        for (int i = 0; i < table.getColumnCount(); i++) {
             data[i] = table.getValueAt(row, i).toString();
+        }
         return data;
     }
 
@@ -603,8 +603,7 @@ public class ManageSubjects extends javax.swing.JFrame {
         }
     }
 
-    
-    /** 
+    /**
      * @return Subject
      */
     public Subject getSubjectInstance() {
@@ -618,7 +617,7 @@ public class ManageSubjects extends javax.swing.JFrame {
     public void setSubject() {
         Subject subject = getSubjectInstance();
         if (Database.addSubject(subject) == true) {
-            table.addRow(new Object[] { getCode(), getSubject(), getColor() });
+            table.addRow(new Object[]{getCode(), getSubject(), getColor()});
         }
     }
 

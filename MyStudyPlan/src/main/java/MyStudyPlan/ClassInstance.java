@@ -43,10 +43,6 @@ public class ClassInstance extends AbstractJob {
         this.description = description;
     }
 
-    public void writeToDatabase(Database dbInstance) {
-        dbInstance.addClass(this);
-    }
-
     /**
      * @return Subject
      */
@@ -153,8 +149,7 @@ public class ClassInstance extends AbstractJob {
         }
     }
 
-    
-    /** 
+    /**
      * @param obj
      * @return boolean
      */

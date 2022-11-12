@@ -269,6 +269,12 @@ public class Exams extends javax.swing.JFrame {
         }
         ExamPane.removeAll();
         for (ExamInstance examInstance : Database.getExamList()) {
+            if (examInstance.getSubject() == null) {
+                continue;
+            }
+            if (examInstance.getSubject().getName() == null) {
+                continue;
+            }
             if (pattern.matcher(examInstance.getSubject().getName()).find()) {
                 JButton label = createLabel(examInstance);
                 ExamPane.add(label);
@@ -403,8 +409,7 @@ public class Exams extends javax.swing.JFrame {
         ExamPane.revalidate();
     }
 
-    
-    /** 
+    /**
      * @param examInstance
      * @return JButton
      */

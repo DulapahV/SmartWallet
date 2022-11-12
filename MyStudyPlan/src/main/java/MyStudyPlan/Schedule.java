@@ -441,8 +441,7 @@ public class Schedule extends javax.swing.JFrame {
         SchedulePane.revalidate();
     }
 
-    
-    /** 
+    /**
      * @param classInstance
      * @return JButton
      */

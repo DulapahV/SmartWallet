@@ -568,8 +568,7 @@ public class Login extends javax.swing.JFrame {
         }
     }
 
-    
-    /** 
+    /**
      * @param string
      */
     public void setLoginStatus(String string) {
@@ -578,8 +577,7 @@ public class Login extends javax.swing.JFrame {
         }
     }
 
-    
-    /** 
+    /**
      * @param string
      */
     public void setRegStatus(String string) {

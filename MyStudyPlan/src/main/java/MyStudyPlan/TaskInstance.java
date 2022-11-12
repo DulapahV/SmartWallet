@@ -26,12 +26,6 @@ public class TaskInstance extends AbstractJob {
         this.description = description;
     }
 
-    public void writeToDatabase(Database dbInstance) {
-        if (dbInstance != null) {
-            dbInstance.addTask(this);
-        }
-    }
-
     /**
      * @return Subject
      */
@@ -126,8 +120,7 @@ public class TaskInstance extends AbstractJob {
         this.isDone = isDone;
     }
 
-    
-    /** 
+    /**
      * @param obj
      * @return boolean
      */

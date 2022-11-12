@@ -91,8 +91,7 @@ public class Subject {
         return code + " " + name;
     }
 
-    
-    /** 
+    /**
      * @param obj
      * @return boolean
      */

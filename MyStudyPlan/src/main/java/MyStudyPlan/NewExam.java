@@ -18,7 +18,7 @@ import java.util.logging.Logger;
 /**
  *
  * @author Dulapah Vibulsanti (64011388), Anucha Cheewachanon (64011338),
- *         Annopdanai Pamarapa (64011337)
+ * Annopdanai Pamarapa (64011337)
  */
 public class NewExam extends javax.swing.JFrame {
 

@@ -408,7 +408,7 @@ public class Calendar extends javax.swing.JFrame {
         } else {
             SearchBtnActionPerformed(null);
         }
-        
+
     }// GEN-LAST:event_CalendarActionPerformed
 
     private void ScheduleBtnActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_ScheduleBtnActionPerformed
@@ -510,8 +510,7 @@ public class Calendar extends javax.swing.JFrame {
         return SearchPanel.getPattern();
     }
 
-    
-    /** 
+    /**
      * @param date
      */
     private void updateTaskPane(LocalDate date) {
@@ -547,8 +546,7 @@ public class Calendar extends javax.swing.JFrame {
         RevisionTaskPane.setTitle("Revision (" + numRevision + ")");
     }
 
-    
-    /** 
+    /**
      * @param taskInstance
      * @return JButton
      */
@@ -589,8 +587,7 @@ public class Calendar extends javax.swing.JFrame {
         return label;
     }
 
-    
-    /** 
+    /**
      * @param date
      */
     private void updateExamPane(LocalDate date) {
@@ -612,8 +609,7 @@ public class Calendar extends javax.swing.JFrame {
         ExamPane.revalidate();
     }
 
-    
-    /** 
+    /**
      * @param examInstance
      * @return JButton
      */
@@ -656,8 +652,7 @@ public class Calendar extends javax.swing.JFrame {
         return label;
     }
 
-    
-    /** 
+    /**
      * @param date
      */
     private void updateSchedulePane(LocalDate date) {
@@ -672,8 +667,7 @@ public class Calendar extends javax.swing.JFrame {
         SchedulePane.revalidate();
     }
 
-    
-    /** 
+    /**
      * @param classInstance
      * @return JButton
      */

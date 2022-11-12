@@ -1,5 +1,3 @@
-//can all of you add this? JSON rulez
-//https://search.maven.org/remotecontent?filepath=org/json/json/20220924/json-20220924.jar
 package MyStudyPlan;
 
 /**
@@ -149,8 +147,7 @@ public class Database {
         }
     }
 
-    
-    /** 
+    /**
      * @return Database
      */
     public static Database getInstance() {
@@ -336,5 +333,4 @@ public class Database {
     public static Vector<ExamInstance> getExamList() {
         return instance.examList;
     }
-
 }

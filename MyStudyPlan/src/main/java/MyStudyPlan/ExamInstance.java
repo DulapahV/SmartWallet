@@ -137,8 +137,7 @@ public class ExamInstance extends AbstractJob {
         }
     }
 
-    
-    /** 
+    /**
      * @param obj
      * @return boolean
      */
