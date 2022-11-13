@@ -12,6 +12,7 @@ import java.nio.file.Path;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
+import java.util.Map;
 import java.util.Vector;
 import java.util.logging.Logger;
 
@@ -26,11 +27,12 @@ public class Database {
 
     private static Database instance = null;
     private String username;
+    private String password;
     private Vector<Subject> subjList;
     private Vector<TaskInstance> taskList;
     private Vector<ClassInstance> classList;
     private Vector<ExamInstance> examList;
-    private static String path;
+    public static String path;
 
     // Create Gson Builder with custom serializer/deserializer
     private static Gson gson = new GsonBuilder()
@@ -47,6 +49,7 @@ public class Database {
 
     private Database() throws JSONException {
         this.username = "";
+        this.password = "";
         this.subjList = new Vector<Subject>();
         this.taskList = new Vector<TaskInstance>();
         this.classList = new Vector<ClassInstance>();
@@ -136,10 +139,36 @@ public class Database {
         try {
             String json = gson.toJson(instance);
             Files.writeString(Path.of(path), json);
+
         } catch (Exception e) {
             Logger.getLogger(Database.class.getName()).log(java.util.logging.Level.SEVERE,
                     "Error writing database file!");
             throw new RuntimeException(e);
+        }
+        new Thread(() -> {
+            FirebaseRTDB.pushDatabase();
+        }).start();
+    }
+
+    public static void writeDatabase(String json) {
+        try {
+            Files.writeString(Path.of(path), json);
+        } catch (Exception e) {
+            Logger.getLogger(Database.class.getName()).log(java.util.logging.Level.SEVERE,
+                    "Error writing database file!", e);
+        }
+    }
+
+    public static Map<String, Object> readDatabase() {
+        try {
+            String json = Files.readString(Path.of(path));
+            @SuppressWarnings("unchecked")
+            Map<String, Object> map = gson.fromJson(json, Map.class);
+            return map;
+        } catch (Exception e) {
+            Logger.getLogger(Database.class.getName()).log(java.util.logging.Level.SEVERE,
+                    "Error reading database file!", e);
+            return null;
         }
     }
 
@@ -157,25 +186,8 @@ public class Database {
     }
 
     /**
-     * Add a username to the database
-     *
-     * @param username
-     */
-    public void addUsername(String username) {
-        try {
-            this.username = username;
-            Database.write();
-        } catch (Exception e) {
-            Logger.getLogger(Database.class.getName()).log(java.util.logging.Level.SEVERE,
-                    "Error adding username to database!", e);
-            this.username = null;
-        }
-    }
-
-    
-    /** 
      * Add a subject to the database
-     * 
+     *
      * @param subject
      * @return boolean
      */
@@ -187,10 +199,12 @@ public class Database {
             instance.subjList.add(subject);
             try {
                 Database.write();
-                Logger.getLogger(Database.class.getName()).log(java.util.logging.Level.INFO, "Subject added successfully.");
+                Logger.getLogger(Database.class.getName()).log(java.util.logging.Level.INFO,
+                        "Subject added successfully.");
                 return true;
             } catch (Exception e) {
-                Logger.getLogger(Database.class.getName()).log(java.util.logging.Level.SEVERE, "Write to database failed!", e);
+                Logger.getLogger(Database.class.getName()).log(java.util.logging.Level.SEVERE,
+                        "Write to database failed!", e);
                 return false;
             }
         }
@@ -206,8 +220,7 @@ public class Database {
             instance.taskList.add(task);
             Database.write();
             Logger.getLogger(Database.class.getName()).log(java.util.logging.Level.INFO, "Task added successfully.");
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
             Logger.getLogger(Database.class.getName()).log(java.util.logging.Level.SEVERE, "Failed to add task!", e);
             instance.taskList.remove(task);
         }
@@ -245,22 +258,6 @@ public class Database {
     }
 
     /**
-     * Remove a username from the database
-     *
-     * @param username
-     */
-    public void removeUsername(String username) {
-        try {
-            this.username = null;
-            Database.write();
-            Logger.getLogger(Database.class.getName()).log(java.util.logging.Level.INFO, "Username removed successfully.");
-        } catch (Exception e) {
-            Logger.getLogger(Database.class.getName()).log(java.util.logging.Level.SEVERE, "Failed to remove username!", e);
-            this.username = username;
-        }
-    }
-
-    /**
      * Remove a subject from the database
      *
      * @param subject
@@ -269,10 +266,12 @@ public class Database {
         try {
             instance.subjList.remove(subject);
             Database.write();
-            Logger.getLogger(Database.class.getName()).log(java.util.logging.Level.INFO, "Subject removed successfully.");
+            Logger.getLogger(Database.class.getName()).log(java.util.logging.Level.INFO,
+                    "Subject removed successfully.");
             return true;
         } catch (Exception e) {
-            Logger.getLogger(Database.class.getName()).log(java.util.logging.Level.SEVERE, "Failed to remove subject!", e);
+            Logger.getLogger(Database.class.getName()).log(java.util.logging.Level.SEVERE, "Failed to remove subject!",
+                    e);
             return false;
         }
     }
@@ -304,7 +303,8 @@ public class Database {
             Database.write();
             Logger.getLogger(Database.class.getName()).log(java.util.logging.Level.INFO, "Class removed successfully.");
         } catch (Exception e) {
-            Logger.getLogger(Database.class.getName()).log(java.util.logging.Level.SEVERE, "Failed to remove class!", e);
+            Logger.getLogger(Database.class.getName()).log(java.util.logging.Level.SEVERE, "Failed to remove class!",
+                    e);
             instance.classList.add(classInstance);
         }
     }
@@ -332,9 +332,25 @@ public class Database {
      */
     public String getUsername() {
         try {
-            return this.username;
+            return username;
         } catch (Exception e) {
-            Logger.getLogger(Database.class.getName()).log(java.util.logging.Level.SEVERE, "Failed to get username!", e);
+            Logger.getLogger(Database.class.getName()).log(java.util.logging.Level.SEVERE, "Failed to get username!",
+                    e);
+            return null;
+        }
+    }
+
+    /**
+     * Get the password from the database
+     *
+     * @return password
+     */
+    public String getPassword() {
+        try {
+            return password;
+        } catch (Exception e) {
+            Logger.getLogger(Database.class.getName()).log(java.util.logging.Level.SEVERE, "Failed to get password!",
+                    e);
             return null;
         }
     }
@@ -348,7 +364,8 @@ public class Database {
         try {
             return instance.subjList;
         } catch (Exception e) {
-            Logger.getLogger(Database.class.getName()).log(java.util.logging.Level.SEVERE, "Failed to get subject list!", e);
+            Logger.getLogger(Database.class.getName()).log(java.util.logging.Level.SEVERE,
+                    "Failed to get subject list!", e);
             return null;
         }
     }
@@ -362,7 +379,8 @@ public class Database {
         try {
             return instance.taskList;
         } catch (Exception e) {
-            Logger.getLogger(Database.class.getName()).log(java.util.logging.Level.SEVERE, "Failed to get task list!", e);
+            Logger.getLogger(Database.class.getName()).log(java.util.logging.Level.SEVERE, "Failed to get task list!",
+                    e);
             return null;
         }
     }
@@ -376,7 +394,8 @@ public class Database {
         try {
             return instance.classList;
         } catch (Exception e) {
-            Logger.getLogger(Database.class.getName()).log(java.util.logging.Level.SEVERE, "Failed to get class list!", e);
+            Logger.getLogger(Database.class.getName()).log(java.util.logging.Level.SEVERE, "Failed to get class list!",
+                    e);
             return null;
         }
     }
@@ -390,8 +409,20 @@ public class Database {
         try {
             return instance.examList;
         } catch (Exception e) {
-            Logger.getLogger(Database.class.getName()).log(java.util.logging.Level.SEVERE, "Failed to get exam list!", e);
+            Logger.getLogger(Database.class.getName()).log(java.util.logging.Level.SEVERE, "Failed to get exam list!",
+                    e);
             return null;
         }
+    }
+
+    public static void logout() {
+        try {
+            File file = new File(path);
+            file.delete();
+        } catch (Exception e) {
+            Logger.getLogger(Database.class.getName()).log(java.util.logging.Level.SEVERE, "Failed to logout!",
+                    e);
+        }
+        Logger.getLogger(Database.class.getName()).log(java.util.logging.Level.INFO, "Logout successful.");
     }
 }
