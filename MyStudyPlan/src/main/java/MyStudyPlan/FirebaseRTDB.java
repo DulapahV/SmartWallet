@@ -162,9 +162,9 @@ public class FirebaseRTDB {
             Map<String, Object> dataMap = gson.fromJson(new FileReader(Database.path), LinkedHashMap.class);
             dataMap.put("username", username);
             dataMap.put("password", password);
-            System.out.println(dataMap);
             @SuppressWarnings("unused")
             FirebaseResponse response = instance.put(username, dataMap);
+            System.out.println(response);
             return true;
         } catch (FirebaseException e) {
             Logger.getLogger(Database.class.getName()).log(java.util.logging.Level.SEVERE,

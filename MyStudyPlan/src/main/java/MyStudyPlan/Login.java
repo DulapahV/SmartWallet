@@ -348,6 +348,7 @@ public class Login extends javax.swing.JFrame {
         } else {
             Logger.getLogger(MyStudyPlan.class.getName()).log(java.util.logging.Level.INFO, "Creating new user...");
             if (!FirebaseRTDB.isUserExist(getRegUsername())) {
+                Database.addCredential(getRegUsername(), getRegPasswd());
                 FirebaseRTDB.createNewUser(getRegUsername(), getRegPasswd());
                 MyStudyPlan.parseDatabase();
                 MyStudyPlan.showMainPage();

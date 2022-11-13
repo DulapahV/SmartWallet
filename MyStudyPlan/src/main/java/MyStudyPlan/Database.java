@@ -139,7 +139,6 @@ public class Database {
         try {
             String json = gson.toJson(instance);
             Files.writeString(Path.of(path), json);
-
         } catch (Exception e) {
             Logger.getLogger(Database.class.getName()).log(java.util.logging.Level.SEVERE,
                     "Error writing database file!");
@@ -254,6 +253,25 @@ public class Database {
         } catch (Exception e) {
             Logger.getLogger(Database.class.getName()).log(java.util.logging.Level.SEVERE, "Failed to add exam!", e);
             instance.examList.remove(exam);
+        }
+    }
+
+
+    /**
+     * Add a user to the database
+     *
+     * @param username
+     * @param password
+     */
+    public static void addCredential(String username, String password) {
+        try {
+            instance.username = username;
+            instance.password = password;
+            Database.write();
+            Logger.getLogger(Database.class.getName()).log(java.util.logging.Level.INFO, "Username added successfully.");
+        } catch (Exception e) {
+            Logger.getLogger(Database.class.getName()).log(java.util.logging.Level.SEVERE, "Failed to add username!", e);
+            instance.username = null;
         }
     }
 
