@@ -28,10 +28,10 @@ public class ColorPicker extends javax.swing.JFrame {
      */
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated
-    // Code">//GEN-BEGIN:initComponents
+    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        ColorChooser1 = new javax.swing.JColorChooser();
+        ColorChooser = new javax.swing.JColorChooser();
         SaveBtn = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -39,7 +39,7 @@ public class ColorPicker extends javax.swing.JFrame {
         setIconImage(new javax.swing.ImageIcon(getClass().getResource("/img/icon.png")).getImage());
         setUndecorated(true);
 
-        ColorChooser1.setFont(getFont("DINPro-Medium.otf", Font.PLAIN, 12));
+        ColorChooser.setFont(getFont("DINPro-Medium.otf", Font.PLAIN, 12));
 
         SaveBtn.setBackground(new java.awt.Color(59, 162, 191));
         SaveBtn.setFont(getFont("DINPro-Medium.otf", Font.PLAIN, 14));
@@ -54,22 +54,21 @@ public class ColorPicker extends javax.swing.JFrame {
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
-                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(ColorChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, 640,
-                                javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addGap(527, 527, 527)
-                                .addComponent(SaveBtn, javax.swing.GroupLayout.DEFAULT_SIZE,
-                                        javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addGap(38, 38, 38)));
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(ColorChooser, javax.swing.GroupLayout.PREFERRED_SIZE, 640, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(527, 527, 527)
+                .addComponent(SaveBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(38, 38, 38))
+        );
         layout.setVerticalGroup(
-                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(layout.createSequentialGroup()
-                                .addComponent(ColorChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, 322,
-                                        javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(SaveBtn)
-                                .addContainerGap(21, Short.MAX_VALUE)));
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(ColorChooser, javax.swing.GroupLayout.PREFERRED_SIZE, 322, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(SaveBtn)
+                .addContainerGap(21, Short.MAX_VALUE))
+        );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -82,13 +81,13 @@ public class ColorPicker extends javax.swing.JFrame {
      * @return String
      */
     String getHexValue() {
-        Color color = ColorChooser1.getColor();
+        Color color = ColorChooser.getColor();
         String hex = String.format("#%02x%02x%02x", color.getRed(), color.getGreen(), color.getBlue());
         return hex;
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JColorChooser ColorChooser1;
+    private javax.swing.JColorChooser ColorChooser;
     private javax.swing.JButton SaveBtn;
     // End of variables declaration//GEN-END:variables
 

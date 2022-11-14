@@ -40,12 +40,21 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
               <Component id="LeftPanel" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="69" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                  <Component id="LoginPanel" max="32767" attributes="0"/>
-                  <Component id="RegisterPanel" max="32767" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" attributes="0">
+                      <EmptySpace min="-2" pref="69" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Component id="LoginPanel" max="32767" attributes="0"/>
+                          <Component id="RegisterPanel" max="32767" attributes="0"/>
+                      </Group>
+                      <EmptySpace pref="69" max="32767" attributes="0"/>
+                  </Group>
+                  <Group type="102" attributes="0">
+                      <EmptySpace min="-2" pref="50" max="-2" attributes="0"/>
+                      <Component id="Separator" max="32767" attributes="0"/>
+                      <EmptySpace min="-2" pref="50" max="-2" attributes="0"/>
+                  </Group>
               </Group>
-              <EmptySpace pref="69" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -54,9 +63,11 @@
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="46" max="-2" attributes="0"/>
               <Component id="LoginPanel" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <Component id="Separator" min="-2" pref="10" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
               <Component id="RegisterPanel" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="46" max="32767" attributes="0"/>
+              <EmptySpace pref="48" max="32767" attributes="0"/>
           </Group>
           <Component id="LeftPanel" alignment="0" max="32767" attributes="0"/>
       </Group>
@@ -134,7 +145,10 @@
       <Properties>
         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
           <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
-            <TitledBorder title="Login">
+            <TitledBorder justification="2" title="Login">
+              <Border PropertyName="innerBorder" info="org.netbeans.modules.form.compat2.border.CompoundBorderInfo">
+                <CompoundBorder/>
+              </Border>
               <Connection PropertyName="font" code="getFont(&quot;DINPro-Medium.otf&quot;, Font.PLAIN, 24)" type="code"/>
             </TitledBorder>
           </Border>
@@ -155,7 +169,7 @@
                           </Group>
                           <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                       </Group>
-                      <Component id="LoginUsernameTxtField" alignment="1" pref="518" max="32767" attributes="0"/>
+                      <Component id="LoginUsernameTxtField" alignment="1" pref="520" max="32767" attributes="0"/>
                       <Group type="102" alignment="1" attributes="0">
                           <Component id="LoginStatusTxt" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="32767" attributes="0"/>
@@ -267,7 +281,10 @@
       <Properties>
         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
           <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
-            <TitledBorder title="Register">
+            <TitledBorder justification="2" title="Register">
+              <Border PropertyName="innerBorder" info="org.netbeans.modules.form.compat2.border.CompoundBorderInfo">
+                <CompoundBorder/>
+              </Border>
               <Connection PropertyName="font" code="getFont(&quot;DINPro-Medium.otf&quot;, Font.PLAIN, 24)" type="code"/>
             </TitledBorder>
           </Border>
@@ -289,7 +306,7 @@
                           </Group>
                           <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                       </Group>
-                      <Component id="RegUsernameTxtField" alignment="1" pref="518" max="32767" attributes="0"/>
+                      <Component id="RegUsernameTxtField" alignment="1" pref="520" max="32767" attributes="0"/>
                       <Group type="102" alignment="1" attributes="0">
                           <Component id="RegisterStatusTxt" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="32767" attributes="0"/>
@@ -426,5 +443,7 @@
         </Component>
       </SubComponents>
     </Container>
+    <Component class="javax.swing.JSeparator" name="Separator">
+    </Component>
   </SubComponents>
 </Form>
