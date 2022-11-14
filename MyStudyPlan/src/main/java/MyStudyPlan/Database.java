@@ -437,6 +437,7 @@ public class Database {
         try {
             File file = new File(path);
             file.delete();
+            instance = initDatabase();
         } catch (Exception e) {
             Logger.getLogger(Database.class.getName()).log(java.util.logging.Level.SEVERE, "Failed to logout!",
                     e);
