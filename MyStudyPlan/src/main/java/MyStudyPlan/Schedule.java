@@ -42,7 +42,8 @@ public class Schedule extends javax.swing.JFrame {
                         "Exit", JOptionPane.YES_NO_OPTION);
 
                 if (confirmed == JOptionPane.YES_OPTION) {
-                    dispose();
+                    Logger.getLogger(Schedule.class.getName()).log(java.util.logging.Level.INFO, "Exiting...");
+                    System.exit(0);
                 }
             }
         });

@@ -41,7 +41,8 @@ public class Login extends javax.swing.JFrame {
                         "Exit", JOptionPane.YES_NO_OPTION);
 
                 if (confirmed == JOptionPane.YES_OPTION) {
-                    dispose();
+                    Logger.getLogger(Login.class.getName()).log(java.util.logging.Level.INFO, "Exiting...");
+                    System.exit(0);
                 }
             }
         });
@@ -592,8 +593,4 @@ public class Login extends javax.swing.JFrame {
             RegisterStatusTxt.setText(string);
         }
     }
-
-    // private void checkCredential() {
-    //     // TODO add your handling code here:
-    // }
 }

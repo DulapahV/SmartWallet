@@ -39,7 +39,7 @@ public class MyStudyPlan {
         if (db == null) {
             Logger.getLogger(MyStudyPlan.class.getName()).log(java.util.logging.Level.SEVERE,
                     "Failed to initialize database! Exiting...");
-            return;
+            System.exit(1);
         } else {
             Logger.getLogger(MyStudyPlan.class.getName()).log(java.util.logging.Level.INFO,
                     "Database initialized successfully.");
@@ -51,7 +51,7 @@ public class MyStudyPlan {
         } catch (Exception e) {
             Logger.getLogger(MyStudyPlan.class.getName()).log(java.util.logging.Level.SEVERE,
                     "Failed to set theme! Exiting...", e);
-            return;
+            System.exit(1);
         }
     }
 
