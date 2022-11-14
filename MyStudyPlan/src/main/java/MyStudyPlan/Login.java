@@ -37,8 +37,8 @@ public class Login extends javax.swing.JFrame {
         addWindowListener(new WindowAdapter() {
             @Override
             public void windowClosing(WindowEvent e) {
-                int confirmed = JOptionPane.showConfirmDialog(null, "Are you sure you want to exit MyStudyPlan?",
-                        "Exit MyStudyPlan", JOptionPane.YES_NO_OPTION);
+                int confirmed = JOptionPane.showConfirmDialog(null, "Are you sure you want to exit?",
+                        "Exit", JOptionPane.YES_NO_OPTION);
 
                 if (confirmed == JOptionPane.YES_OPTION) {
                     dispose();

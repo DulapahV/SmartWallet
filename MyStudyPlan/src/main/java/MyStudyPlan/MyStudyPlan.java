@@ -7,7 +7,7 @@ import com.formdev.flatlaf.intellijthemes.FlatNordIJTheme;
 /**
  *
  * @author Dulapah Vibulsanti (64011388), Anucha Cheewachanon (64011338),
- *         Annopdanai Pamarapa (64011337)
+ * Annopdanai Pamarapa (64011337)
  */
 public class MyStudyPlan {
 

@@ -256,7 +256,6 @@ public class Database {
         }
     }
 
-
     /**
      * Add a user to the database
      *

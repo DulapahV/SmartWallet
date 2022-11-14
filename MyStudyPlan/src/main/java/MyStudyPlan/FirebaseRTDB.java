@@ -18,7 +18,7 @@ import net.thegreshams.firebase4j.service.Firebase;
 /**
  *
  * @author Dulapah Vibulsanti (64011388), Anucha Cheewachanon (64011338),
- *         Annopdanai Pamarapa (64011337)
+ * Annopdanai Pamarapa (64011337)
  */
 public class FirebaseRTDB {
 
@@ -132,7 +132,7 @@ public class FirebaseRTDB {
             Logger.getLogger(Database.class.getName()).log(java.util.logging.Level.WARNING, "Invalid credential!", e);
             return false;
         }
-        
+
         Logger.getLogger(MyStudyPlan.class.getName()).log(java.util.logging.Level.INFO, "Credential is valid.");
         return true;
     }

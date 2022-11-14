@@ -48,8 +48,8 @@ public class Overview extends javax.swing.JFrame {
         addWindowListener(new WindowAdapter() {
             @Override
             public void windowClosing(WindowEvent e) {
-                int confirmed = JOptionPane.showConfirmDialog(null, "Are you sure you want to exit MyStudyPlan?",
-                        "Exit MyStudyPlan", JOptionPane.YES_NO_OPTION);
+                int confirmed = JOptionPane.showConfirmDialog(null, "Are you sure you want to exit?",
+                        "Exit", JOptionPane.YES_NO_OPTION);
 
                 if (confirmed == JOptionPane.YES_OPTION) {
                     dispose();
@@ -633,8 +633,8 @@ public class Overview extends javax.swing.JFrame {
             label.setFont(getFont("DINPro-Medium.otf", Font.PLAIN, 16));
             label.setCursor(new Cursor(Cursor.HAND_CURSOR));
             label.setForeground(new Color(255 - taskInstance.getSubject().getColor().getRed(),
-                255 - taskInstance.getSubject().getColor().getGreen(),
-                255 - taskInstance.getSubject().getColor().getBlue()));
+                    255 - taskInstance.getSubject().getColor().getGreen(),
+                    255 - taskInstance.getSubject().getColor().getBlue()));
             label.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
@@ -700,8 +700,8 @@ public class Overview extends javax.swing.JFrame {
             label.setFont(getFont("DINPro-Medium.otf", Font.PLAIN, 16));
             label.setCursor(new Cursor(Cursor.HAND_CURSOR));
             label.setForeground(new Color(255 - examInstance.getSubject().getColor().getRed(),
-                255 - examInstance.getSubject().getColor().getGreen(),
-                255 - examInstance.getSubject().getColor().getBlue()));
+                    255 - examInstance.getSubject().getColor().getGreen(),
+                    255 - examInstance.getSubject().getColor().getBlue()));
             label.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
@@ -752,8 +752,8 @@ public class Overview extends javax.swing.JFrame {
             label.setFont(getFont("DINPro-Medium.otf", Font.PLAIN, 16));
             label.setCursor(new Cursor(Cursor.HAND_CURSOR));
             label.setForeground(new Color(255 - classInstance.getSubject().getColor().getRed(),
-                255 - classInstance.getSubject().getColor().getGreen(),
-                255 - classInstance.getSubject().getColor().getBlue()));
+                    255 - classInstance.getSubject().getColor().getGreen(),
+                    255 - classInstance.getSubject().getColor().getBlue()));
             label.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
