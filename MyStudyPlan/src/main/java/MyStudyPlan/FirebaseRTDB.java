@@ -112,6 +112,7 @@ public class FirebaseRTDB {
     }
 
     public boolean isCredentialValid() {
+        Logger.getLogger(MyStudyPlan.class.getName()).log(java.util.logging.Level.INFO, "Checking credential...");
         try {
             FirebaseResponse usernameDB = instance.get(Database.readDatabase().get("username").toString());
             String passwordDB = usernameDB.getBody().get("password").toString();

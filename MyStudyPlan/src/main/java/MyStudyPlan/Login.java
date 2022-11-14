@@ -2,9 +2,12 @@ package MyStudyPlan;
 
 import java.awt.Font;
 import java.awt.FontFormatException;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -30,6 +33,18 @@ public class Login extends javax.swing.JFrame {
         initComponents();
 
         getContentPane().requestFocusInWindow(); // disable automatic focus
+
+        addWindowListener(new WindowAdapter() {
+            @Override
+            public void windowClosing(WindowEvent e) {
+                int confirmed = JOptionPane.showConfirmDialog(null, "Are you sure you want to exit MyStudyPlan?",
+                        "Exit MyStudyPlan", JOptionPane.YES_NO_OPTION);
+
+                if (confirmed == JOptionPane.YES_OPTION) {
+                    dispose();
+                }
+            }
+        });
     }
 
     /**
@@ -63,7 +78,7 @@ public class Login extends javax.swing.JFrame {
         RegisterBtn = new javax.swing.JButton();
         RegisterStatusTxt = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setTitle("MyStudyPlan");
         setBackground(new java.awt.Color(46, 52, 64));
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));

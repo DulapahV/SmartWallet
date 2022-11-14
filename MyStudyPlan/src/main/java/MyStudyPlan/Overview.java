@@ -16,6 +16,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import javax.swing.JButton;
+import javax.swing.JOptionPane;
 import javax.swing.SwingConstants;
 
 /**
@@ -43,6 +44,18 @@ public class Overview extends javax.swing.JFrame {
         updateTaskPane();
         updateExamPane();
         updateSchedulePane();
+
+        addWindowListener(new WindowAdapter() {
+            @Override
+            public void windowClosing(WindowEvent e) {
+                int confirmed = JOptionPane.showConfirmDialog(null, "Are you sure you want to exit MyStudyPlan?",
+                        "Exit MyStudyPlan", JOptionPane.YES_NO_OPTION);
+
+                if (confirmed == JOptionPane.YES_OPTION) {
+                    dispose();
+                }
+            }
+        });
     }
 
     /**
@@ -89,7 +102,7 @@ public class Overview extends javax.swing.JFrame {
         ScheduleScrollPane = new javax.swing.JScrollPane();
         SchedulePane = new org.jdesktop.swingx.JXTaskPaneContainer();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setTitle("MyStudyPlan");
         setBackground(new java.awt.Color(46, 52, 64));
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
@@ -432,9 +445,12 @@ public class Overview extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void LogoutBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LogoutBtnActionPerformed
-        Database.logout();
-        MyStudyPlan.showLoginPage();
-        this.dispose();
+        int confirm = JOptionPane.showConfirmDialog(null, "Are you sure you want to logout?", "Logout", JOptionPane.YES_NO_OPTION);
+        if (confirm == JOptionPane.YES_OPTION) {
+            Database.logout();
+            MyStudyPlan.showLoginPage();
+            this.dispose();
+        }
     }//GEN-LAST:event_LogoutBtnActionPerformed
 
     private void NewClassBtnActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_NewClassBtnActionPerformed

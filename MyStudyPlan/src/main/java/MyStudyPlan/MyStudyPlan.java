@@ -16,7 +16,6 @@ public class MyStudyPlan {
         // verify credential
         FirebaseRTDB firebase = FirebaseRTDB.initFirebase();
         System.setProperty("org.apache.commons.logging.Log", "org.apache.commons.logging.impl.NoOpLog"); // disable org.apache.http.impl.conn.Wire DEBUG logging
-        Logger.getLogger(MyStudyPlan.class.getName()).log(java.util.logging.Level.INFO, "Checking credential...");
         boolean isSuccess = false;
         try {
             isSuccess = firebase.isCredentialValid();

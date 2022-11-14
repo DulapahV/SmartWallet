@@ -17,6 +17,7 @@ import java.util.logging.Logger;
 import java.util.regex.Pattern;
 
 import javax.swing.JButton;
+import javax.swing.JOptionPane;
 import javax.swing.SwingConstants;
 
 /**
@@ -33,6 +34,18 @@ public class Tasks extends javax.swing.JFrame {
         initComponents();
 
         updateTaskPane();
+
+        addWindowListener(new WindowAdapter() {
+            @Override
+            public void windowClosing(WindowEvent e) {
+                int confirmed = JOptionPane.showConfirmDialog(null, "Are you sure you want to exit MyStudyPlan?",
+                        "Exit MyStudyPlan", JOptionPane.YES_NO_OPTION);
+
+                if (confirmed == JOptionPane.YES_OPTION) {
+                    dispose();
+                }
+            }
+        });
     }
 
     /**
@@ -52,6 +65,7 @@ public class Tasks extends javax.swing.JFrame {
         TasksBtn = new org.jdesktop.swingx.JXButton();
         ExamsBtn = new org.jdesktop.swingx.JXButton();
         ScheduleBtn = new org.jdesktop.swingx.JXButton();
+        LogoutBtn = new org.jdesktop.swingx.JXButton();
         TopPanel = new javax.swing.JPanel();
         TodayTxt = new javax.swing.JLabel();
         SearchPanel = new org.jdesktop.swingx.JXSearchPanel();
@@ -64,7 +78,7 @@ public class Tasks extends javax.swing.JFrame {
         RevisionTaskPane = new org.jdesktop.swingx.JXTaskPane();
         ClearBtn = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setTitle("MyStudyPlan");
         setBackground(new java.awt.Color(46, 52, 64));
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
@@ -125,6 +139,16 @@ public class Tasks extends javax.swing.JFrame {
             }
         });
 
+        LogoutBtn.setBackground(new java.awt.Color(30, 33, 41));
+        LogoutBtn.setBorder(null);
+        LogoutBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/logout.png"))); // NOI18N
+        ScheduleBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        LogoutBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                LogoutBtnActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout LeftPanelLayout = new javax.swing.GroupLayout(LeftPanel);
         LeftPanel.setLayout(LeftPanelLayout);
         LeftPanelLayout.setHorizontalGroup(
@@ -136,7 +160,8 @@ public class Tasks extends javax.swing.JFrame {
                     .addComponent(CalendarBtn, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(TasksBtn, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(ExamsBtn, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(ScheduleBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(ScheduleBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(LogoutBtn, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         LeftPanelLayout.setVerticalGroup(
@@ -152,7 +177,9 @@ public class Tasks extends javax.swing.JFrame {
                 .addComponent(ExamsBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(ScheduleBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(129, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(LogoutBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(31, Short.MAX_VALUE))
         );
 
         TopPanel.setBackground(new java.awt.Color(59, 162, 191));
@@ -283,6 +310,15 @@ public class Tasks extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void LogoutBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LogoutBtnActionPerformed
+        int confirm = JOptionPane.showConfirmDialog(null, "Are you sure you want to logout?", "Logout", JOptionPane.YES_NO_OPTION);
+        if (confirm == JOptionPane.YES_OPTION) {
+            Database.logout();
+            MyStudyPlan.showLoginPage();
+            this.dispose();
+        }
+    }//GEN-LAST:event_LogoutBtnActionPerformed
+
     private void SearchBtnActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_SearchBtnActionPerformed
         Pattern pattern = SearchPanel.getPattern();
         if (pattern == null) {
@@ -399,6 +435,7 @@ public class Tasks extends javax.swing.JFrame {
     private javax.swing.JButton ClearBtn;
     private org.jdesktop.swingx.JXButton ExamsBtn;
     private javax.swing.JPanel LeftPanel;
+    private org.jdesktop.swingx.JXButton LogoutBtn;
     private javax.swing.JButton NewTasksBtn;
     private org.jdesktop.swingx.JXButton OverviewBtn;
     private org.jdesktop.swingx.JXTaskPane ReminderTaskPane;
