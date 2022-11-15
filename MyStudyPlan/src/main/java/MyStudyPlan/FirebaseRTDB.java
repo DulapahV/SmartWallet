@@ -91,7 +91,7 @@ public class FirebaseRTDB {
             if (passwordDB == null) {
                 return false;
             }
-            if (!passwordDB.equals(password.hashCode())) {
+            if (!passwordDB.equals(String.valueOf(password.hashCode()))) {
                 Logger.getLogger(Database.class.getName()).log(java.util.logging.Level.WARNING, "Invalid credential!");
                 return false;
             }
@@ -116,7 +116,7 @@ public class FirebaseRTDB {
         try {
             FirebaseResponse usernameDB = instance.get(Database.readDatabase().get("username").toString());
             String passwordDB = usernameDB.getBody().get("password").toString();
-            if (!passwordDB.equals(Database.readDatabase().get("password").toString().hashCode())) {
+            if (!passwordDB.equals(Database.readDatabase().get("password").toString())) {
                 Logger.getLogger(Database.class.getName()).log(java.util.logging.Level.WARNING, "Invalid credential!");
                 return false;
             }
