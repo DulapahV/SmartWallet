@@ -71,7 +71,7 @@ public class Database {
                 break;
             case "Unix":
                 // Get Database path
-                path = "~/Documents/MyStudyPlan/database.json";
+                path = "/home/" + System.getProperty("user.name") + "/.MyStudyPlan/database.json";
                 break;
         }
         instance = getDatabaseInstance(path);
