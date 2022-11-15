@@ -351,7 +351,6 @@ public class Login extends javax.swing.JFrame {
         } else if (getLoginPasswd().isEmpty() || getLoginPasswd().equals(passwdGuide)) {
             setLoginStatus(emptyPasswd);
         } else {
-            Logger.getLogger(MyStudyPlan.class.getName()).log(java.util.logging.Level.INFO, "Checking credential...");
             if (FirebaseRTDB.isCredentialValid(getLoginUsername(), getLoginPasswd())) {
                 FirebaseRTDB.pullDatabase(getLoginUsername());
                 MyStudyPlan.parseDatabase();
