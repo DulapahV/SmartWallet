@@ -265,7 +265,7 @@ public class Database {
     public static void addCredential(String username, String password) {
         try {
             instance.username = username;
-            instance.password = password;
+            instance.password = String.valueOf(password.hashCode());
             Database.write();
             Logger.getLogger(Database.class.getName()).log(java.util.logging.Level.INFO, "Username added successfully.");
         } catch (Exception e) {
