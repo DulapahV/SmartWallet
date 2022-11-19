@@ -23,3 +23,13 @@
 * Website: https://dulapahv.github.io
 * Github: [@dulapahv](https://github.com/dulapahv)
 * LinkedIn: [@dulapahv](https://linkedin.com/in/dulapahv)
+
+## How to build
+### What you'll need
+- A JDK (or OpenJDK), available from your local Oracle website or your package manager of your choice
+- [Maven](https://maven.apache.org/)
+
+### How to actually build it
+1. Navigate to the directory with Makefile in it
+2. Run `make`
+3. Run the batch file
