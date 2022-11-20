@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<launch4jConfig>
+  <dontWrapJar>false</dontWrapJar>
+  <headerType>gui</headerType>
+  <jar>C:\Users\Dulapah Vibulsanti\OneDrive - KMITL\Documents\GitHub\MyStudyPlan\MyStudyPlan\target\MyStudyPlan-1.0-jar-with-dependencies.jar</jar>
+  <outfile>C:\Users\Dulapah Vibulsanti\OneDrive - KMITL\Documents\GitHub\MyStudyPlan\MyStudyPlan\MyStudyPlan.exe</outfile>
+  <errTitle>This application requires a Java Runtime Environment.</errTitle>
+  <cmdLine></cmdLine>
+  <chdir>.</chdir>
+  <priority>normal</priority>
+  <downloadUrl>https://java.com/download</downloadUrl>
+  <supportUrl>https://github.com/dulapahv/MyStudyPlan</supportUrl>
+  <stayAlive>false</stayAlive>
+  <restartOnCrash>false</restartOnCrash>
+  <manifest></manifest>
+  <icon>C:\Users\Dulapah Vibulsanti\OneDrive - KMITL\Documents\GitHub\MyStudyPlan\MyStudyPlan\icon.ico</icon>
+  <singleInstance>
+    <mutexName>MyStudyPlan</mutexName>
+    <windowTitle>MyStudyPlan</windowTitle>
+  </singleInstance>
+  <jre>
+    <path>%JAVA_HOME%;%PATH%</path>
+    <requiresJdk>false</requiresJdk>
+    <requires64Bit>false</requires64Bit>
+    <minVersion>1.8.0</minVersion>
+    <maxVersion></maxVersion>
+  </jre>
+  <versionInfo>
+    <fileVersion>1.0.0.0</fileVersion>
+    <txtFileVersion>1.0.0.0</txtFileVersion>
+    <fileDescription>Track all your classes, tasks, assignments and exams - anywhere!</fileDescription>
+    <copyright>dulapahv</copyright>
+    <productVersion>1.0.0.0</productVersion>
+    <txtProductVersion>1.0.0.0</txtProductVersion>
+    <productName>MyStudyPlan</productName>
+    <companyName></companyName>
+    <internalName>MyStudyPlan</internalName>
+    <originalFilename>MyStudyPlan.exe</originalFilename>
+    <trademarks></trademarks>
+    <language>ENGLISH_US</language>
+  </versionInfo>
+  <messages>
+    <startupErr>An error occurred while starting the application.</startupErr>
+    <jreNotFoundErr>This application requires a Java Runtime Environment.</jreNotFoundErr>
+    <jreVersionErr>This application requires a Java Runtime Environment</jreVersionErr>
+    <launcherErr>The registry refers to a nonexistent Java Runtime Environment installation or the runtime is corrupted.</launcherErr>
+    <instanceAlreadyExistsMsg>An application instance is already running.</instanceAlreadyExistsMsg>
+  </messages>
+</launch4jConfig>
