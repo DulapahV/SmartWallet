@@ -1,35 +1,189 @@
-# Welcome to MyStudyPlan 👋
+<p align="center"><img src="https://github.com/dulapahv/MyStudyPlan/raw/main/Screenshots/Cover.png" alt="MyStudyPlan" width="800"></p>
 
-> This is a project that helps you to plan your study.
+MyStudyPlan is an app that enables you to track all your classes, tasks, assignments and exams - anywhere!
 
 > A group project for Advanced Object-Oriented Programming course, KMITL Software Engineering, Year 2, Semester 1.
 
-### 🏠 [GitHub Repository](https://github.com/dulapahv/MyStudyPlan)
+## **Table of Contents**
 
-## Author
+- [**Table of Contents**](#table-of-contents)
+- [Authors](#authors)
+- [Getting Started](#getting-started)
+  - [Prerequisites](#prerequisites)
+  - [Building](#building)
+  - [Running](#running)
+- [Using MyStudyPlan](#using-mystudyplan)
+  - [Calendar page](#calendar-page)
+  - [Tasks page](#tasks-page)
+    - [Adding task](#adding-task)
+  - [Exams page](#exams-page)
+    - [Adding exam](#adding-exam)
+  - [Schedule page](#schedule-page)
+    - [Adding class](#adding-class)
+    - [Managing subjects](#managing-subjects)
+  - [Viewing information](#viewing-information)
+    - [Marking as done](#marking-as-done)
+    - [Deleting](#deleting)
+- [License](#license)
+
+## Authors
 
 👤 **Annopdanai Pammarapa** (64011337)
 
-* Github: [@beam2546](https://github.com/beam2546)
-* LinkedIn: [@annopdanai](https://linkedin.com/in/annopdanai)
+- Github: [@beam2546](https://github.com/beam2546)
+- LinkedIn: [@annopdanai](https://linkedin.com/in/annopdanai)
 
 👤 **Anucha Cheewachanon** (64011338)
 
-* Github: [@SpiralNuggets](https://github.com/SpiralNuggets)
-* LinkedIn: [@alphacharlie](https://linkedin.com/in/alphacharlie)
+- Github: [@SpiralNuggets](https://github.com/SpiralNuggets)
+- LinkedIn: [@alphacharlie](https://linkedin.com/in/alphacharlie)
 
 👤 **Dulapah Vibulsanti** (64011388)
 
-* Website: https://dulapahv.github.io
-* Github: [@dulapahv](https://github.com/dulapahv)
-* LinkedIn: [@dulapahv](https://linkedin.com/in/dulapahv)
+- Website: [Portfolio](https://dulapahv.github.io)
+- Github: [@dulapahv](https://github.com/dulapahv)
+- LinkedIn: [@dulapahv](https://linkedin.com/in/dulapahv)
 
-## How to build
-### What you'll need
-- A JDK (or OpenJDK), available from your local Oracle website or your package manager of your choice
+## Getting Started
+
+### Prerequisites
+
+- A [JDK](https://java.com/download) (or [OpenJDK](https://adoptium.net/)), available from your local Oracle website or your package manager of your choice.
 - [Maven](https://maven.apache.org/)
 
-### How to actually build it
-1. Navigate to the directory with Makefile in it
-2. Run `make`
-3. Run the batch file
+### Building
+
+ 1. Navigate to the directory with Makefile in it.
+ 2. Run `make build` to build or `make run` to build and run.
+ 3. Run the batch file.
+
+### Running
+
+- You can run `MyStudyPlan.exe` to launch the app without building it.
+
+## Using MyStudyPlan
+
+Upon opening a program, you will be greeted by the login page. From here, you can login or register. You only have to log in once.
+
+![Login page](https://raw.githubusercontent.com/dulapahv/MyStudyPlan/main/Screenshots/Login.png)
+
+After logging in or registering, you will go to the Overview page.
+
+This is where you will get a summary view of your schedule, tasks, and exams. You also have an option to add new schedule, tasks, and exams here too.
+
+![Overview page](https://raw.githubusercontent.com/dulapahv/MyStudyPlan/main/Screenshots/Overview.png)
+
+On the left panel, there are:
+
+ 1. Overview
+ 2. Calendar
+ 3. Tasks
+ 4. Exams
+ 5. Schedule
+ 6. Logout
+
+### Calendar page
+
+In this page you can select the day from the calendar on the left and the class, tasks, and exams on the corresponding date will appear on the right.
+
+- You can also use the search bar to search for schedule, tasks, and exams.
+
+![Calendar page](https://github.com/dulapahv/MyStudyPlan/raw/main/Screenshots/Calendar.png)
+
+### Tasks page
+
+- In this page, you can view all the tasks. The tasks are separated into
+  - Assignment
+  - Reminder
+  - Revision
+- You can also use the search bar to search for tasks.
+- You can create a new task by pressing the `+New Task` button on the upper right and a popup will appear. (See [Adding task](#adding-task))
+
+![Tasks page](https://github.com/dulapahv/MyStudyPlan/raw/main/Screenshots/Tasks.png)
+
+#### Adding task
+
+In this page you can add a task.
+
+- You can also press the `+` button to add subject. (See [Managing Subjects](#managing-subjects))
+
+> Title is required to create a task.
+
+![New Task popup](https://github.com/dulapahv/MyStudyPlan/raw/main/Screenshots/New_Task.png)
+
+### Exams page
+
+In this page, you can view all the exams.
+
+- You can also use the search bar to search for exams.
+- You can create a new exam by pressing the `+New Exam` button on the upper right and a popup will appear. (See [Adding exam](#adding-exam))
+
+![Exams page](https://github.com/dulapahv/MyStudyPlan/raw/main/Screenshots/Exams.png)
+
+#### Adding exam
+
+In this page you can add an exam.
+
+- The app will also tell you the ending date and time for the specified time and duration.
+- You can also press the `+` button to add subject. (See [Managing Subjects](#managing-subjects))
+
+![New Exam popup](https://github.com/dulapahv/MyStudyPlan/raw/main/Screenshots/New_Exam.png)
+
+### Schedule page
+
+In this page, you can view all the schedule.
+
+- You can also use the search bar to search for schedule.
+- You can create a new class by pressing the `+New Class` button on the
+   upper right and a popup will appear. (See [Adding
+   class](#adding-class))
+- You can also manage the subjects by pressing the `Manage Subjects`.
+   (See [Managing subjects](#managing-subjects))
+
+![Schedule page](https://github.com/dulapahv/MyStudyPlan/raw/main/Screenshots/Schedule.png)
+
+#### Adding class
+
+In this page you can add a class.
+
+- You can also press the `+` button to add subject. (See [Managing Subjects](#managing-subjects))
+
+![New Class popup](https://github.com/dulapahv/MyStudyPlan/raw/main/Screenshots/New_Class.png)
+
+#### Managing subjects
+
+In this page, you can manage all the subjects.
+
+- To add a subject, fill in the Code, Subject, and Color and press the `+` button.
+- To remove a subject, click on the subject you want to remove from the list, then press `-` button.
+- You can also use the search bar to search for subjects.
+
+> Code, Subject, and Color is required to create a subject.
+
+![Manage Subjects popup](https://github.com/dulapahv/MyStudyPlan/raw/main/Screenshots/Manage_Subjects.png)
+
+- You can put in the hex color code and press enter, or select from a color palette.
+
+![Color Palette chooser](https://github.com/dulapahv/MyStudyPlan/raw/main/Screenshots/Color_Palette.png)
+
+### Viewing information
+
+You can view more information of each class, tasks, and exams by clicking on the label and a popup will appear.
+
+- In this page, you will not be allowed to edit any information.
+
+![View Class popup](https://github.com/dulapahv/MyStudyPlan/raw/main/Screenshots/View_Class.png)
+![View Task popup](https://github.com/dulapahv/MyStudyPlan/raw/main/Screenshots/View_Task.png)
+![View Exam popup](https://github.com/dulapahv/MyStudyPlan/raw/main/Screenshots/View_Exam.png)
+
+#### Marking as done
+
+Pressing the `Mark as done` button in [viewing information](#viewing-information) popup will remove it from the list.
+
+#### Deleting
+
+Pressing the `Mark as done` button in [viewing information](#viewing-information) popup will delete  it from the list.
+
+## License
+
+MyStudyPlan is released under the [MIT license](https://github.com/dulapahv/MyStudyPlan/blob/main/LICENSE).
