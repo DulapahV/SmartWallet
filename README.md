@@ -182,7 +182,7 @@ Pressing the `Mark as done` button in [viewing information](#viewing-information
 
 #### Deleting
 
-Pressing the `Mark as done` button in [viewing information](#viewing-information) popup will delete  it from the list.
+Pressing the `Delete` button in [viewing information](#viewing-information) popup will delete  it from the list.
 
 ## License
 
