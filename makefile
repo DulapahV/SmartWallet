@@ -1,11 +1,17 @@
+all: build run
+
 build:
 	mvn clean compile assembly:single -e
-	@echo java -jar .\target\MyStudyPlan-1.0-jar-with-dependencies.jar > MyStudyPlan.bat
-	@echo pause >> MyStudyPlan.bat
-run: build
+
+ifeq ($(OS),Windows_NT)
+run:
 	java -jar .\target\MyStudyPlan-1.0-jar-with-dependencies.jar
+else
+run:
+	java -jar ./target/MyStudyPlan-1.0-jar-with-dependencies.jar
+endif
+
 clean:
 	mvn clean
-	@del MyStudyPlan.bat
 
-.PHONY: run build
+.PHONY: all run build

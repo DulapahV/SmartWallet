@@ -11,7 +11,8 @@ MyStudyPlan is an app that enables you to track all your classes, tasks, assignm
 - [Getting Started](#getting-started)
   - [Prerequisites](#prerequisites)
   - [Building](#building)
-  - [Running](#running)
+  - [Launching](#launching)
+  - [Cleaning](#cleaning)
 - [Using MyStudyPlan](#using-mystudyplan)
   - [Calendar page](#calendar-page)
   - [Tasks page](#tasks-page)
@@ -53,13 +54,17 @@ MyStudyPlan is an app that enables you to track all your classes, tasks, assignm
 
 ### Building
 
- 1. Navigate to the directory with Makefile in it.
- 2. Run `make build` to build or `make run` to build and run.
- 3. Run the batch file.
+- Run `make build` from the project root directory.
+- Optionally, you can run `make all` to build and then launch the app.
 
-### Running
+### Launching
 
-- You can run `MyStudyPlan.exe` to launch the app without building it.
+- Run `make run` to launch the app.
+- If you're using Windows, you can run `MyStudyPlan.exe`.
+
+### Cleaning
+
+- Run `make clean` to remove all build artifacts.
 
 ## Using MyStudyPlan
 
